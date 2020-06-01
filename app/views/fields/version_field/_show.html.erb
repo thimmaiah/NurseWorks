@@ -1,0 +1,25 @@
+<table>
+<%
+	count = 0 
+	field.to_s.each do |row| 
+		if row && row.attributes
+%>
+	<% if count == 0 %>
+	<tr>
+		<% row.attributes.keys.each do |k| %>		
+			<th><%= k.titlecase %></th>
+		<% end %>
+	</tr>
+	<% end %>
+
+	<tr>
+		<% row.attributes.keys.each do |k| %>		
+		<td><%= row[k] %></td>
+		<% end %>
+	</tr>
+<% 
+		end
+	count += 1
+	end 
+%>
+</table>

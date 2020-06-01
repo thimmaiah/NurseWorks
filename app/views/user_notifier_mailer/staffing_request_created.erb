@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+
+  	<h2><%= "Manual assignment required" if @staffing_request.manual_assignment_flag %></h2>
+    <h2><%= link_to "Request #{@staffing_request.id}", admin_staffing_request_url(@staffing_request) %> was created.</h2>
+
+    <%= render partial: "request" %>
+
+  </body>
+</html>

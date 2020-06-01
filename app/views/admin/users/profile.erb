@@ -1,0 +1,84 @@
+<%#
+# Show
+
+This view is the template for the show page.
+It renders the attributes of a resource,
+as well as a link to its edit page.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Show][1].
+  Contains methods for accessing the resource to be displayed on the page,
+  as well as helpers for describing how each attribute of the resource
+  should be displayed.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
+%>
+
+<% content_for(:title) { "#{t("administrate.actions.show")} #{page.page_title}" } %>
+
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title">
+    <%= content_for(:title) %>
+  </h1>
+
+</header>
+
+<section class="main-content__body">
+  <dl>
+      <dt class="attribute-label">
+      <%= t(
+        "helpers.label.#{resource_name}",
+        default: "First Name",
+      ) %>
+      </dt>
+
+      <dd class="attribute-data attribute-data"
+          ><%= @resource.first_name %></dd>
+    
+    <dt class="attribute-label">
+      <%= t(
+        "helpers.label.#{resource_name}",
+        default: "Last Name",
+      ) %>
+      </dt>
+
+      <dd class="attribute-data attribute-data"
+          ><%= @resource.last_name %></dd>
+    
+    <dt class="attribute-label">
+      <%= t(
+        "helpers.label.#{resource_name}",
+        default: "Role",
+      ) %>
+      </dt>
+
+      <dd class="attribute-data attribute-data"
+          ><%= @resource.role %></dd>
+
+    <% 
+      @resource.current_docs.each do |doc| 
+        if ["Qualification Certificate", "ID Card", "DBS"].include? doc.doc_type
+    %>    
+
+        <dt class="attribute-label">
+                  
+          <%= t(
+            "helpers.label.#{resource_name}",
+            default: doc.doc_type,
+          ) %>
+
+        </dt>
+
+        <dd class="attribute-data attribute-data">
+          <img src="<%= doc.doc.expiring_url(300) %>" /> 
+          <%= link_to("Download Document", doc.doc.expiring_url(300), class: "button") %>             
+        </dd>
+        
+    <% 
+        end
+      end 
+    %>
+  </dl>
+</section>

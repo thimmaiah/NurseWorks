@@ -1,0 +1,82 @@
+<%#
+# Show
+
+This view is the template for the show page.
+It renders the attributes of a resource,
+as well as a link to its edit page.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Show][1].
+  Contains methods for accessing the resource to be displayed on the page,
+  as well as helpers for describing how each attribute of the resource
+  should be displayed.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
+%>
+
+<% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
+
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title">
+    <%= content_for(:title) %>
+  </h1>
+
+  <div>
+    <%= link_to(
+      t("administrate.actions.edit_resource", name: page.page_title),
+      [:edit, namespace, page.resource],
+      class: "button",
+    ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
+
+    <%= link_to("New Document", new_admin_user_doc_path(user_id: page.resource.id), class: "button") %>
+    <%= link_to("New Reference", new_admin_reference_path(user_id: page.resource.id), class: "button") %>
+    
+    <%= link_to("Contacts", admin_contacts_path(user_id: page.resource.id), class: "button") %>
+
+    <% if (page.resource.role == "Nurse" || page.resource.role == "Care Giver")  %>
+        <% profile = page.resource.profiles.first %>
+        <a class="button" href="/admin/payments_export/form?user_id=<%=page.resource.id%>"> Payment Export </a>
+        <%= link_to("Create Profile", new_admin_profile_path(user_id: page.resource.id), class: "button") if profile == nil %>
+        <%= link_to("View Profile", admin_profile_path(id: profile.id), class: "button") if profile %>        
+    <% end %>
+
+    <%= link_to("Reset Password", reset_password_admin_user_path(id: page.resource.id), class: "button")  %>
+    <% if valid_action? :destroy, page.resource_name %>
+      <td><%= link_to(
+        "Delete User Permanently",
+        [namespace, page.resource],
+        class: "button text-color-red",
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete this record permanently?" }
+      ) if show_action? :destroy, page.resource %></td>
+
+      <td><%= link_to(
+        "Scramble User Data",
+        scramble_admin_user_path(page.resource),
+        class: "button text-color-red",
+        method: :post,
+        data: { confirm: "Are you sure? This will scramble personal data and delete all documentation uploaded by this user." }
+      ) if show_action? :destroy, page.resource %></td>
+
+    <% end %>
+
+  </div>
+</header>
+
+<section class="main-content__body">
+  <dl>
+    <% page.attributes.each do |attribute| %>
+      <dt class="attribute-label" id="<%= attribute.name %>">
+      <%= t(
+        "helpers.label.#{resource_name}.#{attribute.name}",
+        default: attribute.name.titleize,
+      ) %>
+      </dt>
+
+      <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
+          ><%= render_field attribute, page: page %></dd>
+    <% end %>
+  </dl>
+</section>

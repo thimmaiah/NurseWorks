@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h2>Document <%= @user_doc.doc_type %> not available for <%= @user.first_name %></h2>
+
+  	<p>
+  		User <%= link_to @user.first_name, admin_user_url(@user) %> has no DBS available for upload.
+  	</p>
+    	
+  </body>
+</html>

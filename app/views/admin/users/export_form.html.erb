@@ -1,0 +1,61 @@
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title" id="page-title">
+	Export User Data
+  </h1>
+
+</header>
+
+<section class="main-content__body">
+
+<form class="form" id="user_export_form" action="/admin/users/export.xls" accept-charset="UTF-8" method="get">
+
+<input name="utf8" type="hidden" value="&#x2713;" />
+
+<input type="hidden" name="authenticity_token" value="TU6UPPlyGNUe/yTaQ7E6GQaOeG75cFdecUwAV/ZajKcXKi6pfPNIkWURvCOIRbSpiFYDF7b84wYlm/vlnzRIGg==" />
+
+
+<div class="field-unit field-unit--string">
+      
+	<div class="field-unit__label">
+	  <label for="created_at_start">Start Date</label>
+	</div>
+	<div class="field-unit__field">
+	  <input type="date" name="created_at_start" id="created_at_start" value='<%= Date.today.beginning_of_week %>' />
+	</div>
+
+</div>
+
+<div class="field-unit field-unit--string">
+      
+	<div class="field-unit__label">
+	  <label for="created_at_end">End Date</label>
+	</div>
+	<div class="field-unit__field">
+		<input type="date" name="created_at_end" id="created_at_end" value='<%= Date.today.end_of_week %>' />
+	</div>
+
+</div>
+
+<div class="field-unit field-unit--string">
+      
+	<div class="field-unit__label">
+	  <label for="report_format">Roles</label>
+	</div>
+	<div class="field-unit__field">
+	  	<input type="checkbox" name="roles[]" value="Care Giver" checked> Care Giver </input>
+	  	</br>
+  		<input type="checkbox" name="roles[]" value="Nurse" checked> Nurse </input>
+  		</br>
+  		<input type="checkbox" name="roles[]" value="Admin"> Care Home Admin </input>
+	</div>
+
+</div>
+
+
+
+  <div class="form-actions">
+    <input type="submit" name="submit" value="Download Users" />
+  </div>
+</form>
+
+</section>

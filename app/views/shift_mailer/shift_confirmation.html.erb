@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+      <% 
+        minutes =  ((@shift.staffing_request.start_date - Time.now) / 1.minutes) 
+      %>
+    
+      <h2>
+        Your shift at <%= @shift.staffing_request.care_home.name %> on <%= @shift.staffing_request.start_date.to_s(:custom_datetime) %> is due to start in <%= pluralize (minutes / 60).truncate(0), "hour" %>, <%= pluralize (minutes % 60).round(0), "minute" %>
+        
+      </h2>
+
+    	<%= render partial: "shift" %>
+
+      <p></p>
+      
+      <p>
+        For full details please log in to the app. Enjoy your assignment. If you have any questions,
+        please contact our team on 0333 577 8900 or email: info@connuct.co.uk
+      </p>
+
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h2>User <%= link_to "#{@user.first_name + " " + @user.last_name}", admin_user_url(@user) %> requested deletion of personal data.
+     Please delete this users data via the admin screen.
+  </h2>
+    	
+  </body>
+</html>

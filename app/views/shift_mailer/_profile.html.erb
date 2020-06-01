@@ -1,0 +1,226 @@
+<table>
+  <tr>  
+    <td>
+      Photo 
+    </td>
+    <td>
+      <%= image_tag(@user.profile_pic.doc.expiring_url(6*24*60*60), style:"max-width:200px;max-height:300px", alt:"Profile Picture") if @user.profile_pic %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      Care Giver 
+    </td>
+    <td>
+      <%= @user.first_name %>, <%= @user.last_name %>
+    </td>
+  </tr>
+
+  <tr>  
+    <td>
+      Date Of Dbs Check
+    </td>
+    <td>
+      <%= @profile.date_of_CRB_DBS_check %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      Date of birth
+    </td>
+    <td>
+      <%=  @profile.dob %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      Pin
+    </td>
+    <td>
+      <%= @profile.pin %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      Enhanced DBS
+    </td>
+    <td>
+      <%= @profile.enhanced_crb ? "Yes" : "No" %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      DBS Returned
+    </td>
+    <td>
+      <%= @profile.crd_dbs_returned ? "Yes" : "No" %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      ISA Returned
+    </td>
+    <td>
+      <%= @profile.isa_returned ? "Yes" : "No" %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      DBS Number
+    </td>
+    <td>
+      <%= @profile.crd_dbs_number %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      Eligible To Work in the UK
+    </td>
+    <td>
+      <%= @profile.eligible_to_work_UK ? "Yes" : "No" %>
+    </td>
+  </tr>
+  
+  <tr>  
+    <td>
+      Confirmation Of Identity
+    </td>
+    <td>
+      <%= @profile.confirmation_of_identity ? "Yes" : "No" %>
+    </td>
+  </tr>
+
+  <tr>  
+    <td>
+      References Received
+    </td>
+    <td>
+      <%= @profile.references_received %>
+    </td>
+  </tr>
+
+  <tr>  
+    <td>
+      Driving License / Passport
+    </td>
+    <td>
+      <%= @profile.dl_passport ? "Yes" : "No" %>
+    </td>
+  </tr>
+
+  <tr>  
+    <td>
+      All Required Paperwork Checked
+    </td>
+    <td>
+      <%= @profile.all_required_paperwork_checked ? "Yes" : "No" %>
+    </td>
+  </tr>
+
+  <tr>  
+    <td>
+      Registered Under Disability Act
+    </td>
+    <td>
+      <%= @profile.registered_under_disability_act ? "Yes" : "No" %>
+    </td>
+  </tr>
+  
+
+  <tr>  
+    <td>
+      Staff Happy to work under Connuct Policies and Procedures
+    </td>
+    <td>
+      <%= @profile.connuct_policies ? "Yes" : "No" %>
+    </td>
+  </tr>
+
+
+  <tr>  
+    <td>
+      Form Completed By
+    </td>
+    <td>
+      <%= @profile.form_completed_by %>
+    </td>
+  </tr>
+
+
+  <tr>  
+    <td>
+      Position
+    </td>
+    <td>
+      <%= @profile.position %>
+    </td>
+  </tr>
+
+
+  <tr>  
+    <td>
+      Date Sent
+    </td>
+    <td>
+      <%= @profile.date_sent %>
+    </td>
+  </tr>
+
+
+  <tr>  
+    <td>
+      Date Received
+    </td>
+    <td>
+      <%= @profile.date_received %>
+    </td>
+  </tr>
+
+
+  <tr>  
+    <td>
+      Known As
+    </td>
+    <td>
+      <%= @profile.known_as %>
+    </td>
+  </tr>
+
+
+  <tr>  
+    <td>
+      Role
+    </td>
+    <td>
+      <%= @profile.role %>
+    </td>
+  </tr>
+
+</table>
+</br>
+</br>
+
+
+<h2>Trainings Undertaken</h2>
+<table>
+  <tr>
+    <th>Training Name</th>
+    <th>Undertaken</th>
+    <th>Date of Completion</th>
+  </tr>
+  <% @profile.trainings.each do |t| %>
+  <tr>
+    <td><%= t.name %></td>
+    <td><%= t.undertaken ? "Yes" : "No" %></td>
+    <td><%= t.date_completed %></td>
+  </tr>
+  <% end %>
+</table>

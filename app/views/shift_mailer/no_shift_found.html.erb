@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h2>No shift found for <%= link_to "Request #{@staffing_request.id}", admin_staffing_request_url(@staffing_request) %></h2>
+
+  	<p>
+  		Please ensure a manual booking for this request.
+  	</p>
+    	
+    <%= render partial: "request" %>
+
+  </body>
+</html>

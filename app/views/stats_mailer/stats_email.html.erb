@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Stats for week <%= @week %></h2>
+    <table id="striped_table" cellpadding="15" cellspacing="2">
+      <tr>  
+	    <td style="width:300px;">
+	      Verified Care Givers 
+	    </td>
+	    <td>
+	      <%= User.care_givers.verified.count %>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td>
+	      Verified Nurses 
+	    </td>
+	    <td>
+	      <%= User.nurses.verified.count %>
+	    </td>
+	  </tr>
+
+	  <tr>  
+	    <td>
+	      Verified Care Home Admins 
+	    </td>
+	    <td>
+	      <%= User.admins.verified.count %>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td>
+	      Verified Care Homes 
+	    </td>
+	    <td>
+	      <%= CareHome.verified.count %>
+	    </td>
+	  </tr>
+
+	  <tr>  
+	    <td>
+	      Carer Logins in last 30 days 
+	    </td>
+	    <td>
+	      <%= User.temps.verified.where("current_sign_in_at > ?", Date.today - 30.days).count %>
+	    </td>
+	  </tr>
+	  
+	  <tr style="background-color:#dddddd;">  
+	    <td>
+	      Carer Count - Shift Count 
+	    </td>
+	    <td>
+	      <% 
+	      	sc = Shift.joins(:user).group(:email).count 
+	      %>
+	      1 - 5  Carers: <%= sc.select{|k,v| v >= 1 && v < 5}.length %> Shifts, </br>
+	      5 - 10 Carers: <%= sc.select{|k,v| v >= 5 && v < 10}.length %> Shifts, </br>
+	      10+    Carers: <%= sc.select{|k,v| v >= 10}.length %> Shifts,
+	    </td>
+	  </tr>
+	  
+	  
+	  <tr>  
+	    <td>
+	      Staffing Requests Count
+	    </td>
+	    <td>
+	      Total: <%= StaffingRequest.not_cancelled.count %>, </br>
+	      This Week: <%= StaffingRequest.not_cancelled.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %> </br>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td>
+	      Shift Count
+	    </td>
+	    <td>
+	      Total Closed: <%= Shift.closed.count %>, Hours: <%= Shift.closed.sum(:total_mins_worked) / 60 %>,  </br>
+	      Total Closed Last Week: <%= Shift.closed.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %>, Hours: <%= Shift.closed.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).sum(:total_mins_worked) / 60 %>,  </br>
+	      Cancelled: <%= Shift.cancelled.count %>, </br>
+	      Rejected: <%= Shift.rejected.count %>, </br>
+	      Auto Rejected: <%= Shift.auto_rejected.count %>
+	    </td>
+	  </tr>
+
+	  <tr>  
+	    <td>
+	      Shift Hours
+	    </td>
+	    <td>
+	      Total Hours: <%= Shift.accepted_or_closed.sum(:total_mins_worked) / 60 %>  </br>
+	      This Weeks Hours: <%= Shift.accepted_or_closed.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).sum(:total_mins_worked) / 60 %>  </br>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td>
+	      Care Home Count
+	    </td>
+	    <td>
+	      Verified: <%= CareHome.verified.count %>, </br>
+	      UnVerified: <%= CareHome.unverified.count %>, </br>
+	      Signed Up Last Week: <%= CareHome.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %>, </br>
+	      Signed Up Last Week & Verified: <%= CareHome.verified.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %> </br>
+	    </td>
+	  </tr>
+		
+	  <tr>  
+	    <td>
+	      Avg # of Requests / Care Home
+	    </td>
+	    <td>
+	      <%= StaffingRequest.not_cancelled.count / CareHome.verified.count %> </br>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td>
+	      Billing Last 7 days
+	    </td>
+	    <td>
+	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:care_home_base).round(2) %> </br>
+	      To Carers: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:carer_base).round(2) %> </br>
+	    </td>
+	  </tr>	  
+
+	  <tr>  
+	    <td>
+	      Billing Last 30 days
+	    </td>
+	    <td>
+	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:care_home_base).round(2) %> </br>
+	      To Carers: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:carer_base).round(2) %> </br>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td colspan=2>
+	      Care Home Requests Count</br>
+	      <%= raw ap StaffingRequest.joins(:care_home).not_cancelled.group(:name).count %>
+	    </td>
+	  </tr>
+
+	  <tr>  
+	    <td colspan=2>
+	      Care Home Requests Count - last 2 weeks</br>
+	      <%= raw ap StaffingRequest.joins(:care_home).not_cancelled.where("staffing_requests.created_at >= ?", Date.today - 2.weeks).group(:name).count %>
+	    </td>
+	  </tr>
+
+	  <tr style="background-color:#dddddd;">  
+	    <td colspan=2>
+	      Care Home Requests Count - last 1 weeks</br>
+	      <%= raw ap StaffingRequest.joins(:care_home).not_cancelled.where("staffing_requests.created_at >= ?", Date.today - 1.week).group(:name).count %>
+	    </td>
+	  </tr>
+	  
+	</table>  
+  </body>
+</html>

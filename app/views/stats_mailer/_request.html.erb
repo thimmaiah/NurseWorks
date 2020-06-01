@@ -1,0 +1,20 @@
+
+	<tr>
+		
+		<td><%= link_to "Id: " + @staffing_request.id.to_s, admin_staffing_request_url(@staffing_request) %></td>
+
+		<td><%= @staffing_request.care_home.name %></td>
+		<td>Start: <%= @staffing_request.start_date.to_s(:custom_datetime) %></td>
+		<td>End: <%= @staffing_request.end_date.to_s(:custom_datetime) %></td>
+		<td>Status: <%= @staffing_request.request_status %></td>
+		<td> 
+			<% 
+				minutes = ((@staffing_request.start_date - Time.now).to_f / 60).round(0).to_f 
+				if(minutes > 0)
+			%>
+				<span style="color:green;">Time to start: <%= @staffing_request.human_readable_time(minutes) %></span>
+			<% else %>
+				<span style="color:red;">Time from start: <%= @staffing_request.human_readable_time(-1*minutes) %></span>
+			<% end %>
+		</td>
+	</tr>

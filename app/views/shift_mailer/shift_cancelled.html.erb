@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    
+    <h2>Shift <%= @shift.response_status %></h2>
+    
+    <p>
+    	This is to confirm that the shift below has been cancelled.
+    </p>
+    
+    <p>
+      <% if @shift.response_status == "Auto Rejected" %>
+        Note that shift which are <b>not confirmed</b> are <b>automatically cancelled</b>, so in the future please try and confirm assigned shifts at the earliest.
+      <% end %>
+
+      <% if @shift.response_status == "Rejected" %>
+        The cancellation was done as you had rejected this shift.
+      <% end %>
+	 </p>
+	
+    <%= render partial: "shift" %>
+  
+  </body>
+</html>

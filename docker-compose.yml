@@ -1,0 +1,49 @@
+# Note the following changes will need to be made in the app to run a dockerized version
+# database.yml should have host set to db
+# application.rb should have the elk host to be set to elk 
+version: '3'
+services:
+  db:
+    image: mysql
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+  # sphinx:
+  #   image: stefobark/sphinxdocker
+  #   volumes:
+  #     - ./volumes/sphinx:/var/lib/sphinx/data/
+  #   ports: 
+  #     - 9306:9306 
+  #     - 9312:9312 
+  web:
+    build: .
+    command: bash -c "bundle exec rake ts:start && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+
+  elk:
+    image: qnib/elk:diamondfree
+    ports:
+     - "9200:9200"
+     - "5514:5514"
+     - "55514:55514/udp"
+     - "5601:5601"
+     - "8080:80"
+     - "8500:8500"
+    environment:
+    - DC_NAME=dc1
+    - RUN_SERVER=true
+    - BOOTSTRAP_CONSUL=true
+    - COLLECT_METRICS=false
+    - FORWARD_TO_LOGSTASH=false
+    dns: 127.0.0.1
+    hostname: elk
+    volumes: 
+     - ../volumes/elasticsearch:/var/lib/elasticsearch
+    privileged: true
+
+  

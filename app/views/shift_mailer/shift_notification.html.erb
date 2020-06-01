@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Dear <%=@user.first_name%></h2>
+    
+    <h3>      
+    	We have a new shift available in your area!
+      Log on to the app for details and accept or decline the shift.
+    </h3>
+	  
+    <%= render partial: "shift" %>
+    
+    <p>      
+    </p>
+    
+    <p>
+      If you have any questions, please contact our team on 0333 577 8900 or email:
+      info@connuct.co.uk
+    </p>
+
+  </body>
+</html>

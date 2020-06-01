@@ -1,0 +1,119 @@
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title" id="page-title">
+	Care Givers for Staffing Request <%= link_to @staffing_request.id, admin_staffing_request_path(@staffing_request) %>
+	From postcode <%= @staffing_request.care_home.postcode %>
+  </h1>
+
+</header>
+
+<section class="main-content__body">
+
+	<table aria-labelledby="page-title">
+  <thead>
+    <tr>
+        <th class="cell-label
+        cell-label--number
+        cell-label--false
+        " scope="col">
+        Id
+
+        </th>
+
+        <th class="cell-label
+        cell-label--string
+        cell-label--false
+        " scope="col">
+        First Name
+
+        </th>
+        <th class="cell-label
+        cell-label--string
+        cell-label--false
+        " scope="col">
+        Last Name
+
+        </th>
+        <th class="cell-label
+        cell-label--string
+        cell-label--false
+        " scope="col">
+        Email
+
+        </th>
+
+        <th class="cell-label
+        cell-label--string
+        cell-label--false
+        " scope="col">
+        Phone
+
+        </th>
+        <th class="cell-label
+        cell-label--string
+        cell-label--false
+        " scope="col">
+        PostCode
+
+        </th>
+
+
+        <th class="cell-label
+        cell-label--select
+        cell-label--false
+        " scope="col">
+        Role
+
+       </th>
+
+       <th class="cell-label
+        cell-label--select
+        cell-label--false
+        " scope="col">
+        Distance
+
+       </th>
+
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	  <% @users.each do |user| %>
+      <tr class="js-table-row"
+          tabindex="0"
+          role=link data-url=<%= admin_user_path(user) %>          >
+          <td class="cell-data cell-data--number">
+            <%= link_to user.id, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--string">
+			<%= link_to user.first_name, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--string">
+            <%= link_to user.last_name, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--string">
+            <%= link_to user.email, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--string">
+            <%= link_to user.phone, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--string">
+            <%= link_to user.postcode, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--select">
+            <%= link_to user.role, admin_user_path(user), :class => "action-show" %>
+          </td>
+          <td class="cell-data cell-data--select">
+            <%= (user.distance / 1000).round(2) %> Kms
+          </td>
+          <td><%= link_to "Assign Shift", manual_shift_admin_staffing_request_path(params[:id], :user_id => user.id), :method=>:post, :class=>"button" %></a></td>
+
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>
+
+</section>

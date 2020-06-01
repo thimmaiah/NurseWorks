@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+      	<p>
+			<%= @reference.first_name %> <%= @reference.last_name %>
+	  	</p>
+	  	
+		<p>
+			<%= @reference.address %>
+	  	</p>
+
+	  	<p>
+			PRIVATE AND CONFIDENTIAL: ADDRESSEE ONLY
+		</p>
+		
+		<p>
+			<%= Date.today.strftime("%d %b %Y") %>
+		</p>
+
+		<p>
+			Dear <%= @reference.first_name %>
+		</p>	
+		
+		<p>
+			<%= @user.first_name %> <%= @user.last_name %> has applied for a position as a <%= @user.role == "Care Giver" ? "Healthcare Professional" : @user.role %> 
+			through Connuct Care the smart app connecting Care Professionals with one of our clients and 
+			has given your name as a a character reference. Please could you provide us with a character reference letter.
+		</p>
+		<p>
+			<b>Tips for Writing a Character Reference Letter</b>
+		</p>
+		<p>
+			<ol>
+				<li>
+					Make that recommendation! It's just a letter unless you specifically state why you're writing it, such as, "I recommend <%= @user.first_name %> for this position because..."			
+				</li>
+				<li>
+					Be specific. Focus on two or three specific, strong qualities you know the person has. Try to think of those that would make them a good fit for the job in question. Provide at least one example of a time when the person demonstrated strengths.						
+				</li>
+				<li>
+					Explain your relationship. How did you meet this individual, and how long have you known her?
+					Provide contact information. If you feel comfortable doing so, provide contact information so we can reach out to you if we have any further questions.
+				</li>
+			</ol>
+			
+			I would be grateful if you could consider providing information about <%= @user.first_name %>’s suitability for this role and return your letter via references@connuct.co.uk
+
+		</p>
+		<p>
+			Individuals have a right under the Data Protection Act 1998 to see copies of references received about them and we cannot therefore guarantee the complete confidentiality of any reference received. We may also show a copy of this reference to client companies.			
+		</p>
+
+		<p>
+			Thank you for your time.
+		</p>	
+		<p>
+			Yours sincerely,
+		</p>
+	 
+		<p>
+			Connuct Care the Smart App
+			info@connuct.co.uk			 
+		</p>
+     
+
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Shift Completed</h2>
+    
+    <p>
+      <% if @user.role == "Admin" %>
+        Please get in touch with the team via email on partner@connuct.co.uk if the below assignment details are incorrect.
+      <% else %>
+        Please get in touch with the team via email on info@connuct.co.uk if the below assignment details are incorrect.
+      <% end %>
+	  </p>
+
+  	<%= render partial: "shift" %>
+    
+  </body>
+</html>

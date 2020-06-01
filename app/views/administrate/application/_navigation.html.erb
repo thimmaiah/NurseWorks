@@ -1,0 +1,63 @@
+<%#
+# Navigation
+
+This partial is used to display the navigation in Administrate.
+By default, the navigation contains navigation links
+for all resources in the admin dashboard,
+as defined by the routes in the `admin/` namespace
+%>
+
+<nav class="navigation" role="navigation">
+
+  <!-- <a class="navigation__link " href="/admin/stats"> Stats </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search='Week of <%=Date.today.beginning_of_week%>'&commit=Search"> - This Week </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search='Month of <%=Date.today.beginning_of_month%>'&commit=Search"> - This Month </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27Financials%27&commit=Search"> - Financial Stats </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27User%27&commit=Search"> - User Stats </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27CareHome%27&commit=Search"> - Care Homes Stats </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27StaffingRequest%27&commit=Search"> - Staffing Request </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27Shift%27&commit=Search"> - Shift Stats </a>
+ -->
+  <a class="navigation__link " href="/admin/agencies"> Agencies </a>
+
+
+      <a class="navigation__link " href="/admin/users"> Users </a>
+
+      <a class="navigation__link  child-nav" href="/admin/users?search=*&with=verified%3Dfalse"> - Unverified </a>
+      <a class="navigation__link  child-nav" href="/admin/users?search=*&with=role%3D'Nurse'"> - Nurses  </a>
+      <a class="navigation__link child-nav" href="/admin/users?search=*&with=role%3D'Care Giver'"> - HCP  </a>
+      <a class="navigation__link child-nav" href="/admin/users?search=*&with=role%3D'Admin'"> - Admins </a>
+      <a class="navigation__link child-nav" href="/admin/users/export_form"> - User Export </a>
+
+    <a class="navigation__link " href="/admin/care_homes"> Care Homes </a>
+    <a class="navigation__link child-nav" href="/admin/care_homes?search=*&with=verified%3Dfalse"> - Unverified
+    </a>
+  
+  <a class="navigation__link " href=""> ----------- </a>
+
+  <a class="navigation__link " href="/admin/staffing_requests?order=start_date"> Staffing Requests </a>
+  <a class="navigation__link child-nav" href="/admin/staffing_requests?search=*&with=request_status%3D'Open',shift_status%3D'Not Found'"> - Without Shifts</a>
+  <a class="navigation__link child-nav" href="/admin/staffing_requests?search=*&with=manual_assignment_flag%3Dtrue,request_status%3D'Open'"> - Pending Manual Assignment</a>
+  
+  <a class="navigation__link child-nav" href="/admin/recurring_requests"> - Recurring Requests</a>
+
+
+  <a class="navigation__link " href="/admin/shifts"> Shifts </a>
+  <a class="navigation__link child-nav" href="/admin/shifts?search=*&with=payment_status%3D'Pending'"> - Pending Payments </a>
+
+  
+  <a class="navigation__link " href="/admin/payments"> Payments </a>
+  <a class="navigation__link child-nav" href="/admin/payments_export/form"> - Payment Export
+  </a>
+
+  <a class="navigation__link " href=""> ----------- </a>
+  <a class="navigation__link " href="/admin/ratings"> Ratings </a>
+  <a class="navigation__link " href="/admin/holidays"> Holidays </a>
+  <a class="navigation__link " href="/admin/rates"> Rates </a>
+  <a class="navigation__link " href="/admin/references"> References </a>
+  <a class="navigation__link " href=""> ----------- </a>
+  <a class="navigation__link " href="http://reports.connuct.co.uk:8080/superset/dashboard/2/" target="_blank"> Dashboard </a>
+
+  
+</nav>
+

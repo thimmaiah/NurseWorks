@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+RAILS_ENV=production
+USER=ubuntu
+APP_DIR=/home/ubuntu/NurseWorks/current
+
+case "$1" in
+  start)
+    echo "Starting delayed_job..."
+    /bin/su - $USER -c "cd $APP_DIR && RAILS_ENV=$RAILS_ENV bundle exec script/delayed_job start"
+    echo "done"
+    ;;
+
+  stop)
+    echo "Stopping delayed_job..."
+    /bin/su - $USER -c "cd $APP_DIR && RAILS_ENV=$RAILS_ENV bundle exec script/delayed_job stop"
+    echo "done"
+    ;;
+
+  restart)
+    echo "Restarting delayed_job..."
+    /bin/su - $USER -c "cd $APP_DIR && RAILS_ENV=$RAILS_ENV bundle exec script/delayed_job restart"
+    echo "done"
+    ;;
+esac

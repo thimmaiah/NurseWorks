@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h2>Documents Uploaded</h2>
+
+  	<p>
+  		User <%= link_to @user.first_name, admin_user_url(@user) %> has uploaded all docs. Please proceed with verification of the user.
+  	</p>
+    	
+  </body>
+</html>

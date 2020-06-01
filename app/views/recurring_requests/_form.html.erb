@@ -1,0 +1,67 @@
+<%= form_for(recurring_request) do |f| %>
+  <% if recurring_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recurring_request.errors.count, "error") %> prohibited this recurring_request from being saved:</h2>
+
+      <ul>
+      <% recurring_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :care_home_id %>
+    <%= f.number_field :care_home_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.datetime_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speciality %>
+    <%= f.text_field :speciality %>
+  </div>
+
+  <div class="field">
+    <%= f.label :on %>
+    <%= f.text_field :on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_on %>
+    <%= f.date_select :start_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_on %>
+    <%= f.date_select :end_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :audit %>
+    <%= f.text_area :audit %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

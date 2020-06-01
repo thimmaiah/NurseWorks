@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Your training <%= @training.name %> will expire on <%= @training.expiry_date.strftime("%d/%m/%Y") %> .</h2>
+    <p>
+
+    </p>
+    <p>
+    	We will not be able to send you out to any shifts post <%= @training.expiry_date.strftime("%d/%m/%Y") %>  due to legal compliance regulations, please refresh your training and inform us. Thank you in advance. If you require support please message us via the smart app for training / DBS, Passport expiring etc 
+	</p>
+  </body>
+</html>

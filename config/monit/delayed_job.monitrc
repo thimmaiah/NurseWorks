@@ -1,0 +1,5 @@
+check process delayed_job
+  with pidfile  /home/ubuntu/NurseWorks/current/tmp/pids/delayed_job.pid
+  start program = "/bin/su - ubuntu -c 'RAILS_ENV=production /home/ubuntu/NurseWorks/current/script/delayed_job -e production start'"
+  stop program = "/bin/su - ubuntu -c 'RAILS_ENV=production /home/ubuntu/NurseWorks/current/script/delayed_job -e production stop'"
+

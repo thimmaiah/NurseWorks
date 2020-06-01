@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recurring Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Care home</th>
+      <th>User</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Role</th>
+      <th>Speciality</th>
+      <th>On</th>
+      <th>Start on</th>
+      <th>End on</th>
+      <th>Audit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recurring_requests.each do |recurring_request| %>
+      <tr>
+        <td><%= recurring_request.care_home_id %></td>
+        <td><%= recurring_request.user_id %></td>
+        <td><%= recurring_request.start_date %></td>
+        <td><%= recurring_request.end_date %></td>
+        <td><%= recurring_request.role %></td>
+        <td><%= recurring_request.speciality %></td>
+        <td><%= recurring_request.on %></td>
+        <td><%= recurring_request.start_on %></td>
+        <td><%= recurring_request.end_on %></td>
+        <td><%= recurring_request.audit %></td>
+        <td><%= link_to 'Show', recurring_request %></td>
+        <td><%= link_to 'Edit', edit_recurring_request_path(recurring_request) %></td>
+        <td><%= link_to 'Destroy', recurring_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recurring Request', new_recurring_request_path %>

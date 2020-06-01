@@ -1,0 +1,63 @@
+<table>
+
+	<tr>
+		<td>Care Home</td>
+		<td><%= @staffing_request.care_home.name %></td>
+	</tr>
+
+	<tr>
+		<td>Entered By</td>
+		<td>
+			<%= @staffing_request.user.first_name %> <%= @staffing_request.user.last_name %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Phone</td>
+		<td>
+			<%= @staffing_request.user.phone %>
+		</td>
+	</tr>
+
+	<% if @staffing_request.notes %>
+		<tr>
+			<td>Notes</td>
+			<td>
+				<%= @staffing_request.notes %>
+			</td>
+		</tr>
+	<% end %>
+
+
+	<tr>
+		<td>Address</td>
+		<td>
+			<%= @staffing_request.care_home.address %>, 
+			<%= @staffing_request.care_home.town %>,
+			<%= @staffing_request.care_home.postcode %>	
+		</td>
+	</tr>
+
+	<tr>
+		<td>Start</td>
+		<td><%= @staffing_request.start_date.to_s(:custom_datetime) %></td>
+	</tr>
+
+	<tr>
+		<td>End</td>
+		<td><%= @staffing_request.end_date.to_s(:custom_datetime) %></td>
+	</tr>
+
+	<% if @staffing_request.carer_break_mins > 0 %>
+	<tr>
+		<td>Break</td>
+		<td><%= @staffing_request.carer_break_mins %> Minutes </td>
+	</tr>
+	<% end %>
+
+	<tr>
+		<td>Id</td>
+		<td><%= @staffing_request.id %></td>
+	</tr>
+
+</table>

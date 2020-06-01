@@ -1,0 +1,23 @@
+# this monit config goes in /etc/monit/conf.d
+
+check process puma_master
+  with pidfile  /home/ubuntu/NurseWorks/current/tmp/pids/puma.pid
+  start program = "/home/ubuntu/NurseWorks/current/bin/puma.sh start"
+  stop program = "/home/ubuntu/NurseWorks/current/bin/puma.sh stop" 
+  group myapp
+
+check process puma_worker_0
+  with pidfile /home/ubuntu/NurseWorks/current/tmp/pids/puma_worker_0.pid
+  if totalmem is greater than 230 MB for 2 cycles then exec "/home/ubuntu/NurseWorks/current/bin/puma.sh kill_worker 0"
+
+check process puma_worker_1
+  with pidfile /home/ubuntu/NurseWorks/current/tmp/pids/puma_worker_1.pid
+  if totalmem is greater than 230 MB for 2 cycles then exec "/home/ubuntu/NurseWorks/current/bin/puma.sh kill_worker 1"
+
+check process puma_worker_2
+  with pidfile /home/ubuntu/NurseWorks/current/tmp/pids/puma_worker_2.pid
+  if totalmem is greater than 230 MB for 2 cycles then exec "/home/ubuntu/NurseWorks/current/bin/puma.sh kill_worker 2"
+
+check process puma_worker_3
+  with pidfile /home/ubuntu/NurseWorks/current/tmp/pids/puma_worker_3.pid
+  if totalmem is greater than 230 MB for 2 cycles then exec "/home/ubuntu/NurseWorks/current/bin/puma.sh kill_worker 3"

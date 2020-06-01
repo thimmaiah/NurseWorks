@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Care home:</strong>
+  <%= @recurring_request.care_home_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @recurring_request.user_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @recurring_request.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @recurring_request.end_date %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @recurring_request.role %>
+</p>
+
+<p>
+  <strong>Speciality:</strong>
+  <%= @recurring_request.speciality %>
+</p>
+
+<p>
+  <strong>On:</strong>
+  <%= @recurring_request.on %>
+</p>
+
+<p>
+  <strong>Start on:</strong>
+  <%= @recurring_request.start_on %>
+</p>
+
+<p>
+  <strong>End on:</strong>
+  <%= @recurring_request.end_on %>
+</p>
+
+<p>
+  <strong>Audit:</strong>
+  <%= @recurring_request.audit %>
+</p>
+
+<%= link_to 'Edit', edit_recurring_request_path(@recurring_request) %> |
+<%= link_to 'Back', recurring_requests_path %>

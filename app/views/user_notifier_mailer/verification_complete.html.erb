@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Dear <%=@user.first_name%>, Great News, you’re ready for work!</h2>
+    <% if @user.role == "Admin" %>
+    	<p>
+	    	Your account have been verified. Please log into the app to enter staffing requests.
+		</p>
+    <% else %>
+	    <p>	    	
+        Great News! We have completed verification of all your documents. Note: You are eligible
+        for shifts within your preferred commutable distance. We look forward to working with you.
+        If you have any questions, please contact our team on 0333 577 8900 or email:
+        info@connuct.co.uk
+	<% end %>
+  </body>
+</html>

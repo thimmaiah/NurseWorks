@@ -1,0 +1,81 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  date:
+    formats:
+    default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M:%S"
+  activerecord:
+    models:
+      care_home:
+        one: Partner
+        other: Partners
+      agency_care_home_mapping:
+        one: Agency Partner Mapping
+        other: Agency Partner Mappings
+  helpers:
+    label:
+      user:
+        care_home_id: "Care Home (Only for Admin role)"
+        care_home: "Care Home (Only for Admin role)"
+      recurring_request:
+        start_date: "First Request Start Date"
+        end_date: "First Request End Date"
+        user: "Partner User"
+        user_id: "Partner User"
+      shift:
+        price: "Care Giver Payout"
+        total_price: "Care Home Bill Amount"
+      profile:
+        dl_passport: "Driving License / Passport"
+        connuct_policies: "Staff Happy to work under Connuct Policies and Procedures"
+      payment:
+        amount: "Care Home Billing (Amount + VAT)"
+        billing: "Care Home Amount"
+      profile:
+        date_of_CRB_DBS_check: "Date of DBS check"
+        crd_dbs_number: "DBS number"
+        crd_dbs_returned: "DBS returned"
+        enhanced_crb: "Enhanced DBS"
+      reference:
+        user: "Health Care Professional"
+        user_id: "Health Care Professional"
+      rating:
+        care_home: "Partner"
+      shift:
+        care_home: "Partner"
+        user: "HCP"
+      staffing_request:
+        care_home: "Partner"
+      rate:
+        care_home_weekday: "Partner weekday rate"
+        care_home_weeknight: "Partner weeknight rate"
+        care_home_weekend: "Partner weekend day rate"
+        care_home_weekend_night: "Partner weekend night rate"
+        care_home_bank_holiday: "Partner bank holiday rate"
+        carer_weekday: "HCP weekday rate"
+        carer_weeknight: "HCP weeknight rate"
+        carer_weekend: "HCP weekend day rate"
+        carer_weekend_night: "HCP weekend night rate"
+        carer_bank_holiday: "HCP bank holiday rate"

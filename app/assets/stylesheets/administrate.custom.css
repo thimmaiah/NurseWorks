@@ -1,0 +1,66 @@
+body, label, input[type="submit"],.button {
+
+    font-weight: 200 !important ;
+}
+.main-content__page-title  {
+	font-size: 1em;
+	color: blue;
+	font-weight: 300;
+}
+.field-unit {
+	margin-bottom: .8em;
+}
+
+a {
+	text-decoration: none;
+}
+
+.child-nav {
+	font-size: .8em !important;
+	color: blue !important;
+}
+
+.child-nav:before {
+	content: "\00a0\00a0";
+}
+
+.navigation__link {
+	font-size: .9em;
+    margin-bottom: 0.1em !important;
+}
+
+input[type="submit"], .button {
+    padding: 0.5em 1em;
+    color: white !important;
+}
+
+
+.navigation a {
+	color: blue;
+	margin-left: 1.5px;
+}
+
+.app-container {
+	line-height: 1;
+	padding: 0px;
+}
+
+.main-content {
+	margin: 0;
+}
+
+
+
+
+dl > .attribute-label {
+	width: 200px;
+}
+
+dl > .attribute-data {
+	width: calc(75% - 1rem)
+}
+
+.profile_pic {
+	max-height: 300px;
+	max-width: 200px;
+}

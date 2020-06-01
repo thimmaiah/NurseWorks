@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+      	<p>
+			<%= @reference.first_name %> <%= @reference.last_name %>
+	  	</p>
+	  	
+		<p>
+			<%= @reference.address %>
+	  	</p>
+
+	  	<p>
+			PRIVATE AND CONFIDENTIAL: ADDRESSEE ONLY
+		</p>
+		
+		<p>
+			<%= Date.today.strftime("%d/%m/%Y") %>
+		</p>
+
+		<p>
+			Dear <%= @reference.first_name %>
+		</p>	
+		
+		<p>
+			<%= @user.first_name %> <%= @user.last_name %> has applied for a position as a <%= @user.role == "Care Giver" ? "Healthcare Professional" : @user.role %> 
+			through Connuct Care the smart app connecting Care Professionals with one of our clients and 
+			has given your name as a reference. 
+		</p>
+		<p>
+			I would be grateful if you could consider the attached document and provide information about 
+			<%= @user.first_name %>’s suitability for this role and return this via references@connuct.co.uk
+		</p>
+
+		<p>
+			Thank you for your time.
+		</p>	
+		<p>
+			Yours sincerely,
+		</p>
+	 
+		<p>
+			Connuct Care the Smart App
+			info@connuct.co.uk			 
+		</p>
+     
+
+
+  </body>
+</html>
