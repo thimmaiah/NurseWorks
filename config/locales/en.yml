@@ -28,31 +28,25 @@ en:
       default: "%d/%m/%Y %H:%M:%S"
   activerecord:
     models:
-      hospital:
-        one: Partner
-        other: Partners
-      agency_hospital_mapping:
-        one: Agency Partner Mapping
-        other: Agency Partner Mappings
   helpers:
     label:
       user:
-        hospital_id: "Care Home (Only for Admin role)"
-        hospital: "Care Home (Only for Admin role)"
+        hospital_id: "Hospital (Only for Admin role)"
+        hospital: "Hospital (Only for Admin role)"
       recurring_request:
         start_date: "First Request Start Date"
         end_date: "First Request End Date"
-        user: "Partner User"
-        user_id: "Partner User"
+        user: "Hospital Admin"
+        user_id: "Hospital Admin"
       shift:
         price: "Care Giver Payout"
-        total_price: "Care Home Bill Amount"
+        total_price: "Hospital Bill Amount"
       profile:
         dl_passport: "Driving License / Passport"
         connuct_policies: "Staff Happy to work under Connuct Policies and Procedures"
       payment:
-        amount: "Care Home Billing (Amount + VAT)"
-        billing: "Care Home Amount"
+        amount: "Hospital Billing (Amount + VAT)"
+        billing: "Hospital Amount"
       profile:
         date_of_CRB_DBS_check: "Date of DBS check"
         crd_dbs_number: "DBS number"
@@ -62,18 +56,18 @@ en:
         user: "Health Care Professional"
         user_id: "Health Care Professional"
       rating:
-        hospital: "Partner"
+        hospital: "Hospital"
       shift:
-        hospital: "Partner"
+        hospital: "Hospital"
         user: "HCP"
       staffing_request:
-        hospital: "Partner"
+        hospital: "Hospital"
       rate:
-        hospital_weekday: "Partner weekday rate"
-        hospital_weeknight: "Partner weeknight rate"
-        hospital_weekend: "Partner weekend day rate"
-        hospital_weekend_night: "Partner weekend night rate"
-        hospital_bank_holiday: "Partner bank holiday rate"
+        hospital_weekday: "Hospital weekday rate"
+        hospital_weeknight: "Hospital weeknight rate"
+        hospital_weekend: "Hospital weekend day rate"
+        hospital_weekend_night: "Hospital weekend night rate"
+        hospital_bank_holiday: "Hospital bank holiday rate"
         carer_weekday: "HCP weekday rate"
         carer_weeknight: "HCP weeknight rate"
         carer_weekend: "HCP weekend day rate"
