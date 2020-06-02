@@ -22,6 +22,12 @@ class User < ApplicationRecord
 
   SEX = ["M", "F"]
   SPECIALITY = ["Generalist", "Geriatric Care", "Pediatric Care", "Mental Health"]
+  CONVEYENCE = ["Public transport", "Auto", "Own 2 wheeler", "Someone drops me", "I use Uber/Ola", "I own a car"]
+  QUALIFICATIONS = ["Diploma Nurse", "BSc Nursing", "MSc Nursing"]
+  SHIFT_DURATION = [8, 12]
+  SHIFT_TIME = ["730 AM – 330 PM", "3 PM – 930 PM", "9 PM – 8 AM"]
+  SHIFT_RATE = [500, 1000, 1500, 2500]
+  COMMUTE_DISTANCE = [3, 10, 20, 30, 50]
   ROLE = ["Care Giver", "Nurse", "Admin"]
   TITLE = ["Mr", "Mrs", "Miss"]
 

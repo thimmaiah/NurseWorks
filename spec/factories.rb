@@ -177,8 +177,18 @@ FactoryGirl.define do
     role {"Care Giver"}
     sex { User::SEX[rand(2)]}
     accept_terms {true}
-    pref_commute_distance {100000}
+    pref_commute_distance {User::COMMUTE_DISTANCE[rand(5)]}
     phone_verified {true}
+    age {rand(20) + 20}
+    years_of_exp {age - rand(20)}
+    months_of_exp {rand(12)}
+    key_qualifications {User::QUALIFICATIONS[rand(3)]}
+    
+    locum {rand(2)}
+    pref_shift_duration {User::SHIFT_DURATION[rand(2)]}
+    pref_shift_time {User::SHIFT_TIME[rand(3)]} 
+    exp_shift_rate {User::SHIFT_RATE[rand(3)]}
+    conveyence {User::CONVEYENCE[rand(5)]}
 
     bank_account {rand.to_s[2..9] if(role != "Admin")}
     sort_code {rand.to_s[2..7] if(role != "Admin")}

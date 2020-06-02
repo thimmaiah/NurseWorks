@@ -450,7 +450,10 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.integer  "years_of_exp"
     t.integer  "months_of_exp"
     t.string   "key_qualifications",            limit: 255
-    t.boolean  "locum",                         default: false    
+    t.boolean  "locum",                         default: false  
+    t.integer  "pref_shift_duration"  
+    t.string   "pref_shift_time"  
+    t.integer  "exp_shift_rate"  
     t.text     "tokens",                        limit: 65535
     t.datetime "created_at",                                                                              null: false
     t.datetime "updated_at",                                                                              null: false

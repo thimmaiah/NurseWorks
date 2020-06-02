@@ -30,7 +30,7 @@ namespace :nurse_works do
     begin
 
       User::SPECIALITY.each do |sp|
-      (1..2).each do | i |
+      (1..1).each do | i |
           h = FactoryGirl.build(:hospital)
           h.created_at = Date.today - rand(4).weeks - rand(7).days
           h.specializations = [sp]
