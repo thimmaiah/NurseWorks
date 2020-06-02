@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class CareHomeDashboard < Administrate::BaseDashboard
+class HospitalDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,12 +9,14 @@ class CareHomeDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    zone: Field::Select.with_options(collection: CareHome::ZONES),
+    zone: Field::Select.with_options(collection: Hospital::ZONES),
+    
     users: Field::HasMany,
     staffing_requests: Field::HasMany.with_options(limit: 10, sort_by: :start_date),
-    care_home_carer_mappings: Field::HasMany,
+    hospital_carer_mappings: Field::HasMany,
     name: Field::String,
-    speciality: Field::Select.with_options(collection: User::SPECIALITY),
+    city: Field::String,
+    specializations: CheckboxList.with_options(choices: User::SPECIALITY),
     phone: Field::String,
     address: Field::String.with_options(required: true),
     town: Field::String.with_options(required: true),
@@ -22,10 +24,9 @@ class CareHomeDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     image_url: Field::Text,
-    sister_care_homes: Field::String,
-    care_home_broadcast_group: Field::String,
+    sister_hospitals: Field::String,
+    hospital_broadcast_group: Field::String,
     carer_break_mins: Field::Select.with_options(collection: [30, 60]),
-    qr_code: QrCodeField,
     account_payment_terms: Field::Select.with_options(collection: ["", "14 days", "30 days"]), 
     vat_number: Field::String,
     company_registration_number: Field::String,
@@ -38,6 +39,12 @@ class CareHomeDashboard < Administrate::BaseDashboard
     verified: Field::BooleanToYesNo,
     lat: Field::String.with_options(searchable: false),
     lng: Field::String.with_options(searchable: false),
+    num_of_beds: Field::Number,  
+    nurse_count: Field::Number,
+    nurse_qualification_pct: Field::Text, 
+    typical_workex: Field::Text, 
+    owner_name: Field::String,
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -49,9 +56,10 @@ class CareHomeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :verified,
-    :speciality,
-    :sister_care_homes,
-    :town,
+    :specializations,
+    :sister_hospitals,
+    :city,
+    :num_of_beds,
     :zone
   ].freeze
 
@@ -61,14 +69,19 @@ class CareHomeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :verified,
-    :qr_code,
-    :speciality,
+    :specializations,
     :phone,
     :zone,
-    :care_home_broadcast_group,
-    :sister_care_homes,
+    :hospital_broadcast_group,
+    :sister_hospitals,
     :address,
-    :town,
+    :city,
+    :num_of_beds, 
+    :specializations, 
+    :nurse_count,
+    :nurse_qualification_pct, 
+    :typical_workex, 
+    :owner_name,
     :postcode,
     :account_payment_terms,
     :vat_number,
@@ -86,7 +99,7 @@ class CareHomeDashboard < Administrate::BaseDashboard
     :lat,
     :lng,
     :users,
-    :care_home_carer_mappings,
+    :hospital_carer_mappings,
     :staffing_requests,
 
   ].freeze
@@ -96,17 +109,16 @@ class CareHomeDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :name,
-    :speciality,
+    :specializations,
     :phone,
-    :care_home_broadcast_group,
-    :sister_care_homes,
+    :hospital_broadcast_group,
+    :sister_hospitals,
     :address,
-    :town,
+    :city,
     :postcode,
     :image_url,
     :zone,
     :account_payment_terms,
-    :qr_code,
     :vat_number,
     :company_registration_number,
     :parking_available,
@@ -116,12 +128,16 @@ class CareHomeDashboard < Administrate::BaseDashboard
     :meals_subsidised,
     :dress_code,
     :po_req_for_invoice,
+    :num_of_beds,  
+    :nurse_count,
+    :typical_workex, 
+    :owner_name
   ].freeze
 
-  # Overwrite this method to customize how care_homes are displayed
+  # Overwrite this method to customize how hospitals are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(care_home)
-    "#{care_home.name} #{care_home.id}"
+  def display_resource(hospital)
+    "#{hospital.name} #{hospital.id}"
   end
 end

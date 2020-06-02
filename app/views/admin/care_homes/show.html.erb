@@ -32,11 +32,11 @@ as well as a link to its edit page.
 
     <%= link_to(
       "Add Carer", 
-      new_admin_care_home_carer_mapping_path(care_home_id: page.resource.id),
+      new_admin_hospital_carer_mapping_path(hospital_id: page.resource.id),
       class: "button",
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
 
-    <a class="button" href="/admin/payments_export/form?care_home_id=<%=page.resource.id%>"> Payment Export
+    <a class="button" href="/admin/payments_export/form?hospital_id=<%=page.resource.id%>"> Payment Export
     </a>
     
   </div>

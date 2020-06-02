@@ -9,7 +9,7 @@ module Admin
         search(Shift)
       else
         resources, search_term = setup_index(params)
-        resources = resources.includes(:user, :care_home)
+        resources = resources.includes(:user, :hospital)
 
         page = Administrate::Page::Collection.new(dashboard, order: order)
 

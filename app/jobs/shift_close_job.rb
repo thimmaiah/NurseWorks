@@ -10,7 +10,7 @@ class ShiftCloseJob < ApplicationJob
     Rate.price_actual(shift)
     shift.response_status = "Closed"
 
-    Rails.logger.info "ShiftCloseJob priced shift #{shift.id} @ #{shift.care_home_total_amount}"
+    Rails.logger.info "ShiftCloseJob priced shift #{shift.id} @ #{shift.hospital_total_amount}"
 
     # generate a payment record only if one does not exists - we dont want to generate 2 payments on manual close
     payment = shift.payment ? shift.payment : shift.create_payment

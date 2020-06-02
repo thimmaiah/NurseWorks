@@ -1,7 +1,7 @@
 <header class="main-content__header" role="banner">
   <h1 class="main-content__page-title" id="page-title">
 	Care Givers for Staffing Request <%= link_to @staffing_request.id, admin_staffing_request_path(@staffing_request) %>
-	From postcode <%= @staffing_request.care_home.postcode %>
+	From postcode <%= @staffing_request.hospital.postcode %>
   </h1>
 
 </header>

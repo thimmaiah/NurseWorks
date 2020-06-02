@@ -7,7 +7,7 @@ class ShiftsController < ApplicationController
   # GET /shifts
   def index
 
-    @shifts = Shift.where(care_home_id: current_user.care_home_ids) if current_user.care_home_id && !@shifts
+    @shifts = Shift.where(hospital_id: current_user.hospital_ids) if current_user.hospital_id && !@shifts
 
     if (params[:staffing_request_id].present?)
         @shifts = @shifts.where(staffing_request_id: params[:staffing_request_id])
@@ -21,7 +21,7 @@ class ShiftsController < ApplicationController
 
     @per_page = 100
     @shifts = @shifts.joins(:staffing_request).order("staffing_requests.start_date asc").page(@page).per(@per_page)
-    render json: @shifts.includes(:staffing_request, :care_home, :user=>:profile_pic), include: "user,care_home", each_serializer: ShiftMiniSerializer
+    render json: @shifts.includes(:staffing_request, :hospital, :user=>:profile_pic), include: "user,hospital", each_serializer: ShiftMiniSerializer
 
   end
 
@@ -78,13 +78,13 @@ class ShiftsController < ApplicationController
   def start_end_shift
     @shift = Shift.find(params[:id])
 
-    qr_code = params[:qr_code]
-    # Compare the qr code sent by the app to that in the care home db
-    if(@shift.accept_qr_code(qr_code, current_user))      
-      render json: @shift
-    else
-      render json: @shift.errors, status: :unprocessable_entity
-    end
+    # qr_code = params[:qr_code]
+    # # Compare the qr code sent by the app to that in the care home db
+    # if(@shift.accept_qr_code(qr_code, current_user))      
+    #   render json: @shift
+    # else
+    #   render json: @shift.errors, status: :unprocessable_entity
+    # end
     
   end
   
@@ -98,6 +98,6 @@ class ShiftsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def shift_params
       params.require(:shift).permit(:staffing_request_id, :user_id, :start_code, :reason,
-        :end_code, :response_status, :accepted, :rated, :care_home_id, :payment_status)
+        :end_code, :response_status, :accepted, :rated, :hospital_id, :payment_status)
     end
 end

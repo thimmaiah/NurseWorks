@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class CareHomeCarerMappingDashboard < Administrate::BaseDashboard
+class HospitalCarerMappingDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,7 +9,7 @@ class CareHomeCarerMappingDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    care_home: Field::BelongsToSearch,
+    hospital: Field::BelongsToSearch,
     user: Field::BelongsToSearch,
     enabled: Field::BooleanToYesNo,
     preferred: Field::BooleanToYesNo,
@@ -26,7 +26,7 @@ class CareHomeCarerMappingDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :care_home,
+    :hospital,
     :user,
     :distance,
     :enabled,
@@ -37,7 +37,7 @@ class CareHomeCarerMappingDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :care_home,
+    :hospital,
     :user,
     :preferred,
     :enabled,
@@ -51,7 +51,7 @@ class CareHomeCarerMappingDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :care_home,
+    :hospital,
     :user,
     :preferred,
     :enabled,
@@ -62,7 +62,7 @@ class CareHomeCarerMappingDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how care home carer mappings are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(care_home_carer_mapping)
-  #   "CareHomeCarerMapping ##{care_home_carer_mapping.id}"
+  # def display_resource(hospital_carer_mapping)
+  #   "HospitalCarerMapping ##{hospital_carer_mapping.id}"
   # end
 end

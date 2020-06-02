@@ -5,7 +5,7 @@ class Rating < ApplicationRecord
 
   belongs_to :shift
   belongs_to :rated_entity, polymorphic: true
-  belongs_to :care_home
+  belongs_to :hospital
   belongs_to :created_by, class_name: "User", foreign_key: :created_by_id
 
   after_create :add_entity_ratings
@@ -27,7 +27,7 @@ class Rating < ApplicationRecord
     if(rated_entity_type == "User")
       self.shift.rated = true
     else
-    	self.shift.care_home_rated = true
+    	self.shift.hospital_rated = true
     end
     self.shift.save
   end

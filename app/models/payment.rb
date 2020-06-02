@@ -4,7 +4,7 @@ class Payment < ApplicationRecord
 	after_save ThinkingSphinx::RealTime.callback_for(:payment)
 	
 	belongs_to :user
-	belongs_to :care_home
+	belongs_to :hospital
 	belongs_to :shift
 	belongs_to :staffing_request
 	belongs_to :paid_by, class_name: "User", foreign_key: :paid_by_id	
@@ -15,7 +15,7 @@ class Payment < ApplicationRecord
 	def update_payment_status
 		if(self.shift)
 			self.shift.payment_status = "Pending"
-			self.shift.care_home_payment_status = "Pending"
+			self.shift.hospital_payment_status = "Pending"
 			self.shift.save
 		end
 	end
@@ -23,7 +23,7 @@ class Payment < ApplicationRecord
 	def revert_payment_status
 		if(self.shift)
 			self.shift.payment_status = nil
-			self.shift.care_home_payment_status = nil
+			self.shift.hospital_payment_status = nil
 			self.shift.save
 		end
 	end

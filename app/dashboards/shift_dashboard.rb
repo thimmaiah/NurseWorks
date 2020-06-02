@@ -13,11 +13,11 @@ class ShiftDashboard < Administrate::BaseDashboard
       sort_by: 'start_date',
       direction: 'desc',
     ),
-    care_home: Field::BelongsToSearch,
+    hospital: Field::BelongsToSearch,
     payment: Field::HasOne,
     carer_base: Field::Number.with_options(decimals: 2),
-    care_home_total_amount: Field::Number.with_options(decimals: 2),
-    care_home_base: Field::Number.with_options(decimals: 2),
+    hospital_total_amount: Field::Number.with_options(decimals: 2),
+    hospital_base: Field::Number.with_options(decimals: 2),
     markup: Field::Number.with_options(decimals: 2),
     vat: Field::Number.with_options(decimals: 2),
     rating: Field::HasOne,
@@ -36,7 +36,7 @@ class ShiftDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     payment_status: Field::Select.with_options(collection: Shift::PAYMENT_STATUS),
-    care_home_payment_status: Field::Select.with_options(collection: Shift::PAYMENT_STATUS),
+    hospital_payment_status: Field::Select.with_options(collection: Shift::PAYMENT_STATUS),
     versions: VersionField,
     reason: Field::String
   }.freeze
@@ -49,14 +49,14 @@ class ShiftDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :user,
-    :care_home,
+    :hospital,
     :start_date,
     :end_date,
     :response_status,
     :manual_close,
     :preferred_care_giver_selected,
     :rated,
-    :care_home_total_amount
+    :hospital_total_amount
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -64,12 +64,12 @@ class ShiftDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :user,
     :staffing_request,
-    :care_home,
+    :hospital,
     :carer_break_mins,
     :payment,
-    :care_home_base,
+    :hospital_base,
     :vat,
-    :care_home_total_amount,
+    :hospital_total_amount,
     :markup,
     :carer_base,        
     :rating,
@@ -88,7 +88,7 @@ class ShiftDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :payment_status,
-    :care_home_payment_status,
+    :hospital_payment_status,
     :versions
   ].freeze
 

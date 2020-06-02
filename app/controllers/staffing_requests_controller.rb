@@ -5,18 +5,18 @@ class StaffingRequestsController < ApplicationController
   # GET /staffing_requests
   def index
     @per_page = 100
-    @staffing_requests = StaffingRequest.where(care_home_id: current_user.care_home_ids) if !@staffing_requests
+    @staffing_requests = StaffingRequest.where(hospital_id: current_user.hospital_ids) if !@staffing_requests
     if(params[:recurring_request_id].present?)
       @staffing_requests = @staffing_requests.where(recurring_request_id: params[:recurring_request_id])
     end
     @staffing_requests = @staffing_requests.open.order("staffing_requests.start_date asc").page(@page).per(@per_page)
-    #@staffing_requests = @staffing_requests.joins(:user, :care_home)
-    render json: @staffing_requests.includes(:care_home), include: "care_home", each_serializer: StaffingRequestMiniSerializer
+    #@staffing_requests = @staffing_requests.joins(:user, :hospital)
+    render json: @staffing_requests.includes(:hospital), include: "hospital", each_serializer: StaffingRequestMiniSerializer
   end
 
   def get_carers
     @staffing_request = StaffingRequest.new(staffing_request_params)
-    carers = @staffing_request.care_home.carers
+    carers = @staffing_request.hospital.carers
     render json: carers.where(role: @staffing_request.role, pause_shifts: false), each_serializer: UserMiniSerializer
   end
 
@@ -24,7 +24,7 @@ class StaffingRequestsController < ApplicationController
   def price
     @staffing_request = StaffingRequest.new(staffing_request_params)
     @staffing_request.user_id = current_user.id
-    @staffing_request.care_home_id = current_user.care_home_id
+    @staffing_request.hospital_id = current_user.hospital_id
     @staffing_request.created_at = Time.now if !@staffing_request.created_at
 
     Rate.price_estimate(@staffing_request)
@@ -34,7 +34,7 @@ class StaffingRequestsController < ApplicationController
 
   # GET /staffing_requests/1
   def show
-    render json: @staffing_request, include: "user,care_home,accepted_shift"
+    render json: @staffing_request, include: "user,hospital,accepted_shift"
   end
 
 
@@ -42,14 +42,14 @@ class StaffingRequestsController < ApplicationController
   def create
     @staffing_request = StaffingRequest.new(staffing_request_params)
     @staffing_request.user_id = current_user.id
-    @staffing_request.carer_break_mins = current_user.care_home.carer_break_mins if staffing_request_params["carer_break_mins"] == nil
+    @staffing_request.carer_break_mins = current_user.hospital.carer_break_mins if staffing_request_params["carer_break_mins"] == nil
 
     # Sometimes we get requests with care home - where 1 person manages multiple care homes
-    if(@staffing_request.care_home_id)
+    if(@staffing_request.hospital_id)
       # Make sure we can book a req for this care home, if its not a sister care home - deny access
-      raise CanCan::AccessDenied unless current_user.belongs_to_care_home(@staffing_request.care_home_id)
+      raise CanCan::AccessDenied unless current_user.belongs_to_hospital(@staffing_request.hospital_id)
     else
-      @staffing_request.care_home_id = current_user.care_home_id
+      @staffing_request.hospital_id = current_user.hospital_id
     end
 
     if @staffing_request.save
@@ -89,7 +89,7 @@ class StaffingRequestsController < ApplicationController
     params[:staffing_request][:start_date] = start_date
     params[:staffing_request][:end_date] = end_date
 
-    params.require(:staffing_request).permit(:care_home_id, :user_id, :start_date, :manual_assignment_flag, :notes,
+    params.require(:staffing_request).permit(:hospital_id, :user_id, :start_date, :manual_assignment_flag, :notes,
                                              :end_date, :rate_per_hour, :request_status, :auto_deny_in, :response_count,
                                              :payment_status, :start_code, :end_code, :price, :role, :speciality, :reason, 
                                              :preferred_carer_id, :po_for_invoice,

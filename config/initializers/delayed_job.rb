@@ -8,23 +8,23 @@ Delayed::Worker.raise_signal_exceptions = :term
 Delayed::Worker.logger = Logger.new(File.join(Rails.root, 'log', 'delayed_job.log'))
 
 # Chain delayed job's handle_failed_job method to do exception notification
-Delayed::Worker.class_eval do
-  def handle_failed_job_with_notification(job, error)
-    handle_failed_job_without_notification(job, error)
-    # rescue if ExceptionNotifier fails for some reason
-    begin
-      Rails.logger.debug "DelayedJob JobId #{job.id}, attempts = #{job.attempts}"
-      ExceptionNotifier.notify_exception(error)  if job.attempts == Delayed::Worker.max_attempts
-    rescue Exception => e
-      Rails.logger.error "ExceptionNotifier failed: #{e.class.name}: #{e.message}"
-      e.backtrace.each do |f|
-        Rails.logger.error "  #{f}"
-      end
-      Rails.logger.flush
-    end
-  end
-  alias_method_chain :handle_failed_job, :notification
-end
+# Delayed::Worker.class_eval do
+#   def handle_failed_job_with_notification(job, error)
+#     handle_failed_job_without_notification(job, error)
+#     # rescue if ExceptionNotifier fails for some reason
+#     begin
+#       Rails.logger.debug "DelayedJob JobId #{job.id}, attempts = #{job.attempts}"
+#       ExceptionNotifier.notify_exception(error)  if job.attempts == Delayed::Worker.max_attempts
+#     rescue Exception => e
+#       Rails.logger.error "ExceptionNotifier failed: #{e.class.name}: #{e.message}"
+#       e.backtrace.each do |f|
+#         Rails.logger.error "  #{f}"
+#       end
+#       Rails.logger.flush
+#     end
+#   end
+#   alias_method_chain :handle_failed_job, :notification
+# end
 
 
 unless Rails.env.development?

@@ -38,7 +38,7 @@
 	      Verified Care Homes 
 	    </td>
 	    <td>
-	      <%= CareHome.verified.count %>
+	      <%= Hospital.verified.count %>
 	    </td>
 	  </tr>
 
@@ -104,10 +104,10 @@
 	      Care Home Count
 	    </td>
 	    <td>
-	      Verified: <%= CareHome.verified.count %>, </br>
-	      UnVerified: <%= CareHome.unverified.count %>, </br>
-	      Signed Up Last Week: <%= CareHome.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %>, </br>
-	      Signed Up Last Week & Verified: <%= CareHome.verified.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %> </br>
+	      Verified: <%= Hospital.verified.count %>, </br>
+	      UnVerified: <%= Hospital.unverified.count %>, </br>
+	      Signed Up Last Week: <%= Hospital.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %>, </br>
+	      Signed Up Last Week & Verified: <%= Hospital.verified.where("created_at >=? and created_at <=?", Date.today - 7.days, Date.today).count %> </br>
 	    </td>
 	  </tr>
 		
@@ -116,7 +116,7 @@
 	      Avg # of Requests / Care Home
 	    </td>
 	    <td>
-	      <%= StaffingRequest.not_cancelled.count / CareHome.verified.count %> </br>
+	      <%= StaffingRequest.not_cancelled.count / Hospital.verified.count %> </br>
 	    </td>
 	  </tr>
 
@@ -125,7 +125,7 @@
 	      Billing Last 7 days
 	    </td>
 	    <td>
-	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:care_home_base).round(2) %> </br>
+	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:hospital_base).round(2) %> </br>
 	      To Carers: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:carer_base).round(2) %> </br>
 	    </td>
 	  </tr>	  
@@ -135,7 +135,7 @@
 	      Billing Last 30 days
 	    </td>
 	    <td>
-	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:care_home_base).round(2) %> </br>
+	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:hospital_base).round(2) %> </br>
 	      To Carers: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:carer_base).round(2) %> </br>
 	    </td>
 	  </tr>
@@ -143,21 +143,21 @@
 	  <tr style="background-color:#dddddd;">  
 	    <td colspan=2>
 	      Care Home Requests Count</br>
-	      <%= raw ap StaffingRequest.joins(:care_home).not_cancelled.group(:name).count %>
+	      <%= raw ap StaffingRequest.joins(:hospital).not_cancelled.group(:name).count %>
 	    </td>
 	  </tr>
 
 	  <tr>  
 	    <td colspan=2>
 	      Care Home Requests Count - last 2 weeks</br>
-	      <%= raw ap StaffingRequest.joins(:care_home).not_cancelled.where("staffing_requests.created_at >= ?", Date.today - 2.weeks).group(:name).count %>
+	      <%= raw ap StaffingRequest.joins(:hospital).not_cancelled.where("staffing_requests.created_at >= ?", Date.today - 2.weeks).group(:name).count %>
 	    </td>
 	  </tr>
 
 	  <tr style="background-color:#dddddd;">  
 	    <td colspan=2>
 	      Care Home Requests Count - last 1 weeks</br>
-	      <%= raw ap StaffingRequest.joins(:care_home).not_cancelled.where("staffing_requests.created_at >= ?", Date.today - 1.week).group(:name).count %>
+	      <%= raw ap StaffingRequest.joins(:hospital).not_cancelled.where("staffing_requests.created_at >= ?", Date.today - 1.week).group(:name).count %>
 	    </td>
 	  </tr>
 	  

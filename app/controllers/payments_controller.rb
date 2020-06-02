@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
   # GET /payments
   def index
     @payments = @payments.page(@page).per(@per_page)    
-    render json: @payments.includes(:user, :care_home, :staffing_request), include: "user,care_home"
+    render json: @payments.includes(:user, :hospital, :staffing_request), include: "user,hospital"
   end
 
   # GET /payments/1
@@ -17,7 +17,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     @payment.paid_by_id = current_user.id
-    @payment.care_home_id = current_user.care_home_id
+    @payment.hospital_id = current_user.hospital_id
     
     if @payment.save
       render json: @payment, status: :created, location: @payment
@@ -48,6 +48,6 @@ class PaymentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def payment_params
-      params.require(:payment).permit(:shift_id, :staffing_request_id, :user_id, :care_home_id, :paid_by_id, :amount, :notes)
+      params.require(:payment).permit(:shift_id, :staffing_request_id, :user_id, :hospital_id, :paid_by_id, :amount, :notes)
     end
 end

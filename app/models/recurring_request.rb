@@ -1,9 +1,9 @@
 class RecurringRequest < ApplicationRecord
 
 
-	validates_presence_of :user_id, :care_home_id
+	validates_presence_of :user_id, :hospital_id
 	
-	belongs_to :care_home
+	belongs_to :hospital
 	belongs_to :user
 	belongs_to :preferred_carer, class_name: "User"
 	has_many :staffing_requests
@@ -64,7 +64,7 @@ class RecurringRequest < ApplicationRecord
 			return false
 		else
        
-	        req = StaffingRequest.new(care_home_id: self.care_home_id, user_id: self.user_id, 
+	        req = StaffingRequest.new(hospital_id: self.hospital_id, user_id: self.user_id, 
 	                                  role: self.role, speciality: self.speciality,
 	                                  start_date: start_date, end_date: end_date,
 	                                  preferred_carer_id: self.preferred_carer_id,

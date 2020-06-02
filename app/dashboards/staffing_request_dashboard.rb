@@ -8,7 +8,7 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    care_home: Field::BelongsToSearch,
+    hospital: Field::BelongsToSearch,
     recurring_request: Field::BelongsTo,
     manual_assignment_flag: Field::BooleanToYesNo,
     user: Field::BelongsToSearch,
@@ -21,15 +21,15 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
     payment: Field::HasOne,
     id: Field::Number,
     carer_break_mins: Field::Number,
-    care_home_id: Field::Number,
+    hospital_id: Field::Number,
     user_id: Field::Number,
     preferred_carer_id: Field::Number,
     start_date: Field::DateTime,
     end_date: Field::DateTime,
     role: Field::Select.with_options(collection: User::ROLE), 
     speciality: Field::Select.with_options(collection: User::SPECIALITY),
-    care_home_base: Field::Number.with_options(decimals: 2),
-    care_home_total_amount: Field::Number.with_options(decimals: 2),
+    hospital_base: Field::Number.with_options(decimals: 2),
+    hospital_total_amount: Field::Number.with_options(decimals: 2),
     vat: Field::Number.with_options(decimals: 2),
     pricing_audit: HashField, 
     select_user_audit: HashField, 
@@ -54,11 +54,11 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :care_home,
+    :hospital,
     :user,
     :start_date,
     :end_date,
-    :care_home_total_amount,
+    :hospital_total_amount,
     :manual_assignment_flag,
     :request_status,
     :shift_status,
@@ -69,7 +69,7 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :care_home,
+    :hospital,
     :carer_break_mins,
     :manual_assignment_flag,
     :user,
@@ -84,8 +84,8 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
     :po_for_invoice,
     :notes,
     :reason,
-    :care_home_total_amount,
-    :care_home_base,
+    :hospital_total_amount,
+    :hospital_base,
     :vat,    
     :request_status,
     :auto_deny_in,
@@ -113,7 +113,7 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
     :carer_break_mins,
     :request_status,
     :po_for_invoice,
-    :care_home,
+    :hospital,
     :user,
     :start_code,
     :end_code,

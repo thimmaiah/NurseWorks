@@ -2,7 +2,7 @@
 
 	<tr>
 		<td>Care Home</td>
-		<td><%= @staffing_request.care_home.name %></td>
+		<td><%= @staffing_request.hospital.name %></td>
 	</tr>
 
 	<tr>
@@ -32,9 +32,9 @@
 	<tr>
 		<td>Address</td>
 		<td>
-			<%= @staffing_request.care_home.address %>, 
-			<%= @staffing_request.care_home.town %>,
-			<%= @staffing_request.care_home.postcode %>	
+			<%= @staffing_request.hospital.address %>, 
+			<%= @staffing_request.hospital.town %>,
+			<%= @staffing_request.hospital.postcode %>	
 		</td>
 	</tr>
 

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if current_user.is_temp?
       resp["pending"] = current_user.shifts.pending.count
       resp["accepted"] = current_user.shifts.accepted.count
-    elsif current_user.is_admin? && current_user.care_home
+    elsif current_user.is_admin? && current_user.hospital
     end
 
     render json: resp
@@ -134,8 +134,8 @@ class UsersController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :role, :nurse_type,
-                                 :sex, :title, :phone, :postcode, :languages, :pref_commute_distance, :speciality, :experience,
-                                 :referal_code, :accept_terms, :care_home_id, :image_url, :verified,
+                                 :sex, :title, :phone, :postcode, :languages, :pref_commute_distance, specializations: [], :experience,
+                                 :referal_code, :accept_terms, :hospital_id, :image_url, :verified,
                                  :active, :sort_code, :bank_account, :push_token, :medical_info,
                                  :accept_bank_transactions, :work_weekdays, :work_weeknights, :work_weekends, :work_weekend_nights, :pause_shifts)
   end

@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20191011113134) do
 
   
-  create_table "care_home_carer_mappings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "care_home_id"
+  create_table "hospital_carer_mappings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "hospital_id"
     t.integer  "user_id"
     t.boolean  "enabled"
     t.float    "distance",         limit: 24
@@ -22,16 +22,15 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "preferred"
-    t.index ["care_home_id"], name: "index_care_home_carer_mappings_on_care_home_id", using: :btree
-    t.index ["user_id"], name: "index_care_home_carer_mappings_on_user_id", using: :btree
+    t.index ["hospital_id"], name: "index_hospital_carer_mappings_on_hospital_id", using: :btree
+    t.index ["user_id"], name: "index_hospital_carer_mappings_on_user_id", using: :btree
   end
 
-  create_table "care_homes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "hospitals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "town",                          limit: 100
+    t.string   "city",                          limit: 100
     t.string   "postcode",                      limit: 8
-    t.float    "base_rate",                     limit: 24
     t.datetime "created_at",                                                                        null: false
     t.datetime "updated_at",                                                                        null: false
     t.text     "image_url",                     limit: 65535
@@ -40,18 +39,19 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.datetime "deleted_at"
     t.boolean  "verified"
     t.string   "zone",                          limit: 10
-    t.string   "cqc_location",                  limit: 50
+    t.string  "num_of_beds",                    limit: 20
+    t.text   "specializations"               
+    t.string   "nurse_count",                   limit: 255
+    t.text   "nurse_qualification_pct"       
+    t.string   "typical_workex",                limit: 20
+    t.string   "owner_name",                    limit: 255
     t.integer  "total_rating"
     t.integer  "rating_count"
     t.string   "bank_account",                  limit: 8
     t.string   "sort_code",                     limit: 6
-    t.boolean  "accept_bank_transactions"
-    t.datetime "accept_bank_transactions_date"
     t.string   "phone",                         limit: 12
-    t.string   "speciality",                    limit: 100
-    t.string   "care_home_broadcast_group"
-    t.string   "sister_care_homes",             limit: 30
-    t.string   "qr_code",                       limit: 10
+    t.string   "hospital_broadcast_group"
+    t.string   "sister_hospitals",             limit: 30
     t.string   "icon_url"
     t.integer  "carer_break_mins",                                                      default: 0
     t.string   "vat_number",                    limit: 50
@@ -65,8 +65,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.boolean  "po_req_for_invoice"
     t.boolean  "manual_assignment_flag"
     t.string   "account_payment_terms",         limit: 20
-    t.index ["cqc_location"], name: "index_care_homes_on_cqc_location", using: :btree
-    t.index ["deleted_at"], name: "index_care_homes_on_deleted_at", using: :btree
+    t.index ["deleted_at"], name: "index_hospitals_on_deleted_at", using: :btree
   end
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -131,7 +130,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "shift_id"
     t.integer  "user_id"
-    t.integer  "care_home_id"
+    t.integer  "hospital_id"
     t.integer  "paid_by_id"
     t.float    "amount",              limit: 24
     t.text     "notes",               limit: 65535
@@ -143,7 +142,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.float    "vat",                 limit: 24
     t.float    "markup",              limit: 24
     t.float    "care_giver_amount",   limit: 24
-    t.index ["care_home_id"], name: "index_payments_on_care_home_id", using: :btree
+    t.index ["hospital_id"], name: "index_payments_on_hospital_id", using: :btree
     t.index ["deleted_at"], name: "index_payments_on_deleted_at", using: :btree
     t.index ["shift_id"], name: "index_payments_on_shift_id", using: :btree
     t.index ["staffing_request_id"], name: "index_payments_on_staffing_request_id", using: :btree
@@ -201,17 +200,17 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.float    "carer_weekday",           limit: 24
-    t.float    "care_home_weekday",       limit: 24
+    t.float    "hospital_weekday",       limit: 24
     t.float    "carer_weeknight",         limit: 24
-    t.float    "care_home_weeknight",     limit: 24
+    t.float    "hospital_weeknight",     limit: 24
     t.float    "carer_weekend",           limit: 24
-    t.float    "care_home_weekend",       limit: 24
+    t.float    "hospital_weekend",       limit: 24
     t.float    "carer_weekend_night",     limit: 24
-    t.float    "care_home_weekend_night", limit: 24
+    t.float    "hospital_weekend_night", limit: 24
     t.float    "carer_bank_holiday",      limit: 24
-    t.float    "care_home_bank_holiday",  limit: 24
-    t.integer  "care_home_id"
-    t.index ["care_home_id"], name: "index_rates_on_care_home_id", using: :btree
+    t.float    "hospital_bank_holiday",  limit: 24
+    t.integer  "hospital_id"
+    t.index ["hospital_id"], name: "index_rates_on_hospital_id", using: :btree
   end
 
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -221,7 +220,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "created_by_id"
-    t.integer  "care_home_id"
+    t.integer  "hospital_id"
     t.datetime "deleted_at"
     t.integer  "rated_entity_id"
     t.string   "rated_entity_type", limit: 20
@@ -234,7 +233,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
   end
 
   create_table "recurring_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "care_home_id"
+    t.integer  "hospital_id"
     t.integer  "user_id"
     t.datetime "start_date"
     t.datetime "end_date"
@@ -253,7 +252,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.text     "notes",                limit: 65535
     t.string   "po_for_invoice",       limit: 30
     
-    t.index ["care_home_id"], name: "index_recurring_requests_on_care_home_id", using: :btree
+    t.index ["hospital_id"], name: "index_recurring_requests_on_hospital_id", using: :btree
     t.index ["end_on"], name: "index_recurring_requests_on_end_on", using: :btree
     t.index ["next_generation_date"], name: "index_recurring_requests_on_next_generation_date", using: :btree
     t.index ["start_on"], name: "index_recurring_requests_on_start_on", using: :btree
@@ -301,7 +300,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.boolean  "rated"
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
-    t.integer  "care_home_id"
+    t.integer  "hospital_id"
     t.string   "payment_status",                limit: 10
     t.datetime "deleted_at"
     t.datetime "start_date"
@@ -314,12 +313,12 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.integer  "confirmed_count"
     t.date     "confirmed_at"
     t.boolean  "viewed"
-    t.boolean  "care_home_rated"
-    t.string   "care_home_payment_status",      limit: 10
+    t.boolean  "hospital_rated"
+    t.string   "hospital_payment_status",      limit: 10
     t.float    "markup",                        limit: 24
-    t.float    "care_home_total_amount",        limit: 24
+    t.float    "hospital_total_amount",        limit: 24
     t.float    "vat",                           limit: 24
-    t.float    "care_home_base",                limit: 24
+    t.float    "hospital_base",                limit: 24
     t.integer  "day_mins_worked"
     t.integer  "night_mins_worked"
     t.integer  "total_mins_worked"
@@ -330,14 +329,14 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.string   "reason"
     t.integer  "carer_break_mins",                            default: 0
     t.boolean  "manual_assignment"
-    t.index ["care_home_id"], name: "index_shifts_on_care_home_id", using: :btree
+    t.index ["hospital_id"], name: "index_shifts_on_hospital_id", using: :btree
     t.index ["deleted_at"], name: "index_shifts_on_deleted_at", using: :btree
     t.index ["staffing_request_id"], name: "index_shifts_on_staffing_request_id", using: :btree
     t.index ["user_id"], name: "index_shifts_on_user_id", using: :btree
   end
 
   create_table "staffing_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "care_home_id"
+    t.integer  "hospital_id"
     t.integer  "user_id"
     t.datetime "start_date"
     t.datetime "end_date"
@@ -355,10 +354,10 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.string   "role",                   limit: 20
     t.string   "speciality",             limit: 100
     t.text     "pricing_audit",          limit: 65535
-    t.float    "care_home_base",         limit: 24
+    t.float    "hospital_base",         limit: 24
     t.string   "shift_status"
     t.float    "vat",                    limit: 24
-    t.float    "care_home_total_amount", limit: 24
+    t.float    "hospital_total_amount", limit: 24
     t.boolean  "manual_assignment_flag"
     t.float    "carer_base",             limit: 24
     t.text     "select_user_audit",      limit: 65535
@@ -369,41 +368,13 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.string   "reason"
     t.integer  "carer_break_mins",                     default: 0
     t.string   "po_for_invoice",         limit: 30
-    t.index ["care_home_id"], name: "index_staffing_requests_on_care_home_id", using: :btree
+    t.index ["hospital_id"], name: "index_staffing_requests_on_hospital_id", using: :btree
     t.index ["deleted_at"], name: "index_staffing_requests_on_deleted_at", using: :btree
     t.index ["recurring_request_id"], name: "index_staffing_requests_on_recurring_request_id", using: :btree
     t.index ["user_id"], name: "index_staffing_requests_on_user_id", using: :btree
   end
 
-  create_table "staffing_responses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "staffing_request_id"
-    t.integer  "user_id"
-    t.string   "start_code",          limit: 10
-    t.string   "end_code",            limit: 10
-    t.string   "response_status",     limit: 20
-    t.boolean  "accepted"
-    t.boolean  "rated"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "care_home_id"
-    t.string   "payment_status",      limit: 10
-    t.datetime "deleted_at"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.float    "price",               limit: 24
-    t.text     "pricing_audit",       limit: 65535
-    t.integer  "confirm_sent_count"
-    t.date     "confirm_sent_at"
-    t.string   "confirmed_status",    limit: 20
-    t.integer  "confirmed_count"
-    t.date     "confirmed_at"
-    t.boolean  "viewed"
-    t.index ["care_home_id"], name: "index_staffing_responses_on_care_home_id", using: :btree
-    t.index ["deleted_at"], name: "index_staffing_responses_on_deleted_at", using: :btree
-    t.index ["staffing_request_id"], name: "index_staffing_responses_on_staffing_request_id", using: :btree
-    t.index ["user_id"], name: "index_staffing_responses_on_user_id", using: :btree
-  end
-
+  
   create_table "stats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name",        limit: 100
     t.string   "description"
@@ -475,6 +446,11 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.string   "email"
     t.string   "role",                          limit: 20
     t.string   "nurse_type",                    limit: 20
+    t.integer  "age"
+    t.integer  "years_of_exp"
+    t.integer  "months_of_exp"
+    t.string   "key_qualifications",            limit: 255
+    t.boolean  "locum",                         default: false    
     t.text     "tokens",                        limit: 65535
     t.datetime "created_at",                                                                              null: false
     t.datetime "updated_at",                                                                              null: false
@@ -483,16 +459,19 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.text     "address",                       limit: 65535
     t.string   "languages"
     t.integer  "pref_commute_distance"
+    t.string   "conveyence",                    limit: 255               
     t.string   "occupation",                    limit: 20
-    t.string   "speciality",                    limit: 100
-    t.integer  "experience"
+    t.text   "specializations"
     t.string   "referal_code",                  limit: 10
     t.boolean  "accept_terms"
-    t.integer  "care_home_id"
+    t.integer  "hospital_id"
     t.boolean  "active"
     t.text     "image_url",                     limit: 65535
     t.string   "sort_code",                     limit: 6
     t.string   "bank_account",                  limit: 8
+    t.string   "bhim",                          limit: 255
+    t.string   "payTM",                         limit: 255
+    t.string   "googlePay",                     limit: 255
     t.boolean  "verified"
     t.datetime "auto_selected_date"
     t.decimal  "lat",                                         precision: 18, scale: 15
@@ -519,13 +498,14 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.boolean  "work_weeknights"
     t.boolean  "work_weekends"
     t.boolean  "work_weekend_nights"
+    t.string    "work_shift_time"
     t.boolean  "pause_shifts"
     t.boolean  "delete_requested"
     t.text     "medical_info",                  limit: 65535
     t.string   "password_reset_code",           limit: 10
     t.date     "password_reset_date"
     t.boolean  "scrambled",                                                             default: false
-    t.index ["care_home_id"], name: "index_users_on_care_home_id", using: :btree
+    t.index ["hospital_id"], name: "index_users_on_hospital_id", using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

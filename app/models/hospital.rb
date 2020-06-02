@@ -1,15 +1,17 @@
-class CareHome < ApplicationRecord
+class Hospital < ApplicationRecord
 
   acts_as_paranoid
-  after_save ThinkingSphinx::RealTime.callback_for(:care_home)
+  after_save ThinkingSphinx::RealTime.callback_for(:hospital)
 
   has_many :users
   has_many :staffing_requests
-  has_many :care_home_carer_mappings
-  has_many :carers, :through => :care_home_carer_mappings, source: :user
+  has_many :hospital_carer_mappings
+  has_many :carers, :through => :hospital_carer_mappings, source: :user
 
-  validates_presence_of :name, :postcode
+  validates_presence_of :name, :postcode, :num_of_beds, :nurse_count
   validates_presence_of :zone, if: :verified
+  serialize :specializations, Array
+  serialize :nurse_qualification_pct, Hash
 
   has_many :ratings, as: :rated_entity
 
@@ -41,6 +43,8 @@ class CareHome < ApplicationRecord
     self.rating_count = 0
     # Remove all whitespace from the phone
     self.phone = self.phone.gsub(/\s+/, "") 
+    self.specializations = [] if self.specializations == nil
+    self.nurse_qualification_pct = {} if self.nurse_qualification_pct == nil
   end
 
   after_save :update_coordinates
@@ -51,13 +55,6 @@ class CareHome < ApplicationRecord
   end
 
 
-  before_save :check_accept_bank_transactions
-  def check_accept_bank_transactions
-    if(self.accept_bank_transactions && self.accept_bank_transactions_changed?)
-      self.accept_bank_transactions_date = Time.now
-    end
-  end
-
   # for testing only in factories - do not use in prod
   def postcodelatlng=(postcodelatlng)
     self.postcode = postcodelatlng.postcode
@@ -65,17 +62,11 @@ class CareHome < ApplicationRecord
     self.lng = postcodelatlng.longitude
   end
 
-  def new_qr_code
-    self.qr_code = rand(7 ** 7)
-    self.save
-    UserNotifierMailer.care_home_qr_code(self).deliver_later
-  end
-
 
   def emails
     list = self.users.collect(&:email).join(",")
-    if(self.care_home_broadcast_group)
-      list += "," + self.care_home_broadcast_group
+    if(self.hospital_broadcast_group)
+      list += "," + self.hospital_broadcast_group
     end
     list
   end

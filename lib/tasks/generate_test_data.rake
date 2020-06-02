@@ -7,11 +7,11 @@ namespace :nurse_works do
 
   desc "Cleans p DB - DELETES everything -  watch out"
   task :emptyDB => :environment do
-    CareHomeCarerMapping.delete_all
+    HospitalCarerMapping.delete_all
     User.delete_all
     Profile.delete_all
     Training.delete_all
-    CareHome.delete_all
+    Hospital.delete_all
     Delayed::Job.delete_all
     StaffingRequest.delete_all
     Shift.delete_all
@@ -23,23 +23,22 @@ namespace :nurse_works do
   end
 
 
-  desc "generates fake CareHomes for testing"
-  task :generateFakeCareHomes => :environment do
+  desc "generates fake Hospitals for testing"
+  task :generateFakeHospitals => :environment do
 
 
     begin
 
       User::SPECIALITY.each do |sp|
       (1..2).each do | i |
-          h = FactoryGirl.build(:care_home)
+          h = FactoryGirl.build(:hospital)
           h.created_at = Date.today - rand(4).weeks - rand(7).days
-          h.speciality = sp
-          h.qr_code = rand(2**2) if rand(10) > 5
+          h.specializations = [sp]
           h.save
 
           h.reload
-          #puts u.to_xml(:include => :care_home_industry_mappings)
-          puts "CareHome #{h.id}"
+          #puts u.to_xml(:include => :hospital_industry_mappings)
+          puts "Hospital #{h.id}"
         end
       end
     rescue Exception => exception
@@ -69,7 +68,7 @@ namespace :nurse_works do
               "http://howtobecomeanurse.yolasite.com/resources/male-nurse1.jpg"]
     begin
 
-      care_homes = CareHome.all
+      hospitals = Hospital.all
 
       i = 1
       ["Care Giver", "Nurse"].each do |role|
@@ -82,7 +81,7 @@ namespace :nurse_works do
             u.email = "user#{i}@gmail.com"
             u.password = "user#{i}@gmail.com"
             u.role = role
-            u.speciality = sp
+            u.specializations = [sp]
             u.image_url = images[rand(images.length)]
             u.created_at = Date.today - rand(4).weeks - rand(7).days
             u.save!
@@ -109,14 +108,14 @@ namespace :nurse_works do
 
       
       i = 1
-      care_homes.each do |c|
+      hospitals.each do |c|
         count = 1
         (0..1).each do |j|
           u = FactoryGirl.build(:user)
           u.email = "admin#{i}@gmail.com"
           u.password = "admin#{i}@gmail.com"
           u.role = "Admin"
-          u.care_home_id = c.id
+          u.hospital_id = c.id
           u.created_at = Date.today - rand(4).weeks - rand(7).days
           u.save
           #puts u.to_xml
@@ -125,7 +124,7 @@ namespace :nurse_works do
         end
 
         (0..3).each do |j|
-          CareHomeCarerMapping.create(care_home_id: c.id, user_id: User.temps.shuffle.first.id, 
+          HospitalCarerMapping.create(hospital_id: c.id, user_id: User.temps.shuffle.first.id, 
               enabled:true, preferred: rand(0..1))
         end
       end
@@ -146,7 +145,7 @@ namespace :nurse_works do
       u.email = "employee@ubernurse.com"
       u.password = u.email
       u.role = "Employee"
-      u.care_home = CareHome.first
+      u.hospital = Hospital.first
       u.save
       #puts u.to_xml
       puts "#{u.role} #{u.id}"
@@ -189,14 +188,14 @@ namespace :nurse_works do
 
     begin
 
-      care_homes = CareHome.all
+      hospitals = Hospital.all
 
-      care_homes.each do |c|
+      hospitals.each do |c|
         count = rand(3) + 1
         (1..count).each do |j|
           u = FactoryGirl.build(:staffing_request)
           u.created_at = Date.today - rand(4).weeks - rand(7).days
-          u.care_home = c
+          u.hospital = c
           u.carer_break_mins = c.carer_break_mins
           u.request_status = rand(10) > 2 ? "Approved" : "Rejected"
           u.user = c.users[0]
@@ -227,7 +226,7 @@ namespace :nurse_works do
         (1..count).each do |j|
           u = FactoryGirl.build(:shift)
           u.staffing_request = req
-          u.care_home_id = req.care_home_id
+          u.hospital_id = req.hospital_id
           u.carer_break_mins = req.carer_break_mins
           
           u.user = care_givers[rand(care_givers.length)]
@@ -268,9 +267,9 @@ namespace :nurse_works do
         u = FactoryGirl.build(:payment)
         u.shift = resp
         u.staffing_request_id = resp.staffing_request_id
-        u.care_home_id = resp.care_home_id
+        u.hospital_id = resp.hospital_id
         u.user_id = resp.user_id
-        u.paid_by_id = resp.care_home.users.first
+        u.paid_by_id = resp.hospital.users.first
         if rand(2) > 0
           u.save # Generate payments only for some accepted responses
         end
@@ -298,16 +297,16 @@ namespace :nurse_works do
         u.shift = resp
         u.rated_entity = resp.user
         u.created_by_id = resp.staffing_request.user_id
-        u.care_home_id = resp.staffing_request.care_home_id
+        u.hospital_id = resp.staffing_request.hospital_id
         u.save # Generate payments only for some accepted responses
         #puts u.to_xml
         puts "Rating #{u.id}"
 
         u = FactoryGirl.build(:rating)
         u.shift = resp
-        u.rated_entity = resp.care_home
+        u.rated_entity = resp.hospital
         u.created_by_id = resp.user_id
-        u.care_home_id = resp.staffing_request.care_home_id
+        u.hospital_id = resp.staffing_request.hospital_id
         
         u.save # Generate payments only for some accepted responses
         #puts u.to_xml
@@ -354,13 +353,13 @@ namespace :nurse_works do
   end
 
   desc "Generating all Fake Data"
-  task :generateFakeAll => [:emptyDB, :generateFakePostCodes, :generateFakeRates, :generateFakeCareHomes, :generateFakeUsers,
+  task :generateFakeAll => [:emptyDB, :generateFakePostCodes, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers,
   :generateFakeAdmin, :generateFakeReq, :generateFakeResp, 
   :generateFakeRatings, :finalize] do
     puts "Generating all Fake Data"
   end
 
-  task :generateLoadTestData => [:emptyDB, :generateFakePostCodes, :generateFakeRates, :generateFakeCareHomes, :generateFakeUsers, :finalize] do
+  task :generateLoadTestData => [:emptyDB, :generateFakePostCodes, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers, :finalize] do
     puts "Generating all Fake Data"
   end
 

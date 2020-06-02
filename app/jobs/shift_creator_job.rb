@@ -128,7 +128,7 @@ class ShiftCreatorJob < ApplicationJob
 
   def pref_commute_ok?(user, staffing_request)
     begin
-      travel_distance = user.distance_from(staffing_request.care_home)
+      travel_distance = user.distance_from(staffing_request.hospital)
       diff = (travel_distance - user.pref_commute_distance).round(1)
       ok = user.pref_commute_distance > travel_distance
       return ok, diff
@@ -193,18 +193,18 @@ class ShiftCreatorJob < ApplicationJob
 
     staffing_request.select_user_audit = {}
     # Check if the care home has preferred care givers
-    care_home_carer_mappings = staffing_request.care_home.care_home_carer_mappings.enabled
+    hospital_carer_mappings = staffing_request.hospital.hospital_carer_mappings.enabled
     if staffing_request.preferred_carer_id
       # Sometimes we need to route the request to a specific carer first
-      care_home_carer_mappings = care_home_carer_mappings.where(user_id: staffing_request.preferred_carer_id)   
+      hospital_carer_mappings = hospital_carer_mappings.where(user_id: staffing_request.preferred_carer_id)   
     else
       # Randomize the list so we get even distribution across carers - but first try the preferred careres
-      care_home_carer_mappings = care_home_carer_mappings.shuffle.sort_by{|ccm| ccm.preferred ? 0 : 1}
+      hospital_carer_mappings = hospital_carer_mappings.shuffle.sort_by{|ccm| ccm.preferred ? 0 : 1}
     end
     
-    if(care_home_carer_mappings)      
+    if(hospital_carer_mappings)      
       # Check if any of the pref_care_givers can be assigned to the shift
-      care_home_carer_mappings.each do |ccm|
+      hospital_carer_mappings.each do |ccm|
         user = ccm.user
         if (ccm.preferred || !staffing_request.limit_shift_to_pref_carer)
             assign = assign_user_to_shift?(staffing_request, user) 

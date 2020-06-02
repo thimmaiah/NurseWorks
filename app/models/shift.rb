@@ -12,11 +12,11 @@ class Shift < ApplicationRecord
   PAYMENT_STATUS = ["UnPaid", "Pending", "Paid"]
   CONFIRMATION_STATUS = ["Pending", "Confirmed"]
 
-  validates_presence_of :care_home_id, :user_id, :staffing_request_id
+  validates_presence_of :hospital_id, :user_id, :staffing_request_id
 
   belongs_to :user
   belongs_to :staffing_request
-  belongs_to :care_home
+  belongs_to :hospital
   has_one :payment
   has_many :ratings
 
@@ -72,7 +72,7 @@ class Shift < ApplicationRecord
       # Create the shift
       shift = Shift.new(staffing_request_id: staffing_request.id,
                         user_id: selected_user.id,
-                        care_home_id: staffing_request.care_home_id,
+                        hospital_id: staffing_request.hospital_id,
                         carer_break_mins: staffing_request.carer_break_mins,
                         response_status: "Pending",
                         preferred_care_giver_selected: preferred_care_giver_selected,
@@ -257,8 +257,8 @@ class Shift < ApplicationRecord
 
   def create_payment
     Payment.new(shift_id: self.id, user_id: self.user_id, 
-      care_home_id: self.care_home_id, paid_by_id: self.staffing_request.user_id,
-      billing: self.care_home_base, amount: self.care_home_total_amount, 
+      hospital_id: self.hospital_id, paid_by_id: self.staffing_request.user_id,
+      billing: self.hospital_base, amount: self.hospital_total_amount, 
       vat: self.vat, markup: self.markup, care_giver_amount: self.carer_base,
       notes: "Thank you for your service.",
       staffing_request_id: self.staffing_request_id,
@@ -270,22 +270,4 @@ class Shift < ApplicationRecord
     Digest::SHA256.hexdigest self.id.to_s + ENV['SHIFT_REJECT_SECRET']
   end
 
-  def accept_qr_code(qr_code, current_user)
-    if(self.user_id == current_user.id && self.care_home.qr_code == qr_code)
-      
-      if(self.start_code == nil)
-        # Start the shift
-        self.start_code = self.staffing_request.start_code
-      else
-        # End the shift
-        self.end_code = self.staffing_request.end_code
-      end
-        
-      return  self.save
-    else
-      errors.add(:qr_code, "Invalid QR Code")
-      return false
-    end
-  end
-  
 end

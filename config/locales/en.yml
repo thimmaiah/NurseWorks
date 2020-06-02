@@ -28,17 +28,17 @@ en:
       default: "%d/%m/%Y %H:%M:%S"
   activerecord:
     models:
-      care_home:
+      hospital:
         one: Partner
         other: Partners
-      agency_care_home_mapping:
+      agency_hospital_mapping:
         one: Agency Partner Mapping
         other: Agency Partner Mappings
   helpers:
     label:
       user:
-        care_home_id: "Care Home (Only for Admin role)"
-        care_home: "Care Home (Only for Admin role)"
+        hospital_id: "Care Home (Only for Admin role)"
+        hospital: "Care Home (Only for Admin role)"
       recurring_request:
         start_date: "First Request Start Date"
         end_date: "First Request End Date"
@@ -62,18 +62,18 @@ en:
         user: "Health Care Professional"
         user_id: "Health Care Professional"
       rating:
-        care_home: "Partner"
+        hospital: "Partner"
       shift:
-        care_home: "Partner"
+        hospital: "Partner"
         user: "HCP"
       staffing_request:
-        care_home: "Partner"
+        hospital: "Partner"
       rate:
-        care_home_weekday: "Partner weekday rate"
-        care_home_weeknight: "Partner weeknight rate"
-        care_home_weekend: "Partner weekend day rate"
-        care_home_weekend_night: "Partner weekend night rate"
-        care_home_bank_holiday: "Partner bank holiday rate"
+        hospital_weekday: "Partner weekday rate"
+        hospital_weeknight: "Partner weeknight rate"
+        hospital_weekend: "Partner weekend day rate"
+        hospital_weekend_night: "Partner weekend night rate"
+        hospital_bank_holiday: "Partner bank holiday rate"
         carer_weekday: "HCP weekday rate"
         carer_weeknight: "HCP weeknight rate"
         carer_weekend: "HCP weekend day rate"

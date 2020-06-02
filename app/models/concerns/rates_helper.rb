@@ -37,7 +37,7 @@ module RatesHelper
 
   end
 
-  def care_home_amount(entity, rate, factor_name)
+  def hospital_amount(entity, rate, factor_name)
     total_mins = entity.minutes_worked 
     night_mins = entity.night_shift_minutes
     day_mins = total_mins - night_mins
@@ -60,17 +60,17 @@ module RatesHelper
     
     case factor_name
       when "DEFAULT_FACTOR"
-        base = (day_mins * rate.care_home_weekday + night_mins * rate.care_home_weeknight) / 60
-        calc_care_home_base = "#{day_time_hours_worked} x #{rate.care_home_weekday} + #{night_time_hours_worked} x #{rate.care_home_weeknight}"
+        base = (day_mins * rate.hospital_weekday + night_mins * rate.hospital_weeknight) / 60
+        calc_hospital_base = "#{day_time_hours_worked} x #{rate.hospital_weekday} + #{night_time_hours_worked} x #{rate.hospital_weeknight}"
       when "WEEKEND_FACTOR"
-        base = (day_mins * rate.care_home_weekend + night_mins * rate.care_home_weekend_night) / 60
-        calc_care_home_base = "#{day_time_hours_worked} x #{rate.care_home_weekend} + #{night_time_hours_worked} x #{rate.care_home_weekend_night}"
+        base = (day_mins * rate.hospital_weekend + night_mins * rate.hospital_weekend_night) / 60
+        calc_hospital_base = "#{day_time_hours_worked} x #{rate.hospital_weekend} + #{night_time_hours_worked} x #{rate.hospital_weekend_night}"
       when "BANK_HOLIDAY_FACTOR"
-        base = (day_mins * rate.care_home_bank_holiday + night_mins * rate.care_home_bank_holiday) / 60
-        calc_care_home_base = "#{day_time_hours_worked} x #{rate.care_home_bank_holiday} + #{night_time_hours_worked} x #{rate.care_home_bank_holiday}"
+        base = (day_mins * rate.hospital_bank_holiday + night_mins * rate.hospital_bank_holiday) / 60
+        calc_hospital_base = "#{day_time_hours_worked} x #{rate.hospital_bank_holiday} + #{night_time_hours_worked} x #{rate.hospital_bank_holiday}"
     end
 
-    return base, day_mins, night_mins, calc_care_home_base
+    return base, day_mins, night_mins, calc_hospital_base
 
   end
 
@@ -84,28 +84,28 @@ module RatesHelper
     
     # Basic rate multiplication
     carer_base, day_mins, night_mins, calc_carer_base = carer_amount(staffing_request, rate, factor_name)
-    care_home_base, day_mins, night_mins, calc_care_home_base = care_home_amount(staffing_request, rate, factor_name)
+    hospital_base, day_mins, night_mins, calc_hospital_base = hospital_amount(staffing_request, rate, factor_name)
     carer_base = carer_base.round(2)
-    care_home_base = care_home_base.round(2)
+    hospital_base = hospital_base.round(2)
 
     # Audit trail
     day_time_hours_worked = staffing_request.human_readable_time(day_mins.to_i)
     night_time_hours_worked = staffing_request.human_readable_time(night_mins.to_i)
 
     staffing_request.carer_base = carer_base 
-    staffing_request.care_home_base = care_home_base 
-    staffing_request.vat = care_home_base * ENV["VAT"].to_f.round(2) 
-    staffing_request.care_home_total_amount = (care_home_base + staffing_request.vat).round(2)
+    staffing_request.hospital_base = hospital_base 
+    staffing_request.vat = hospital_base * ENV["VAT"].to_f.round(2) 
+    staffing_request.hospital_total_amount = (hospital_base + staffing_request.vat).round(2)
 
     staffing_request.pricing_audit["calc"] = "day_time_hours_worked x rate + night_time_hours_worked x rate"   
     staffing_request.pricing_audit["calc_carer_base"] = calc_carer_base   
-    staffing_request.pricing_audit["calc_care_home_base"] = calc_care_home_base   
+    staffing_request.pricing_audit["calc_hospital_base"] = calc_hospital_base   
     staffing_request.pricing_audit["day_time_hours_worked"] = day_time_hours_worked
     staffing_request.pricing_audit["night_time_hours_worked"] = night_time_hours_worked
     staffing_request.pricing_audit["carer_break_mins"] = staffing_request.carer_break_mins
     staffing_request.pricing_audit["rate"] = rate.serializable_hash
     staffing_request.pricing_audit["carer_base"] = carer_base
-    staffing_request.pricing_audit["care_home_base"] = care_home_base
+    staffing_request.pricing_audit["hospital_base"] = hospital_base
     staffing_request.pricing_audit["factor_name"] = factor_name
     staffing_request.pricing_audit["vat"] = staffing_request.vat
 
@@ -126,12 +126,12 @@ module RatesHelper
     
     # Basic rate multiplication 
     carer_base, day_mins, night_mins, calc_carer_base = carer_amount(shift, rate, factor_name)
-    care_home_base, day_mins, night_mins, calc_care_home_base = care_home_amount(shift, rate, factor_name)
+    hospital_base, day_mins, night_mins, calc_hospital_base = hospital_amount(shift, rate, factor_name)
     carer_base = carer_base.round(2)
-    care_home_base = care_home_base.round(2)
+    hospital_base = hospital_base.round(2)
 
-    vat = care_home_base * ENV["VAT"].to_f.round(2)     
-    markup = (care_home_base - carer_base).round(2)
+    vat = hospital_base * ENV["VAT"].to_f.round(2)     
+    markup = (hospital_base - carer_base).round(2)
 
     # Audit trail
     day_time_hours_worked = shift.human_readable_time(day_mins.to_i)
@@ -139,24 +139,24 @@ module RatesHelper
 
     shift.pricing_audit["calc"] = "day_time_hours_worked x rate + night_time_hours_worked x rate"   
     shift.pricing_audit["calc_carer_base"] = calc_carer_base   
-    shift.pricing_audit["calc_care_home_base"] = calc_care_home_base   
+    shift.pricing_audit["calc_hospital_base"] = calc_hospital_base   
     
     shift.pricing_audit["day_time_hours_worked"] = day_time_hours_worked
     shift.pricing_audit["night_time_hours_worked"] = night_time_hours_worked
     shift.pricing_audit["carer_break_mins"] = shift.carer_break_mins
     shift.pricing_audit["rate"] = rate.serializable_hash
     shift.pricing_audit["carer_base"] = carer_base
-    shift.pricing_audit["care_home_base"] = care_home_base
+    shift.pricing_audit["hospital_base"] = hospital_base
     shift.pricing_audit["factor_name"] = factor_name
     shift.pricing_audit["vat"] = vat
     shift.pricing_audit["markup"] = markup
 
     # Add the pricing data to the shift
-    shift.care_home_base = care_home_base
+    shift.hospital_base = hospital_base
     shift.vat = vat
     shift.markup = markup
-    shift.carer_base = (care_home_base - markup).round(2)
-    shift.care_home_total_amount = (care_home_base + vat).round(2)
+    shift.carer_base = (hospital_base - markup).round(2)
+    shift.hospital_total_amount = (hospital_base + vat).round(2)
 
     # Add the mins worked to the shift
     shift.day_mins_worked = day_mins
@@ -175,7 +175,7 @@ module RatesHelper
     rate = nil
 
     # the rate based on zone and role
-    base_rate = Rate.where(zone: staffing_request.care_home.zone, role: staffing_request.role)
+    base_rate = Rate.where(zone: staffing_request.hospital.zone, role: staffing_request.role)
     # Add speciality
     speciality_rate = base_rate.where(speciality: staffing_request.speciality)
     # No speciality - its a generalist rate
@@ -183,14 +183,14 @@ module RatesHelper
     # Get the rate for the speciality if there is one
     if (staffing_request.speciality)        
         # speciality rate for the specific care home if it exists
-        custom_speciality_rate = speciality_rate.where(care_home_id: staffing_request.care_home_id).first
-        rate = custom_speciality_rate ? custom_speciality_rate : speciality_rate.where(care_home_id: nil).first
+        custom_speciality_rate = speciality_rate.where(hospital_id: staffing_request.hospital_id).first
+        rate = custom_speciality_rate ? custom_speciality_rate : speciality_rate.where(hospital_id: nil).first
     end
     # Get the Generalist rate if we have no rate
     if(rate == nil)
         # generalist rate for the specific care home if it exists
-        custom_generalist_rate = generalist_rate.where(care_home_id: staffing_request.care_home_id).first
-        rate = custom_generalist_rate ? custom_generalist_rate : generalist_rate.where(care_home_id: nil).first
+        custom_generalist_rate = generalist_rate.where(hospital_id: staffing_request.hospital_id).first
+        rate = custom_generalist_rate ? custom_generalist_rate : generalist_rate.where(hospital_id: nil).first
     end
 
     rate

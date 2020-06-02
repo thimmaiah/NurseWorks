@@ -14,7 +14,7 @@ class StaffingRequest < ApplicationRecord
   BROADCAST_STATUS =["Sent", "Failed"]
   SHIFT_STATUS =["Not Found", "Found"]
 
-  belongs_to :care_home
+  belongs_to :hospital
   belongs_to :user
   has_many :shifts
   has_one :payment
@@ -24,7 +24,7 @@ class StaffingRequest < ApplicationRecord
 
   belongs_to :recurring_request
 
-  validates_presence_of :user_id, :care_home_id, :start_date, :end_date, :role
+  validates_presence_of :user_id, :hospital_id, :start_date, :end_date, :role
   validate :start_end_date_valid, :request_status_valid
 
   # The audit trail of how the price was computed
@@ -54,19 +54,14 @@ class StaffingRequest < ApplicationRecord
     self.start_date = self.start_date.change({sec: 0})
     self.end_date = self.end_date.change({sec: 0})
 
-    # Copy over the manual_assignment_flag from the care_home
-    self.manual_assignment_flag = self.care_home.manual_assignment_flag if self.manual_assignment_flag == nil 
+    # Copy over the manual_assignment_flag from the hospital
+    self.manual_assignment_flag = self.hospital.manual_assignment_flag if self.manual_assignment_flag == nil 
     self.manual_assignment_flag = false if self.manual_assignment_flag == nil
 
     
     if self.speciality == nil
-      if self.care_home.speciality != nil
-        # Some care homes have a default speciality
-        self.speciality = self.care_home.speciality 
-      else  
         # Ask for a Generalist if the speciality is not set
         self.speciality = "Generalist" 
-      end
     end
   end
 
@@ -105,10 +100,10 @@ class StaffingRequest < ApplicationRecord
     (self.start_date - self.created_at)/(60 * 60)
   end
 
-  def find_care_givers(max_kms_from_care_home, page)
-    User.search   :with => {:role => self.role, :active=>true, :verified=>true, :geodist => 0.0..max_kms_from_care_home*1000.0}, 
+  def find_care_givers(max_kms_from_hospital, page)
+    User.search   :with => {:role => self.role, :active=>true, :verified=>true, :geodist => 0.0..max_kms_from_hospital*1000.0}, 
                   :page=>page, :per_page=>10, 
-                  :geo=>[self.care_home.lat * 0.01745329252, self.care_home.lng * 0.01745329252],
+                  :geo=>[self.hospital.lat * 0.01745329252, self.hospital.lng * 0.01745329252],
                   :order => "geodist ASC"
 
   end
@@ -120,14 +115,14 @@ class StaffingRequest < ApplicationRecord
   
   # Need to find the preferred care givers for this care home 
   def preferred_care_givers
-    if self.care_home.preferred_care_giver_ids
+    if self.hospital.preferred_care_giver_ids
       pref_care_giver_ids = acm.preferred_care_giver_ids.split(",").map{|id| id.strip.to_i}
       User.order("auto_selected_date ASC").find(pref_care_giver_ids)
     end
   end
 
   def limit_shift_to_pref_carer
-    self.care_home.limit_shift_to_pref_carer
+    self.hospital.limit_shift_to_pref_carer
   end
   
 end

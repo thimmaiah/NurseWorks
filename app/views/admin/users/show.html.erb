@@ -36,7 +36,7 @@ as well as a link to its edit page.
     <%= link_to("Contacts", admin_contacts_path(user_id: page.resource.id), class: "button") %>
 
     <% if (page.resource.role == "Nurse" || page.resource.role == "Care Giver")  %>
-        <% profile = page.resource.profiles.first %>
+        <% profile = page.resource.profile %>
         <a class="button" href="/admin/payments_export/form?user_id=<%=page.resource.id%>"> Payment Export </a>
         <%= link_to("Create Profile", new_admin_profile_path(user_id: page.resource.id), class: "button") if profile == nil %>
         <%= link_to("View Profile", admin_profile_path(id: profile.id), class: "button") if profile %>        

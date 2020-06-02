@@ -14,12 +14,12 @@
 
 	<tr>
 		<td>Care Home</td>
-		<td><%= @shift.care_home.name %></td>
+		<td><%= @shift.hospital.name %></td>
 	</tr>
 
 	<tr>
 		<td>Care Home Phone</td>
-		<td><%= @shift.care_home.phone %></td>
+		<td><%= @shift.hospital.phone %></td>
 	</tr>
 
 	<% if @shift.staffing_request.notes %>
@@ -34,8 +34,8 @@
 	<tr>
 		<td>Address</td>
 		<td>
-			<%= @shift.care_home.address %>, 
-			<%= @shift.care_home.postcode %>	
+			<%= @shift.hospital.address %>, 
+			<%= @shift.hospital.postcode %>	
 		</td>
 	</tr>
 

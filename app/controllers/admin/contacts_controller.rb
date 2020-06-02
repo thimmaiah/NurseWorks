@@ -4,7 +4,7 @@ module Admin
 
     def index
       if params[:search].present?
-        search(CareHome)
+        search(Hospital)
       else
         search_term = params[:search].to_s.strip
         resources = Administrate::Search.new(scoped_resource,

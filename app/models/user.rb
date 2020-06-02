@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :email, :role, :phone
 
-  belongs_to :care_home, optional: true
+  belongs_to :hospital, optional: true
   has_one :profile
   has_many :staffing_requests
   has_many :shifts
@@ -13,10 +13,12 @@ class User < ApplicationRecord
   has_many :user_docs, -> { order(:verified=>:desc) }, dependent: :destroy
   has_one :profile_pic, -> { where(doc_type: "Profile Picture") }, class_name: "UserDoc"
   has_many :ratings, as: :rated_entity
-  has_many :care_home_carer_mappings
+  has_many :hospital_carer_mappings
 
   has_many :contacts
   has_many :references
+
+  serialize :specializations, Array
 
   SEX = ["M", "F"]
   SPECIALITY = ["Generalist", "Geriatric Care", "Pediatric Care", "Mental Health"]
@@ -98,7 +100,7 @@ class User < ApplicationRecord
     end
     if(self.verified_changed? && !self.verified)
       # The user was unverified
-      self.care_home_carer_mappings.update_all(enabled: false)
+      self.hospital_carer_mappings.update_all(enabled: false)
     end
 
     # If user has requested a deletion of her personal data
@@ -138,7 +140,7 @@ class User < ApplicationRecord
       self.work_weekend_nights = true if self.work_weekend_nights == nil
     
       self.pause_shifts = false if self.pause_shifts == nil
-      self.speciality = "Generalist" if self.speciality == nil
+      self.specializations = ["Generalist"] if (self.specializations == nil || self.specializations.length == 0)
     end
     
   end
@@ -232,18 +234,18 @@ class User < ApplicationRecord
     self.user_docs.not_expired.where(verified: true)
   end
 
-  def care_homes
-    CareHome.where(id: self.care_home_ids)
+  def hospitals
+    Hospital.where(id: self.hospital_ids)
   end
 
-  def care_home_ids
-    ids = [self.care_home_id]
-    ids.concat self.care_home.sister_care_homes.split(",").map{|x| x.to_i} if self.care_home && self.care_home.sister_care_homes
+  def hospital_ids
+    ids = [self.hospital_id]
+    ids.concat self.hospital.sister_hospitals.split(",").map{|x| x.to_i} if self.hospital && self.hospital.sister_hospitals
     ids
   end
 
-  def belongs_to_care_home(care_home_id)
-    self.care_home_ids.include?(care_home_id)
+  def belongs_to_hospital(hospital_id)
+    self.hospital_ids.include?(hospital_id)
   end
 
 

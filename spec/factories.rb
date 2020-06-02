@@ -2,8 +2,8 @@ include ActionDispatch::TestProcess
 
 FactoryGirl.define do
   
-  factory :care_home_carer_mapping do
-    care_home_id 1
+  factory :hospital_carer_mapping do
+    hospital_id 1
     user_id 1
     enabled false
     distance 1.5
@@ -68,15 +68,15 @@ FactoryGirl.define do
     zone "North"
     role "Care Giver"
     carer_weekday 9
-    care_home_weekday 11
+    hospital_weekday 11
     carer_weeknight 11
-    care_home_weeknight 14
+    hospital_weeknight 14
     carer_weekend 11
-    care_home_weekend 13
+    hospital_weekend 13
     carer_weekend_night 12
-    care_home_weekend_night 15
+    hospital_weekend_night 15
     carer_bank_holiday 14
-    care_home_bank_holiday 20    
+    hospital_bank_holiday 20    
   end
 
   factory :rating do
@@ -87,7 +87,7 @@ FactoryGirl.define do
   factory :payment do
     shift_id 1
     user_id 1
-    care_home_id 1
+    hospital_id 1
     paid_by_id 1
     amount 100
     notes "Thanks for your service"
@@ -113,7 +113,7 @@ FactoryGirl.define do
     updated_at {Time.now - 1.day}
   end
 
-  factory :care_home do
+  factory :hospital do
 
     logos = ["http://www.brandsoftheworld.com/sites/default/files/082010/logo_CCNNNA.png",
              "http://www.brandsoftheworld.com/sites/default/files/082010/RP.png",
@@ -135,6 +135,7 @@ FactoryGirl.define do
     address {Faker::Address.street_address}
     postcodelatlng { PostCode.all.sample }
     zone {["North", "South"][rand(2)]}
+    city {["Bengaluru", "Hyderabad", "Gurugram", "Chennai", "Mumbai"][rand(5)]}
     bank_account {rand.to_s[2..9]} 
     sort_code {rand.to_s[2..7]} 
     verified {false}
@@ -158,7 +159,7 @@ FactoryGirl.define do
 
   factory :user do
 
-    # care_home_id { care_home.id if care_home }
+    # hospital_id { hospital.id if hospital }
     title {User::TITLE[rand(User::TITLE.length-1) + 1]}
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }

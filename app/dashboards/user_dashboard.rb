@@ -8,7 +8,7 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    care_home: Field::BelongsToSearch,
+    hospital: Field::BelongsToSearch,
     user_docs: Field::HasMany,
     profile: Field::HasOne,
     shifts: Field::HasMany,
@@ -28,7 +28,7 @@ class UserDashboard < Administrate::BaseDashboard
     languages: Field::String,
     pref_commute_distance: Field::Number,
     occupation: Field::String,
-    speciality: Field::Select.with_options(collection: User::SPECIALITY),
+    specializations: CheckboxList.with_options(choices: User::SPECIALITY),
     experience: Field::Number,
     accept_terms: Field::BooleanToYesNo,
     
@@ -63,8 +63,8 @@ class UserDashboard < Administrate::BaseDashboard
     :ready_for_verification,
     :phone_verified,
     :role,
-    :care_home,
-    :speciality,
+    :hospital,
+    :specializations,
     :pref_commute_distance,
     :created_at
   ].freeze
@@ -81,8 +81,8 @@ class UserDashboard < Administrate::BaseDashboard
     :last_name,
     :email,
     :role,
-    :care_home,
-    :speciality,
+    :hospital,
+    :specializations,
     :sex,
     :phone,
     :pref_commute_distance,
@@ -110,8 +110,8 @@ class UserDashboard < Administrate::BaseDashboard
     :last_name,
     :email,
     :role,
-    :care_home,
-    :speciality,
+    :hospital,
+    :specializations,
     :sex,
     :phone,
     :pref_commute_distance,

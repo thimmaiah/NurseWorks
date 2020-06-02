@@ -6,15 +6,15 @@ class RecurringRequestsController < ApplicationController
 
   def index
     @per_page = 10
-    @recurring_requests = RecurringRequest.where(care_home_id: current_user.care_home_ids) if !@recurring_requests
+    @recurring_requests = RecurringRequest.where(hospital_id: current_user.hospital_ids) if !@recurring_requests
     @recurring_requests = @recurring_requests.order("recurring_requests.start_date asc").page(@page).per(@per_page)
     
-    render json:  @recurring_requests.includes(:care_home, :user)
+    render json:  @recurring_requests.includes(:hospital, :user)
   end
 
   def get_carers
     @recurring_request = RecurringRequest.new(recurring_request_params)
-    carers = @recurring_request.care_home.carers
+    carers = @recurring_request.hospital.carers
     render json: carers.where(role: @recurring_request.role, pause_shifts: false), each_serializer: UserMiniSerializer
   end
 
@@ -54,7 +54,7 @@ class RecurringRequestsController < ApplicationController
     end
 
     def recurring_request_params
-      params.require(:recurring_request).permit(:care_home_id, :user_id, :start_date, :end_date, :role, :po_for_invoice,
+      params.require(:recurring_request).permit(:hospital_id, :user_id, :start_date, :end_date, :role, :po_for_invoice,
         :speciality, :on, :start_on, :end_on, :audit, {dates:[]}, :notes, :preferred_carer_id)
     end
 end

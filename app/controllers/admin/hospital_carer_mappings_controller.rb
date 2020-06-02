@@ -1,9 +1,9 @@
 module Admin
-  class CareHomeCarerMappingsController < Admin::ApplicationController
+  class HospitalCarerMappingsController < Admin::ApplicationController
     
     def new   
       resource = resource_class.new(resource_params)
-      resource.care_home_id = params[:care_home_id]
+      resource.hospital_id = params[:hospital_id]
       render locals: {
           page: Administrate::Page::Form.new(dashboard, resource),
       }

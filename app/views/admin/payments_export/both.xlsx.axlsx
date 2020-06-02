@@ -2,6 +2,6 @@ wb = xlsx_package.workbook
 wb.add_worksheet(name: "Carer") do |sheet|
   sheet.add_row ["Id", "Carer Amount", "Carer First Name", "Carer Last Name", "Carer Email", "Carer  Phone", "Billing", "Markup", "VAT", "Care Home Amount", "Care Home", "Care Home Phone", "Staffing Request Id", "PO for Invoice", "Shift Start", "Shift End", "Created At", "Notes", "Calc"]
   @payments.each do |payment|
-    sheet.add_row [payment.id, payment.care_giver_amount, payment.user&.first_name, payment.user&.last_name, payment.user&.email, payment.user&.phone, payment.billing, payment.markup, payment.vat, payment.amount, payment.care_home&.name, payment.care_home&.phone, payment.staffing_request&.id, payment.staffing_request&.po_for_invoice, payment.shift&.start_date, payment.shift&.end_date, payment.created_at, payment.notes, payment.shift&.pricing_audit&.map{|k,v| "#{k}=#{v}"}&.join("\n") ]
+    sheet.add_row [payment.id, payment.care_giver_amount, payment.user&.first_name, payment.user&.last_name, payment.user&.email, payment.user&.phone, payment.billing, payment.markup, payment.vat, payment.amount, payment.hospital&.name, payment.hospital&.phone, payment.staffing_request&.id, payment.staffing_request&.po_for_invoice, payment.shift&.start_date, payment.shift&.end_date, payment.created_at, payment.notes, payment.shift&.pricing_audit&.map{|k,v| "#{k}=#{v}"}&.join("\n") ]
   end
 end

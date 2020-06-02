@@ -10,7 +10,7 @@ class RatingDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     shift: Field::BelongsTo,
     rated_entity: Field::Polymorphic,
-    care_home: Field::BelongsTo,
+    hospital: Field::BelongsTo,
     created_by: Field::BelongsTo.with_options(class_name: "User"),
     id: Field::Number,
     stars: Field::Number,
@@ -29,7 +29,7 @@ class RatingDashboard < Administrate::BaseDashboard
     :id,
     :shift,
     :rated_entity,
-    :care_home,
+    :hospital,
     :stars,
     :comments
   ].freeze
@@ -39,7 +39,7 @@ class RatingDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :shift,
     :rated_entity,
-    :care_home,
+    :hospital,
     :created_by,
     :id,
     :stars,

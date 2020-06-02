@@ -8,7 +8,7 @@ class RecurringRequestDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    care_home: BelongsToOrderedField,
+    hospital: BelongsToOrderedField,
     staffing_requests: Field::HasMany,
     user: Field::BelongsToSearch,
     user_id: Field::Number,
@@ -34,7 +34,7 @@ class RecurringRequestDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :care_home,
+    :hospital,
     :user,
     :role,
     :speciality,
@@ -44,7 +44,7 @@ class RecurringRequestDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :care_home,
+    :hospital,
     :user,
     :id,
     :start_date,
@@ -64,7 +64,7 @@ class RecurringRequestDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :care_home,
+    :hospital,
     :user,
     :preferred_carer,
     :start_date,

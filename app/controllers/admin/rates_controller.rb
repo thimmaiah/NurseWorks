@@ -7,7 +7,7 @@ module Admin
         search(Shift)
       else
         resources, search_term = setup_index(params)
-        resources = resources.includes(:care_home)
+        resources = resources.includes(:hospital)
 
         page = Administrate::Page::Collection.new(dashboard, order: order)
 

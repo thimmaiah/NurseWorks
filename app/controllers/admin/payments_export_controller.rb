@@ -5,10 +5,10 @@ module Admin
     before_action :authenticate_user!
 
     def index
-      @payments = Payment.all.includes(:user, :care_home, :staffing_request)
+      @payments = Payment.all.includes(:user, :hospital, :staffing_request)
 
-      if(params[:care_home_id].present?)
-        @payments = @payments.where(care_home_id: params[:care_home_id])
+      if(params[:hospital_id].present?)
+        @payments = @payments.where(hospital_id: params[:hospital_id])
       end
 
       if(params[:user_id].present?)
@@ -29,8 +29,8 @@ module Admin
         template ="carer"
         @payments = @payments.order("users.first_name, staffing_requests.start_date")
       when "Care Home"
-        template = "care_home"
-        @payments = @payments.where("payments.care_home_id is not null").order("care_homes.name, staffing_requests.start_date")
+        template = "hospital"
+        @payments = @payments.where("payments.hospital_id is not null").order("hospitals.name, staffing_requests.start_date")
       when "Both"
         template = "both"
       end

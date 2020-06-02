@@ -6,7 +6,7 @@ class ShiftMailer < ApplicationMailer
     logger.debug("Sending mail to #{@user.email} from #{ENV['NOREPLY']}")
     mail( :to => @user.email,
           :bcc => ENV['ADMIN_EMAIL'],
-          :subject => "New Shift Available: #{@shift.staffing_request.care_home.name} @ #{@shift.staffing_request.start_date.to_s(:custom_datetime)} : Notification #{shift.notification_count + 1}" )
+          :subject => "New Shift Available: #{@shift.staffing_request.hospital.name} @ #{@shift.staffing_request.start_date.to_s(:custom_datetime)} : Notification #{shift.notification_count + 1}" )
   end
 
 
@@ -74,7 +74,7 @@ class ShiftMailer < ApplicationMailer
     @staffing_request = staffing_request
     mail( :to => email,
           :bcc => ENV['ADMIN_EMAIL'],
-          :subject => "No shift found for request from #{staffing_request.care_home.name}" )
+          :subject => "No shift found for request from #{staffing_request.hospital.name}" )
 
   end
 
@@ -84,7 +84,7 @@ class ShiftMailer < ApplicationMailer
     logger.debug("Sending mail to #{@user.email} from #{ENV['NOREPLY']}")
     mail( :to => @user.email, 
           :bcc => ENV['ADMIN_EMAIL'],
-          :subject => "Shift Reminder: #{@shift.staffing_request.care_home.name} @ #{shift.staffing_request.start_date.to_s(:custom_datetime)}" )
+          :subject => "Shift Reminder: #{@shift.staffing_request.hospital.name} @ #{shift.staffing_request.start_date.to_s(:custom_datetime)}" )
   end
 
   def send_codes_to_broadcast_group(shift)
@@ -92,12 +92,12 @@ class ShiftMailer < ApplicationMailer
     @user  = shift.user
     emails = @shift.staffing_request.user.email
 
-    if(@shift.care_home.care_home_broadcast_group)
-      emails += ",#{@shift.care_home.care_home_broadcast_group}"  
+    if(@shift.hospital.hospital_broadcast_group)
+      emails += ",#{@shift.hospital.hospital_broadcast_group}"  
     end
 
-    if @shift.care_home.sister_care_homes
-      subject = "Shift Confirmed: #{shift.care_home.name}: #{shift.staffing_request.start_date.to_s(:custom_datetime)}: #{shift.user.first_name}: Start / End Codes"
+    if @shift.hospital.sister_hospitals
+      subject = "Shift Confirmed: #{shift.hospital.name}: #{shift.staffing_request.start_date.to_s(:custom_datetime)}: #{shift.user.first_name}: Start / End Codes"
     else
       subject = "Shift Confirmed: #{shift.staffing_request.start_date.to_s(:custom_datetime)}: #{shift.user.first_name}: Start / End Codes"
     end

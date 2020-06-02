@@ -1,11 +1,11 @@
 class StaffingRequestMiniSerializer < ActiveModel::Serializer
   
-  attributes :id, :care_home_id, :user_id, :start_date, :end_date, :rate_per_hour, :role, :speciality,
-  :request_status, :auto_deny_in, :response_count, :payment_status, :user_id, :care_home, 
-  :broadcast_status, :can_manage, :start_code, :end_code, :carer_base, :care_home_base, 
-  :care_home_total_amount, :vat, :created_at, :updated_at, :notes, :reason, :po_for_invoice
+  attributes :id, :hospital_id, :user_id, :start_date, :end_date, :rate_per_hour, :role, :speciality,
+  :request_status, :auto_deny_in, :response_count, :payment_status, :user_id, :hospital, 
+  :broadcast_status, :can_manage, :start_code, :end_code, :carer_base, :hospital_base, 
+  :hospital_total_amount, :vat, :created_at, :updated_at, :notes, :reason, :po_for_invoice
 
-  belongs_to :care_home, serializer: CareHomeMiniSerializer
+  belongs_to :hospital, serializer: HospitalMiniSerializer
 
   def can_manage
   	ability = Ability.new(scope)

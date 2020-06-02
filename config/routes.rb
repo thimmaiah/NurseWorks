@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   resources :contacts
   resources :references
-  resources :care_home_carer_mappings
+  resources :hospital_carer_mappings
   resources :agency_user_mappings
-  resources :agency_care_home_mappings
+  resources :agency_hospital_mappings
   resources :agencies
   resources :stats
   resources :trainings
@@ -23,14 +23,14 @@ Rails.application.routes.draw do
         post :create_from_user
       end
     end
-    resources :agency_care_home_mappings  do
+    resources :agency_hospital_mappings  do
       collection do
-        post :create_from_care_home
+        post :create_from_hospital
       end
     end
 
     resources :agencies
-    resources :care_home_carer_mappings
+    resources :hospital_carer_mappings
 
     resources :users do
       collection do
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     resources :profiles
     resources :trainings
 
-    resources :care_homes
+    resources :hospitals
     resources :payments
     resources :post_codes
     resources :ratings
@@ -99,7 +99,7 @@ Rails.application.routes.draw do
   resources :hiring_responses
   resources :hiring_requests
   
-  resources :care_homes do
+  resources :hospitals do
     collection do
       get :new_qr_code
       post :claim
@@ -144,7 +144,7 @@ Rails.application.routes.draw do
   resources :holidays
   resources :cqc_records do 
     collection do
-      get :search_care_homes_and_cqc
+      get :search_hospitals_and_cqc
     end
   end
 

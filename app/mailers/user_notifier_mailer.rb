@@ -78,29 +78,29 @@ class UserNotifierMailer < ApplicationMailer
     email = ENV['ADMIN_EMAIL']
     logger.debug("Sending mail to #{email} from #{ENV['NOREPLY']}")
 
-    subject = staffing_request.manual_assignment_flag ? "Manual assignment required: New request from #{staffing_request.care_home.name}" : "New request from #{staffing_request.care_home.name}"
+    subject = staffing_request.manual_assignment_flag ? "Manual assignment required: New request from #{staffing_request.hospital.name}" : "New request from #{staffing_request.hospital.name}"
     mail( :to => email,
           :subject => subject )
 
   end
 
-  def claim_care_home(care_home_id, user_id)
-    @care_home = CareHome.find(care_home_id)
+  def claim_hospital(hospital_id, user_id)
+    @hospital = Hospital.find(hospital_id)
     @user = User.find(user_id)
-    if(@care_home && @user)
+    if(@hospital && @user)
       logger.debug("Sending mail to #{ENV['ADMIN_EMAIL']} from #{ENV['NOREPLY']}")
       mail( :to => ENV['ADMIN_EMAIL'],
             :subject => 'Add Admin to Care Home' )
     end
   end
 
-  def care_home_verified(care_home_id)
+  def hospital_verified(hospital_id)
     
-    @care_home = CareHome.find(care_home_id)
-    @user = @care_home.users.first
-    if(@care_home)
-      logger.debug("Sending mail to #{@care_home.emails} from #{ENV['NOREPLY']}")
-      mail( :to => @care_home.emails,
+    @hospital = Hospital.find(hospital_id)
+    @user = @hospital.users.first
+    if(@hospital)
+      logger.debug("Sending mail to #{@hospital.emails} from #{ENV['NOREPLY']}")
+      mail( :to => @hospital.emails,
             :bcc => ENV['ADMIN_EMAIL'],
             :subject => 'Care Home Verified' )
     end
@@ -116,44 +116,4 @@ class UserNotifierMailer < ApplicationMailer
 
   end
 
-
-  layout :select_layout
-
-
-  def care_home_qr_code(care_home)
-
-    require 'rqrcode'
-
-    @care_home = care_home
-
-    qrcode = RQRCode::QRCode.new(@care_home.qr_code)
-    png = qrcode.as_png(
-          resize_gte_to: false,
-          resize_exactly_to: false,
-          fill: 'white',
-          color: 'black',
-          size: 360,
-          border_modules: 4,
-          module_px_size: 6,
-          file: nil # path to write
-          )
-    File.open("#{Rails.root}/public/system/#{@care_home.qr_code.to_s}.png", 'wb') {|file| file.write(png.to_s) }
-    
-    emails = @care_home.emails
-
-    logger.debug("Sending mail to #{emails} from #{ENV['NOREPLY']}")
-    mail( :to => emails,
-          :subject => "Care Home QR Code: #{Date.today}" )
-  
-  end
-
-
-  private
-  def select_layout
-    if action_name == 'care_home_qr_code'
-      'qr_code'
-    else
-      'mailer'
-    end
-  end
 end

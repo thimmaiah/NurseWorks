@@ -1,11 +1,11 @@
 module Admin
-  class CareHomesController < Admin::ApplicationController
+  class HospitalsController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
     def index
       if params[:search].present?
-        search(CareHome)
+        search(Hospital)
       else
         resources, search_term = setup_index(params)
         resources = resources.where(user_id: params[:user_id]) if params[:user_id].present?

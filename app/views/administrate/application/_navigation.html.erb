@@ -14,7 +14,7 @@ as defined by the routes in the `admin/` namespace
   <a class="navigation__link  child-nav" href="/admin/stats?search='Month of <%=Date.today.beginning_of_month%>'&commit=Search"> - This Month </a>
   <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27Financials%27&commit=Search"> - Financial Stats </a>
   <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27User%27&commit=Search"> - User Stats </a>
-  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27CareHome%27&commit=Search"> - Care Homes Stats </a>
+  <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27Hospital%27&commit=Search"> - Care Homes Stats </a>
   <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27StaffingRequest%27&commit=Search"> - Staffing Request </a>
   <a class="navigation__link  child-nav" href="/admin/stats?search=*&with=stat_type%3D%27Shift%27&commit=Search"> - Shift Stats </a>
  -->
@@ -29,8 +29,8 @@ as defined by the routes in the `admin/` namespace
       <a class="navigation__link child-nav" href="/admin/users?search=*&with=role%3D'Admin'"> - Admins </a>
       <a class="navigation__link child-nav" href="/admin/users/export_form"> - User Export </a>
 
-    <a class="navigation__link " href="/admin/care_homes"> Care Homes </a>
-    <a class="navigation__link child-nav" href="/admin/care_homes?search=*&with=verified%3Dfalse"> - Unverified
+    <a class="navigation__link " href="/admin/hospitals"> Care Homes </a>
+    <a class="navigation__link child-nav" href="/admin/hospitals?search=*&with=verified%3Dfalse"> - Unverified
     </a>
   
   <a class="navigation__link " href=""> ----------- </a>

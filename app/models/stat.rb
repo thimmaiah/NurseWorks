@@ -6,7 +6,7 @@ class Stat < ApplicationRecord
   def self.generate_all(date=Date.today)
   	Rails.logger.debug "Generating stats for #{date}"
     self.user_stats(date)
-    self.care_home_stats(date)
+    self.hospital_stats(date)
     self.staffing_request_stats(date)
     self.shift_stats(date)
     self.generate_financials(date)
@@ -72,20 +72,20 @@ class Stat < ApplicationRecord
 
 
 
-  def self.care_home_stats(date=Date.today)
+  def self.hospital_stats(date=Date.today)
 
 
     [true, false].each do |verified|
       vFlag = verified ? "Verified" : "Unverified"
 
-      query, description, delete_prev = CareHome.where("verified=?", verified), "All #{vFlag} care homes", true
-      self.createWeekMonthAllStats(date, "CareHome", query, description, delete_prev)
+      query, description, delete_prev = Hospital.where("verified=?", verified), "All #{vFlag} care homes", true
+      self.createWeekMonthAllStats(date, "Hospital", query, description, delete_prev)
 
 
-      # CareHome::ZONES.each do |zone|
+      # Hospital::ZONES.each do |zone|
 
-      #   query, description, delete_prev = CareHome.where("verified=? and zone=?", verified, zone), "All #{vFlag} care homes in zone #{zone}", true
-      #   self.createWeekMonthAllStats(date, "CareHome", query, description, delete_prev)
+      #   query, description, delete_prev = Hospital.where("verified=? and zone=?", verified, zone), "All #{vFlag} care homes in zone #{zone}", true
+      #   self.createWeekMonthAllStats(date, "Hospital", query, description, delete_prev)
 
       # end
     end
@@ -140,7 +140,7 @@ class Stat < ApplicationRecord
     Stat.create(name: "Income from Care Homes", stat_type: type, description: desc,
                 as_of_date: date, date_range: "Week of #{week}", 
                 value: Shift.where("response_status  =? and  created_at >= ? and created_at <= ?",
-                      				status  , week, week.end_of_week).sum(:care_home_total_amount).round(2))
+                      				status  , week, week.end_of_week).sum(:hospital_total_amount).round(2))
 
     Stat.create(name: "Expenses for Care Givers", stat_type: type, description: desc,
                 as_of_date: date, date_range: "Week of #{week}",
@@ -155,7 +155,7 @@ class Stat < ApplicationRecord
     Stat.create(name: "Income from Care Homes", stat_type: type, description: desc,
                 as_of_date: date, date_range: "Month of #{month}",
                 value: Shift.where("response_status  =? and  created_at >= ? and created_at <= ?",
-                                   status  , month, month.end_of_month).sum(:care_home_total_amount).round(2))
+                                   status  , month, month.end_of_month).sum(:hospital_total_amount).round(2))
 
     Stat.create(name: "Expenses for Care Givers", stat_type: type, description: desc,
                 as_of_date: date, date_range: "Month of #{month}",
@@ -169,7 +169,7 @@ class Stat < ApplicationRecord
 
     Stat.create(name: "Income from Care Homes", stat_type: type, description: desc,
                 as_of_date: date, date_range: "All time",
-                value: Shift.where("response_status  =?", status).sum(:care_home_total_amount).round(2))
+                value: Shift.where("response_status  =?", status).sum(:hospital_total_amount).round(2))
 
     Stat.create(name: "Expenses for Care Givers", stat_type: type, description: desc,
                 as_of_date: date, date_range: "All time",

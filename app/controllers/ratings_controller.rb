@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
   # GET /ratings
   def index
     @ratings = @ratings.page(@page).per(@per_page)
-    render json: @ratings.includes(:rated_entity, :care_home)
+    render json: @ratings.includes(:rated_entity, :hospital)
   end
 
   # GET /ratings/1
@@ -47,6 +47,6 @@ class RatingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def rating_params
-      params.require(:rating).permit(:care_home_id, :rated_entity_id, :rated_entity_type, :shift_id, :stars, :comments)
+      params.require(:rating).permit(:hospital_id, :rated_entity_id, :rated_entity_type, :shift_id, :stars, :comments)
     end
 end
