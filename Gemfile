@@ -9,7 +9,7 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4.3'
 # Use Puma as the app server
-gem 'puma', '4.2.0'
+gem 'puma'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -34,7 +34,7 @@ gem 'thinking-sphinx'
 
 gem 'oauth'
 gem 'active_model_serializers'
-gem 'rack-cors', :require => 'rack/cors'
+gem "rack-cors", ">= 1.0.4", :require => 'rack/cors'
 gem 'cancancan'
 
 gem 'rack-attack'
@@ -78,7 +78,7 @@ gem 'factory_girl_rails'
 gem 'exception_notification'
 
 gem 'rest-client'
-gem "administrate", "0.12.0"
+gem "administrate"
 gem 'ransack'
 gem "paranoia", "~> 2.2"
 gem "geocoder"
@@ -91,7 +91,7 @@ gem 'capybara-email'
 gem 'roadie'
 gem 'logstash-logger'
 
-gem 'rubyzip', '>= 1.2.1'
+gem 'rubyzip', '>= 1.3.0'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 
