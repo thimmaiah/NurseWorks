@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.boolean  "dl_passport"
     t.boolean  "all_required_paperwork_checked"
     t.boolean  "registered_under_disability_act"
-    t.boolean  "connuct_policies"
+    t.boolean  "nurse_works_policies"
     t.string   "form_completed_by",               limit: 50
     t.string   "position",                        limit: 25
     t.date     "date_sent"

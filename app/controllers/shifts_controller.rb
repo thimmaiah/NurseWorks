@@ -69,9 +69,9 @@ class ShiftsController < ApplicationController
     if (params[:hash] == @shift.generate_anonymous_reject_hash)
       @shift.response_status = "Rejected"
       @shift.save
-      redirect_to "http://blog.connuct.co.uk/unsubscribe?rejected=true"
+      redirect_to "http://blog.nurse_works.co.uk/unsubscribe?rejected=true"
     else
-      redirect_to "http://blog.connuct.co.uk/unsubscribe?rejected=failed"
+      redirect_to "http://blog.nurse_works.co.uk/unsubscribe?rejected=failed"
     end
   end
 

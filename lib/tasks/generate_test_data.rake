@@ -34,7 +34,7 @@ namespace :nurse_works do
           h = FactoryGirl.build(:hospital)
           h.created_at = Date.today - rand(4).weeks - rand(7).days
           h.specializations = [sp]
-          h.save
+          h.save!
 
           h.reload
           #puts u.to_xml(:include => :hospital_industry_mappings)

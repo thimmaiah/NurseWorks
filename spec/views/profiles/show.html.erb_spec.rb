@@ -14,7 +14,7 @@ RSpec.describe "profiles/show", type: :view do
       :dl_passport => false,
       :all_required_paperwork_checked => false,
       :registered_under_disability_act => false,
-      :connuct_policies => false,
+      :nurse_works_policies => false,
       :form_completed_by => "Form Completed By",
       :position => "Position",
       :known_as => "Known As",

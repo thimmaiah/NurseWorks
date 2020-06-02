@@ -14,7 +14,7 @@ RSpec.describe "profiles/new", type: :view do
       :dl_passport => false,
       :all_required_paperwork_checked => false,
       :registered_under_disability_act => false,
-      :connuct_policies => false,
+      :nurse_works_policies => false,
       :form_completed_by => "MyString",
       :position => "MyString",
       :known_as => "MyString",
@@ -49,7 +49,7 @@ RSpec.describe "profiles/new", type: :view do
 
       assert_select "input#profile_registered_under_disability_act[name=?]", "profile[registered_under_disability_act]"
 
-      assert_select "input#profile_connuct_policies[name=?]", "profile[connuct_policies]"
+      assert_select "input#profile_nurse_works_policies[name=?]", "profile[nurse_works_policies]"
 
       assert_select "input#profile_form_completed_by[name=?]", "profile[form_completed_by]"
 

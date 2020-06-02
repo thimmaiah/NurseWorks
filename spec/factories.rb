@@ -42,7 +42,7 @@ FactoryGirl.define do
     dl_passport true
     all_required_paperwork_checked true
     registered_under_disability_act false
-    connuct_policies true
+    nurse_works_policies true
     form_completed_by "Naomi"
     date_sent {Date.today - 2.days}
     date_received {Date.today - 5.days}
@@ -139,6 +139,8 @@ FactoryGirl.define do
     bank_account {rand.to_s[2..9]} 
     sort_code {rand.to_s[2..7]} 
     verified {false}
+    num_of_beds {rand(20) + 1}
+    nurse_count { rand(num_of_beds/2) }
     carer_break_mins {[30,60][rand(2)]}
     vat_number {rand.to_s[2..9]}
     company_registration_number {rand.to_s[2..7]}

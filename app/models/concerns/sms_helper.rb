@@ -2,7 +2,7 @@ module SmsHelper
 
 
   def send_shift_sms_notification(shift)
-    msg = "You have a new shift assigned at #{shift.hospital.name}. Please open the Connuct Care app and accept or reject the shift."
+    msg = "You have a new shift assigned at #{shift.hospital.name}. Please open the NurseWorks Care app and accept or reject the shift."
     send_sms(msg)
   end
 

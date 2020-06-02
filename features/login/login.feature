@@ -75,5 +75,5 @@ Scenario Outline: Password reset Successfully
 
   Examples:
     |user             |msg    | new_password  |
-    |role=Care Giver  |Welcome| Connuct123$   |
-    |role=Nurse       |Welcome| Connuct1234$  |
+    |role=Care Giver  |Welcome| NurseWorks123$   |
+    |role=Nurse       |Welcome| NurseWorks1234$  |

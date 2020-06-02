@@ -262,7 +262,7 @@ class User < ApplicationRecord
   def generate_password_reset_code
     self.password_reset_code = rand.to_s[2..5]
     self.save
-    send_sms("Connuct password reset code: #{self.password_reset_code}")
+    send_sms("NurseWorks password reset code: #{self.password_reset_code}")
     return self.password_reset_code
   end
 
