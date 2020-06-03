@@ -26,8 +26,8 @@ class ApplicationController < ActionController::API
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :role, :nurse_type, 
-        :sex, :title, :phone, :postcode, :languages, :pref_commute_distance, :specializations, :experience, 
-        :referal_code, :accept_terms, :hospital_id, :password, :image_url, :verified, :sort_code, :bank_account])
+        :sex, :title, :phone, :address, :city, :lat, :lng, :languages, :pref_commute_distance, :specializations, :experience, 
+        :referal_code, :accept_terms, :hospital_id, :password, :image_url, :verified, :bank_account])
   end
 
   before_action :set_paper_trail_whodunnit

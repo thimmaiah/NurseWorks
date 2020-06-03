@@ -133,7 +133,6 @@ FactoryGirl.define do
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
     image_url {logos[rand(logos.length)]}
     address {Faker::Address.street_address}
-    postcodelatlng { PostCode.all.sample }
     zone {["North", "South"][rand(2)]}
     city {["Bengaluru", "Hyderabad", "Gurugram", "Chennai", "Mumbai"][rand(5)]}
     bank_account {rand.to_s[2..9]} 
@@ -156,11 +155,6 @@ FactoryGirl.define do
     #manual_assignment_flag {false}
   end
 
-  factory :post_code do
-    postcode {Array.new(7){[*"A".."Z", *"0".."9"].sample}.join}
-    latitude {rand}
-    longitude {rand}
-  end
 
   factory :user do
 
@@ -172,8 +166,7 @@ FactoryGirl.define do
     password {email.camelize + "1$"}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
     address { Faker::Address.street_address }
-    postcodelatlng { PostCode.all.sample }
-    #postcodelatlng { PostCode.offset(rand(PostCode.count)).first }
+    city {["Bengaluru", "Hyderabad", "Gurugram", "Chennai", "Mumbai"][rand(5)]}
     confirmation_sent_at { Time.now }
     confirmed_at { Time.now }
     sign_in_count { 5 }

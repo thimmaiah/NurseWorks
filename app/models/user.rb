@@ -46,7 +46,6 @@ class User < ApplicationRecord
   scope :temps, -> { where "role = ? or role = ?", "Care Giver", "Nurse"}
   scope :active, -> { where active: true }
 
-  after_save :update_coordinates
   before_save :check_verified
   before_save :check_accept_bank_transactions
   before_create :set_defaults
@@ -115,11 +114,12 @@ class User < ApplicationRecord
     end
   end
 
-  def update_coordinates
-    if(self.postcode && self.postcode_changed? && Rails.env != "test")
-      GeocodeJob.perform_later(self)
-    end
-  end
+  # after_save :update_coordinates 
+  # def update_coordinates
+  #   if(self.postcode && self.postcode_changed? && Rails.env != "test")
+  #     GeocodeJob.perform_later(self)
+  #   end
+  # end
 
   def is_temp?
     self.role == "Care Giver" || self.role == "Nurse"
@@ -229,12 +229,6 @@ class User < ApplicationRecord
     month_total_mins_worked
   end
 
-  # for testing only in factories - do not use in prod
-  def postcodelatlng=(postcodelatlng)
-    self.postcode = postcodelatlng.postcode
-    self.lat = postcodelatlng.latitude
-    self.lng = postcodelatlng.longitude
-  end
 
   def current_docs
     self.user_docs.not_expired.where(verified: true)
@@ -294,7 +288,6 @@ class User < ApplicationRecord
     self.email = "deleted#{self.id}@deleted.com"
     self.uid = self.email
     self.address = "Deleted"
-    self.postcode = PostCode.first.postcode
     self.bank_account = "00000000"
     self.sort_code = "000000"
     self.active = false

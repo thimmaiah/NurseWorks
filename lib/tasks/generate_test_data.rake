@@ -48,13 +48,6 @@ namespace :nurse_works do
 
   end
 
-  task :generateFakePostCodes => :environment do
-    (1..10).each do 
-      p = FactoryGirl.build(:post_code)   
-      p.save!
-    end
-  end
-
   desc "generates fake users for testing"
   task :generateFakeUsers => :environment do
 
@@ -353,13 +346,13 @@ namespace :nurse_works do
   end
 
   desc "Generating all Fake Data"
-  task :generateFakeAll => [:emptyDB, :generateFakePostCodes, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers,
+  task :generateFakeAll => [:emptyDB, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers,
   :generateFakeAdmin, :generateFakeReq, :generateFakeResp, 
   :generateFakeRatings, :finalize] do
     puts "Generating all Fake Data"
   end
 
-  task :generateLoadTestData => [:emptyDB, :generateFakePostCodes, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers, :finalize] do
+  task :generateLoadTestData => [:emptyDB, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers, :finalize] do
     puts "Generating all Fake Data"
   end
 

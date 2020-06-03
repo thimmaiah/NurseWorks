@@ -8,7 +8,7 @@ class Hospital < ApplicationRecord
   has_many :hospital_carer_mappings
   has_many :carers, :through => :hospital_carer_mappings, source: :user
 
-  validates_presence_of :name, :postcode, :num_of_beds, :nurse_count
+  validates_presence_of :name, :city, :num_of_beds, :nurse_count
   validates_presence_of :zone, if: :verified
   serialize :specializations, Array
   serialize :nurse_qualification_pct, Hash
@@ -47,20 +47,12 @@ class Hospital < ApplicationRecord
     self.nurse_qualification_pct = {} if self.nurse_qualification_pct == nil
   end
 
-  after_save :update_coordinates
-  def update_coordinates
-    if(self.postcode_changed? && Rails.env != "test")
-      GeocodeJob.perform_later(self)
-    end
-  end
-
-
-  # for testing only in factories - do not use in prod
-  def postcodelatlng=(postcodelatlng)
-    self.postcode = postcodelatlng.postcode
-    self.lat = postcodelatlng.latitude
-    self.lng = postcodelatlng.longitude
-  end
+  # after_save :update_coordinates
+  # def update_coordinates
+  #   if(self.postcode_changed? && Rails.env != "test")
+  #     GeocodeJob.perform_later(self)
+  #   end
+  # end
 
 
   def emails

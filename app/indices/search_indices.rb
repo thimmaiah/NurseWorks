@@ -27,7 +27,7 @@ end
 ThinkingSphinx::Index.define :hospital, :with => :real_time do
   # fields
   indexes name
-  indexes postcode
+  indexes city
   indexes phone
   indexes specializations
   has zone, :type=>:string
@@ -54,20 +54,13 @@ ThinkingSphinx::Index.define :contact, :with => :real_time do
   indexes user.last_name
 end
 
-ThinkingSphinx::Index.define :post_code, :with => :real_time do
-  # fields
-  indexes postcode
-  indexes postcode_wo_spaces
-end
-
-
 
 ThinkingSphinx::Index.define :user, :with => :real_time do
   # fields
   indexes first_name
   indexes email
   indexes last_name
-  indexes postcode
+  indexes city
   indexes specializations
   indexex phone
 

@@ -29,8 +29,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
   create_table "hospitals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "city",                          limit: 100
-    t.string   "postcode",                      limit: 8
+    t.string   "city",                          limit: 50
     t.datetime "created_at",                                                                        null: false
     t.datetime "updated_at",                                                                        null: false
     t.text     "image_url",                     limit: 65535
@@ -149,21 +148,6 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.index ["user_id"], name: "index_payments_on_user_id", using: :btree
   end
 
-  create_table "post_codes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "postcode",           limit: 10
-    t.decimal "latitude",                      precision: 10
-    t.decimal "longitude",                     precision: 10
-    t.string  "postcode_wo_spaces"
-    t.index ["postcode"], name: "index_postcodelatlng_on_postcode", using: :btree
-  end
-
-  create_table "postcodelatlng", force: :cascade, options: "ENGINE=MyISAM DEFAULT CHARSET=latin1" do |t|
-    t.string  "postcode",           limit: 8,                           null: false
-    t.decimal "latitude",                     precision: 18, scale: 15, null: false
-    t.decimal "longitude",                    precision: 18, scale: 15, null: false
-    t.string  "postcode_wo_spaces"
-    t.index ["postcode"], name: "index_postcodelatlng_on_postcode", using: :btree
-  end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
@@ -374,19 +358,6 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.index ["user_id"], name: "index_staffing_requests_on_user_id", using: :btree
   end
 
-  
-  create_table "stats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "name",        limit: 100
-    t.string   "description"
-    t.string   "value"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.date     "as_of_date"
-    t.string   "date_range",  limit: 40
-    t.string   "stat_type",   limit: 20
-    
-  end
-
   create_table "trainings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.boolean  "undertaken"
@@ -464,7 +435,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.integer  "pref_commute_distance"
     t.string   "conveyence",                    limit: 255               
     t.string   "occupation",                    limit: 20
-    t.text   "specializations"
+    t.text     "specializations"
     t.string   "referal_code",                  limit: 10
     t.boolean  "accept_terms"
     t.integer  "hospital_id"
@@ -479,7 +450,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.datetime "auto_selected_date"
     t.decimal  "lat",                                         precision: 18, scale: 15
     t.decimal  "lng",                                         precision: 18, scale: 15
-    t.string   "postcode",                      limit: 10
+    t.string   "city",                        limit: 50
     t.integer  "total_rating"
     t.integer  "rating_count"
     t.text     "push_token",                    limit: 65535

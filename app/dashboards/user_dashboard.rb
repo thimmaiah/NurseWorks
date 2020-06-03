@@ -45,7 +45,7 @@ class UserDashboard < Administrate::BaseDashboard
     bank_account: Field::String,
     ready_for_verification: Field::BooleanToYesNo,
     phone_verified: Field::BooleanToYesNo,
-    postcode: Field::String,
+    city: Field::String,
     created_at: Field::DateTime,
     auto_selected_date: Field::DateTime,
     age: Field::Number, 
@@ -114,7 +114,7 @@ class UserDashboard < Administrate::BaseDashboard
     :work_weekends,
     :work_weekend_nights,
     :pause_shifts,
-    :postcode,
+    :city,
     :rating,
     :medical_info,    
     :shifts
@@ -153,7 +153,7 @@ class UserDashboard < Administrate::BaseDashboard
     :work_weekends,
     :work_weekend_nights,
     :pause_shifts,
-    :postcode,
+    :city,
     :medical_info,
     :created_at
   ].freeze

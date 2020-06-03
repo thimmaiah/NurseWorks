@@ -58,8 +58,8 @@ class HospitalsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def hospital_params
-    params.require(:hospital).permit(:name, :address, :town, :postcode, :base_rate, :phone,
-      :image_url, :city, :bank_account, :sort_code, :accept_bank_transactions, :carer_break_mins,
+    params.require(:hospital).permit(:name, :address, :town, :phone,
+      :image_url, :city, :bank_account, :accept_bank_transactions, :carer_break_mins,
       :vat_number, :company_registration_number, :parking_available,:paid_unpaid_breaks, :meals_provided_on_shift,
       :meals_subsidised, :dress_code, :po_req_for_invoice, :num_of_beds,  :nurse_count,
       :typical_workex, :owner_name, specializations:[])

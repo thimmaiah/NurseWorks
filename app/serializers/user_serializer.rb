@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :first_name, :last_name, :email, :role, :nurse_type, 
-  :sex, :title, :phone, :phone_verified, :address, :postcode, :languages, :pref_commute_distance, 
+  :sex, :title, :phone, :phone_verified, :address, :city, :lat, :lng, :languages, :pref_commute_distance, 
   :specializations, :referal_code, :accept_terms, :hospital_id, :hospital_ids, :sister_hospitals,
   :image, :can_manage, :verified, :sort_code, :bank_account, :rating, :user_docs, :push_token,
   :sms_verification_code, :locum, :pref_shift_duration, :pref_shift_time, :exp_shift_rate,

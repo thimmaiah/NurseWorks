@@ -28,7 +28,6 @@ class Ability
   
     def guest_privilages
         can :read, Hospital
-        can :read, PostCode
         can :read, StaffingRequest
         can :create, User
     end
@@ -48,10 +47,8 @@ class Ability
 
     def employee_privilages
         can :read, Hospital
-        can :read, PostCode
         can :read, UserDoc
         can :read, Rating
-        can :read, CqcRecord
         can :read, Holiday
         can :read, Shift, :hospital_id=>@user.hospital_id         
         can [:read, :create], Referral, :user_id =>@user.id

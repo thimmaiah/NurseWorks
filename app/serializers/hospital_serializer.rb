@@ -1,5 +1,5 @@
 class HospitalSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :city, :postcode, :phone,
+  attributes :id, :name, :address, :city, :phone,
     :can_manage, :image_url, :verified, :bank_account, 
     :company_registration_number, :parking_available,
     :paid_unpaid_breaks, :meals_provided_on_shift,
