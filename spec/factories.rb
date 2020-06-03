@@ -137,10 +137,13 @@ FactoryGirl.define do
     zone {["North", "South"][rand(2)]}
     city {["Bengaluru", "Hyderabad", "Gurugram", "Chennai", "Mumbai"][rand(5)]}
     bank_account {rand.to_s[2..9]} 
-    sort_code {rand.to_s[2..7]} 
+    
     verified {false}
     num_of_beds {rand(20) + 1}
     nurse_count { rand(num_of_beds/2) }
+    typical_workex {rand(4) + 4}
+    nurse_qualification_pct { {"A&M Nurse" => rand(10), "Diploma Nurses" => rand(10), "BSc Nursing" => rand(10), "MSc Nurses" => rand(10), "Other" => rand(10)} }
+    owner_name {Faker::Name.first_name + " " + Faker::Name.last_name }
     carer_break_mins {[30,60][rand(2)]}
     vat_number {rand.to_s[2..9]}
     company_registration_number {rand.to_s[2..7]}

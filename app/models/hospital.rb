@@ -16,7 +16,7 @@ class Hospital < ApplicationRecord
   has_many :ratings, as: :rated_entity
 
   ZONES = ["North", "South", "London", "South East", "South West", "Midlands", "North West", "North East"]
-
+  SPECIALIZATION = ["Multi specialty", "Singe Specialty", "Obstetrics and Gynaecology", "General Surgery", "Pediatrics", "Opthalmology"]
   scope :verified, -> { where verified: true }
   scope :unverified, -> { where verified: false }
   

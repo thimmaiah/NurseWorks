@@ -19,7 +19,7 @@ class RecurringRequestDashboard < Administrate::BaseDashboard
     start_date: Field::DateTime,
     end_date: Field::DateTime,
     role: Field::Select.with_options(collection: User::ROLE), 
-    speciality: Field::Select.with_options(collection: User::SPECIALITY),    
+    speciality: Field::Select.with_options(collection: Hospital::SPECIALIZATION),    
     audit: HashField,
     dates: ArrayField,
     notes: Field::Text,

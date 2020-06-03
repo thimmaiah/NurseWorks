@@ -29,7 +29,7 @@ namespace :nurse_works do
 
     begin
 
-      User::SPECIALITY.each do |sp|
+      Hospital::SPECIALIZATION.each do |sp|
       (1..1).each do | i |
           h = FactoryGirl.build(:hospital)
           h.created_at = Date.today - rand(4).weeks - rand(7).days
@@ -74,8 +74,8 @@ namespace :nurse_works do
       ["Care Giver", "Nurse"].each do |role|
         
         # Now generate some consumers
-        User::SPECIALITY.each do |sp|
-          (1..2).each do |j|
+        Hospital::SPECIALIZATION.each do |sp|
+          (1..1).each do |j|
             u = FactoryGirl.build(:user)        
             u.verified = true
             u.email = "user#{i}@gmail.com"
@@ -327,7 +327,7 @@ namespace :nurse_works do
 
         ["North", "South"].each do |zone|
           ["Nurse", "Care Giver"].each do |role|
-            User::SPECIALITY.each do |sp|
+            Hospital::SPECIALIZATION.each do |sp|
               u = FactoryGirl.build(:rate)
               #u.speciality = spec
               u.role = role

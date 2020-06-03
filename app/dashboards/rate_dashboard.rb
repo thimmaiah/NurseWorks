@@ -12,7 +12,7 @@ class RateDashboard < Administrate::BaseDashboard
     hospital_id: Field::Number,
     zone: Field::Select.with_options(collection: Hospital::ZONES),
     role: Field::Select.with_options(collection: User::ROLE),
-    speciality: Field::Select.with_options(collection: User::SPECIALITY),
+    speciality: Field::Select.with_options(collection: Hospital::SPECIALIZATION),
     hospital: Field::BelongsToSearch,
     carer_weekday: Field::Number.with_options(decimals: 2),
     hospital_weekday: Field::Number.with_options(decimals: 2),

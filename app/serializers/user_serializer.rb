@@ -3,7 +3,7 @@ class UserSerializer < ActiveModel::Serializer
   :sex, :title, :phone, :phone_verified, :address, :postcode, :languages, :pref_commute_distance, 
   :specializations, :referal_code, :accept_terms, :hospital_id, :hospital_ids, :sister_hospitals,
   :image, :can_manage, :verified, :sort_code, :bank_account, :rating, :user_docs, :push_token,
-  :sms_verification_code, 
+  :sms_verification_code, :locum, :pref_shift_duration, :pref_shift_time, :exp_shift_rate,
   :work_weekdays, :work_weeknights, :work_weekends, :work_weekend_nights, :pause_shifts, :medical_info,
   :password_reset_date, :age, :years_of_exp, :months_of_exp, :key_qualifications, :locum, :conveyence
 

@@ -1,4 +1,4 @@
 class HospitalMiniSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :town, :postcode, :phone
+  attributes :id, :name, :address, :city, :postcode, :phone
     
 end
