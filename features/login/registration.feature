@@ -20,54 +20,54 @@ Scenario Outline: User Registration Successfully
     |role=Admin		                             |Please check your email for verification link	|Register as a Partner	|
 
 
-Scenario Outline: Register an existing care home
+Scenario Outline: Register an existing hospital
   
   Given Im a logged in user "<user>"  
-  Given there is a care_home "<care_home>" with an admin "role=Admin"
-  And I am at the care homes registration page
-  When I search for the care home "<care_home>"
-  And I click on the search result care home
-  And When I claim the care home
+  Given there is a hospital "<hospital>" with an admin "role=Admin"
+  And I am at the hospitals registration page
+  When I search for the hospital "<hospital>"
+  And I click on the search result hospital
+  And When I claim the hospital
   Then I should see the "<msg1>"
   Given jobs are being dispatched
   Then the admin user receives an email with "Add Admin to Care Home" in the subject
   
   Examples:
-    |user        |care_home                             |msg1                                |
+    |user        |hospital                             |msg1                                |
     |role=Admin  |name=Kingswood House Nursing Home     |Our support will verify and add you as an admin for this Partner|
     |role=Admin  |name=Little Haven;carer_break_mins=30 |Our support will verify and add you as an admin for this Partner|
 
 
-Scenario Outline: Register a care home with cqc
+Scenario Outline: Register a hospital with cqc
   
   Given Im a logged in user "<user>"  
-  And I am at the care homes registration page
-  When I search for the care home "<care_home>"
-  And I click on the search result care home
-  And When I submit the care homes registration page with "<care_home>"
+  And I am at the hospitals registration page
+  When I search for the hospital "<hospital>"
+  And I click on the search result hospital
+  And When I submit the hospitals registration page with "<hospital>"
   Then I should see the "<msg1>"
-  And the care home should be unverified
-  And I should be associated with the care home
+  And the hospital should be unverified
+  And I should be associated with the hospital
   Examples:
-    |user        |care_home                             |msg1                                |
-    |role=Admin  |name=Kingswood House Nursing Home     |As part of our verification process, we will call your care home to verify your details|
-    |role=Admin  |name=Little Haven;carer_break_mins=30 |As part of our verification process, we will call your care home to verify your details|
+    |user        |hospital                             |msg1                                |
+    |role=Admin  |name=Kingswood House Nursing Home     |As part of our verification process, we will call your hospital to verify your details|
+    |role=Admin  |name=Little Haven;carer_break_mins=30 |As part of our verification process, we will call your hospital to verify your details|
 
 
-Scenario Outline: Register a care home without cqc
+Scenario Outline: Register a hospital without cqc
   
   Given Im a logged in user "<user>"  
-  And I am at the care homes registration page
-  When I search for the care home "<care_home>"
+  And I am at the hospitals registration page
+  When I search for the hospital "<hospital>"
   And I click "Register New Partner"
-  And I fill and submit the care homes registration page with  "<care_home>"
+  And I fill and submit the hospitals registration page with  "<hospital>"
   Then I should see the "<msg1>"
-  And the care home should be unverified
-  And I should be associated with the care home
+  And the hospital should be unverified
+  And I should be associated with the hospital
   Examples:
-    |user        | care_home                              |msg1                                |
-    |role=Admin  |name=Kingswood House Nursing Home       |As part of our verification process, we will call your care home to verify your details|
-    |role=Admin  |name=Little Haven;carer_break_mins=30   |As part of our verification process, we will call your care home to verify your details|
+    |user        | hospital                              |msg1                                |
+    |role=Admin  |name=Kingswood House Nursing Home       |As part of our verification process, we will call your hospital to verify your details|
+    |role=Admin  |name=Little Haven;carer_break_mins=30   |As part of our verification process, we will call your hospital to verify your details|
 
 
 Scenario Outline: User Phone Verification

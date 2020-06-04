@@ -1,9 +1,9 @@
 Feature: New Requests
-  New a request put in by a care home
+  New a request put in by a hospital
 
 Scenario Outline: New Request
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given Im logged in 
   When I click "View Staffing Requests"
   When I create a new Staffing Request "<request>"
@@ -11,18 +11,18 @@ Scenario Outline: New Request
   When I click on the request I must see the request details
 
   Examples:
-  	|care_home						                            |admin 						           |request	|
-  	|name=My care_home;verified=true	                |first_name=Admin;role=Admin |start_code=1111;end_code=0000 |
-  	|name=My care_home;verified=true	                |first_name=Admin;role=Admin |start_code=1111;end_code=0000 |
-    |name=My care_home;verified=true;qr_code=1234     |first_name=Admin;role=Admin |  |
-    |name=My care_home;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |start_code=1111;end_code=0000;po_for_invoice=PO111X  |
+  	|hospital						                            |admin 						           |request	|
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |start_code=1111;end_code=0000 |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |start_code=1111;end_code=0000 |
+    |name=My hospital;verified=true;qr_code=1234     |first_name=Admin;role=Admin |  |
+    |name=My hospital;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |start_code=1111;end_code=0000;po_for_invoice=PO111X  |
   	
 
 
-Scenario Outline: New Request for sister care home
+Scenario Outline: New Request for sister hospital
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
-  Given the care home has sister care homes "<sister_care_home>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
+  Given the hospital has sister hospitals "<sister_hospital>"
   Given Im logged in 
   When I click "View Staffing Requests"
   When I create a new Staffing Request "<request>"
@@ -30,7 +30,7 @@ Scenario Outline: New Request for sister care home
   When I click on the request I must see the request details
 
   Examples:
-    |care_home                          |admin                       |request                       | sister_care_home |
-    |name=My Care Home;verified=true    |first_name=Admin;role=Admin |care_home_id=2;start_code=1111;end_code=0000 | name=Sis Care Home With Very Large Name#name=My Wonderful Care Home  |
-    |name=My care_home;verified=true    |first_name=Admin;role=Admin |care_home_id=3;start_code=1111;end_code=0000 | name=Sis Care#name=My Wonderful Care Home  |
+    |hospital                          |admin                       |request                       | sister_hospital |
+    |name=My Care Home;verified=true    |first_name=Admin;role=Admin |hospital_id=2;start_code=1111;end_code=0000 | name=Sis Care Home With Very Large Name#name=My Wonderful Care Home  |
+    |name=My hospital;verified=true    |first_name=Admin;role=Admin |hospital_id=3;start_code=1111;end_code=0000 | name=Sis Care#name=My Wonderful Care Home  |
     

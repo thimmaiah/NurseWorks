@@ -3,7 +3,7 @@ Feature: Rating
 
 Scenario Outline: Care Home Rating
   
-  Given there is a care_home "verified=true" with me as admin "role=Admin"
+  Given there is a hospital "verified=true" with me as admin "role=Admin"
   Given there is a request "<request>"
   Given there is a user "<user>"
   And the user has already closed this request
@@ -13,7 +13,7 @@ Scenario Outline: Care Home Rating
   When I click the shift for details
   When I click "Rate Care Home"
   And I rate with "<rating>"
-  Then the care home should be rated "<rating>"
+  Then the hospital should be rated "<rating>"
 
   Examples:
     |request                             | user                            | rating |
@@ -24,7 +24,7 @@ Scenario Outline: Care Home Rating
 
 Scenario Outline: Care Giver Rating
   
-  Given there is a care_home "verified=true" with me as admin "role=Admin"
+  Given there is a hospital "verified=true" with me as admin "role=Admin"
   Given there is a request "<request>"
   Given Im logged in
   Given there is a user "<user>"

@@ -86,7 +86,7 @@ gem 'paper_trail'
 gem 'sanitize_email'
 gem 'responders'
 gem 'whenever', :require => false
-gem 'capybara-email'
+
 # gem 'high_voltage'
 gem 'roadie'
 gem 'logstash-logger'
@@ -98,6 +98,7 @@ gem 'axlsx_rails'
 gem 'rqrcode'
 
 group :test do
+  gem 'capybara-email'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'

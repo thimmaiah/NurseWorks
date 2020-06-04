@@ -11,13 +11,13 @@ Scenario Outline: Login Successfully
   	|user							|msg	|
   	|role=Care Giver	|Welcome|
     |role=Nurse       |Welcome|
-  	|role=Admin		    |Register as a Partner|
+  	|role=Admin		    |Register as a Hospital|
 
 
 
 Scenario Outline: Login Incorrectly
   Given there is a user "<user>"
-  ge
+  And I am at the login page
   When I fill the password incorrectly and submit the login page
   Then I should see the "<msg>"
 
@@ -30,31 +30,29 @@ Scenario Outline: Login Incorrectly
 
 
 Scenario Outline: Home page menus Care Giver
-  
   Given there is a user "<user>"
-   account
+  And the user has no bank account
   And I am at the login page
   When I fill and submit the login page
   Then I should see the all the home page menus "<menus>"
 
   Examples:
     |user                                                   |menus                |
-    |role=Care Giver;verified=false;phone_verified=false    |Verify Mobile Number;Qualification Certificate;ID Card;Proof of Address;DBS|
-    |role=Nurse;verified=false;phone_verified=false         |Verify Mobile Number;Qualification Certificate;ID Card;Proof of Address;DBS|
+    |role=Care Giver;verified=false;phone_verified=false    |Verify Mobile Number;Degree Certificate;Adhaar Card|
+    |role=Nurse;verified=false;phone_verified=false         |Verify Mobile Number;Degree Certificate;Adhaar Card|
 
 
 
 
 Scenario Outline: Home page menus Admin
-  
-  Given there is a care_home "<care_home>" with me as admin "<user>"
-   bank account
+  Given there is a hospital "<hospital>" with me as admin "<user>"
+  And the hospital has no bank account
   And I am at the login page
   When I fill and submit the login page
   Then I should see the all the home page menus "<menus>"
 
   Examples:
-    |care_home     |user                               |menus                |
+    |hospital     |user                               |menus                |
     |verified=false|role=Admin;verified=false;phone_verified=false    |Verify Mobile Number;|
     |verified=false|role=Admin;verified=false;phone_verified=false    |Verify Mobile Number;|
 
@@ -62,9 +60,8 @@ Scenario Outline: Home page menus Admin
 
 
 Scenario Outline: Password reset Successfully
-  
   Given there is a user "<user>"
-  ge
+  And I am at the login page
   When I fill and submit the reset password
   Then I should see the "Sms with password reset secret sent. Please check your phone."
   When I fill out the password reset page with "<new_password>"
@@ -75,5 +72,5 @@ Scenario Outline: Password reset Successfully
 
   Examples:
     |user             |msg    | new_password  |
-    |role=Care Giver  |Welcome| NurseWorks123$   |
-    |role=Nurse       |Welcome| NurseWorks1234$  |
+    |role=Care Giver  |Welcome| Connuct123$   |
+    |role=Nurse       |Welcome| Connuct1234$  |

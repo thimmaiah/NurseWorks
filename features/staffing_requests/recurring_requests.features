@@ -1,21 +1,21 @@
 Feature: Recurring Requests
-  Put a recurring request by a care home
+  Put a recurring request by a hospital
 
 Scenario Outline: Recurring Request Generates the right requests
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given there is a recurring request "<recurring_request>"
   When requests are generated for the first time the count should be "<count>" 
   Then there should be "<count>" requests generated
   Examples:
-    |care_home    |admin                    |count  | recurring_request                 |
+    |hospital    |admin                    |count  | recurring_request                 |
     |verified=true|role=Admin;verified=true |2      | role=Care Giver;on=2,4  			|
     |verified=true|role=Admin;verified=true |3      | role=Nurse;on=1,3,5				|
     |verified=true|role=Admin;verified=true |5      | role=Care Giver;on=1,2,3,4,5  	|
 
 Scenario Outline: Recurring Request does not generate requests when already generated
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given there is a recurring request "<recurring_request>"
   When requests are generated for the first time the count should be "<count>"
   Then there should be "<count>" requests generated
@@ -23,7 +23,7 @@ Scenario Outline: Recurring Request does not generate requests when already gene
   Then there should be "<count>" requests generated
   
   Examples:
-    |care_home    |admin                    |count  | recurring_request                 |
+    |hospital    |admin                    |count  | recurring_request                 |
     |verified=true|role=Admin;verified=true |2      | role=Care Giver;on=2,4  			|
     |verified=true|role=Admin;verified=true |3      | role=Nurse;on=1,3,5				|
     |verified=true|role=Admin;verified=true |5      | role=Care Giver;on=1,2,3,4,5  	|

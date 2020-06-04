@@ -1,12 +1,12 @@
 Feature: Cancel Requests
-  Close a request put in by a care home
+  Close a request put in by a hospital
 
-Scenario Outline: Cancel Request for care_home
+Scenario Outline: Cancel Request for hospital
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given there are "<number>" of verified requests
   Given Im logged in
-  Given there are "<number>" of shifts for the care_home
+  Given there are "<number>" of shifts for the hospital
   When I click "View Staffing Requests"
   When I click on the request
   When the request is cancelled by the user
@@ -15,7 +15,7 @@ Scenario Outline: Cancel Request for care_home
 
 
   Examples:
-    |care_home    |admin                    |number | user                            |
+    |hospital    |admin                    |number | user                            |
     |verified=true|role=Admin;verified=true |1      | role=Care Giver;verified=true   |
     |verified=true|role=Admin;verified=true |1      | role=Nurse;verified=true        |
 

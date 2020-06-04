@@ -6,8 +6,8 @@ Given(/^the shift creator job runs$/) do
   puts "\n#{@shift.to_json}\n"
 end
 
-Given("the care home has a preferred care giver") do
-  CareHomeCarerMapping.where(user_id: @user.id).update_all(preferred: true)
+Given("the hospital has a preferred care giver") do
+  HospitalCarerMapping.where(user_id: @user.id).update_all(preferred: true)
 end
 
 Then("A shift must be created for the preferred care giver for the request") do
@@ -19,7 +19,7 @@ Then(/^A shift must be created for the user for the request$/) do
   @shift = Shift.last
   @shift.user_id.should == @user.id
   @shift.staffing_request_id.should == @staffing_request.id
-  @shift.care_home_id.should == @staffing_request.care_home_id
+  @shift.hospital_id.should == @staffing_request.hospital_id
 end
 
 Given(/^the user has already accepted this request$/) do
@@ -27,7 +27,7 @@ Given(/^the user has already accepted this request$/) do
   @shift = FactoryGirl.build(:shift)
   @shift.user = @user
   @shift.staffing_request = @staffing_request
-  @shift.care_home_id = @staffing_request.care_home_id
+  @shift.hospital_id = @staffing_request.hospital_id
   @shift.save
 
   @shift.response_status = "Accepted"
@@ -42,7 +42,7 @@ Given(/^the user has already rejected this request$/) do
   @shift = FactoryGirl.build(:shift)
   @shift.user = @user
   @shift.staffing_request = @staffing_request
-  @shift.care_home_id = @staffing_request.care_home_id
+  @shift.hospital_id = @staffing_request.hospital_id
   @shift.save
 
   @shift.response_status = "Rejected"
@@ -56,7 +56,7 @@ Given(/^the user has already auto rejected this request$/) do
   @shift = FactoryGirl.build(:shift)
   @shift.user = @user
   @shift.staffing_request = @staffing_request
-  @shift.care_home_id = @staffing_request.care_home_id
+  @shift.hospital_id = @staffing_request.hospital_id
   @shift.save
 
   @shift.response_status = "Auto Rejected"
@@ -97,7 +97,7 @@ end
 
 Then(/^I must see the shift$/) do
   @shift = Shift.last
-  expect(page).to have_content(@shift.care_home.name)
+  expect(page).to have_content(@shift.hospital.name)
   if(@user.role  == "Admin")
     expect(page).to have_content(@shift.user.first_name)
     expect(page).to have_content(@shift.user.last_name)
@@ -140,7 +140,7 @@ Given(/^there are "([^"]*)" of shifts$/) do |count|
   end
 end
 
-Given(/^there are "([^"]*)" of shifts for the care_home$/) do |arg1|
+Given(/^there are "([^"]*)" of shifts for the hospital$/) do |arg1|
   puts "\n StaffingRequest.count = #{StaffingRequest.count} \n"
   StaffingRequest.all.each do |req|
     @staffing_request = req
@@ -179,7 +179,7 @@ Given(/^there is a shift for a user "([^"]*)" with status "([^"]*)"$/) do |arg1,
   }
 
   @shift = Shift.new(staffing_request_id: @staffing_request.id,
-                     care_home_id: @staffing_request.care_home_id,
+                     hospital_id: @staffing_request.hospital_id,
                      user_id: @user.id,
                      response_status: "Pending")
 
@@ -232,14 +232,14 @@ end
 
 Then(/^the shift price is computed and stored$/) do
   @shift.reload
-  @shift.care_home_base.should_not be nil
+  @shift.hospital_base.should_not be nil
 end
 
 Then(/^the payment for the shift is generated$/) do
   @payment = Payment.last
   @payment.shift_id.should == @shift.id
-  @payment.amount.should == @shift.care_home_total_amount
-  @payment.care_home_id.should == @staffing_request.care_home_id
+  @payment.amount.should == @shift.hospital_total_amount
+  @payment.hospital_id.should == @staffing_request.hospital_id
   @payment.user_id.should == @shift.user_id
 end
 
@@ -342,21 +342,21 @@ end
 
 Then(/^the markup should be computed$/) do
   @shift.reload
-  puts "care_home_base = #{@shift.care_home_base}, carer_base = #{@shift.carer_base}}"
-  @shift.markup.should == (@shift.pricing_audit["care_home_base"] - @shift.pricing_audit["carer_base"]).round(2)
+  puts "hospital_base = #{@shift.hospital_base}, carer_base = #{@shift.carer_base}}"
+  @shift.markup.should == (@shift.pricing_audit["hospital_base"] - @shift.pricing_audit["carer_base"]).round(2)
 end
 
 Then(/^the total price should be computed$/) do
-  care_home_base = @shift.pricing_audit["care_home_base"]
-  vat = care_home_base * ENV["VAT"].to_f.round(2)     
-  markup = (@shift.pricing_audit["care_home_base"] - @shift.pricing_audit["carer_base"]).round(2)
-  @shift.care_home_total_amount.should == (care_home_base + vat).round(2)
+  hospital_base = @shift.pricing_audit["hospital_base"]
+  vat = hospital_base * ENV["VAT"].to_f.round(2)     
+  markup = (@shift.pricing_audit["hospital_base"] - @shift.pricing_audit["carer_base"]).round(2)
+  @shift.hospital_total_amount.should == (hospital_base + vat).round(2)
 end
 
 
 
 Given("the user scans the QR code") do
-  accepted = @shift.accept_qr_code(@shift.care_home.qr_code, @shift.user)
+  accepted = @shift.accept_qr_code(@shift.hospital.qr_code, @shift.user)
   accepted.should == true
 end
 
@@ -374,7 +374,7 @@ end
 
 
 Given("the user scans the wrong QR code") do
-  accepted = @shift.accept_qr_code(@shift.care_home.qr_code + "000", @shift.user)
+  accepted = @shift.accept_qr_code(@shift.hospital.qr_code + "000", @shift.user)
   accepted.should == false
 end
 

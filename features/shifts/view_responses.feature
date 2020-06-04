@@ -5,7 +5,7 @@ Scenario Outline: View My Shift
   
   Given there is a request "<request>"
   Given there is a user "<user>"
-  Given the carer is mapped to the care home
+  Given the carer is mapped to the hospital
   And the shift creator job runs
   Given Im logged in 
   When I click "Pending Shifts"
@@ -31,17 +31,17 @@ Scenario Outline: Cannot View Others Shifts
     |2      | role=Nurse;verified=true        |
 
 
-Scenario Outline: View All Shifts for care_home
+Scenario Outline: View All Shifts for hospital
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given there are "<number>" of verified requests
   Given Im logged in
-  Given there are "<number>" of shifts for the care_home
+  Given there are "<number>" of shifts for the hospital
   When I click "Confirmed Shifts"
   Then I must see all the shifts 
   
 
   Examples:
-    |care_home    |admin                    |number | user                            |
+    |hospital    |admin                    |number | user                            |
     |verified=true|role=Admin;verified=true |1      | role=Care Giver;verified=true   |
     |verified=true|role=Admin;verified=true |2      | role=Nurse;verified=true        |

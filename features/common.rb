@@ -77,37 +77,37 @@ Then(/^I must see the message "([^"]*)"$/) do |arg1|
   expect(page).to have_content(arg1)
 end
 
-Given("the care home has sister care homes {string}") do |sch|
+Given("the hospital has sister hospitals {string}") do |sch|
   sch.split("#").each do |sch_agrs|
-    care_home = FactoryGirl.build(:care_home)
-    care_home.verified = true
-    key_values(care_home, sch_agrs)
-    care_home.save!
+    hospital = FactoryGirl.build(:hospital)
+    hospital.verified = true
+    key_values(hospital, sch_agrs)
+    hospital.save!
   end
-  @care_home.sister_care_homes = CareHome.where("id <> ?", @care_home.id).collect(&:id).join(",")
-  @care_home.save!
-  puts "\n ## sister_care_homes = #{@care_home.sister_care_homes} ##"
+  @hospital.sister_hospitals = Hospital.where("id <> ?", @hospital.id).collect(&:id).join(",")
+  @hospital.save!
+  puts "\n ## sister_hospitals = #{@hospital.sister_hospitals} ##"
 end
 
 
-Given(/^there is a care_home "([^"]*)" with an admin "([^"]*)"$/) do |care_home_args, admin_args|
+Given(/^there is a hospital "([^"]*)" with an admin "([^"]*)"$/) do |hospital_args, admin_args|
 
-  @care_home = FactoryGirl.build(:care_home)
-  key_values(@care_home, care_home_args)
-  @care_home.save!
+  @hospital = FactoryGirl.build(:hospital)
+  key_values(@hospital, hospital_args)
+  @hospital.save!
 
   @admin = FactoryGirl.build(:user)
   key_values(@admin, admin_args)
-  @admin.care_home_id = @care_home.id
+  @admin.hospital_id = @hospital.id
   @admin.save!
 
-  puts "Created care_home #{@care_home.id} and admin #{@admin.id}"
+  puts "Created hospital #{@hospital.id} and admin #{@admin.id}"
 
 end
 
-Given(/^there is a care_home "([^"]*)" with me as admin "([^"]*)"$/) do |care_home_args, admin_args|
+Given(/^there is a hospital "([^"]*)" with me as admin "([^"]*)"$/) do |hospital_args, admin_args|
   steps %Q{
-    Given there is a care_home "#{care_home_args}" with an admin "#{admin_args}"
+    Given there is a hospital "#{hospital_args}" with an admin "#{admin_args}"
   }
 
   @user = @admin
@@ -207,10 +207,10 @@ Then(/^I should not see the home page menus "([^"]*)"$/) do |arg1|
   end
 end
 
-Given(/^the care home has no bank account$/) do
-  @care_home.bank_account = nil
-  @care_home.sort_code = nil
-  @care_home.save!
+Given(/^the hospital has no bank account$/) do
+  @hospital.bank_account = nil
+  @hospital.sort_code = nil
+  @hospital.save!
 end
 
 

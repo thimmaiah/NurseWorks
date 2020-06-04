@@ -1,17 +1,17 @@
 Feature: View Requests
-  View a request put in by a care home
+  View a request put in by a hospital
 
 Scenario Outline: View Requests
   
-  Given there is a care_home "<care_home>" with me as admin "<admin>"
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given there are "<number>" of verified requests
   Given Im logged in
   When I click "View Staffing Requests"
   Then I must see all the requests
   When I click on the request I must see the request details
   Examples:
-  	|user						|care_home            						|admin 						           |number	|
-  	|role=Care Giver|name=My care_home;verified=true	|first_name=Admin;role=Admin |	1	|
-  	|role=Nurse		  |name=My care_home;verified=true	|first_name=Admin;role=Admin |	2	|
+  	|user						|hospital            						|admin 						           |number	|
+  	|role=Care Giver|name=My hospital;verified=true	|first_name=Admin;role=Admin |	1	|
+  	|role=Nurse		  |name=My hospital;verified=true	|first_name=Admin;role=Admin |	2	|
   	
 
