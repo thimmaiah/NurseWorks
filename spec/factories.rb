@@ -179,7 +179,9 @@ FactoryGirl.define do
     years_of_exp {age - rand(20)}
     months_of_exp {rand(12)}
     key_qualifications {User::QUALIFICATIONS[rand(3)]}
-    
+    nursing_school_name {Faker::Company.name}
+    NUID {"111222" + rand(999).to_s.center(3, rand(9).to_s)}
+    head_nurse {rand(2)}
     locum {rand(2)}
     pref_shift_duration {User::SHIFT_DURATION[rand(2)]}
     pref_shift_time {User::SHIFT_TIME[rand(3)]} 

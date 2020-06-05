@@ -136,7 +136,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :role, :nurse_type,
                                  :sex, :title, :address, :city, :lat, :lng, :phone, :languages, :pref_commute_distance,  
                                  :referal_code, :accept_terms, :hospital_id, :image_url, :verified,
-                                 :active, :bank_account, :push_token, :medical_info,
+                                 :active, :bank_account, :push_token, :medical_info, :nursing_school_name, :NUID, :head_nurse,
                                  :accept_bank_transactions, :work_weekdays, :work_weeknights, :work_weekends, 
                                  :work_weekend_nights, :pause_shifts, :age, :years_of_exp, :months_of_exp, :key_qualifications, 
                                  :locum, :conveyence, :pref_shift_duration, :pref_shift_time, :exp_shift_rate, 

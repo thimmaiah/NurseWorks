@@ -21,9 +21,11 @@ class User < ApplicationRecord
   serialize :specializations, Array
 
   SEX = ["M", "F"]
-  SPECIALITY = ["Generalist", "Geriatric Care", "Pediatric Care", "Mental Health"]
+  
+  SPECIALITY = ["Medical wards/other", "Ortho / Surgical wards", "Higher end specialty (e.g. ICU / CCU / Onco care)", "Maternity and Pediatric wards", "Maternity and Pediatric wards", "Mental health / Psychiatric ward nurse"]
   CONVEYENCE = ["Public transport", "Auto", "Own 2 wheeler", "Someone drops me", "I use Uber/Ola", "I own a car"]
-  QUALIFICATIONS = ["Diploma Nurse", "BSc Nursing", "MSc Nursing"]
+  QUALIFICATIONS = ["A&M Nurse", "G&M / Diploma Nurse", "BSc Nursing", "MSc Nursing / PhD", "Student in Nursing"]
+
   SHIFT_DURATION = [8, 12]
   SHIFT_TIME = ["730 AM – 330 PM", "3 PM – 930 PM", "9 PM – 8 AM"]
   SHIFT_RATE = [500, 1000, 1500, 2500]

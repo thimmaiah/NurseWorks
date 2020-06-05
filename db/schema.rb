@@ -179,7 +179,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "zone"
     t.string   "role"
-    t.string   "speciality"
+    t.string   "speciality",              limit: 100       
     t.float    "amount",                  limit: 24
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
@@ -222,7 +222,7 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "role",                 limit: 20
-    t.string   "speciality",           limit: 50
+    t.string   "speciality",           limit: 100
     t.string   "on"
     t.date     "start_on"
     t.date     "end_on"
@@ -436,8 +436,11 @@ ActiveRecord::Schema.define(version: 20191011113134) do
     t.string   "conveyence",                    limit: 255               
     t.string   "occupation",                    limit: 20
     t.text     "specializations"
+    t.text     "nursing_school_name"
+    t.string   "NUID",                          limit: 20
     t.string   "referal_code",                  limit: 10
     t.boolean  "accept_terms"
+    t.boolean  "head_nurse"    
     t.integer  "hospital_id"
     t.boolean  "active"
     t.text     "image_url",                     limit: 65535
