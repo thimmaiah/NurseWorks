@@ -91,6 +91,35 @@ module NqHelper
         end
     end
 
+    # Computes the dynamic score based on shifts and hours worked etc
+    def self.dynamic_score(nurse)
+        0
+    end
+
+    # https://stats.stackexchange.com/questions/70801/how-to-normalize-data-to-0-1-range
+    def self.normalize_scores
+        max = User.temps.maximum("nq_score")
+        min = User.temps.minimum("nq_score")
+        User.temps.each do |u|
+            norm = 1.0 * (u.nq_score - min)/(max - min)
+            u.nq_score_normalized = (norm * 100).ceil
+            u.save
+        end
+    end
+
+    # Recomputes the base and dynamic scores for all temp staff
+    def self.recompute_scores
+        User.temps.each do |u|
+            u.nq_score_base, audit = base_score(u)
+            u.nq_score_dynamic = dynamic_score(u)
+            Rails.logger.debug "#{u.nq_score_base} + #{u.nq_score_dynamic}"
+            u.nq_score = u.nq_score_base + u.nq_score_dynamic
+            u.save
+        end
+    end
+
+    # Computes the base score based on the criteria specified
+    # https://docs.google.com/spreadsheets/d/1S2fgwiRQzBdpnOLs62tgZ3E-lbFsZcOFEjPVtMad5uA/edit#gid=0
     def self.base_score(nurse)
         Rails.logger.debug("\nProcessing user #{nurse.id}")
         cal_audit = {}
@@ -130,11 +159,11 @@ module NqHelper
         nuid_score = NUID[v] * WEIGHTS[NUID]
         cal_audit["NUID"] = "#{nurse.NUID} #{v}: #{NUID[v]} x #{WEIGHTS[NUID]}"
 
-        base =  qual_score + specialization_score + 
+        base =  (qual_score + specialization_score + 
                 locum_score + locum_spm_score + experience_score + 
-                school_score + nuid_score
+                school_score + nuid_score).ceil
                 
-        return base.ceil, cal_audit
+        return base, cal_audit
     end
 
 end
