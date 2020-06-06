@@ -22,9 +22,19 @@ class User < ApplicationRecord
 
   SEX = ["M", "F"]
   
-  SPECIALITY = ["Medical wards/other", "Ortho / Surgical wards", "Higher end specialty (e.g. ICU / CCU / Onco care)", "Maternity and Pediatric wards", "Maternity and Pediatric wards", "Mental health / Psychiatric ward nurse"]
   CONVEYENCE = ["Public transport", "Auto", "Own 2 wheeler", "Someone drops me", "I use Uber/Ola", "I own a car"]
+  
   QUALIFICATIONS = ["A&M Nurse", "G&M / Diploma Nurse", "BSc Nursing", "MSc Nursing / PhD", "Student in Nursing"]
+
+  SPECIALITY = [
+      "Medical wards/other",
+      "OT nurse",
+      "Maternity and Pediatric wards",
+      "Ortho / Surgical wards",
+      "Higher end specialty (ICU / CCU / Onco care)",
+      "Mental health / Psychiatric ward nurse",
+      "Other"
+  ]
 
   SHIFT_DURATION = [8, 12]
   SHIFT_TIME = ["730 AM – 330 PM", "3 PM – 930 PM", "9 PM – 8 AM"]

@@ -155,6 +155,11 @@ FactoryGirl.define do
     #manual_assignment_flag {false}
   end
 
+  factory :school do
+    name {Faker::Company.name}
+    address {Faker::Address.street_address}
+    rank {rand(200) + 1}
+  end
 
   factory :user do
 
@@ -179,8 +184,10 @@ FactoryGirl.define do
     years_of_exp {age - rand(20)}
     months_of_exp {rand(12)}
     key_qualifications {User::QUALIFICATIONS[rand(3)]}
-    nursing_school_name {Faker::Company.name}
+    specializations {User::SPECIALITY.shuffle[0..2]}
+    nursing_school_name {School.all.sample.name}
     NUID {"111222" + rand(999).to_s.center(3, rand(9).to_s)}
+    nuid_valid {rand(2)}
     head_nurse {rand(2)}
     locum {rand(2)}
     pref_shift_duration {User::SHIFT_DURATION[rand(2)]}

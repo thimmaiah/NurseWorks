@@ -74,7 +74,6 @@ namespace :nurse_works do
             u.email = "user#{i}@gmail.com"
             u.password = "user#{i}@gmail.com"
             u.role = role
-            u.specializations = [sp]
             u.image_url = images[rand(images.length)]
             u.created_at = Date.today - rand(4).weeks - rand(7).days
             u.save!
@@ -151,6 +150,24 @@ namespace :nurse_works do
       u.save
       #puts u.to_xml
       puts "#{u.role} #{u.id}"
+
+
+    rescue Exception => exception
+      puts exception.backtrace.join("\n")
+      raise exception
+    end
+
+  end
+
+  desc "generates fake schools for testing"
+  task :generateFakeSchools => :environment do
+
+    begin
+
+      (1..20).each do 
+        u = FactoryGirl.build(:school)
+        u.save!
+      end
 
 
     rescue Exception => exception
@@ -320,7 +337,7 @@ namespace :nurse_works do
 
         ["North", "South"].each do |zone|
           ["Nurse", "Care Giver"].each do |role|
-            Hospital::SPECIALIZATION.each do |sp|
+            User::SPECIALITY.each do |sp|
               u = FactoryGirl.build(:rate)
               #u.speciality = spec
               u.role = role
@@ -345,14 +362,14 @@ namespace :nurse_works do
     ShiftCreatorJob.add_to_queue
   end
 
+    # :generateFakeReq, :generateFakeResp, :generateFakeRatings, 
   desc "Generating all Fake Data"
-  task :generateFakeAll => [:emptyDB, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers,
-  :generateFakeAdmin, :generateFakeReq, :generateFakeResp, 
-  :generateFakeRatings, :finalize] do
+  task :generateFakeAll => [:emptyDB, :generateFakeRates, :generateFakeSchools, :generateFakeHospitals, :generateFakeUsers,
+  :generateFakeAdmin, :finalize] do
     puts "Generating all Fake Data"
   end
 
-  task :generateLoadTestData => [:emptyDB, :generateFakeRates, :generateFakeHospitals, :generateFakeUsers, :finalize] do
+  task :generateLoadTestData => [:emptyDB, :generateFakeRates, :generateFakeSchools, :generateFakeHospitals, :generateFakeUsers, :finalize] do
     puts "Generating all Fake Data"
   end
 
