@@ -90,7 +90,7 @@ class StaffingRequestsController < ApplicationController
     params[:staffing_request][:end_date] = end_date
 
     params.require(:staffing_request).permit(:hospital_id, :user_id, :start_date, :manual_assignment_flag, :notes,
-                                             :end_date, :rate_per_hour, :request_status, :auto_deny_in, :response_count,
+                                             :shift_duration, :rate_per_hour, :request_status, :auto_deny_in, :response_count,
                                              :payment_status, :start_code, :end_code, :price, :role, :speciality, :reason, 
                                              :preferred_carer_id, :po_for_invoice,
                                              :pricing_audit=>[:hours_worked, :base_rate, :base_price, :factor_value, :factor_name, :price]

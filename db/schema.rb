@@ -435,6 +435,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "user_id"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer "shift_duration"
     t.float "rate_per_hour"
     t.string "request_status", limit: 20
     t.float "auto_deny_in"

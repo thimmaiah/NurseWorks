@@ -24,8 +24,8 @@ class StaffingRequest < ApplicationRecord
 
   belongs_to :recurring_request
 
-  validates_presence_of :user_id, :hospital_id, :start_date, :end_date, :role
-  validate :start_end_date_valid, :request_status_valid
+  validates_presence_of :user_id, :hospital_id, :start_date, :shift_duration, :role
+  validate :request_status_valid
 
   # The audit trail of how the price was computed
   serialize :pricing_audit, Hash
@@ -52,7 +52,7 @@ class StaffingRequest < ApplicationRecord
     
     # Zero out the seconds - it causes lots of problems when calculating time spent
     self.start_date = self.start_date.change({sec: 0})
-    self.end_date = self.end_date.change({sec: 0})
+    self.end_date = self.start_date + self.shift_duration.hours
 
     # Copy over the manual_assignment_flag from the hospital
     self.manual_assignment_flag = self.hospital.manual_assignment_flag if self.manual_assignment_flag == nil 
@@ -74,12 +74,6 @@ class StaffingRequest < ApplicationRecord
     rescue Exception => e  
       logger.error "Error in estimating price for request #{self.id} #{e.message}"
       ExceptionNotifier.notify_exception(e)
-    end
-  end
-
-  def start_end_date_valid
-    if(self.start_date > self.end_date)
-      errors.add(:start_date, "Start date cannot be after end date #{self.start_date} > #{self.end_date}")
     end
   end
 

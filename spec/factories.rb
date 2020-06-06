@@ -100,7 +100,7 @@ FactoryGirl.define do
 
   factory :staffing_request do
     start_date {Date.today + 1.day + rand(6).hours}
-    end_date {start_date + 8.hours}
+    shift_duration {[4,8,12][rand(3)]}
     rate_per_hour 15
     request_status {"Open"}
     auto_deny_in 12

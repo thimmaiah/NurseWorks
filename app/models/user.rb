@@ -32,7 +32,7 @@ class User < ApplicationRecord
       "Maternity and Pediatric wards",
       "Ortho / Surgical wards",
       "Higher end specialty (ICU / CCU / Onco care)",
-      "Mental health / Psychiatric ward nurse",
+      "Mental health / Psychiatric ward",
       "Other"
   ]
 

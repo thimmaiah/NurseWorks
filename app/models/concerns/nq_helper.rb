@@ -26,7 +26,7 @@ module NqHelper
         "Other" => 0,
         "Medical wards/other" => 3,
         "Maternity and Pediatric wards" => 6,
-        "Mental health / Psychiatric ward nurse" => 10,
+        "Mental health / Psychiatric ward" => 10,
         "Ortho / Surgical wards" =>	10,
         "OT nurse" => 15,
         "Higher end specialty (ICU / CCU / Onco care)" => 18
