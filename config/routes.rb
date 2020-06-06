@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :hospital_carer_mappings
   resources :agency_user_mappings
   resources :agency_hospital_mappings
-  resources :agencies
+  resources :schools
   resources :stats
   resources :trainings
   resources :profiles
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :agencies
+    resources :schools
     resources :hospital_carer_mappings
 
     resources :users do

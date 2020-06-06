@@ -190,6 +190,7 @@ FactoryGirl.define do
     nuid_valid {rand(2)}
     head_nurse {rand(2)}
     locum {rand(2)}
+    locum_shifts_pm {locum ? rand(10) + 1 : 0}
     pref_shift_duration {User::SHIFT_DURATION[rand(2)]}
     pref_shift_time {User::SHIFT_TIME[rand(3)]} 
     exp_shift_rate {User::SHIFT_RATE[rand(3)]}

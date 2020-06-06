@@ -111,6 +111,12 @@ ThinkingSphinx::Index.define :user_doc, :with => :real_time do
   has user_id,  :type => :integer
 end
 
+ThinkingSphinx::Index.define :school, :with => :real_time do
+  # fields
+  indexes :name  
+  indexes address
+end
+
 
 ThinkingSphinx::Index.define :shift, :with => :real_time do
   # fields

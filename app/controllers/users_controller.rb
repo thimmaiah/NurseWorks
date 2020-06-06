@@ -139,7 +139,7 @@ class UsersController < ApplicationController
                                  :active, :bank_account, :push_token, :medical_info, :nursing_school_name, :NUID, :head_nurse,
                                  :accept_bank_transactions, :work_weekdays, :work_weeknights, :work_weekends, 
                                  :work_weekend_nights, :pause_shifts, :age, :years_of_exp, :months_of_exp, :key_qualifications, 
-                                 :locum, :conveyence, :pref_shift_duration, :pref_shift_time, :exp_shift_rate, 
+                                 :locum, :locum_shifts_pm, :conveyence, :pref_shift_duration, :pref_shift_time, :exp_shift_rate, 
                                  specializations: [],)
   end
 end

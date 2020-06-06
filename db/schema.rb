@@ -571,6 +571,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "months_of_exp"
     t.string "key_qualifications"
     t.boolean "locum", default: false
+    t.integer "locum_shifts_pm", default: 0
     t.integer "pref_shift_duration"
     t.string "pref_shift_time"
     t.integer "exp_shift_rate"
@@ -588,6 +589,9 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.text "nursing_school_name"
     t.string "NUID", limit: 20
     t.integer "nq_score"
+    t.integer "nq_score_base"
+    t.integer "nq_score_dynamic"
+    t.integer "nq_score_normalized"        
     t.boolean "nuid_valid", default: false
     t.string "referal_code", limit: 10
     t.boolean "accept_terms"
