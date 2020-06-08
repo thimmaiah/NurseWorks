@@ -12,61 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_06_06_045352) do
 
-  create_table "care_home_carer_mappings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "care_home_id"
-    t.integer "user_id"
-    t.boolean "enabled"
-    t.float "distance"
-    t.boolean "manually_created"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "preferred"
-    t.index ["care_home_id"], name: "index_care_home_carer_mappings_on_care_home_id"
-    t.index ["user_id"], name: "index_care_home_carer_mappings_on_user_id"
-  end
-
-  create_table "care_homes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "town", limit: 100
-    t.string "postcode", limit: 8
-    t.float "base_rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "image_url"
-    t.decimal "lat", precision: 18, scale: 15
-    t.decimal "lng", precision: 18, scale: 15
-    t.datetime "deleted_at"
-    t.boolean "verified"
-    t.string "zone", limit: 10
-    t.string "cqc_location", limit: 50
-    t.integer "total_rating"
-    t.integer "rating_count"
-    t.string "bank_account", limit: 8
-    t.string "sort_code", limit: 6
-    t.boolean "accept_bank_transactions"
-    t.datetime "accept_bank_transactions_date"
-    t.string "phone", limit: 12
-    t.string "speciality", limit: 100
-    t.string "care_home_broadcast_group"
-    t.string "sister_care_homes", limit: 30
-    t.string "qr_code", limit: 10
-    t.string "icon_url"
-    t.integer "carer_break_mins", default: 0
-    t.string "vat_number", limit: 50
-    t.string "company_registration_number", limit: 100
-    t.boolean "parking_available"
-    t.string "paid_unpaid_breaks", limit: 10
-    t.integer "break_minutes"
-    t.boolean "meals_provided_on_shift"
-    t.boolean "meals_subsidised"
-    t.string "dress_code"
-    t.boolean "po_req_for_invoice"
-    t.boolean "manual_assignment_flag"
-    t.string "account_payment_terms", limit: 20
-    t.index ["cqc_location"], name: "index_care_homes_on_cqc_location"
-    t.index ["deleted_at"], name: "index_care_homes_on_deleted_at"
-  end
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -78,25 +23,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
-  end
-
-  create_table "cqc_records", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "aka"
-    t.string "address"
-    t.string "postcode"
-    t.string "phone"
-    t.string "website"
-    t.text "service_types"
-    t.text "services"
-    t.string "local_authority"
-    t.string "region"
-    t.string "cqc_url"
-    t.string "cqc_location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cqc_location"], name: "index_cqc_records_on_cqc_location"
-    t.index ["postcode"], name: "index_cqc_records_on_postcode"
   end
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,27 +40,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "hiring_requests", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "start_date"
-    t.string "start_time", limit: 20
-    t.date "end_date"
-    t.integer "num_of_hours"
-    t.float "rate"
-    t.string "req_type", limit: 20
-    t.integer "user_id"
-    t.integer "hospital_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "hiring_responses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "hiring_request_id"
-    t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  
   create_table "holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 100
     t.date "date"
@@ -241,22 +147,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
-  create_table "post_codes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postcode", limit: 10
-    t.decimal "latitude", precision: 10
-    t.decimal "longitude", precision: 10
-    t.string "postcode_wo_spaces"
-    t.index ["postcode"], name: "index_postcodelatlng_on_postcode"
-  end
-
-  create_table "postcodelatlng", options: "ENGINE=MyISAM DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "postcode", limit: 8, null: false
-    t.decimal "latitude", precision: 18, scale: 15, null: false
-    t.decimal "longitude", precision: 18, scale: 15, null: false
-    t.string "postcode_wo_spaces"
-    t.index ["postcode"], name: "index_postcodelatlng_on_postcode"
-  end
-
+  
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "user_id"
     t.date "date_of_CRB_DBS_check"
@@ -498,17 +389,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["user_id"], name: "index_staffing_responses_on_user_id"
   end
 
-  create_table "stats", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name", limit: 100
-    t.string "description"
-    t.string "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "as_of_date"
-    t.string "date_range", limit: 40
-    t.string "stat_type", limit: 20
-  end
-
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.boolean "undertaken"
@@ -592,7 +472,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "nq_score"
     t.integer "nq_score_base"
     t.integer "nq_score_dynamic"
-    t.integer "nq_score_normalized"        
+    t.integer "nq_score_normalized"
     t.boolean "nuid_valid", default: false
     t.string "referal_code", limit: 10
     t.boolean "accept_terms"

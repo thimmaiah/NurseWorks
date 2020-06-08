@@ -132,7 +132,7 @@ FactoryGirl.define do
     name {Faker::Company.name}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
     image_url {logos[rand(logos.length)]}
-    address {["Carmelaram", "Eco World", "Eco Space", "Marthahalli", "MG Road"][rand(5)]}
+    address {["Carmelaram", "Eco World", "Eco Space", "Marthahalli", "MG Road", "Malleshwaram", "Jayanagar"][rand(5)]}
     zone {["North", "South"][rand(2)]}
     city {"Bengaluru"}
     bank_account {rand.to_s[2..9]} 
@@ -170,7 +170,7 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password {email.camelize + "1$"}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
-    address {["Carmelaram", "Eco World", "Eco Space", "Marthahalli", "MG Road"][rand(5)]}
+    address {["Carmelaram", "Eco World", "Eco Space", "Marthahalli", "MG Road", "Jayanagar", "Malleshwaram"][rand(7)]}
     city {"Bengaluru"}
 
     confirmation_sent_at { Time.now }
