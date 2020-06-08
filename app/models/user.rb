@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  after_save :index_user
+  
   has_paper_trail ignore: [:sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :tokens]
 
   validates_presence_of :first_name, :last_name, :email, :role, :phone
@@ -59,12 +59,12 @@ class User < ApplicationRecord
   scope :active, -> { where active: true }
 
   before_save :check_verified
-  before_save :check_accept_bank_transactions
   before_create :set_defaults
   before_create :add_unsubscribe_hash
-  reverse_geocoded_by :lat, :lng
+  after_save :update_coordinates 
   before_destroy :check_for_shifts, prepend: true
-
+  after_save :index_user
+  
   #validate :password_complexity
   
 
@@ -75,7 +75,23 @@ class User < ApplicationRecord
     errors.add :password, 'Complexity requirement not met. Length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
   end
   
+  # This is for geocoding the lat/lng from the address entered by the user.
+  # The lst/lng is used to find distance from hospital
+  def addr
+    [address, city, "India"].compact.join(', ')
+  end
+  geocoded_by :addr, latitude: :lat, longitude: :lng  # ActiveRecord
 
+  def update_coordinates
+    logger.debug "User: update_coordinates #{self.address_changed?} #{self.city_changed?}"
+    if( Rails.env != "test" && id.present? &&  
+        (saved_change_to_attribute?(:address) || saved_change_to_attribute?(:city)) )
+      GeocodeJob.perform_later(self)
+    end
+  end
+
+
+  
   def index_user
     # This is to avoid the user being indexed with every request
     # as with this API app the user tokens get updated with every request due to device
@@ -105,12 +121,6 @@ class User < ApplicationRecord
     self.subscription = true
   end
 
-  def check_accept_bank_transactions
-    if(self.accept_bank_transactions && self.accept_bank_transactions_changed?)
-      self.accept_bank_transactions_date = Time.now
-    end
-  end
-
   def check_verified
     if(self.verified_changed? && self.verified)
       self.verified_on = Date.today
@@ -125,14 +135,7 @@ class User < ApplicationRecord
       UserNotifierMailer.delete_requested(self.id).deliver_later
     end
   end
-
-  # after_save :update_coordinates 
-  # def update_coordinates
-  #   if(self.postcode && self.postcode_changed? && Rails.env != "test")
-  #     GeocodeJob.perform_later(self)
-  #   end
-  # end
-
+  
   def is_temp?
     self.role == "Care Giver" || self.role == "Nurse"
   end
@@ -158,7 +161,6 @@ class User < ApplicationRecord
       self.work_weekend_nights = true if self.work_weekend_nights == nil
     
       self.pause_shifts = false if self.pause_shifts == nil
-      self.specializations = ["Generalist"] if (self.specializations == nil || self.specializations.length == 0)
     end
     
   end

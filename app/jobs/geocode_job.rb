@@ -2,10 +2,9 @@ class GeocodeJob < ApplicationJob
   queue_as :default
 
   def perform(entity)
-    coordinates = Geocoder.coordinates(entity.postcode + " UK")
-    entity.lat = coordinates[0]
-    entity.lng = coordinates[1]
-    entity.reverse_geocode
+    Rails.logger.debug "GeocodeJob: #{entity.addr}"
+    coordinates = entity.geocode
+    Rails.logger.debug "GeocodeJob: #{entity.lat}, #{entity.lng}"
     entity.save!
   end
 end
