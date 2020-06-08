@@ -10,6 +10,7 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     hospital: Field::BelongsToSearch,
     user_docs: Field::HasMany,
+    hospital_carer_mappings: Field::HasMany,
     profile: Field::HasOne,
     shifts: Field::HasMany,
     versions: VersionField,
@@ -90,7 +91,6 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :profile,
     :user_docs,    
     :ready_for_verification,
     :phone_verified,
@@ -131,6 +131,7 @@ class UserDashboard < Administrate::BaseDashboard
     :city,
     :rating,
     :medical_info,    
+    :hospital_carer_mappings,
     :shifts
 
   ].freeze

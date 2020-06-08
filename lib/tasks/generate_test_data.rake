@@ -34,7 +34,7 @@ namespace :nurse_works do
           h.created_at = Date.today - rand(4).weeks - rand(7).days
           h.specializations = [sp]
           h.save!
-
+          GeocodeJob.new.perform(h)          
           h.reload
           #puts u.to_xml(:include => :hospital_industry_mappings)
           puts "Hospital #{h.id}"
@@ -63,7 +63,7 @@ namespace :nurse_works do
       hospitals = Hospital.all
 
       i = 1
-      ["Care Giver", "Nurse"].each do |role|
+      ["Nurse"].each do |role|
         
         # Now generate some consumers
         Hospital::SPECIALIZATION.each do |sp|
@@ -73,11 +73,14 @@ namespace :nurse_works do
             u.email = "user#{i}@gmail.com"
             u.password = "user#{i}@gmail.com"
             u.role = role
+            u.locum = true
             u.image_url = images[rand(images.length)]
             u.created_at = Date.today - rand(4).weeks - rand(7).days
+
             u.save!
             u.reload
 
+            GeocodeJob.new.perform(u)
             
             p = FactoryGirl.build(:profile)
             p.user = u

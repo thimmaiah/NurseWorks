@@ -57,6 +57,8 @@ class User < ApplicationRecord
   scope :admins, -> { where role: "Admin"}
   scope :temps, -> { where "role = ? or role = ?", "Care Giver", "Nurse"}
   scope :active, -> { where active: true }
+  scope :verified, -> { where verified: true }
+  scope :locum, -> { where locum: true }
 
   before_save :check_verified
   before_create :set_defaults
