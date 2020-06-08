@@ -13,17 +13,6 @@ ThinkingSphinx::Index.define :staffing_request, :with => :real_time do
   has manual_assignment_flag, :type=>:boolean
 end
 
-ThinkingSphinx::Index.define :stat, :with => :real_time do
-  # fields
-  indexes name, :sortable => true
-  indexes date_range, :sortable => true
-
-  has stat_type, :type => :string
-  has as_of_date, :type => :timestamp
-
-end
-
-
 ThinkingSphinx::Index.define :hospital, :with => :real_time do
   # fields
   indexes name

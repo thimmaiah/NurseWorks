@@ -19,7 +19,6 @@ namespace :nurse_works do
     Rating.delete_all
     Rate.delete_all
     PaperTrail::Version.delete_all
-    Stat.delete_all
   end
 
 

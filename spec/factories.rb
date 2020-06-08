@@ -179,7 +179,8 @@ FactoryGirl.define do
     role {"Care Giver"}
     sex { User::SEX[rand(2)]}
     accept_terms {true}
-    pref_commute_distance {User::COMMUTE_DISTANCE[rand(5)]}
+    # pref_commute_distance {User::COMMUTE_DISTANCE[rand(5)]}
+    pref_commute_distance {[1,2,3,4,5][rand(5)]}
     phone_verified {true}
     age {rand(20) + 20}
     years_of_exp {age - rand(20)}

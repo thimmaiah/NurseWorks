@@ -127,6 +127,7 @@ class UserDashboard < Administrate::BaseDashboard
     :work_weekends,
     :work_weekend_nights,
     :pause_shifts,
+    :address,
     :city,
     :rating,
     :medical_info,    
@@ -168,6 +169,7 @@ class UserDashboard < Administrate::BaseDashboard
     :work_weekends,
     :work_weekend_nights,
     :pause_shifts,
+    :address,
     :city,
     :medical_info,
     :created_at

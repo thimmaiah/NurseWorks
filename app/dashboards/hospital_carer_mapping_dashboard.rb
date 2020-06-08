@@ -17,6 +17,9 @@ class HospitalCarerMappingDashboard < Administrate::BaseDashboard
     manually_created: Field::BooleanToYesNo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    user_addr: Field::String,
+    user_pref_commute_distance: Field::String, 
+    hospital_addr: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,7 +30,10 @@ class HospitalCarerMappingDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :hospital,
+    :hospital_addr,
     :user,
+    :user_addr,
+    :user_pref_commute_distance,
     :distance,
     :enabled,
     :preferred
