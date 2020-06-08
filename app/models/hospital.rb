@@ -2,7 +2,8 @@ class Hospital < ApplicationRecord
 
   acts_as_paranoid
   after_save ThinkingSphinx::RealTime.callback_for(:hospital)
-
+  after_save :update_coordinates 
+  
   has_many :users
   has_many :staffing_requests
   has_many :hospital_carer_mappings
@@ -21,10 +22,17 @@ class Hospital < ApplicationRecord
   scope :verified, -> { where verified: true }
   scope :unverified, -> { where verified: false }
   
-  reverse_geocoded_by :lat, :lng do |obj,results|
-    if geo = results.first
-      obj.address = geo.address.sub(geo.city + ", ", '').sub(geo.postal_code + ", ", '').sub("UK", '') if !obj.address
-      obj.town    = geo.city if !obj.town
+  # This is for geocoding the lat/lng from the address entered by the user.
+  # The lst/lng is used to find distance from hospital
+  def addr
+    [address, city, "India"].compact.join(', ')
+  end
+  geocoded_by :addr, latitude: :lat, longitude: :lng  # ActiveRecord
+
+  def update_coordinates
+    if( Rails.env != "test" && id.present? &&  
+        (saved_change_to_attribute?(:address) || saved_change_to_attribute?(:city)) )
+      GeocodeJob.perform_later(self)
     end
   end
 

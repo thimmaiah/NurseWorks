@@ -83,7 +83,6 @@ class User < ApplicationRecord
   geocoded_by :addr, latitude: :lat, longitude: :lng  # ActiveRecord
 
   def update_coordinates
-    logger.debug "User: update_coordinates #{self.address_changed?} #{self.city_changed?}"
     if( Rails.env != "test" && id.present? &&  
         (saved_change_to_attribute?(:address) || saved_change_to_attribute?(:city)) )
       GeocodeJob.perform_later(self)
