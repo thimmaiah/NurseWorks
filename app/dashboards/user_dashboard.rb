@@ -29,7 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
     languages: Field::String,
     pref_commute_distance: Field::Select.with_options(collection: User::COMMUTE_DISTANCE),
     occupation: Field::String,
-    specializations: CheckboxList.with_options(choices: Hospital::SPECIALIZATION),
+    specializations: CheckboxList.with_options(choices: User::SPECIALIZATIONS),
     experience: Field::Number,
     accept_terms: Field::BooleanToYesNo,
     

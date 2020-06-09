@@ -117,10 +117,7 @@ namespace :nurse_works do
           i = i + 1
         end
 
-        (0..3).each do |j|
-          HospitalCarerMapping.create(hospital_id: c.id, user_id: User.temps.shuffle.first.id, 
-              enabled:true, preferred: rand(0..1))
-        end
+        HospitalCarerMapping.populate_carers(c)
       end
 
       u = FactoryGirl.build(:user)
@@ -130,7 +127,7 @@ namespace :nurse_works do
       u.first_name="Mohith"
       u.last_name="Thimmaiah"
       # Ensure User role is USER_ROLE_ID
-      u.role = "Care Giver"
+      u.role = "Nurse"
       u.save
       #puts u.to_xml
       puts "#{u.role} #{u.id}"
@@ -184,7 +181,9 @@ namespace :nurse_works do
 
     begin
 
-      u = FactoryGirl.build(:user, email: "admin@ubernurse.com", password: "admin@ubernurse.com", role: "Super User")
+      u = FactoryGirl.build(:user, email: "admin@ubernurse.com", 
+                            password: "admin@ubernurse.com", 
+                            role: "Super User")
       u.save
 
 
@@ -338,7 +337,7 @@ namespace :nurse_works do
     begin
 
         ["North", "South"].each do |zone|
-          ["Nurse", "Care Giver"].each do |role|
+          ["Nurse"].each do |role|
             User::SPECIALITY.each do |sp|
               u = FactoryGirl.build(:rate)
               #u.speciality = spec
@@ -366,8 +365,9 @@ namespace :nurse_works do
 
     # :generateFakeReq, :generateFakeResp, :generateFakeRatings, 
   desc "Generating all Fake Data"
-  task :generateFakeAll => [:emptyDB, :generateFakeRates, :generateFakeSchools, :generateFakeHospitals, :generateFakeUsers,
-  :generateFakeAdmin, :finalize] do
+  task :generateFakeAll => [:emptyDB, :generateFakeRates, :generateFakeSchools, 
+  :generateFakeHospitals, :generateFakeUsers,
+  :generateFakeAdmin, :generateFakeReq, :finalize] do
     puts "Generating all Fake Data"
   end
 

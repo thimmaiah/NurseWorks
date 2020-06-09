@@ -28,7 +28,7 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
     end_date: Field::DateTime,
     shift_duration: Field::Number,
     role: Field::Select.with_options(collection: User::ROLE), 
-    speciality: Field::Select.with_options(collection: User::SPECIALITY),
+    speciality: Field::Select.with_options(collection: User::SPECIALIZATIONS),
     hospital_base: Field::Number.with_options(decimals: 2),
     hospital_total_amount: Field::Number.with_options(decimals: 2),
     vat: Field::Number.with_options(decimals: 2),

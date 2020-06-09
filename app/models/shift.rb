@@ -63,44 +63,35 @@ class Shift < ApplicationRecord
 
   def self.create_shift(selected_user, staffing_request, preferred_care_giver_selected=false, manual_assignment=false)
 
-    if (staffing_request.shifts.open.where(user_id: selected_user.id).count > 0)
-      raise "Open shift already exists for user #{selected_user.id} and staffing_request #{staffing_request.id}"
-    else
-      # Create the response from the selected user and mark him as auto selected
+    
+    # Create the shift
+    shift = Shift.new(staffing_request_id: staffing_request.id,
+                      user_id: selected_user.id,
+                      hospital_id: staffing_request.hospital_id,
+                      carer_break_mins: staffing_request.carer_break_mins,
+                      response_status: "Pending",
+                      preferred_care_giver_selected: preferred_care_giver_selected,
+                      manual_assignment: manual_assignment)
+
+
+    Shift.transaction do
+      
+      # Save this new shift
+      shift.save!
+      
+      # Mark selcted user with the auto selected date as today
       selected_user.auto_selected_date = Time.now
+      selected_user.save
 
-      # Create the shift
-      shift = Shift.new(staffing_request_id: staffing_request.id,
-                        user_id: selected_user.id,
-                        hospital_id: staffing_request.hospital_id,
-                        carer_break_mins: staffing_request.carer_break_mins,
-                        response_status: "Pending",
-                        preferred_care_giver_selected: preferred_care_giver_selected,
-                        manual_assignment: manual_assignment)
-      # Update the request
-      prev_shift = staffing_request.shifts.last
-
-      Shift.transaction do
-        
-        # Cancel any prev shift
-        if(prev_shift && prev_shift.response_status == "Pending")
-          prev_shift.response_status = "Cancelled"
-          prev_shift.save
-        end
-
-        # save this new shift
-        shift.save!
-        # Update the user
-        selected_user.save
-        # And ensure the staffing request is updated      
-        staffing_request.broadcast_status = "Sent"
-        staffing_request.shift_status = "Found"      
-        staffing_request.save
-        
-      end
-
-      return shift
+      # And ensure the staffing request is updated      
+      staffing_request.broadcast_status = "Sent"
+      staffing_request.shift_status = "Found"      
+      staffing_request.save
+      
     end
+
+    return shift
+  
 
   end
 

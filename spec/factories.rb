@@ -49,24 +49,11 @@ FactoryGirl.define do
     position "Business Consultant"
   end
 
-  factory :referral do
-    first_name "MyString"
-    last_name "MyString"
-    email "MyString"
-    role "MyString"
-    user_id 1
-  end
-  
-  factory :holiday do
-    name "MyString"
-    date "2017-05-23"
-    bank_holiday false
-  end
 
 
   factory :rate do
     zone "North"
-    role "Care Giver"
+    role "Nurse"
     carer_weekday 9
     hospital_weekday 11
     carer_weeknight 11
@@ -99,13 +86,14 @@ FactoryGirl.define do
   end
 
   factory :staffing_request do
-    start_date {Date.today + 1.day + rand(6).hours}
+    start_date {Date.today + 1.day + 1.hours + rand(6).hours}
     shift_duration {[4,8,12][rand(3)]}
     rate_per_hour 15
     request_status {"Open"}
     auto_deny_in 12
     response_count 0
-    role {["Nurse", "Care Giver"][rand(2)]}
+    role {"Nurse"}
+    speciality {User::SPECIALITY[rand(User::SPECIALITY.length)]}
     payment_status {"Unpaid"}
     start_code {rand.to_s[2..6]}
     end_code {rand.to_s[2..6]}
@@ -176,7 +164,7 @@ FactoryGirl.define do
     confirmation_sent_at { Time.now }
     confirmed_at { Time.now }
     sign_in_count { 5 }
-    role {"Care Giver"}
+    role {"Nurse"}
     sex { User::SEX[rand(2)]}
     accept_terms {true}
     # pref_commute_distance {User::COMMUTE_DISTANCE[rand(5)]}
@@ -186,7 +174,7 @@ FactoryGirl.define do
     years_of_exp {age - rand(20)}
     months_of_exp {rand(12)}
     key_qualifications {User::QUALIFICATIONS[rand(3)]}
-    specializations {User::SPECIALITY.shuffle[0..2]}
+    specializations {User::SPECIALIZATIONS.shuffle[0..2]}
     nursing_school_name {School.all.sample.name}
     NUID {"111222" + rand(999).to_s.center(3, rand(9).to_s)}
     nuid_valid {rand(2)}

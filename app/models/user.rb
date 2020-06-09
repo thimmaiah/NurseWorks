@@ -26,7 +26,7 @@ class User < ApplicationRecord
   
   QUALIFICATIONS = ["A&M Nurse", "G&M / Diploma Nurse", "BSc Nursing", "MSc Nursing / PhD", "Student in Nursing"]
 
-  SPECIALITY = [
+  SPECIALIZATIONS = [
       "Medical wards/other",
       "OT nurse",
       "Maternity and Pediatric wards",

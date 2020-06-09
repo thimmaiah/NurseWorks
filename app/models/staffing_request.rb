@@ -57,12 +57,6 @@ class StaffingRequest < ApplicationRecord
     # Copy over the manual_assignment_flag from the hospital
     self.manual_assignment_flag = self.hospital.manual_assignment_flag if self.manual_assignment_flag == nil 
     self.manual_assignment_flag = false if self.manual_assignment_flag == nil
-
-    
-    if self.speciality == nil
-        # Ask for a Generalist if the speciality is not set
-        self.speciality = "Generalist" 
-    end
   end
 
 
