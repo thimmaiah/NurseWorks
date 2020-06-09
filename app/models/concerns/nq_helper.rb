@@ -127,11 +127,15 @@ module NqHelper
         cal_audit["QUALIFICATIONS"] = "#{nurse.key_qualifications}: #{QUALIFICATIONS[nurse.key_qualifications]} x #{WEIGHTS[QUALIFICATIONS]} "
         # Nurse can have multiple specializations
         # Grab the one which has the highest score
-        highest_spz = nil
-        val = 0
+        highest_spz = ""
+        highest_spz_val = 0
         nurse.specializations.each do |curr_spz|
-            # Rails.logger "###  #{curr_spz} #{SPECIALIZATIONS[curr_spz]}"
-            highest_spz = SPECIALIZATIONS[curr_spz] > val ? curr_spz : highest_spz 
+            if curr_spz.present?
+                curr_val = SPECIALIZATIONS[curr_spz]
+                Rails.logger.debug "###  #{curr_spz} #{curr_val} > #{highest_spz} #{highest_spz_val}"
+                highest_spz = (curr_val && curr_val > highest_spz_val) ? curr_spz : highest_spz 
+                highest_spz_val = SPECIALIZATIONS[highest_spz]
+            end
         end
 
         specialization_score = SPECIALIZATIONS[highest_spz] * WEIGHTS[SPECIALIZATIONS]
