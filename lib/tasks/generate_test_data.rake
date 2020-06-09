@@ -73,7 +73,7 @@ namespace :nurse_works do
             u.email = "user#{i}@gmail.com"
             u.password = "user#{i}@gmail.com"
             u.role = role
-            u.locum = true
+            u.avail_part_time = true
             u.image_url = images[rand(images.length)]
             u.created_at = Date.today - rand(4).weeks - rand(7).days
 

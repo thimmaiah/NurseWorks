@@ -360,34 +360,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["user_id"], name: "index_staffing_requests_on_user_id"
   end
 
-  create_table "staffing_responses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "staffing_request_id"
-    t.integer "user_id"
-    t.string "start_code", limit: 10
-    t.string "end_code", limit: 10
-    t.string "response_status", limit: 20
-    t.boolean "accepted"
-    t.boolean "rated"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "hospital_id"
-    t.string "payment_status", limit: 10
-    t.datetime "deleted_at"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.float "price"
-    t.text "pricing_audit"
-    t.integer "confirm_sent_count"
-    t.date "confirm_sent_at"
-    t.string "confirmed_status", limit: 20
-    t.integer "confirmed_count"
-    t.date "confirmed_at"
-    t.boolean "viewed"
-    t.index ["deleted_at"], name: "index_staffing_responses_on_deleted_at"
-    t.index ["hospital_id"], name: "index_staffing_responses_on_hospital_id"
-    t.index ["staffing_request_id"], name: "index_staffing_responses_on_staffing_request_id"
-    t.index ["user_id"], name: "index_staffing_responses_on_user_id"
-  end
 
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
@@ -451,8 +423,10 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "years_of_exp"
     t.integer "months_of_exp"
     t.string "key_qualifications"
-    t.boolean "locum", default: false
-    t.integer "locum_shifts_pm", default: 0
+    t.boolean "public_profile", default: false
+    t.boolean "avail_full_time", default: false
+    t.boolean "avail_part_time", default: false
+    t.integer "shifts_per_month", default: 0
     t.integer "pref_shift_duration"
     t.string "pref_shift_time"
     t.integer "exp_shift_rate"

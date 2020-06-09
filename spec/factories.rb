@@ -187,8 +187,10 @@ FactoryGirl.define do
     NUID {"111222" + rand(999).to_s.center(3, rand(9).to_s)}
     nuid_valid {rand(2)}
     head_nurse {rand(2)}
-    locum {rand(2)}
-    locum_shifts_pm {locum ? rand(10) + 1 : 0}
+    avail_part_time {rand(2)}
+    avail_full_time {rand(2)}
+    public_profile {rand(2)}
+    shifts_per_month {avail_part_time ? rand(10) + 1 : 0}
     pref_shift_duration {User::SHIFT_DURATION[rand(2)]}
     pref_shift_time {User::SHIFT_TIME[rand(3)]} 
     exp_shift_rate {User::SHIFT_RATE[rand(3)]}

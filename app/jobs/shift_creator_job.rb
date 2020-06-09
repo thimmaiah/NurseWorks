@@ -93,7 +93,7 @@ class ShiftCreatorJob < ApplicationJob
   end
 
 
-  # Select all the locums available to service this request
+  # Select all the avail_part_times available to service this request
   # Returns a list of users who match 
   def select_users(staffing_request)
 

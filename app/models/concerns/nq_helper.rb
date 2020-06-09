@@ -78,7 +78,7 @@ module NqHelper
         end
     end
 
-    def self.locum_shifts_in_words(e)
+    def self.avail_part_time_shifts_in_words(e)
         case e
             when 0
                 "None"
@@ -141,12 +141,12 @@ module NqHelper
         specialization_score = SPECIALIZATIONS[highest_spz] * WEIGHTS[SPECIALIZATIONS]
         cal_audit["SPECIALIZATIONS"] = "#{highest_spz}: #{SPECIALIZATIONS[highest_spz]} x #{WEIGHTS[SPECIALIZATIONS]}" 
 
-        l = nurse.locum ? "Yes" : "No"
-        locum_score = LOCUM[l] * WEIGHTS[LOCUM]
+        l = nurse.avail_part_time ? "Yes" : "No"
+        avail_part_time_score = LOCUM[l] * WEIGHTS[LOCUM]
         cal_audit["LOCUM"] = "Locum #{l}: #{LOCUM[l]} x #{WEIGHTS[LOCUM]}"
 
-        lspm = locum_shifts_in_words(nurse.locum_shifts_pm)
-        locum_spm_score = LOCUM_SHIFTS_PER_MONTH[lspm] * WEIGHTS[LOCUM_SHIFTS_PER_MONTH]
+        lspm = avail_part_time_shifts_in_words(nurse.shifts_per_month)
+        avail_part_time_spm_score = LOCUM_SHIFTS_PER_MONTH[lspm] * WEIGHTS[LOCUM_SHIFTS_PER_MONTH]
         cal_audit["LOCUM_SHIFTS_PER_MONTH"] = "#{lspm}: #{LOCUM_SHIFTS_PER_MONTH[lspm]} x #{WEIGHTS[LOCUM_SHIFTS_PER_MONTH]}"
 
 
@@ -164,7 +164,7 @@ module NqHelper
         cal_audit["NUID"] = "#{nurse.NUID} #{v}: #{NUID[v]} x #{WEIGHTS[NUID]}"
 
         base =  (qual_score + specialization_score + 
-                locum_score + locum_spm_score + experience_score + 
+                avail_part_time_score + avail_part_time_spm_score + experience_score + 
                 school_score + nuid_score).ceil
                 
         return base, cal_audit

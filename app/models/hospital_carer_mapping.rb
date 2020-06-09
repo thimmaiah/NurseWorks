@@ -27,7 +27,7 @@ class HospitalCarerMapping < ApplicationRecord
 		# Existing mapping of hospital and carers
 		exisiting_temps = HospitalCarerMapping.where(hospital_id: hospital.id).collect(&:user_id) 
 		# Get the users who are not already mapped
-		temps = User.active.verified.temps.locum
+		temps = User.active.verified.temps.avail_part_time
 		temps = temps.where("id NOT in (?)", exisiting_temps) if exisiting_temps.length > 0
 		# And who are in a MAX_COMMUTE_DIST radius to the hospital
 		temps = temps.near([hospital.lat, hospital.lng], MAX_COMMUTE_DIST)
@@ -48,7 +48,7 @@ class HospitalCarerMapping < ApplicationRecord
 	end
 
 	def self.populate_hospitals(user)
-		if user.locum
+		if user.avail_part_time
 			# Existing mapping of hospital and carers
 			exisiting_hospitals = HospitalCarerMapping.where(user_id: user.id).collect(&:hospital_id) 
 			# Get the users who are not already mapped
