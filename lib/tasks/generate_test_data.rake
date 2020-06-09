@@ -67,7 +67,7 @@ namespace :nurse_works do
         
         # Now generate some consumers
         Hospital::SPECIALIZATION.each do |sp|
-          (1..1).each do |j|
+          (1..3).each do |j|
             u = FactoryGirl.build(:user)        
             u.verified = true
             u.email = "user#{i}@gmail.com"
@@ -338,7 +338,7 @@ namespace :nurse_works do
 
         ["North", "South"].each do |zone|
           ["Nurse"].each do |role|
-            User::SPECIALITY.each do |sp|
+            User::SPECIALIZATIONS.each do |sp|
               u = FactoryGirl.build(:rate)
               #u.speciality = spec
               u.role = role

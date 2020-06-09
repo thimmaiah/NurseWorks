@@ -1,5 +1,11 @@
 include ActionDispatch::TestProcess
 
+CITIES = {
+  "Bengaluru" => ["Carmelaram", "Eco World", "Marthahalli", "MG Road", "Malleshwaram"],
+  "Hyderabad" => ["Charminar", "Secunderabad", "Serilingampally"]
+  #"Mumbai" => ["Chembur", "Powai", "Thane"]
+}
+
 FactoryGirl.define do
   
   factory :hospital_carer_mapping do
@@ -93,7 +99,7 @@ FactoryGirl.define do
     auto_deny_in 12
     response_count 0
     role {"Nurse"}
-    speciality {User::SPECIALITY[rand(User::SPECIALITY.length)]}
+    speciality {User::SPECIALIZATIONS[rand(User::SPECIALIZATIONS.length)]}
     payment_status {"Unpaid"}
     start_code {rand.to_s[2..6]}
     end_code {rand.to_s[2..6]}
@@ -120,9 +126,10 @@ FactoryGirl.define do
     name {Faker::Company.name}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
     image_url {logos[rand(logos.length)]}
-    address {["Carmelaram", "Eco World", "Eco Space", "Marthahalli", "MG Road", "Malleshwaram", "Jayanagar"][rand(5)]}
+    
     zone {["North", "South"][rand(2)]}
-    city {"Bengaluru"}
+    city {CITIES.keys[rand(CITIES.keys.length)]}
+    address {CITIES[city][rand(CITIES[city].length)]}
     bank_account {rand.to_s[2..9]} 
     
     verified {false}
@@ -158,9 +165,10 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password {email.camelize + "1$"}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
-    address {["Carmelaram", "Eco World", "Eco Space", "Marthahalli", "MG Road", "Jayanagar", "Malleshwaram"][rand(7)]}
-    city {"Bengaluru"}
-
+    
+    city {CITIES.keys[rand(CITIES.keys.length)]}
+    address {CITIES[city][rand(CITIES[city].length)]}
+    
     confirmation_sent_at { Time.now }
     confirmed_at { Time.now }
     sign_in_count { 5 }
