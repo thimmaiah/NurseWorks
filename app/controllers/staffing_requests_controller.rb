@@ -17,7 +17,7 @@ class StaffingRequestsController < ApplicationController
   def get_carers
     @staffing_request = StaffingRequest.new(staffing_request_params)
     carers = @staffing_request.hospital.carers
-    render json: carers.where(role: @staffing_request.role, pause_shifts: false), each_serializer: UserMiniSerializer
+    render json: carers.where(pause_shifts: false), each_serializer: UserMiniSerializer
   end
 
 
@@ -83,12 +83,7 @@ class StaffingRequestsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def staffing_request_params
-    # Ensure Start end times are stripped of any TZ - its always Lon time
-    start_date = params[:staffing_request][:start_date].split("+")[0]
-    end_date = params[:staffing_request][:end_date].split("+")[0]
-    params[:staffing_request][:start_date] = start_date
-    params[:staffing_request][:end_date] = end_date
-
+    
     params.require(:staffing_request).permit(:hospital_id, :user_id, :start_date, :manual_assignment_flag, :notes,
                                              :shift_duration, :rate_per_hour, :request_status, :auto_deny_in, :response_count,
                                              :payment_status, :start_code, :end_code, :price, :role, :speciality, :reason, 

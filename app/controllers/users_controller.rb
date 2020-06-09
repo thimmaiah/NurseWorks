@@ -140,7 +140,7 @@ class UsersController < ApplicationController
                                  :accept_bank_transactions, :work_weekdays, :work_weeknights, :work_weekends, 
                                  :work_weekend_nights, :pause_shifts, :age, :years_of_exp, :months_of_exp, :key_qualifications, 
                                  :avail_part_time, :shifts_per_month, :conveyence, :pref_shift_duration, :pref_shift_time, 
-                                 :exp_shift_rate, :public_profile, :avail_full_time 
+                                 :exp_shift_rate, :public_profile, :avail_full_time, 
                                  specializations: [],)
   end
 end

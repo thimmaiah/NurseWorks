@@ -100,15 +100,6 @@ class StaffingRequest < ApplicationRecord
     User.find(preferred_carer_id) if preferred_carer_id
   end
 
-  
-  # Need to find the preferred care givers for this care home 
-  def preferred_care_givers
-    if self.hospital.preferred_care_giver_ids
-      pref_care_giver_ids = acm.preferred_care_giver_ids.split(",").map{|id| id.strip.to_i}
-      User.order("auto_selected_date ASC").find(pref_care_giver_ids)
-    end
-  end
-
   def limit_shift_to_pref_carer
     self.hospital.limit_shift_to_pref_carer
   end

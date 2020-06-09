@@ -130,6 +130,12 @@ class ShiftCreatorJob < ApplicationJob
 
       audit["email"] = user.email
 
+      if staffing_request.preferred_carer_id == user.id
+        audit["preferred_carer"] = "Yes"
+        staffing_request.select_user_audit[user.last_name + " " + user.first_name] = audit
+        return true
+      end
+
       role_ok = (user.role == staffing_request.role && !user.specializations.grep(/#{staffing_request.speciality}/).empty?)
       audit["role_ok"] = role_ok ? "Yes" : "No"
       
