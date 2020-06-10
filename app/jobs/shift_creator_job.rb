@@ -17,7 +17,7 @@ class ShiftCreatorJob < ApplicationJob
           Shift.create_shift(u, staffing_request)
         end
       else
-        logger.error "ShiftCreatorJob: No user found for Staffing Request #{staffing_request.id}"
+        logger.error "ShiftCreatorJob: No carer found for Staffing Request #{staffing_request.id}"
         if(staffing_request.shift_status != "Not Found")
           ShiftMailer.no_shift_found(staffing_request).deliver
         end
@@ -78,7 +78,7 @@ class ShiftCreatorJob < ApplicationJob
     # In the query below, in the where clause all start and end dates are the
     # staffing responses dates via its relationship to the staffing request
 
-    same_day_bookings = user.shifts.not_rejected.not_cancelled.includes(:staffing_request)
+    same_day_bookings = user.shifts.not_rejected.not_cancelled.not_wait_listed.includes(:staffing_request)
     .where("(staffing_requests.start_date <= ? and staffing_requests.end_date >= ?)
       or (staffing_requests.start_date <= ? and staffing_requests.end_date >= ?)
       or (staffing_requests.start_date >= ? and staffing_requests.end_date <= ?)",

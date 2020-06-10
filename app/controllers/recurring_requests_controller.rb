@@ -14,7 +14,7 @@ class RecurringRequestsController < ApplicationController
 
   def get_carers
     @recurring_request = RecurringRequest.new(recurring_request_params)
-    carers = @recurring_request.hospital.carers
+    carers = @recurring_request.hospital.temp_nurses
     render json: carers.where(role: @recurring_request.role, pause_shifts: false), each_serializer: UserMiniSerializer
   end
 

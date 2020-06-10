@@ -104,7 +104,7 @@ namespace :nurse_works do
       i = 1
       hospitals.each do |c|
         count = 1
-        (0..1).each do |j|
+        (0..0).each do |j|
           u = FactoryGirl.build(:user)
           u.email = "admin#{i}@gmail.com"
           u.password = "admin#{i}@gmail.com"
@@ -113,7 +113,20 @@ namespace :nurse_works do
           u.created_at = Date.today - rand(4).weeks - rand(7).days
           u.save
           #puts u.to_xml
-          puts "Care Home Admin #{u.id}"
+          puts "Hospital Admin #{u.id}"
+          i = i + 1
+        end
+
+        (0..2).each do |j|
+          u = FactoryGirl.build(:user)
+          u.email = "perm#{i}@gmail.com"
+          u.password = "perm#{i}@gmail.com"
+          u.role = "Nurse"        
+          u.hospital_id = c.id
+          u.created_at = Date.today - rand(4).weeks - rand(7).days
+          u.save
+          #puts u.to_xml
+          puts "Hospital Nurse #{u.id}"
           i = i + 1
         end
 

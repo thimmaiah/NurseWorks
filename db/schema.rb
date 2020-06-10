@@ -329,6 +329,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "shift_duration"
     t.float "rate_per_hour"
     t.string "request_status", limit: 20
+    t.string "staff_type", limit: 10
     t.float "auto_deny_in"
     t.integer "response_count"
     t.string "payment_status", limit: 20

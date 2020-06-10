@@ -10,8 +10,15 @@ class ShiftSubscriber
   		if(shift.response_status == "Accepted")
         shift_accepted(shift)
       elsif(shift.response_status == "Closed")
-          close_shift(shift)
-  		elsif(["Rejected", "Auto Rejected", "Cancelled"].include?(shift.response_status))
+        close_shift(shift)
+      elsif(shift.response_status == "Cancelled")
+        shift_cancelled(shift)
+        # If this shift had been accepted and then cancelled, 
+        # try to accept other wait listed shifts
+        if self.staffing_request.request_status == "Open"
+          ShiftResponseJob.perform_later(self.staffing_request_id, "AcceptWaitListed")
+        end
+  		elsif(["Rejected", "Auto Rejected"].include?(shift.response_status))
   			shift_cancelled(shift)
   		end
   	end

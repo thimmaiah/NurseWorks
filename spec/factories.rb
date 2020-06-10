@@ -99,6 +99,7 @@ FactoryGirl.define do
     auto_deny_in 12
     response_count 0
     role {"Nurse"}
+    staff_type {"Temp"}
     speciality {User::SPECIALIZATIONS[rand(User::SPECIALIZATIONS.length)]}
     payment_status {"Unpaid"}
     start_code {rand.to_s[2..6]}
@@ -132,7 +133,7 @@ FactoryGirl.define do
     address {CITIES[city][rand(CITIES[city].length)]}
     bank_account {rand.to_s[2..9]} 
     
-    verified {false}
+    verified {true}
     num_of_beds {rand(20) + 1}
     nurse_count { rand(num_of_beds/2) }
     typical_workex {rand(4) + 4}

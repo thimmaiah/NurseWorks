@@ -5,9 +5,10 @@ class Hospital < ApplicationRecord
   after_save :update_coordinates 
   
   has_many :users
+  has_many :perm_nurses, -> { where("role =?", "Nurse") }, class_name: "User"
   has_many :staffing_requests
   has_many :hospital_carer_mappings
-  has_many :carers, :through => :hospital_carer_mappings, source: :user
+  has_many :temp_nurses, :through => :hospital_carer_mappings, source: :user
 
   validates_presence_of :name, :city, :num_of_beds, :nurse_count
   validates_presence_of :zone, if: :verified

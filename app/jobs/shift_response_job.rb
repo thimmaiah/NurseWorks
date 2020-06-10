@@ -31,7 +31,9 @@ class ShiftResponseJob < ApplicationJob
             if(selected_shift)
                 logger.debug "Selected Shift #{selected_shift.id} for StaffingRequest #{req.id}"
                 selected_shift.response_status = "Accepted"
-                selected_shift.save
+                selected_shift.save!
+                # Ensure we cancel the other wait listed ones in 4 hours
+                ShiftResponseJob.set(wait: 4.hour).perform_later(staffing_request_id, "CancelWaitListed")
             else
                 logger.debug "No Shifts found for StaffingRequest #{req.id}"
             end   

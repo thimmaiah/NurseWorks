@@ -16,8 +16,12 @@ class StaffingRequestsController < ApplicationController
 
   def get_carers
     @staffing_request = StaffingRequest.new(staffing_request_params)
-    carers = @staffing_request.hospital.carers
-    render json: carers.where(pause_shifts: false), each_serializer: UserMiniSerializer
+    if @staffing_request.staff_type == "Temp"
+      nurses = @staffing_request.hospital.temp_nurses.where(pause_shifts: false)
+    else
+      nurses = @staffing_request.hospital.perm_nurses
+    end
+    render json: nurses, each_serializer: UserMiniSerializer
   end
 
 
@@ -87,7 +91,7 @@ class StaffingRequestsController < ApplicationController
     params.require(:staffing_request).permit(:hospital_id, :user_id, :start_date, :manual_assignment_flag, :notes,
                                              :shift_duration, :rate_per_hour, :request_status, :auto_deny_in, :response_count,
                                              :payment_status, :start_code, :end_code, :price, :role, :speciality, :reason, 
-                                             :preferred_carer_id, :po_for_invoice,
+                                             :preferred_carer_id, :po_for_invoice, :staff_type,
                                              :pricing_audit=>[:hours_worked, :base_rate, :base_price, :factor_value, :factor_name, :price]
                                              )
   end

@@ -65,7 +65,7 @@ class StaffingRequest < ApplicationRecord
     # Ensure the request gets a price estimate before it is saved
     begin
       self.created_at = Time.now
-      Rate.price_estimate(self)
+      Rate.price_estimate(self) if self.staff_type == "Temp"
     rescue Exception => e  
       logger.error "Error in estimating price for request #{self.id} #{e.message}"
       ExceptionNotifier.notify_exception(e)
@@ -75,7 +75,7 @@ class StaffingRequest < ApplicationRecord
   # This will create a job that will select the winning shift of all the 
   # wait listed ones. It will do so after an hour of this request being created
   def accept_shift_responses
-    ShiftResponseJob.set(wait: 1.hour).perform_later(self.id)
+    ShiftResponseJob.set(wait: 1.hour).perform_later(self.id, "AcceptWaitListed")
   end
 
 
