@@ -25,6 +25,16 @@ class ShiftSubscriber
   end
 
 
+  def self.broadcast_shift(shift)
+    if(shift.response_status != 'Rejected')
+      Rails.logger.debug "ShiftSubscriber: Broadcasting shift #{shift.id}"
+      PushNotificationJob.new.perform(shift)
+      ShiftMailer.shift_notification(shift).deliver_later
+      shift.send_shift_sms_notification(shift)
+    end
+  end
+
+
   def self.shift_cancelled(shift)
     if(["Rejected", "Auto Rejected", "Cancelled"].include?(shift.response_status))
       ShiftMailer.shift_cancelled(shift).deliver_later
