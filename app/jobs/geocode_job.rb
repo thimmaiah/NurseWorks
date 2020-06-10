@@ -7,4 +7,5 @@ class GeocodeJob < ApplicationJob
     Rails.logger.debug "GeocodeJob: #{entity.lat}, #{entity.lng}"
     entity.save!
   end
+  
 end

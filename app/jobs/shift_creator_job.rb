@@ -1,4 +1,4 @@
-class ShiftCreatorJob < ApplicationJob
+class ShiftCreatorJob < BaseQueuedJob
   queue_as :default
 
   def book_shift(staffing_request)
@@ -50,15 +50,6 @@ class ShiftCreatorJob < ApplicationJob
     end
     return nil
 
-  end
-
-  def self.add_to_queue
-    if Delayed::Backend::ActiveRecord::Job.where("handler like '%ShiftCreatorJob%'").count == 0
-      logger.info "ShiftCreatorJob: queued"
-      ShiftCreatorJob.set(wait: 1.minute).perform_later
-    else
-      logger.info "ShiftCreatorJob: already queued. Nothing done"
-    end
   end
 
   ### Private Methods Follow ###

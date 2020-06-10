@@ -34,13 +34,13 @@ class ShiftResponseJob < ApplicationJob
 
         # See model https://docs.google.com/spreadsheets/d/1ZbPzCrSy2LXMBjQT5fiClFs-fbKDgy7YKJ3NwFotm4I/edit?usp=sharing
         wait_listed_nurses.each do |nurse|
-            nq_score_pct = (nurse.nq_score * 1.0 / nq_score_normalized_sum) * 100
+            nq_score_normalized_pct = (nurse.nq_score_normalized * 1.0 / nq_score_normalized_sum) * 100
             weekly_accepted_shifts_pct = ((nurse.weekly_accepted_shifts + 1) * 1.0 / nurse.weekly_accepted_shifts) * 100 
             # If the following condition is true, then this nurse has not received 
             # shifts in proportion to her nq_score. Note the higher the score the more shifts 
             # she should get, but without starving others for shifts
-            if weekly_accepted_shifts_pct < nq_score_pct
-                return nurse
+            if weekly_accepted_shifts_pct < nq_score_normalized_pct
+                return nurse, weekly_accepted_shifts_pct, nq_score_pct
             end
         end
 
@@ -91,5 +91,8 @@ class ShiftResponseJob < ApplicationJob
             logger.error e.backtrace
         end
     end
+
+
+    
   end
   

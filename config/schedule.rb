@@ -24,8 +24,7 @@ set :output, "log/cron_log.log"
 every 1.day, :at => '3:30 am' do
   runner "ShiftCreatorJob.add_to_queue"
   runner "ShiftPendingJob.add_to_queue"
-  runner "DocRefreshNotificationJob.perform_now"
-  runner "ReferenceJob.perform_now"
+  runner "HospitalNurseMappingJob.perform_now"
   rake "db:backup"
 end
 
@@ -37,10 +36,10 @@ every :reboot do
 	command "cd /home/ubuntu/NurseWorks/current && bundle exec pumactl -S /home/ubuntu/NurseWorks/shared/tmp/pids/puma.state -F /home/ubuntu/NurseWorks/shared/puma.rb restart"
 end
 
-every 60.minutes do
-	runner "StatsMailer.request_with_no_responses.deliver_now"
+every 2.hours do
+	runner "NqHelper.recompute_scores"
 end
 
 every :friday, :at => "5pm" do
-	runner "StatsMailer.stats_email.deliver_now"
+
 end

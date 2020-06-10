@@ -116,6 +116,8 @@ module NqHelper
             u.nq_score = u.nq_score_base + u.nq_score_dynamic
             u.save
         end
+
+        self.normalize_scores
     end
 
     # Computes the base score based on the criteria specified
