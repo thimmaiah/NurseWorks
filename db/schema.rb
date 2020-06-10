@@ -448,6 +448,8 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "nq_score_base"
     t.integer "nq_score_dynamic"
     t.integer "nq_score_normalized"
+    t.integer "total_accepted_shifts", default: 0
+    t.integer "weekly_accepted_shifts", default: 0
     t.boolean "nuid_valid", default: false
     t.string "referal_code", limit: 10
     t.boolean "accept_terms"
@@ -455,7 +457,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "hospital_id"
     t.boolean "active"
     t.text "image_url"
-    t.string "sort_code", limit: 6
     t.string "bank_account", limit: 8
     t.string "bhim"
     t.string "payTM"

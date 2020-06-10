@@ -304,7 +304,6 @@ class User < ApplicationRecord
     self.uid = self.email
     self.address = "Deleted"
     self.bank_account = "00000000"
-    self.sort_code = "000000"
     self.active = false
     self.pref_commute_distance = 0
     if self.save

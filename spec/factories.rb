@@ -198,7 +198,6 @@ FactoryGirl.define do
     conveyence {User::CONVEYENCE[rand(5)]}
 
     bank_account {rand.to_s[2..9] if(role != "Admin")}
-    sort_code {rand.to_s[2..7] if(role != "Admin")}
     password_reset_date {Date.today}
 
     trait :new_user do

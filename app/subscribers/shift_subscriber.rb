@@ -44,7 +44,9 @@ class ShiftSubscriber
 
   def self.shift_accepted(shift)    
     if(shift.response_status == "Accepted")
-    
+      shift.user.total_accepted_shifts = shift.user.total_accepted_shifts + 1
+      shift.user.weekly_accepted_shifts = shift.user.weekly_accepted_shifts + 1
+      
       ShiftMailer.shift_accepted(shift).deliver_later
       shift.send_shift_accepted_sms(shift)
       # Send a mail to the broacast group with the start / end codes

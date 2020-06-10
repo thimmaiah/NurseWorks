@@ -100,6 +100,8 @@ namespace :nurse_works do
         end
       end
 
+      NqHelper.recompute_scores
+      NqHelper.normalize_scores
       
       i = 1
       hospitals.each do |c|

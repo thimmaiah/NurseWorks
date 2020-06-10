@@ -19,6 +19,35 @@ class ShiftResponseJob < ApplicationJob
       return nil
 
     end
+
+    # This returns the next to be selected for the shift among the waitlisted nurses
+    # The input must be the list of waitlisted nurses who are sorted by nq_score_normalized
+    def next_deserving_nurse(wait_listed_nurses)
+        
+        # Sort by nq_score_normalized
+        wait_listed_nurses = wait_listed_nurses.sort {|n1, n2| n2.nq_score_normalized <=> n1.nq_score_normalized}
+        # Get the sum of the nq_score_normalized & weekly_accepted_shifts_sum
+        nq_score_normalized_sum = wait_listed_nurses.collect(&:nq_score_normalized).sum
+        weekly_accepted_shifts_sum = wait_listed_nurses.collect(&:weekly_accepted_shifts).sum
+        # This is to ensure no div by 0 error later
+        weekly_accepted_shifts_sum = weekly_accepted_shifts_sum == 0 ? 1 : weekly_accepted_shifts_sum
+
+        # See model https://docs.google.com/spreadsheets/d/1ZbPzCrSy2LXMBjQT5fiClFs-fbKDgy7YKJ3NwFotm4I/edit?usp=sharing
+        wait_listed_nurses.each do |nurse|
+            nq_score_pct = (nurse.nq_score * 1.0 / nq_score_normalized_sum) * 100
+            weekly_accepted_shifts_pct = ((nurse.weekly_accepted_shifts + 1) * 1.0 / nurse.weekly_accepted_shifts) * 100 
+            # If the following condition is true, then this nurse has not received 
+            # shifts in proportion to her nq_score. Note the higher the score the more shifts 
+            # she should get, but without starving others for shifts
+            if weekly_accepted_shifts_pct < nq_score_pct
+                return nurse
+            end
+        end
+
+        # If we dont find anyone - then return the first nurse
+        return wait_listed_nurses[0]
+
+    end
   
     def accept_wait_list(staffing_request_id)
         begin
