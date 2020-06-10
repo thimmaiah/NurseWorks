@@ -18,6 +18,7 @@ class StaffingRequest < ApplicationRecord
   belongs_to :user
   has_many :shifts
   has_one :payment
+  has_one :preferred_nurse, class_name: "User"
 
   has_one :accepted_shift, -> { where(response_status:["Accepted", "Closed"]) }, :class_name => 'Shift' 
   has_one :assigned_shift, -> { where(response_status:["Accepted", "Closed", "Pending"]) }, :class_name => 'Shift' 
