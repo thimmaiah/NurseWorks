@@ -1,11 +1,11 @@
 Feature: Confirm Shift
-  Accept / Decline shift by a carer
+  Accept / Decline shift by a nurse
 
 Scenario Outline: Accept My Shift
   
   Given there is a request "<request>"
   Given there is a user "<user>"
-  Given the carer is mapped to the hospital
+  Given the nurse is mapped to the hospital
   Given the user has a profile
   And the shift creator job runs
   Given Im logged in 
@@ -30,7 +30,7 @@ Scenario Outline: Decline My Shift
   
   Given there is a request "<request>"
   Given there is a user "<user>"
-  Given the carer is mapped to the hospital
+  Given the nurse is mapped to the hospital
   And the shift creator job runs
   Given Im logged in 
   When I click "Pending Shifts"

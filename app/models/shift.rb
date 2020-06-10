@@ -57,7 +57,7 @@ class Shift < ApplicationRecord
     self.confirm_sent_count = 0
     self.confirmed_count = 0
     self.notification_count = 0
-    self.carer_break_mins = 0 if self.carer_break_mins == nil
+    self.nurse_break_mins = 0 if self.nurse_break_mins == nil
     # update the request
     self.staffing_request.broadcast_status = "Sent"
     self.staffing_request.shift_status = "Found"
@@ -71,7 +71,7 @@ class Shift < ApplicationRecord
     shift = Shift.new(staffing_request_id: staffing_request.id,
                       user_id: selected_user.id,
                       hospital_id: staffing_request.hospital_id,
-                      carer_break_mins: staffing_request.carer_break_mins,
+                      nurse_break_mins: staffing_request.nurse_break_mins,
                       response_status: "Pending",
                       preferred_care_giver_selected: preferred_care_giver_selected,
                       manual_assignment: manual_assignment)
@@ -186,7 +186,7 @@ class Shift < ApplicationRecord
     Payment.new(shift_id: self.id, user_id: self.user_id, 
       hospital_id: self.hospital_id, paid_by_id: self.staffing_request.user_id,
       billing: self.hospital_base, amount: self.hospital_total_amount, 
-      vat: self.vat, markup: self.markup, care_giver_amount: self.carer_base,
+      vat: self.vat, markup: self.markup, care_giver_amount: self.nurse_base,
       notes: "Thank you for your service.",
       staffing_request_id: self.staffing_request_id,
       created_at: self.end_date)    

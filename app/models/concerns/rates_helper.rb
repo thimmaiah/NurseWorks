@@ -1,39 +1,39 @@
 module RatesHelper
 
-  def carer_amount(entity, rate, factor_name)
+  def nurse_amount(entity, rate, factor_name)
     total_mins = entity.minutes_worked 
     night_mins = entity.night_shift_minutes
     day_mins = total_mins - night_mins
 
-    # Adjust the minutes worked by the unpaid break taken by the carer 
-    if(entity.carer_break_mins > 0)
+    # Adjust the minutes worked by the unpaid break taken by the nurse 
+    if(entity.nurse_break_mins > 0)
         if(entity.break_time.hour <= 8 || entity.break_time.hour >= 20) 
             # Break is in night time hours
-            night_mins = night_mins - entity.carer_break_mins
+            night_mins = night_mins - entity.nurse_break_mins
         else
             # Break is in day time hours
-            day_mins = day_mins - entity.carer_break_mins
+            day_mins = day_mins - entity.nurse_break_mins
         end 
     end
 
     day_time_hours_worked = entity.human_readable_time(day_mins.to_i)
     night_time_hours_worked = entity.human_readable_time(night_mins.to_i)
 
-    logger.debug("total_mins = #{total_mins}, carer_break_mins=#{entity.carer_break_mins}, night_mins = #{night_mins}, day_mins = #{day_mins}, day_time_hours_worked = #{day_time_hours_worked}, night_time_hours_worked = #{night_time_hours_worked}")
+    logger.debug("total_mins = #{total_mins}, nurse_break_mins=#{entity.nurse_break_mins}, night_mins = #{night_mins}, day_mins = #{day_mins}, day_time_hours_worked = #{day_time_hours_worked}, night_time_hours_worked = #{night_time_hours_worked}")
     
     case factor_name
       when "DEFAULT_FACTOR"
-        base = (day_mins * rate.carer_weekday + night_mins * rate.carer_weeknight) / 60
-        calc_carer_base = "#{day_time_hours_worked} x #{rate.carer_weekday} + #{night_time_hours_worked} x #{rate.carer_weeknight}"
+        base = (day_mins * rate.nurse_weekday + night_mins * rate.nurse_weeknight) / 60
+        calc_nurse_base = "#{day_time_hours_worked} x #{rate.nurse_weekday} + #{night_time_hours_worked} x #{rate.nurse_weeknight}"
       when "WEEKEND_FACTOR"
-        base = (day_mins * rate.carer_weekend + night_mins * rate.carer_weekend_night) / 60
-        calc_carer_base = "#{day_time_hours_worked} x #{rate.carer_weekend} + #{night_time_hours_worked} x #{rate.carer_weekend_night}"
+        base = (day_mins * rate.nurse_weekend + night_mins * rate.nurse_weekend_night) / 60
+        calc_nurse_base = "#{day_time_hours_worked} x #{rate.nurse_weekend} + #{night_time_hours_worked} x #{rate.nurse_weekend_night}"
       when "BANK_HOLIDAY_FACTOR"
-        base = (day_mins * rate.carer_bank_holiday + night_mins * rate.carer_bank_holiday) / 60
-        calc_carer_base = "#{day_time_hours_worked} x #{rate.carer_bank_holiday} + #{night_time_hours_worked} x #{rate.carer_bank_holiday}"
+        base = (day_mins * rate.nurse_bank_holiday + night_mins * rate.nurse_bank_holiday) / 60
+        calc_nurse_base = "#{day_time_hours_worked} x #{rate.nurse_bank_holiday} + #{night_time_hours_worked} x #{rate.nurse_bank_holiday}"
     end
 
-    return base, day_mins, night_mins, calc_carer_base
+    return base, day_mins, night_mins, calc_nurse_base
 
   end
 
@@ -42,21 +42,21 @@ module RatesHelper
     night_mins = entity.night_shift_minutes
     day_mins = total_mins - night_mins
 
-    # Adjust the minutes worked by the unpaid break taken by the carer 
-    if(entity.carer_break_mins > 0)
+    # Adjust the minutes worked by the unpaid break taken by the nurse 
+    if(entity.nurse_break_mins > 0)
         if(entity.break_time.hour <= 8 || entity.break_time.hour >= 20) 
             # Break is in night time hours
-            night_mins = night_mins - entity.carer_break_mins
+            night_mins = night_mins - entity.nurse_break_mins
         else
             # Break is in day time hours
-            day_mins = day_mins - entity.carer_break_mins
+            day_mins = day_mins - entity.nurse_break_mins
         end 
     end
 
     day_time_hours_worked = entity.human_readable_time(day_mins.to_i)
     night_time_hours_worked = entity.human_readable_time(night_mins.to_i)
 
-    logger.debug("total_mins = #{total_mins}, carer_break_mins=#{entity.carer_break_mins}, night_mins = #{night_mins}, day_mins = #{day_mins}, day_time_hours_worked = #{day_time_hours_worked}, night_time_hours_worked = #{night_time_hours_worked}")
+    logger.debug("total_mins = #{total_mins}, nurse_break_mins=#{entity.nurse_break_mins}, night_mins = #{night_mins}, day_mins = #{day_mins}, day_time_hours_worked = #{day_time_hours_worked}, night_time_hours_worked = #{night_time_hours_worked}")
     
     case factor_name
       when "DEFAULT_FACTOR"
@@ -83,28 +83,28 @@ module RatesHelper
     factor_name = factor(staffing_request)
     
     # Basic rate multiplication
-    carer_base, day_mins, night_mins, calc_carer_base = carer_amount(staffing_request, rate, factor_name)
+    nurse_base, day_mins, night_mins, calc_nurse_base = nurse_amount(staffing_request, rate, factor_name)
     hospital_base, day_mins, night_mins, calc_hospital_base = hospital_amount(staffing_request, rate, factor_name)
-    carer_base = carer_base.round(2)
+    nurse_base = nurse_base.round(2)
     hospital_base = hospital_base.round(2)
 
     # Audit trail
     day_time_hours_worked = staffing_request.human_readable_time(day_mins.to_i)
     night_time_hours_worked = staffing_request.human_readable_time(night_mins.to_i)
 
-    staffing_request.carer_base = carer_base 
+    staffing_request.nurse_base = nurse_base 
     staffing_request.hospital_base = hospital_base 
     staffing_request.vat = hospital_base * ENV["VAT"].to_f.round(2) 
     staffing_request.hospital_total_amount = (hospital_base + staffing_request.vat).round(2)
 
     staffing_request.pricing_audit["calc"] = "day_time_hours_worked x rate + night_time_hours_worked x rate"   
-    staffing_request.pricing_audit["calc_carer_base"] = calc_carer_base   
+    staffing_request.pricing_audit["calc_nurse_base"] = calc_nurse_base   
     staffing_request.pricing_audit["calc_hospital_base"] = calc_hospital_base   
     staffing_request.pricing_audit["day_time_hours_worked"] = day_time_hours_worked
     staffing_request.pricing_audit["night_time_hours_worked"] = night_time_hours_worked
-    staffing_request.pricing_audit["carer_break_mins"] = staffing_request.carer_break_mins
+    staffing_request.pricing_audit["nurse_break_mins"] = staffing_request.nurse_break_mins
     staffing_request.pricing_audit["rate"] = rate.serializable_hash
-    staffing_request.pricing_audit["carer_base"] = carer_base
+    staffing_request.pricing_audit["nurse_base"] = nurse_base
     staffing_request.pricing_audit["hospital_base"] = hospital_base
     staffing_request.pricing_audit["factor_name"] = factor_name
     staffing_request.pricing_audit["vat"] = staffing_request.vat
@@ -125,27 +125,27 @@ module RatesHelper
     factor_name = factor(staffing_request)
     
     # Basic rate multiplication 
-    carer_base, day_mins, night_mins, calc_carer_base = carer_amount(shift, rate, factor_name)
+    nurse_base, day_mins, night_mins, calc_nurse_base = nurse_amount(shift, rate, factor_name)
     hospital_base, day_mins, night_mins, calc_hospital_base = hospital_amount(shift, rate, factor_name)
-    carer_base = carer_base.round(2)
+    nurse_base = nurse_base.round(2)
     hospital_base = hospital_base.round(2)
 
     vat = hospital_base * ENV["VAT"].to_f.round(2)     
-    markup = (hospital_base - carer_base).round(2)
+    markup = (hospital_base - nurse_base).round(2)
 
     # Audit trail
     day_time_hours_worked = shift.human_readable_time(day_mins.to_i)
     night_time_hours_worked = shift.human_readable_time(night_mins.to_i)
 
     shift.pricing_audit["calc"] = "day_time_hours_worked x rate + night_time_hours_worked x rate"   
-    shift.pricing_audit["calc_carer_base"] = calc_carer_base   
+    shift.pricing_audit["calc_nurse_base"] = calc_nurse_base   
     shift.pricing_audit["calc_hospital_base"] = calc_hospital_base   
     
     shift.pricing_audit["day_time_hours_worked"] = day_time_hours_worked
     shift.pricing_audit["night_time_hours_worked"] = night_time_hours_worked
-    shift.pricing_audit["carer_break_mins"] = shift.carer_break_mins
+    shift.pricing_audit["nurse_break_mins"] = shift.nurse_break_mins
     shift.pricing_audit["rate"] = rate.serializable_hash
-    shift.pricing_audit["carer_base"] = carer_base
+    shift.pricing_audit["nurse_base"] = nurse_base
     shift.pricing_audit["hospital_base"] = hospital_base
     shift.pricing_audit["factor_name"] = factor_name
     shift.pricing_audit["vat"] = vat
@@ -155,7 +155,7 @@ module RatesHelper
     shift.hospital_base = hospital_base
     shift.vat = vat
     shift.markup = markup
-    shift.carer_base = (hospital_base - markup).round(2)
+    shift.nurse_base = (hospital_base - markup).round(2)
     shift.hospital_total_amount = (hospital_base + vat).round(2)
 
     # Add the mins worked to the shift

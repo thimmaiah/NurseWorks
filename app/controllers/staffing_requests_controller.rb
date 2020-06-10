@@ -14,7 +14,7 @@ class StaffingRequestsController < ApplicationController
     render json: @staffing_requests.includes(:hospital), include: "hospital", each_serializer: StaffingRequestMiniSerializer
   end
 
-  def get_carers
+  def get_nurses
     @staffing_request = StaffingRequest.new(staffing_request_params)
     if @staffing_request.staff_type == "Temp"
       nurses = @staffing_request.hospital.temp_nurses.where(pause_shifts: false)
@@ -46,7 +46,7 @@ class StaffingRequestsController < ApplicationController
   def create
     @staffing_request = StaffingRequest.new(staffing_request_params)
     @staffing_request.user_id = current_user.id
-    @staffing_request.carer_break_mins = current_user.hospital.carer_break_mins if staffing_request_params["carer_break_mins"] == nil
+    @staffing_request.nurse_break_mins = current_user.hospital.nurse_break_mins if staffing_request_params["nurse_break_mins"] == nil
 
     # Sometimes we get requests with care home - where 1 person manages multiple care homes
     if(@staffing_request.hospital_id)
@@ -91,7 +91,7 @@ class StaffingRequestsController < ApplicationController
     params.require(:staffing_request).permit(:hospital_id, :user_id, :start_date, :manual_assignment_flag, :notes,
                                              :shift_duration, :rate_per_hour, :request_status, :auto_deny_in, :response_count,
                                              :payment_status, :start_code, :end_code, :price, :role, :speciality, :reason, 
-                                             :preferred_carer_id, :po_for_invoice, :staff_type,
+                                             :preferred_nurse_id, :po_for_invoice, :staff_type,
                                              :pricing_audit=>[:hours_worked, :base_rate, :base_price, :factor_value, :factor_name, :price]
                                              )
   end

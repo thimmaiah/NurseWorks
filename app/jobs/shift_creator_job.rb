@@ -4,7 +4,7 @@ class ShiftCreatorJob < ApplicationJob
   def book_shift(staffing_request)
 
     if ( (Time.now.hour > 22 || Time.now.hour < 8) && staffing_request.start_date > Time.now + 1.day && Rails.env != "test")
-      # Its late in the night & carers will not accept the request
+      # Its late in the night & nurses will not accept the request
       # The shift is only required tomorrow
       logger.debug "Skipping shift creation for #{staffing_request.id} as its late in the night and the start time is tomorrow"
     else
@@ -17,7 +17,7 @@ class ShiftCreatorJob < ApplicationJob
           Shift.create_shift(u, staffing_request)
         end
       else
-        logger.error "ShiftCreatorJob: No carer found for Staffing Request #{staffing_request.id}"
+        logger.error "ShiftCreatorJob: No nurse found for Staffing Request #{staffing_request.id}"
         if(staffing_request.shift_status != "Not Found")
           ShiftMailer.no_shift_found(staffing_request).deliver
         end
@@ -99,19 +99,19 @@ class ShiftCreatorJob < ApplicationJob
 
     staffing_request.select_user_audit = {}
     # Check if the care home has preferred care givers
-    hospital_carer_mappings = staffing_request.hospital.hospital_carer_mappings.enabled
-    if staffing_request.preferred_carer_id
-      # Sometimes we need to route the request to a specific carer first
-      hospital_carer_mappings = hospital_carer_mappings.where(user_id: staffing_request.preferred_carer_id)   
+    hospital_nurse_mappings = staffing_request.hospital.hospital_nurse_mappings.enabled
+    if staffing_request.preferred_nurse_id
+      # Sometimes we need to route the request to a specific nurse first
+      hospital_nurse_mappings = hospital_nurse_mappings.where(user_id: staffing_request.preferred_nurse_id)   
     else
-      # Randomize the list so we get even distribution across carers - but first try the preferred careres
-      hospital_carer_mappings = hospital_carer_mappings.shuffle.sort_by{|ccm| ccm.preferred ? 0 : 1}
+      # Randomize the list so we get even distribution across nurses - but first try the preferred nursees
+      hospital_nurse_mappings = hospital_nurse_mappings.shuffle.sort_by{|ccm| ccm.preferred ? 0 : 1}
     end
     
     users = []
-    if(hospital_carer_mappings)      
+    if(hospital_nurse_mappings)      
       # Check if any of the pref_care_givers can be assigned to the shift
-      hospital_carer_mappings.each do |ccm|
+      hospital_nurse_mappings.each do |ccm|
         user = ccm.user
         assign = assign_user_to_shift?(staffing_request, user) 
         if(assign)
@@ -130,8 +130,8 @@ class ShiftCreatorJob < ApplicationJob
 
       audit["email"] = user.email
 
-      if staffing_request.preferred_carer_id == user.id
-        audit["preferred_carer"] = "Yes"
+      if staffing_request.preferred_nurse_id == user.id
+        audit["preferred_nurse"] = "Yes"
         staffing_request.select_user_audit[user.last_name + " " + user.first_name] = audit
         return true
       end
@@ -182,7 +182,7 @@ class ShiftCreatorJob < ApplicationJob
       # Rails.logger.debug "ShiftCreatorJob: #{user.email}, Request #{staffing_request.id}, rejected = #{rejected}"
       # audit["user_rejected_request"] = rejected ? "Yes" : "No"
       
-      # Check pref_commute_distance - not applicable as we now have hospital_carer_mapping 
+      # Check pref_commute_distance - not applicable as we now have hospital_nurse_mapping 
       # setup beforehand based on pref_commute_distance
       # commute_ok, diff = pref_commute_ok?(user, staffing_request)
       # Rails.logger.debug "ShiftCreatorJob: #{user.email}, Request #{staffing_request.id}, commute_ok = #{commute_ok}"

@@ -8,7 +8,7 @@ CITIES = {
 
 FactoryGirl.define do
   
-  factory :hospital_carer_mapping do
+  factory :hospital_nurse_mapping do
     hospital_id 1
     user_id 1
     enabled false
@@ -60,15 +60,15 @@ FactoryGirl.define do
   factory :rate do
     zone "North"
     role "Nurse"
-    carer_weekday 9
+    nurse_weekday 9
     hospital_weekday 11
-    carer_weeknight 11
+    nurse_weeknight 11
     hospital_weeknight 14
-    carer_weekend 11
+    nurse_weekend 11
     hospital_weekend 13
-    carer_weekend_night 12
+    nurse_weekend_night 12
     hospital_weekend_night 15
-    carer_bank_holiday 14
+    nurse_bank_holiday 14
     hospital_bank_holiday 20    
   end
 
@@ -139,7 +139,7 @@ FactoryGirl.define do
     typical_workex {rand(4) + 4}
     nurse_qualification_pct { {"A&M Nurse" => rand(10), "Diploma Nurses" => rand(10), "BSc Nursing" => rand(10), "MSc Nurses" => rand(10), "Other" => rand(10)} }
     owner_name {Faker::Name.first_name + " " + Faker::Name.last_name }
-    carer_break_mins {[30,60][rand(2)]}
+    nurse_break_mins {[30,60][rand(2)]}
     vat_number {rand.to_s[2..9]}
     company_registration_number {rand.to_s[2..7]}
     paid_unpaid_breaks {["Paid", "Unpaid"][rand(2)]}

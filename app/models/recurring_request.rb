@@ -5,7 +5,7 @@ class RecurringRequest < ApplicationRecord
 	
 	belongs_to :hospital
 	belongs_to :user
-	belongs_to :preferred_carer, class_name: "User"
+	belongs_to :preferred_nurse, class_name: "User"
 	has_many :staffing_requests
 
 	# Audit of all requests generated from this
@@ -67,7 +67,7 @@ class RecurringRequest < ApplicationRecord
 	        req = StaffingRequest.new(hospital_id: self.hospital_id, user_id: self.user_id, 
 	                                  role: self.role, speciality: self.speciality,
 	                                  start_date: start_date, end_date: end_date,
-	                                  preferred_carer_id: self.preferred_carer_id,
+	                                  preferred_nurse_id: self.preferred_nurse_id,
 	                                  recurring_request_id: self.id,
 	                                  po_for_invoice: self.po_for_invoice,
 	                                  start_code: rand.to_s[2..5], end_code: rand.to_s[2..5])
@@ -80,8 +80,8 @@ class RecurringRequest < ApplicationRecord
 	    end
 	end
 
-	def preferred_carer
-		User.find(preferred_carer_id) if preferred_carer_id
+	def preferred_nurse
+		User.find(preferred_nurse_id) if preferred_nurse_id
 	end
 
 

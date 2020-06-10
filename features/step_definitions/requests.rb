@@ -1,13 +1,13 @@
 
-Given("the carer is mapped to the hospital") do
+Given("the nurse is mapped to the hospital") do
   User.temps.each do |user|
-    HospitalCarerMapping.create(hospital_id: @hospital.id, user_id: user.id, enabled:true, preferred:false)
+    HospitalNurseMapping.create(hospital_id: @hospital.id, user_id: user.id, enabled:true, preferred:false)
   end
 end
 
-Given("the carer is mapped to the hospital of the request") do
+Given("the nurse is mapped to the hospital of the request") do
   User.temps.each do |user|
-    HospitalCarerMapping.create(hospital_id: @staffing_request.hospital_id, user_id: user.id, enabled:true, preferred:false)
+    HospitalNurseMapping.create(hospital_id: @staffing_request.hospital_id, user_id: user.id, enabled:true, preferred:false)
   end
 end
 
@@ -277,8 +277,8 @@ Then(/^the price for the Staffing Request must be "([^"]*)"$/) do |price|
   end
 end
 
-Then(/^the carer amount for the Staffing Request must be "([^"]*)"$/) do |arg1|
-  @staffing_request.pricing_audit["carer_base"].should == arg1.to_f
+Then(/^the nurse amount for the Staffing Request must be "([^"]*)"$/) do |arg1|
+  @staffing_request.pricing_audit["nurse_base"].should == arg1.to_f
 end
 
 Given(/^the custom rate is "([^"]*)"$/) do |arg1|    

@@ -28,7 +28,7 @@ class ShiftsController < ApplicationController
 
   end
 
-  # This is called by the UI when the carer accepts/rejects the shift assigned to him
+  # This is called by the UI when the nurse accepts/rejects the shift assigned to him
   def response
     if @shift.response(params[:response_status])    
       render json: @shift

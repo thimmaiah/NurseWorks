@@ -1,5 +1,5 @@
 module Admin
-  class HospitalCarerMappingsController < Admin::ApplicationController
+  class HospitalNurseMappingsController < Admin::ApplicationController
     
     def new   
       resource = resource_class.new(resource_params)

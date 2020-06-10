@@ -25,8 +25,8 @@ module Admin
 
 
       case params[:report_format]
-      when "Carer"
-        template ="carer"
+      when "Nurse"
+        template ="nurse"
         @payments = @payments.order("users.first_name, staffing_requests.start_date")
       when "Care Home"
         template = "hospital"

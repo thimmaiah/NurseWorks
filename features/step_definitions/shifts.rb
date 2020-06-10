@@ -7,7 +7,7 @@ Given(/^the shift creator job runs$/) do
 end
 
 Given("the hospital has a preferred care giver") do
-  HospitalCarerMapping.where(user_id: @user.id).update_all(preferred: true)
+  HospitalNurseMapping.where(user_id: @user.id).update_all(preferred: true)
 end
 
 Then("A shift must be created for the preferred care giver for the request") do
@@ -342,14 +342,14 @@ end
 
 Then(/^the markup should be computed$/) do
   @shift.reload
-  puts "hospital_base = #{@shift.hospital_base}, carer_base = #{@shift.carer_base}}"
-  @shift.markup.should == (@shift.pricing_audit["hospital_base"] - @shift.pricing_audit["carer_base"]).round(2)
+  puts "hospital_base = #{@shift.hospital_base}, nurse_base = #{@shift.nurse_base}}"
+  @shift.markup.should == (@shift.pricing_audit["hospital_base"] - @shift.pricing_audit["nurse_base"]).round(2)
 end
 
 Then(/^the total price should be computed$/) do
   hospital_base = @shift.pricing_audit["hospital_base"]
   vat = hospital_base * ENV["VAT"].to_f.round(2)     
-  markup = (@shift.pricing_audit["hospital_base"] - @shift.pricing_audit["carer_base"]).round(2)
+  markup = (@shift.pricing_audit["hospital_base"] - @shift.pricing_audit["nurse_base"]).round(2)
   @shift.hospital_total_amount.should == (hospital_base + vat).round(2)
 end
 

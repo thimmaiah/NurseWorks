@@ -1,4 +1,4 @@
-Feature: Incentive for Carers
+Feature: Incentive for Nurses
   Ensure Care Givers get the incentive they deserve
 
 

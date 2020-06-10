@@ -35,7 +35,7 @@ Scenario Outline: Register an existing hospital
   Examples:
     |user        |hospital                             |msg1                                |
     |role=Admin  |name=Kingswood House Nursing Home     |Our support will verify and add you as an admin for this Partner|
-    |role=Admin  |name=Little Haven;carer_break_mins=30 |Our support will verify and add you as an admin for this Partner|
+    |role=Admin  |name=Little Haven;nurse_break_mins=30 |Our support will verify and add you as an admin for this Partner|
 
 
 Scenario Outline: Register a hospital with cqc
@@ -51,7 +51,7 @@ Scenario Outline: Register a hospital with cqc
   Examples:
     |user        |hospital                             |msg1                                |
     |role=Admin  |name=Kingswood House Nursing Home     |As part of our verification process, we will call your hospital to verify your details|
-    |role=Admin  |name=Little Haven;carer_break_mins=30 |As part of our verification process, we will call your hospital to verify your details|
+    |role=Admin  |name=Little Haven;nurse_break_mins=30 |As part of our verification process, we will call your hospital to verify your details|
 
 
 Scenario Outline: Register a hospital without cqc
@@ -67,7 +67,7 @@ Scenario Outline: Register a hospital without cqc
   Examples:
     |user        | hospital                              |msg1                                |
     |role=Admin  |name=Kingswood House Nursing Home       |As part of our verification process, we will call your hospital to verify your details|
-    |role=Admin  |name=Little Haven;carer_break_mins=30   |As part of our verification process, we will call your hospital to verify your details|
+    |role=Admin  |name=Little Haven;nurse_break_mins=30   |As part of our verification process, we will call your hospital to verify your details|
 
 
 Scenario Outline: User Phone Verification

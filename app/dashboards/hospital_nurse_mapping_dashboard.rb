@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class HospitalCarerMappingDashboard < Administrate::BaseDashboard
+class HospitalNurseMappingDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -65,10 +65,10 @@ class HospitalCarerMappingDashboard < Administrate::BaseDashboard
     :manually_created
   ].freeze
 
-  # Overwrite this method to customize how care home carer mappings are displayed
+  # Overwrite this method to customize how care home nurse mappings are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(hospital_carer_mapping)
-  #   "HospitalCarerMapping ##{hospital_carer_mapping.id}"
+  # def display_resource(hospital_nurse_mapping)
+  #   "HospitalNurseMapping ##{hospital_nurse_mapping.id}"
   # end
 end

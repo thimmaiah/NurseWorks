@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["date"], name: "index_holidays_on_date"
   end
 
-  create_table "hospital_carer_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "hospital_nurse_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "hospital_id"
     t.integer "user_id"
     t.boolean "enabled"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "preferred"
-    t.index ["hospital_id"], name: "index_hospital_carer_mappings_on_hospital_id"
-    t.index ["user_id"], name: "index_hospital_carer_mappings_on_user_id"
+    t.index ["hospital_id"], name: "index_hospital_nurse_mappings_on_hospital_id"
+    t.index ["user_id"], name: "index_hospital_nurse_mappings_on_user_id"
   end
 
   create_table "hospitals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.string "hospital_broadcast_group"
     t.string "sister_hospitals", limit: 30
     t.string "icon_url"
-    t.integer "carer_break_mins", default: 0
+    t.integer "nurse_break_mins", default: 0
     t.string "vat_number", limit: 50
     t.string "company_registration_number", limit: 100
     t.boolean "parking_available"
@@ -182,15 +182,15 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "carer_weekday"
+    t.float "nurse_weekday"
     t.float "hospital_weekday"
-    t.float "carer_weeknight"
+    t.float "nurse_weeknight"
     t.float "hospital_weeknight"
-    t.float "carer_weekend"
+    t.float "nurse_weekend"
     t.float "hospital_weekend"
-    t.float "carer_weekend_night"
+    t.float "nurse_weekend_night"
     t.float "hospital_weekend_night"
-    t.float "carer_bank_holiday"
+    t.float "nurse_bank_holiday"
     t.float "hospital_bank_holiday"
     t.integer "hospital_id"
     t.index ["hospital_id"], name: "index_rates_on_hospital_id"
@@ -227,7 +227,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "next_generation_date"
-    t.integer "preferred_carer_id"
+    t.integer "preferred_nurse_id"
     t.text "dates"
     t.text "notes"
     t.string "po_for_invoice", limit: 30
@@ -292,7 +292,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.datetime "deleted_at"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.float "carer_base"
+    t.float "nurse_base"
     t.text "pricing_audit"
     t.integer "confirm_sent_count"
     t.date "confirm_sent_at"
@@ -313,7 +313,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.boolean "preferred_care_giver_selected"
     t.integer "notification_count"
     t.string "reason"
-    t.integer "carer_break_mins", default: 0
+    t.integer "nurse_break_mins", default: 0
     t.boolean "manual_assignment"
     t.index ["deleted_at"], name: "index_shifts_on_deleted_at"
     t.index ["hospital_id"], name: "index_shifts_on_hospital_id"
@@ -347,13 +347,13 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.float "vat"
     t.float "hospital_total_amount"
     t.boolean "manual_assignment_flag"
-    t.float "carer_base"
+    t.float "nurse_base"
     t.text "select_user_audit"
     t.text "notes"
-    t.integer "preferred_carer_id"
+    t.integer "preferred_nurse_id"
     t.integer "recurring_request_id"
     t.string "reason"
-    t.integer "carer_break_mins", default: 0
+    t.integer "nurse_break_mins", default: 0
     t.string "po_for_invoice", limit: 30
     t.index ["deleted_at"], name: "index_staffing_requests_on_deleted_at"
     t.index ["hospital_id"], name: "index_staffing_requests_on_hospital_id"

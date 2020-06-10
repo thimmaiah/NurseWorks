@@ -12,10 +12,10 @@ class RecurringRequestsController < ApplicationController
     render json:  @recurring_requests.includes(:hospital, :user)
   end
 
-  def get_carers
+  def get_nurses
     @recurring_request = RecurringRequest.new(recurring_request_params)
-    carers = @recurring_request.hospital.temp_nurses
-    render json: carers.where(role: @recurring_request.role, pause_shifts: false), each_serializer: UserMiniSerializer
+    nurses = @recurring_request.hospital.temp_nurses
+    render json: nurses.where(role: @recurring_request.role, pause_shifts: false), each_serializer: UserMiniSerializer
   end
 
 
@@ -55,6 +55,6 @@ class RecurringRequestsController < ApplicationController
 
     def recurring_request_params
       params.require(:recurring_request).permit(:hospital_id, :user_id, :start_date, :end_date, :role, :po_for_invoice,
-        :speciality, :on, :start_on, :end_on, :audit, {dates:[]}, :notes, :preferred_carer_id)
+        :speciality, :on, :start_on, :end_on, :audit, {dates:[]}, :notes, :preferred_nurse_id)
     end
 end

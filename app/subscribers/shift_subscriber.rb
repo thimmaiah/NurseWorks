@@ -45,7 +45,7 @@ class ShiftSubscriber
 
   def self.close_shift(shift, force=false)
     # Ensure this gets priced, if we have the right star / end codes
-    if ( (  !shift.closing_started && shift.carer_base == nil &&
+    if ( (  !shift.closing_started && shift.nurse_base == nil &&
             shift.start_code == shift.staffing_request.start_code &&
             shift.end_code == shift.staffing_request.end_code) || force )
 

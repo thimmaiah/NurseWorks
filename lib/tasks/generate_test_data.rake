@@ -7,7 +7,7 @@ namespace :nurse_works do
 
   desc "Cleans p DB - DELETES everything -  watch out"
   task :emptyDB => :environment do
-    HospitalCarerMapping.delete_all
+    HospitalNurseMapping.delete_all
     User.delete_all
     Profile.delete_all
     Training.delete_all
@@ -130,7 +130,7 @@ namespace :nurse_works do
           i = i + 1
         end
 
-        HospitalCarerMapping.populate_carers(c)
+        HospitalNurseMapping.populate_nurses(c)
       end
 
       u = FactoryGirl.build(:user)
@@ -220,7 +220,7 @@ namespace :nurse_works do
           u = FactoryGirl.build(:staffing_request)
           u.created_at = Date.today - rand(4).weeks - rand(7).days
           u.hospital = c
-          u.carer_break_mins = c.carer_break_mins
+          u.nurse_break_mins = c.nurse_break_mins
           u.request_status = rand(10) > 2 ? "Approved" : "Rejected"
           u.user = c.users[0]
           u.created_at = Date.today - rand(4).weeks - rand(7).days
@@ -251,7 +251,7 @@ namespace :nurse_works do
           u = FactoryGirl.build(:shift)
           u.staffing_request = req
           u.hospital_id = req.hospital_id
-          u.carer_break_mins = req.carer_break_mins
+          u.nurse_break_mins = req.nurse_break_mins
           
           u.user = care_givers[rand(care_givers.length)]
           u.save

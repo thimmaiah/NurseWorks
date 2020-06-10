@@ -6,7 +6,7 @@ class RequestToCSV
 	    shifts = Shift.accepted_or_closed.where(hospital_id: hospital_ids).includes(:hospital, :staffing_request)
 	    shifts = shifts.where("shifts.start_date >= ? and shifts.end_date <= ?", start_date, end_date)
 	    
-	    attributes = 		%w{id start_date end_date response_status hospital_name booked_by carer day_hours night_hours hospital_total_amount}
+	    attributes = 		%w{id start_date end_date response_status hospital_name booked_by nurse day_hours night_hours hospital_total_amount}
 	    core_attributes = 	%w{id start_date end_date response_status}
 
 	    CSV.open("#{Rails.root}/tmp/shifts.csv", 'w', write_headers: true, headers: attributes) do |csv|

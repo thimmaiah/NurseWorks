@@ -44,7 +44,7 @@
 
 	  <tr>  
 	    <td>
-	      Carer Logins in last 30 days 
+	      Nurse Logins in last 30 days 
 	    </td>
 	    <td>
 	      <%= User.temps.verified.where("current_sign_in_at > ?", Date.today - 30.days).count %>
@@ -53,15 +53,15 @@
 	  
 	  <tr style="background-color:#dddddd;">  
 	    <td>
-	      Carer Count - Shift Count 
+	      Nurse Count - Shift Count 
 	    </td>
 	    <td>
 	      <% 
 	      	sc = Shift.joins(:user).group(:email).count 
 	      %>
-	      1 - 5  Carers: <%= sc.select{|k,v| v >= 1 && v < 5}.length %> Shifts, </br>
-	      5 - 10 Carers: <%= sc.select{|k,v| v >= 5 && v < 10}.length %> Shifts, </br>
-	      10+    Carers: <%= sc.select{|k,v| v >= 10}.length %> Shifts,
+	      1 - 5  Nurses: <%= sc.select{|k,v| v >= 1 && v < 5}.length %> Shifts, </br>
+	      5 - 10 Nurses: <%= sc.select{|k,v| v >= 5 && v < 10}.length %> Shifts, </br>
+	      10+    Nurses: <%= sc.select{|k,v| v >= 10}.length %> Shifts,
 	    </td>
 	  </tr>
 	  
@@ -126,7 +126,7 @@
 	    </td>
 	    <td>
 	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:hospital_base).round(2) %> </br>
-	      To Carers: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:carer_base).round(2) %> </br>
+	      To Nurses: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 7.days, Date.today).sum(:nurse_base).round(2) %> </br>
 	    </td>
 	  </tr>	  
 
@@ -136,7 +136,7 @@
 	    </td>
 	    <td>
 	      From Care Home (Without VAT): <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:hospital_base).round(2) %> </br>
-	      To Carers: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:carer_base).round(2) %> </br>
+	      To Nurses: <%= Shift.closed.where("updated_at >=? and updated_at <=?", Date.today - 30.days, Date.today).sum(:nurse_base).round(2) %> </br>
 	    </td>
 	  </tr>
 

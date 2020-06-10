@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :user_docs, -> { order(:verified=>:desc) }, dependent: :destroy
   has_one :profile_pic, -> { where(doc_type: "Profile Picture") }, class_name: "UserDoc"
   has_many :ratings, as: :rated_entity
-  has_many :hospital_carer_mappings
+  has_many :hospital_nurse_mappings
 
   has_many :contacts
   has_many :references
@@ -128,7 +128,7 @@ class User < ApplicationRecord
     end
     if(self.verified_changed? && !self.verified)
       # The user was unverified
-      self.hospital_carer_mappings.update_all(enabled: false)
+      self.hospital_nurse_mappings.update_all(enabled: false)
     end
 
     # If user has requested a deletion of her personal data

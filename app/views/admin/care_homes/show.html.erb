@@ -31,8 +31,8 @@ as well as a link to its edit page.
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
 
     <%= link_to(
-      "Add Carer", 
-      new_admin_hospital_carer_mapping_path(hospital_id: page.resource.id),
+      "Add Nurse", 
+      new_admin_hospital_nurse_mapping_path(hospital_id: page.resource.id),
       class: "button",
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
 

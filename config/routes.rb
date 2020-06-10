@@ -6,11 +6,8 @@ Rails.application.routes.draw do
   resources :schools
   resources :contacts
   resources :references
-  resources :hospital_carer_mappings
-  resources :agency_user_mappings
-  resources :agency_hospital_mappings
+  resources :hospital_nurse_mappings
   resources :schools
-  resources :stats
   resources :trainings
   resources :profiles
   resources :referrals
@@ -19,19 +16,8 @@ Rails.application.routes.draw do
     resources :references
     resources :contacts
     
-    resources :agency_user_mappings do
-      collection do
-        post :create_from_user
-      end
-    end
-    resources :agency_hospital_mappings  do
-      collection do
-        post :create_from_hospital
-      end
-    end
-
     resources :schools
-    resources :hospital_carer_mappings
+    resources :hospital_nurse_mappings
 
     resources :users do
       collection do
@@ -50,7 +36,6 @@ Rails.application.routes.draw do
 
     resources :hospitals
     resources :payments
-    resources :post_codes
     resources :ratings
     
     resources :recurring_requests do
@@ -77,7 +62,6 @@ Rails.application.routes.draw do
     resources :rates
     resources :referrals
     resources :holidays
-    resources :stats
     get '/payments_export', to: 'payments_export#index'
     get '/payments_export/form', to: 'payments_export#form'
     root to: "users#index"
@@ -96,9 +80,6 @@ Rails.application.routes.draw do
     passwords: 'passwords',
     confirmations: 'confirmations'
   }
-
-  resources :hiring_responses
-  resources :hiring_requests
   
   resources :hospitals do
     collection do
@@ -132,23 +113,18 @@ Rails.application.routes.draw do
 
   resources :recurring_requests do
     collection do
-      post :get_carers
+      post :get_nurses
     end
   end
   
   resources :staffing_requests do
     collection do
       post :price
-      post :get_carers
+      post :get_nurses
     end
   end
   resources :rates
   resources :holidays
-  resources :cqc_records do 
-    collection do
-      get :search_hospitals_and_cqc
-    end
-  end
 
   get 'users/unsubscribe/:unsubscribe_hash', to: 'users#unsubscribe', :as => 'unsubscribe'
 

@@ -11,7 +11,7 @@ When(/^I fill and submit the hospitals registration page with  "([^"]*)"$/) do |
     sleep(1)
   end
 
-  ionic_select(@hospital.carer_break_mins, "carer_break_mins", true)
+  ionic_select(@hospital.nurse_break_mins, "nurse_break_mins", true)
   ionic_select(@hospital.paid_unpaid_breaks, "paid_unpaid_breaks", true)
 
   find("#parking_available").click if @hospital.parking_available
@@ -80,7 +80,7 @@ When(/^When I submit the hospitals registration page with "([^"]*)"$/) do |arg1|
     sleep(1)
   end
 
-  ionic_select(@hospital.carer_break_mins, "carer_break_mins", true)
+  ionic_select(@hospital.nurse_break_mins, "nurse_break_mins", true)
   ionic_select(@hospital.paid_unpaid_breaks, "paid_unpaid_breaks", true)
 
   find("#parking_available").click if @hospital.parking_available

@@ -4,7 +4,7 @@ module ConfirmHelper
     sendFlag =  nct && Time.now > nct && # Time to send the confirm
     			self.response_status == 'Accepted' &&   
                 self.start_code == nil && # Shift has not yet started
-                self.confirmed_status != "Declined" # Shift has not been rejected by the carer
+                self.confirmed_status != "Declined" # Shift has not been rejected by the nurse
                 
     logger.debug("Shift: sendFlag = #{sendFlag}")
     return sendFlag

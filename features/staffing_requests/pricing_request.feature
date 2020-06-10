@@ -11,18 +11,18 @@ Scenario Outline: Pricing Request
   Given the rate is "<rate>"
   Given there are no bank holidays
   Then the price for the Staffing Request must be "<price>"
-  Then the carer amount for the Staffing Request must be "<carer_amount>"
+  Then the nurse amount for the Staffing Request must be "<nurse_amount>"
   
   Examples:
-  	|hospital		|admin 			|request	                            |start_time |end_time    |rate            |price | carer_amount |
-  	|verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:14}   | {carer_weekday:9, hospital_weekday:10}  |{hospital_base:60, hospital_total_amount:72}    | 54 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8, min:10}   |{hour:14}   | {carer_weekday:9, hospital_weekday:10}  |{hospital_base:58.33, hospital_total_amount:70}    | 54 |    
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:7}   |{hour:22}   | {carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:11}  |{hospital_base:153, hospital_total_amount:183.6}    | 138 |    
-  	|verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:18}   |{carer_weekday:9, hospital_weekday:10}  |{hospital_base:100, hospital_total_amount:120}    | 90 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |{hour:7}   |{hour:17}   |{carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:12}  |{hospital_base:102, hospital_total_amount:122.4}| 91 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20}  |{hour:23}   |{carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:45, hospital_total_amount:54}    | 30 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20, min:10}  |{hour:23}   |{carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:45, hospital_total_amount:54}    | 30 |    
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:0 }  |{hour:8}    |{carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:120, hospital_total_amount:144}    | 80 |
+  	|hospital		|admin 			|request	                            |start_time |end_time    |rate            |price | nurse_amount |
+  	|verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:14}   | {nurse_weekday:9, hospital_weekday:10}  |{hospital_base:60, hospital_total_amount:72}    | 54 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8, min:10}   |{hour:14}   | {nurse_weekday:9, hospital_weekday:10}  |{hospital_base:58.33, hospital_total_amount:70}    | 54 |    
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:7}   |{hour:22}   | {nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:11}  |{hospital_base:153, hospital_total_amount:183.6}    | 138 |    
+  	|verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:18}   |{nurse_weekday:9, hospital_weekday:10}  |{hospital_base:100, hospital_total_amount:120}    | 90 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |{hour:7}   |{hour:17}   |{nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:12}  |{hospital_base:102, hospital_total_amount:122.4}| 91 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20}  |{hour:23}   |{nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:45, hospital_total_amount:54}    | 30 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20, min:10}  |{hour:23}   |{nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:45, hospital_total_amount:54}    | 30 |    
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:0 }  |{hour:8}    |{nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:120, hospital_total_amount:144}    | 80 |
     
 Scenario Outline: Pricing Request - Custom Rates
   
@@ -35,15 +35,15 @@ Scenario Outline: Pricing Request - Custom Rates
   Given the custom rate is "<custom_rate>"
   Given there are no bank holidays
   Then the price for the Staffing Request must be "<price>"
-  Then the carer amount for the Staffing Request must be "<carer_amount>"
+  Then the nurse amount for the Staffing Request must be "<nurse_amount>"
   
   Examples:
-    |hospital    |admin      |request                              |start_time |end_time    |rate     |custom_rate   |price | carer_amount |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:14}   | {carer_weekday:8, hospital_weekday:9} | {carer_weekday:9, hospital_weekday:10} |{hospital_base:60, hospital_total_amount:72}    | 54 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:18}   | {carer_weekday:8, hospital_weekday:9} | {carer_weekday:9, hospital_weekday:10}  |{hospital_base:100, hospital_total_amount:120}    | 90 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |{hour:7}   |{hour:17}   | {carer_weekday:8, hospital_weekday:9} | {carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:12}  |{hospital_base:102, hospital_total_amount:122.4}| 91 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20}  |{hour:23}   | {carer_weekday:8, hospital_weekday:9} | {carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:45, hospital_total_amount:54}    | 30 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:0 }  |{hour:8}    | {carer_weekday:8, hospital_weekday:9} | {carer_weekday:9, carer_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:120, hospital_total_amount:144}    | 80 |
+    |hospital    |admin      |request                              |start_time |end_time    |rate     |custom_rate   |price | nurse_amount |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:14}   | {nurse_weekday:8, hospital_weekday:9} | {nurse_weekday:9, hospital_weekday:10} |{hospital_base:60, hospital_total_amount:72}    | 54 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:18}   | {nurse_weekday:8, hospital_weekday:9} | {nurse_weekday:9, hospital_weekday:10}  |{hospital_base:100, hospital_total_amount:120}    | 90 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |{hour:7}   |{hour:17}   | {nurse_weekday:8, hospital_weekday:9} | {nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:12}  |{hospital_base:102, hospital_total_amount:122.4}| 91 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20}  |{hour:23}   | {nurse_weekday:8, hospital_weekday:9} | {nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:45, hospital_total_amount:54}    | 30 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:0 }  |{hour:8}    | {nurse_weekday:8, hospital_weekday:9} | {nurse_weekday:9, nurse_weeknight:10, hospital_weekday:10, hospital_weeknight:15}  |{hospital_base:120, hospital_total_amount:144}    | 80 |
     
 
 Scenario Outline: Pricing Request on Weekend
@@ -56,14 +56,14 @@ Scenario Outline: Pricing Request on Weekend
   Given the rate is "<rate>"
   Given there are no bank holidays
   Then the price for the Staffing Request must be "<price>"
-  Then the carer amount for the Staffing Request must be "<carer_amount>"
+  Then the nurse amount for the Staffing Request must be "<nurse_amount>"
   Examples:
-    |hospital    |admin      |request                          |start_time |end_time    |rate|price |carer_amount|
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:14}   |{carer_weekend:10, carer_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:78, hospital_total_amount:93.6} | 60 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:18}   |{carer_weekend:10, carer_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:130, hospital_total_amount:156} | 100 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |{hour:7}   |{hour:17}   |{carer_weekend:10, carer_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:132, hospital_total_amount:158.4}|  102 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20}  |{hour:23}   |{carer_weekend:10, carer_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:45, hospital_total_amount:54}| 36 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:0 }  |{hour:8}    |{carer_weekend:10, carer_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:120, hospital_total_amount:144}| 96 |
+    |hospital    |admin      |request                          |start_time |end_time    |rate|price |nurse_amount|
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:14}   |{nurse_weekend:10, nurse_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:78, hospital_total_amount:93.6} | 60 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|{hour:8}   |{hour:18}   |{nurse_weekend:10, nurse_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:130, hospital_total_amount:156} | 100 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |{hour:7}   |{hour:17}   |{nurse_weekend:10, nurse_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:132, hospital_total_amount:158.4}|  102 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:20}  |{hour:23}   |{nurse_weekend:10, nurse_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:45, hospital_total_amount:54}| 36 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |{hour:0 }  |{hour:8}    |{nurse_weekend:10, nurse_weekend_night:12, hospital_weekend:13, hospital_weekend_night:15}|{hospital_base:120, hospital_total_amount:144}| 96 |
 
 
 
@@ -77,10 +77,10 @@ Scenario Outline: Pricing Request last minute
   Then the price for the Staffing Request must be "<price>"
   Examples:
     |hospital    |admin      |request                              |hours |rate|price   |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|2     |10  |120     |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|2.5   |10  |120     |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |2.8   |12  |144     |
-    |verified=true;carer_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |3     |15  |180     |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|2     |10  |120     |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist|2.5   |10  |120     |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Generalist     |2.8   |12  |144     |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Nurse;speciality=Mental Health  |3     |15  |180     |
 
 
 Scenario Outline: Pricing Request on bank holiday
@@ -90,11 +90,11 @@ Scenario Outline: Pricing Request on bank holiday
   Given the rate is "<rate>"
   Given there are bank holidays
   Then the price for the Staffing Request must be "<price>"
-  Then the carer amount for the Staffing Request must be "<carer_amount>"
+  Then the nurse amount for the Staffing Request must be "<nurse_amount>"
   Examples:
-    |hospital    |admin      |request                              |rate|price   |carer_amount|
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist |{carer_bank_holiday:15, hospital_bank_holiday:20}|{hospital_base:200, hospital_total_amount:240}| 150 |
-    |verified=true;carer_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist |{carer_bank_holiday:15, hospital_bank_holiday:20}|{hospital_base:200, hospital_total_amount:240}| 150 |
+    |hospital    |admin      |request                              |rate|price   |nurse_amount|
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist |{nurse_bank_holiday:15, hospital_bank_holiday:20}|{hospital_base:200, hospital_total_amount:240}| 150 |
+    |verified=true;nurse_break_mins=0|role=Admin |role=Care Giver;speciality=Generalist |{nurse_bank_holiday:15, hospital_bank_holiday:20}|{hospital_base:200, hospital_total_amount:240}| 150 |
     
 
 

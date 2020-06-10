@@ -10,7 +10,7 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     hospital: Field::BelongsToSearch,
     user_docs: Field::HasMany,
-    hospital_carer_mappings: Field::HasMany,
+    hospital_nurse_mappings: Field::HasMany,
     profile: Field::HasOne,
     shifts: Field::HasMany,
     versions: VersionField,
@@ -139,7 +139,7 @@ class UserDashboard < Administrate::BaseDashboard
     :city,
     :rating,
     :medical_info,    
-    :hospital_carer_mappings,
+    :hospital_nurse_mappings,
     :shifts
 
   ].freeze

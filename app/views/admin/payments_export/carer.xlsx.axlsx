@@ -1,9 +1,9 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Carer") do |sheet|
-  sheet.add_row ["Id", "Carer Amount", "Carer First Name", "Carer Last Name", "Carer Email", "Care Home", "Staffing Request Id", "PO for Invoice", "Shift Id", "Day Hours", "Night Hours", "Factor", "Shift Start", "Shift End", "Created At", "Notes", "Calc", "Payroll Calc"]
+wb.add_worksheet(name: "Nurse") do |sheet|
+  sheet.add_row ["Id", "Nurse Amount", "Nurse First Name", "Nurse Last Name", "Nurse Email", "Care Home", "Staffing Request Id", "PO for Invoice", "Shift Id", "Day Hours", "Night Hours", "Factor", "Shift Start", "Shift End", "Created At", "Notes", "Calc", "Payroll Calc"]
   @payments.each do |payment|
   	if(payment.shift)
-	    sheet.add_row [payment.id, payment.care_giver_amount, payment.user&.first_name, payment.user&.last_name, payment.user&.email, payment.hospital&.name, payment.staffing_request&.id, payment.staffing_request&.po_for_invoice, payment.shift&.id, payment.shift&.pricing_audit["day_time_hours_worked"], payment.shift&.pricing_audit["night_time_hours_worked"], payment.shift&.pricing_audit["factor_name"], payment.shift&.start_date, payment.shift&.end_date, payment.created_at, payment.notes,  payment.shift&.pricing_audit["calc_carer_base"], payment.shift&.pricing_audit.map{|k,v| "#{k}=#{v}"}&.join("\n") ]
+	    sheet.add_row [payment.id, payment.care_giver_amount, payment.user&.first_name, payment.user&.last_name, payment.user&.email, payment.hospital&.name, payment.staffing_request&.id, payment.staffing_request&.po_for_invoice, payment.shift&.id, payment.shift&.pricing_audit["day_time_hours_worked"], payment.shift&.pricing_audit["night_time_hours_worked"], payment.shift&.pricing_audit["factor_name"], payment.shift&.start_date, payment.shift&.end_date, payment.created_at, payment.notes,  payment.shift&.pricing_audit["calc_nurse_base"], payment.shift&.pricing_audit.map{|k,v| "#{k}=#{v}"}&.join("\n") ]
 	else
 	    sheet.add_row [payment.id, payment.care_giver_amount, payment.user&.first_name, payment.user&.last_name, payment.user&.email, payment.hospital&.name, payment.staffing_request&.id, payment.shift&.id, nil, nil, nil, payment.shift&.start_date, payment.shift&.end_date, payment.created_at, payment.notes, nil, ]    
     end

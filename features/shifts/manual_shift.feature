@@ -5,7 +5,7 @@ Scenario Outline: New Shift
   
   Given there is a request "<request>"
   Given there is a user "<user>"
-  Given the carer is mapped to the hospital
+  Given the nurse is mapped to the hospital
   And a manual shift is created
   Then A shift must be created for the user for the request
   And the request broadcast status must change to "Sent"
