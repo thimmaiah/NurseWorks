@@ -64,15 +64,18 @@ class Shift < ApplicationRecord
   end
 
 
-  def self.create_shift(selected_user, staffing_request, preferred_care_giver_selected=false, manual_assignment=false)
+  def self.create_shift(selected_user, staffing_request, 
+                        preferred_care_giver_selected=false, 
+                        manual_assignment=false)
 
-    
+    resp_status = (staffing_request.staff_type == 'Perm') ? 'Accepted' : 'Pending'
+
     # Create the shift
     shift = Shift.new(staffing_request_id: staffing_request.id,
                       user_id: selected_user.id,
                       hospital_id: staffing_request.hospital_id,
                       nurse_break_mins: staffing_request.nurse_break_mins,
-                      response_status: "Pending",
+                      response_status: resp_status,
                       preferred_care_giver_selected: preferred_care_giver_selected,
                       manual_assignment: manual_assignment)
 

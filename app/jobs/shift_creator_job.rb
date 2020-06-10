@@ -9,12 +9,12 @@ class ShiftCreatorJob < ApplicationJob
       logger.debug "Skipping shift creation for #{staffing_request.id} as its late in the night and the start time is tomorrow"
     else
       # Select a temp who can be assigned this shift
-      selected_users = select_users(staffing_request)
+      selected_nurses = select_nurses(staffing_request)
 
       # If we find a suitable temp - create a shift
-      if selected_users 
-        selected_users.each do |u|
-          Shift.create_shift(u, staffing_request)
+      if selected_nurses 
+        selected_nurses.each do |nurse|
+          Shift.create_shift(nurse, staffing_request)
         end
       else
         logger.error "ShiftCreatorJob: No nurse found for Staffing Request #{staffing_request.id}"
@@ -95,33 +95,36 @@ class ShiftCreatorJob < ApplicationJob
 
   # Select all the avail_part_times available to service this request
   # Returns a list of users who match 
-  def select_users(staffing_request)
+  def select_nurses(staffing_request)
 
     staffing_request.select_user_audit = {}
+
+    nurses = []
+    if staffing_request.staff_type == "Temp"
+      nurses = staffing_request.hospital.temp_nurses
+    elsif staffing_request.staff_type == "Perm"
+      nurses = staffing_request.hospital.perm_nurses
+    end
+
     # Check if the care home has preferred care givers
-    hospital_nurse_mappings = staffing_request.hospital.hospital_nurse_mappings.enabled
     if staffing_request.preferred_nurse_id
       # Sometimes we need to route the request to a specific nurse first
-      hospital_nurse_mappings = hospital_nurse_mappings.where(user_id: staffing_request.preferred_nurse_id)   
-    else
-      # Randomize the list so we get even distribution across nurses - but first try the preferred nursees
-      hospital_nurse_mappings = hospital_nurse_mappings.shuffle.sort_by{|ccm| ccm.preferred ? 0 : 1}
+      nurses = [staffing_request.preferred_nurse   ]
     end
     
-    users = []
-    if(hospital_nurse_mappings)      
+    selected_nurses = []
+    if(nurses)      
       # Check if any of the pref_care_givers can be assigned to the shift
-      hospital_nurse_mappings.each do |ccm|
-        user = ccm.user
-        assign = assign_user_to_shift?(staffing_request, user) 
+      nurses.each do |nurse|
+        assign = assign_user_to_shift?(staffing_request, nurse) 
         if(assign)
-          Rails.logger.debug "ShiftCreatorJob: #{user.email}, Request #{staffing_request.id} selected preferred care giver"
-          users << user
+          Rails.logger.debug "ShiftCreatorJob: #{nurse.email}, Request #{staffing_request.id} selected preferred care giver"
+          selected_nurses << nurse
         end
       end
     end
 
-    return users
+    return selected_nurses
   end
 
   def assign_user_to_shift?(staffing_request, user)
