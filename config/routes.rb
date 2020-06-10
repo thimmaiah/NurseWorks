@@ -121,11 +121,12 @@ Rails.application.routes.draw do
       post :delete_requested
     end
   end
-  resources :post_codes
+  
   resources :shifts do 
     member do 
       get :reject_anonymously
       get :start_end_shift
+      post :response
     end
   end
 

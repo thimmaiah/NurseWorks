@@ -2,13 +2,15 @@ class Shift < ApplicationRecord
 
   include StartEndTimeHelper
   include SmsHelper
+  include ConfirmHelper
+
   # Please see ShiftSubscriber class - all side effects are handled there
   include Wisper.model
 
   acts_as_paranoid
   has_paper_trail
 
-  RESPONSE_STATUS = ["Accepted", "Rejected", "Pending", "Auto Rejected", "Closed", "Cancelled"]
+  RESPONSE_STATUS = ["Accepted", "Wait Listed", "Rejected", "Pending", "Auto Rejected", "Closed", "Cancelled"]
   PAYMENT_STATUS = ["UnPaid", "Pending", "Paid"]
   CONFIRMATION_STATUS = ["Pending", "Confirmed"]
 
@@ -27,6 +29,7 @@ class Shift < ApplicationRecord
   scope :not_rejected, -> {where("response_status <> 'Rejected' and response_status <> 'Auto Rejected'")}
   scope :not_cancelled, -> {where("response_status <> 'Cancelled'")}
   scope :accepted, -> {where("response_status = 'Accepted'")}
+  scope :wait_listed, -> {where("response_status = 'Wait Listed'")}
   scope :closed, -> {where("response_status = 'Closed'")}
   scope :accepted_or_closed, -> {where("response_status in ('Closed', 'Accepted')")}
   scope :pending, -> {where("response_status = 'Pending'")}
@@ -38,7 +41,6 @@ class Shift < ApplicationRecord
   scope :manual, -> {where("manual_assignment = ?", true)}
   scope :not_manual, -> {where("(manual_assignment is NULL or manual_assignment = ?)", false)}
 
-  validate :check_codes
   
   before_create :set_defaults  
   before_save :update_dates  
@@ -95,7 +97,14 @@ class Shift < ApplicationRecord
 
   end
 
-  
+  def response(response_status)
+    if response_status == "Accepted"
+      self.response_status = "Wait Listed"
+    else
+      self.response_status = "Rejected"
+    end
+    self.save
+  end
 
   def update_dates
     # Sometimes admin have to manually close a shift, so they supply the start/end codes and dates
@@ -162,81 +171,7 @@ class Shift < ApplicationRecord
     return false
   end
 
-  def check_codes
-    # Codes should match the one in the request
-    if(self.start_code && self.start_code.strip != "" && self.start_code != self.staffing_request.start_code)
-      errors.add(:start_code, "Start Code does not match with the request start code")
-    end
-
-    time_from_now = (self.staffing_request.start_date - Time.now)/60 
-    if(!manual_close && self.start_code_changed? && time_from_now > 60 && self.testing != true)  
-      errors.add(:start_code, "Shift cannot start before the allotted shift time #{self.staffing_request.start_date.to_s(:custom_datetime)}")
-    end
-
-    if(self.end_code && self.end_code.strip != "" && self.end_code != self.staffing_request.end_code)
-      errors.add(:end_code, "End Code does not match with the request end code")
-    end
-  end
-
-
-  def send_confirm?
-    nct = self.next_confirm_time
-    sendFlag =  nct && Time.now > nct && # Time to send the confirm
-    			self.response_status == 'Accepted' &&   
-                self.start_code == nil && # Shift has not yet started
-                self.confirmed_status != "Declined" # Shift has not been rejected by the carer
-                
-    logger.debug("Shift: sendFlag = #{sendFlag}")
-    return sendFlag
-  end
-
-  def next_confirm_time
-    # ACCEPTED_SLOT_REMINDERS_BEFORE="1.day,4.hours,1.hour"
-    reminders = ENV["ACCEPTED_SLOT_REMINDERS_BEFORE"].split(",")
-    logger.debug("Shift: next_confirm_time = #{reminders[self.confirm_sent_count]} confirm_sent_count = #{self.confirm_sent_count} ")
-    if(reminders.length > self.confirm_sent_count)
-      return self.staffing_request.start_date - eval(reminders[self.confirm_sent_count])
-    end
-
-    return nil
-  end
-
-  def confirmation_sent
-    self.confirm_sent_count += 1
-    self.confirm_sent_at = Time.now
-    self.save!
-  end
-
-  def confirm
-    self.confirmed_status = "Confirmed"
-    self.confirmed_count += 1
-    self.confirmed_at = Time.now
-    self.save!
-  end
-
-  def decline
-    self.confirmed_status = "Declined"
-    self.confirmed_count += 1
-    self.confirmed_at = Time.now
-    self.save!
-  end
-
-  def confirmation_received?
-    self.confirmed_status == "Confirmed" &&  self.confirmed_at > self.confirm_sent_at
-  end
-
-  # Used only for testing - do not use in actual code
-  def set_codes_test
-    self.testing = true
-    self.start_code = self.staffing_request.start_code
-    self.end_code = self.staffing_request.end_code
-    self.save!
-    if self.start_date == nil
-      self.start_date = self.staffing_request.start_date
-    end
-    self.end_date = self.start_date + 10.hours
-    self.save!
-  end
+  
 
   def self.month_closed_shifts(date=Date.today)
     month_start = date.beginning_of_month
@@ -253,8 +188,7 @@ class Shift < ApplicationRecord
       vat: self.vat, markup: self.markup, care_giver_amount: self.carer_base,
       notes: "Thank you for your service.",
       staffing_request_id: self.staffing_request_id,
-      created_at: self.end_date)
-    
+      created_at: self.end_date)    
   end
 
   def generate_anonymous_reject_hash

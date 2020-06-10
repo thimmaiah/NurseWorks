@@ -43,6 +43,7 @@ class StaffingRequest < ApplicationRecord
   scope :manual_assignment, -> {where("manual_assignment_flag = ?", true)}
 
   before_create :set_defaults, :price_estimate
+  after_create :accept_shift_responses
 
   def set_defaults
     # We now have auto approval
@@ -70,6 +71,13 @@ class StaffingRequest < ApplicationRecord
       ExceptionNotifier.notify_exception(e)
     end
   end
+
+  # This will create a job that will select the winning shift of all the 
+  # wait listed ones. It will do so after an hour of this request being created
+  def accept_shift_responses
+    ShiftResponseJob.set(wait: 1.hour).perform_later(self.id)
+  end
+
 
   def request_status_valid
     if( self.request_status_changed? )
