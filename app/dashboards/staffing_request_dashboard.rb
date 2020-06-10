@@ -59,8 +59,6 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
     :user,
     :start_date,
     :shift_duration,
-    :end_date,
-    :hospital_total_amount,
     :manual_assignment_flag,
     :request_status,
     :shift_status,

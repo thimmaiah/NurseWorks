@@ -30,6 +30,9 @@ en:
     models:
   helpers:
     label:      
+      hospital:
+        users: "Permanent Staff"
+        hospital_nurse_mappings: "Temp Staff Mapping"
       user:
         hospital_id: "Hospital (Only for Admin role)"
         hospital: "Hospital (Only for Admin role)"        

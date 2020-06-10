@@ -84,12 +84,9 @@ class UserDashboard < Administrate::BaseDashboard
     :avail_part_time,
     :avail_full_time,
     :public_profile,
-    :ready_for_verification,
     :phone_verified,
     :role,
     :hospital,
-    :specializations,
-    :pref_commute_distance,
     
   ].freeze
 
