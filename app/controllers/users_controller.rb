@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    logger.debug "### #{params[:user][:part_time_work_days]}"
     if @user.update(user_params)
       render json: @user
     else
@@ -134,13 +135,18 @@ class UsersController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :role, :nurse_type,
-                                 :sex, :title, :address, :city, :lat, :lng, :phone, :languages, :pref_commute_distance,  
+                                 :sex, :title, :address, :city, :lat, :lng, :phone, :languages, 
+                                 :pref_commute_distance,  
                                  :referal_code, :accept_terms, :hospital_id, :image_url, :verified,
-                                 :active, :bank_account, :push_token, :medical_info, :nursing_school_name, :NUID, :head_nurse,
-                                 :accept_bank_transactions, :work_weekdays, :work_weeknights, :work_weekends, 
-                                 :work_weekend_nights, :pause_shifts, :age, :years_of_exp, :months_of_exp, :key_qualifications, 
-                                 :avail_part_time, :shifts_per_month, :conveyence, :pref_shift_duration, :pref_shift_time, 
-                                 :exp_shift_rate, :public_profile, :avail_full_time, :currently_permanent_staff, 
-                                 specializations: [],)
+                                 :active, :bank_account, :push_token, :medical_info, 
+                                 :nursing_school_name, :head_nurse,
+                                 :work_weekdays, :work_weeknights, :work_weekends, 
+                                 :work_weekend_nights, :pause_shifts, :age, :years_of_exp, 
+                                 :months_of_exp,:key_qualifications, 
+                                 :avail_part_time, :shifts_per_month, :conveyence, :pref_shift_duration, 
+                                 :pref_shift_time, 
+                                 :exp_shift_rate, :public_profile, :avail_full_time, 
+                                 :currently_permanent_staff, :NUID,
+                                 specializations: [], part_time_work_days: [])
   end
 end

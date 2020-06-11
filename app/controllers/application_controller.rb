@@ -25,9 +25,15 @@ class ApplicationController < ActionController::API
   before_action :configure_permitted_parameters, if: :devise_controller?
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :role, :nurse_type, 
-        :sex, :title, :phone, :address, :city, :lat, :lng, :languages, :pref_commute_distance, :specializations, :experience, 
-        :referal_code, :accept_terms, :hospital_id, :password, :image_url, :verified, :bank_account])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [ :first_name, :last_name, :email, :role, :nurse_type,
+    :sex, :title, :address, :city, :lat, :lng, :phone, :languages, :pref_commute_distance,  
+    :referal_code, :accept_terms, :hospital_id, :image_url, :verified,
+    :active, :bank_account, :push_token, :medical_info, :nursing_school_name, :NUID, :head_nurse,
+    :accept_bank_transactions, :work_weekdays, :work_weeknights, :work_weekends, 
+    :work_weekend_nights, :pause_shifts, :age, :years_of_exp, :months_of_exp, :key_qualifications, 
+    :avail_part_time, :shifts_per_month, :conveyence, :pref_shift_duration, :pref_shift_time, 
+    :exp_shift_rate, :public_profile, :avail_full_time, :currently_permanent_staff, 
+    :part_time_work_days, specializations: [] ])
   end
 
   before_action :set_paper_trail_whodunnit

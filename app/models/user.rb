@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :references
 
   serialize :specializations, Array
+  serialize :part_time_work_days, Array
 
   SEX = ["M", "F"]
   
@@ -153,6 +154,7 @@ class User < ApplicationRecord
     self.phone = self.phone.gsub(/\s+/, "") 
     self.password_reset_date = Date.today
 
+
     if(self.is_temp?)
       self.verified = false if self.verified == nil
     
@@ -163,6 +165,8 @@ class User < ApplicationRecord
     
       self.pause_shifts = false if self.pause_shifts == nil
       self.currently_permanent_staff = true if self.hospital_id != nil
+      self.part_time_work_days = [] if self.part_time_work_days == nil
+      self.specializations = [] if self.specializations == nil
     end
     
   end

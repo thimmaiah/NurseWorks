@@ -427,6 +427,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.boolean "public_profile", default: false
     t.boolean "avail_full_time", default: false
     t.boolean "avail_part_time", default: false
+    t.string  "part_time_work_days"
     t.boolean "currently_permanent_staff", default: false
     t.integer "shifts_per_month", default: 0
     t.integer "pref_shift_duration"
