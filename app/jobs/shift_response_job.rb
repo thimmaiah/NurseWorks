@@ -49,6 +49,7 @@ class ShiftResponseJob < ApplicationJob
 
     end
   
+    SHIFT_CANCEL_WAITLIST_TIME = eval(ENV['SHIFT_CANCEL_WAITLIST_TIME'])
     def accept_wait_list(staffing_request_id)
         begin
             # Get the request
@@ -62,7 +63,7 @@ class ShiftResponseJob < ApplicationJob
                 selected_shift.response_status = "Accepted"
                 selected_shift.save!
                 # Ensure we cancel the other wait listed ones in 4 hours
-                ShiftResponseJob.set(wait: 4.hour).perform_later(staffing_request_id, "CancelWaitListed")
+                ShiftResponseJob.set(wait: SHIFT_CANCEL_WAITLIST_TIME).perform_later(staffing_request_id, "CancelWaitListed")
             else
                 logger.debug "No Shifts found for StaffingRequest #{req.id}"
             end   

@@ -75,8 +75,9 @@ class StaffingRequest < ApplicationRecord
 
   # This will create a job that will select the winning shift of all the 
   # wait listed ones. It will do so after an hour of this request being created
-  def accept_shift_responses
-    ShiftResponseJob.set(wait: 1.hour).perform_later(self.id, "AcceptWaitListed")
+  SHIFT_ACCEPT_WAIT_TIME = eval(ENV['SHIFT_ACCEPT_WAIT_TIME'])
+  def accept_shift_responses    
+    ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(self.id, "AcceptWaitListed")
   end
 
 
