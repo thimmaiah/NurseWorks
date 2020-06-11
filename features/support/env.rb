@@ -88,30 +88,32 @@ module NurseWorksUtils
   def ionic_select(value, select, first_select_on_page = true)
     within("form  ##{select}") do
       find(".item-inner").click
-      begin
-        if(first_select_on_page)
-          find(".input-wrapper").click
-          find(".item-cover").click
-        end
-      rescue
-      end
+      # begin
+      #   if(first_select_on_page)
+      #     find(".input-wrapper").click
+      #     find(".item-cover").click
+      #   end
+      # rescue
+      # end
     end
 
-    find(".alert-radio-button", :text => "#{value}").click
-    find(".button-inner", :text => "#{value}").click
-    click_on("OK")
+    within("div.alert-wrapper") do
+      find(".alert-radio-button", :text => "#{value}").click
+      #find(".button-inner", :text => "#{value}").click
+      click_on("OK")
+    end
   end
 
   def ionic_multi_select(values, select, first_select_on_page = true)
     within("form  ##{select}") do
       find(".item-inner").click
-      begin
-        if(first_select_on_page)
-          find(".input-wrapper").click
-          find(".item-cover").click
-        end
-      rescue
-      end
+      # begin
+      #   if(first_select_on_page)
+      #     find(".input-wrapper").click
+      #     find(".item-cover").click
+      #   end
+      # rescue
+      # end
     end
 
     values.each do |value|

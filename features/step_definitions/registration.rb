@@ -54,25 +54,16 @@ When(/^I fill and submit the registration page$/) do
 
     fields.each do |k|
       fill_in(k, with: @user[k])
-      sleep(1)
     end
 
 
     multi_select_fields.each do |k|
-      ionic_multi_select(@user[k], k, true)
+      ionic_multi_select(@user[k], k, false)
     end
 
     select_fields.each do |k|
-      ionic_select(@user[k], k, true)
+      ionic_select(@user[k], k, false)
     end
-
-
-    # ionic_select(@user.avail_full_time, "avail_full_time", true)
-    # ionic_select(@user.avail_part_time, "avail_part_time", true)
-    # ionic_select(@user.key_qualifications, "key_qualifications", true)
-    # ionic_select(@user.specializations, "specializations", true)
-    # ionic_select(@user.pref_commute_distance, "pref_commute_distance", true)
-    # ionic_select(@user.conveyence, "conveyence", true)
 
     sleep(1)
 

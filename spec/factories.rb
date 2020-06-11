@@ -100,7 +100,7 @@ FactoryGirl.define do
     response_count 0
     role {"Nurse"}
     staff_type {"Temp"}
-    speciality {User::SPECIALIZATIONS[rand(User::SPECIALIZATIONS.length)]}
+    speciality {User::SPECIALIZATIONS[rand(User::SPECIALIZATIONS.length-1)]}
     payment_status {"Unpaid"}
     start_code {rand.to_s[2..6]}
     end_code {rand.to_s[2..6]}

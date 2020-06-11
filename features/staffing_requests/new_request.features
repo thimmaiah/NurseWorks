@@ -12,10 +12,9 @@ Scenario Outline: New Request
 
   Examples:
   	|hospital						                            |admin 						           |request	|
-  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |start_code=1111;end_code=0000 |
-  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |start_code=1111;end_code=0000 |
-    |name=My hospital;verified=true;qr_code=1234     |first_name=Admin;role=Admin |  |
-    |name=My hospital;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |start_code=1111;end_code=0000;po_for_invoice=PO111X  |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |  |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |  |
+    |name=My hospital;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |po_for_invoice=PO111X  |
   	
 
 
@@ -30,7 +29,7 @@ Scenario Outline: New Request for sister hospital
   When I click on the request I must see the request details
 
   Examples:
-    |hospital                          |admin                       |request                       | sister_hospital |
-    |name=My Care Home;verified=true    |first_name=Admin;role=Admin |hospital_id=2;start_code=1111;end_code=0000 | name=Sis Care Home With Very Large Name#name=My Wonderful Care Home  |
-    |name=My hospital;verified=true    |first_name=Admin;role=Admin |hospital_id=3;start_code=1111;end_code=0000 | name=Sis Care#name=My Wonderful Care Home  |
+    |hospital                          |admin                       |request        | sister_hospital |
+    |name=My Care Home;verified=true   |first_name=Admin;role=Admin |hospital_id=2; | name=Sis Care Home With Very Large Name#name=My Wonderful Care Home  |
+    |name=My hospital;verified=true    |first_name=Admin;role=Admin |hospital_id=3; | name=Sis Care#name=My Wonderful Care Home  |
     

@@ -204,18 +204,10 @@ When(/^I create a new Staffing Request "([^"]*)"$/) do |args|
   end
 
 
-  if @hospital.qr_code == nil
-    fields = ["start_code", "end_code"]
-    fields.each do |k|
-      fill_in(k, with: @staffing_request[k], fill_options: { clear: :backspace })
-      sleep(1)
-    end
-  end  
-
-
-  ionic_select(@staffing_request.role, "role", true)
-  ionic_select(@staffing_request.hospital.name, "hospital_id", true) if @staffing_request.hospital_id
-  #ionic_select(@staffing_request.speciality, "speciality", false)
+  ionic_select(@staffing_request.staff_type, "staff_type", true)
+  ionic_select(@staffing_request.shift_duration, "shift_duration", false)
+  ionic_select(@staffing_request.hospital.name, "hospital_id", false) if @staffing_request.hospital_id
+  ionic_select(@staffing_request.speciality, "speciality", false)
 
   click_on("Save")
   sleep(1)
@@ -227,16 +219,13 @@ Then(/^the request must be saved$/) do
 
   last = StaffingRequest.last
 
-  if @hospital.qr_code == nil  
-    @staffing_request.start_code.should == last.start_code
-    @staffing_request.end_code.should == last.end_code
-  end
-  
   @staffing_request.role.should == last.role
+  @staffing_request.shift_duration.should == last.shift_duration
+  @staffing_request.speciality.should == last.speciality
   @staffing_request.po_for_invoice.should == last.po_for_invoice
 
   last.start_date.hour.should == 8
-  last.end_date.hour.should == 16
+  last.end_date.hour.should == 8 + @staffing_request.shift_duration
 
   last.user_id.should == @user.id
   if(@staffing_request.hospital_id)
@@ -258,11 +247,10 @@ Then(/^I must see the request details$/) do
   expect(page).to have_content(@staffing_request.user.last_name)
   expect(page).to have_content(@staffing_request.role)
   expect(page).to have_content(@staffing_request.request_status)
-  expect(page).to have_content(@staffing_request.payment_status)
-  expect(page).to have_content(@staffing_request.start_date.in_time_zone("Europe/London").strftime("%d/%m/%Y %H:%M") )
-  expect(page).to have_content(@staffing_request.end_date.in_time_zone("Europe/London").strftime("%d/%m/%Y %H:%M") )
-  expect(page).to have_content(@staffing_request.start_code)
-  expect(page).to have_content(@staffing_request.end_code)
+  expect(page).to have_content(@staffing_request.start_date.strftime("%d/%m/%Y %H:%M") )
+  expect(page).to have_content(@staffing_request.shift_duration )
+  expect(page).to have_content(@staffing_request.speciality)
+  expect(page).to have_content(@staffing_request.staff_type)
 end
 
 
@@ -344,7 +332,7 @@ Given("there is a recurring request {string}") do |args|
   @recurring_request.user = @user
    @recurring_request.dates = []
   @recurring_request.on.split(",").each do |day|
-    @recurring_request.dates << (@recurring_request.start_date + day.to_i.days).in_time_zone("Europe/London").strftime("%d/%m/%Y")
+    @recurring_request.dates << (@recurring_request.start_date + day.to_i.days).strftime("%d/%m/%Y")
   end
 
   @recurring_request.save!
