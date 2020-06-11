@@ -13,7 +13,7 @@ Scenario Outline: New Shift
 
   Examples:
   	|request	                           | user                            |
-  	|role=Care Giver                     |role=Care Giver;verified=true    |
+  	|role=Nurse                     |role=Nurse;verified=true    |
     |role=Nurse                          |role=Nurse;verified=true         |
   	|role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
     |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
@@ -36,7 +36,7 @@ Scenario Outline: New Shift for preferred care givers
 
   Examples:
     |request                             | user                            |
-    |role=Care Giver                     |role=Care Giver;verified=true    |
+    |role=Nurse                     |role=Nurse;verified=true    |
     |role=Nurse                          |role=Nurse;verified=true         |
     |role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
     |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
@@ -55,12 +55,12 @@ Scenario Outline: New Shift for specialist users with no match
 
   Examples:
     |request                              | user                            |
-    |role=Nurse;speciality=Generalist     |role=Care Giver;verified=true    |    
-    |role=Care Giver;speciality=Generalist|role=Nurse;verified=true         |    
-    |role=Nurse;speciality=Generalist     |role=Care Giver;speciality=Mental Health;verified=true  |
-    |role=Nurse                           |role=Care Giver;speciality=Pediatric Care;verified=true |
-    |role=Care Giver;speciality=Generalist     |role=Care Giver;verified=true;work_weekdays=false;work_weekends=false  |
-    |role=Care Giver;speciality=Generalist     |role=Care Giver;verified=true;pause_shifts=true    |
+    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true    |    
+    |role=Nurse;speciality=Generalist|role=Nurse;verified=true         |    
+    |role=Nurse;speciality=Generalist     |role=Nurse;speciality=Mental Health;verified=true  |
+    |role=Nurse                           |role=Nurse;speciality=Pediatric Care;verified=true |
+    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true;work_weekdays=false;work_weekends=false  |
+    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true;pause_shifts=true    |
 
 
 Scenario Outline: New Shift for specialist users with no match for weekend
@@ -75,7 +75,7 @@ Scenario Outline: New Shift for specialist users with no match for weekend
 
   Examples:
     |request                                   | user                            |
-    |role=Care Giver;speciality=Generalist     |role=Care Giver;verified=true;work_weekends=false  |
+    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true;work_weekends=false  |
     
 
 Scenario Outline: New Shift for specialist users with no match for night hours
@@ -90,7 +90,7 @@ Scenario Outline: New Shift for specialist users with no match for night hours
 
   Examples:
     |request                               | user                            |
-    |role=Care Giver;speciality=Generalist |role=Care Giver;verified=true;work_weeknights=false;work_weekend_nights=false  |
+    |role=Nurse;speciality=Generalist |role=Nurse;verified=true;work_weeknights=false;work_weekend_nights=false  |
 
     
     
@@ -110,7 +110,7 @@ Scenario Outline: New Shift for manual assignment hospitals
   Examples:
     |request                                      | user                          |
     |role=Nurse;manual_assignment_flag=true       |role=Nurse;verified=true       |    
-    |role=Care Giver;manual_assignment_flag=true  |role=Care Giver;verified=true  |    
+    |role=Nurse;manual_assignment_flag=true  |role=Nurse;verified=true  |    
 
 
 Scenario Outline: New Shift for unverified users
@@ -124,7 +124,7 @@ Scenario Outline: New Shift for unverified users
 
   Examples:
     |request                                        | user                            |
-    |start_code=1111;end_code=0000 | role=Care Giver;verified=false  |
+    |start_code=1111;end_code=0000 | role=Nurse;verified=false  |
     |start_code=1111;end_code=0000 | role=Nurse;verified=false       |
 
 
@@ -136,7 +136,7 @@ Scenario Outline: New Shift without care givers
 
   Examples:
     |request                       | user                            |
-    |start_code=1111;end_code=0000 | role=Care Giver;verified=false  |
+    |start_code=1111;end_code=0000 | role=Nurse;verified=false  |
     |start_code=1111;end_code=0000 | role=Nurse;verified=false       |
 
 
@@ -152,7 +152,7 @@ Scenario Outline: New Shift when already rejected
 
   Examples:
     |request                                        | user                            |
-    |start_code=1111;end_code=0000 | role=Care Giver;verified=true   |
+    |start_code=1111;end_code=0000 | role=Nurse;verified=true   |
     |start_code=1111;end_code=0000 | role=Nurse;verified=true        |
 
 Scenario Outline: New Shift when already auto rejected
@@ -167,7 +167,7 @@ Scenario Outline: New Shift when already auto rejected
 
   Examples:
     |request                                        | user                            |
-    |start_code=1111;end_code=0000 | role=Care Giver;verified=true   |
+    |start_code=1111;end_code=0000 | role=Nurse;verified=true   |
     |start_code=1111;end_code=0000 | role=Nurse;verified=true        |
 
 Scenario Outline: New Shift to different user when already rejected
@@ -185,7 +185,7 @@ Scenario Outline: New Shift to different user when already rejected
   
   Examples:
     |request                                        | user                            |
-    |role=Care Giver;start_code=1111;end_code=0000  | role=Care Giver;verified=true   |
+    |role=Nurse;start_code=1111;end_code=0000  | role=Nurse;verified=true   |
     |role=Nurse;start_code=1111;end_code=0000       | role=Nurse;verified=true        |
 
 
@@ -204,9 +204,9 @@ Scenario Outline: New Shift when already booked in the same time shift
   
   Examples:
     |request          | user                            | other_request     |
-    |role=Care Giver  | role=Care Giver;verified=true   | role=Care Giver   |
-    |role=Care Giver  | role=Nurse;verified=true        | role=Care Giver   |
-    |role=Care Giver  | role=Care Giver;verified=true   | role=Care Giver   |
+    |role=Nurse  | role=Nurse;verified=true   | role=Nurse   |
+    |role=Nurse  | role=Nurse;verified=true        | role=Nurse   |
+    |role=Nurse  | role=Nurse;verified=true   | role=Nurse   |
   
 Scenario Outline: New Shift for Sister Care Home
   
@@ -220,7 +220,7 @@ Scenario Outline: New Shift for Sister Care Home
 
   Examples:
     |request                             | user                            |
-    |hospital_id=2;role=Care Giver                     |role=Care Giver;verified=true    |
+    |hospital_id=2;role=Nurse                     |role=Nurse;verified=true    |
     |hospital_id=2;role=Nurse                          |role=Nurse;verified=true         |
     |hospital_id=3;role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
     |hospital_id=3;role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|

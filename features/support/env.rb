@@ -31,7 +31,7 @@ ActionController::Base.allow_rescue = false
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
 begin
-  DatabaseCleaner.strategy = :truncation, {:except => %w[postcodelatlng rates cqc_records]}
+  DatabaseCleaner.strategy = :truncation, {:except => %w[schools rates]}
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
@@ -102,9 +102,29 @@ module NurseWorksUtils
     click_on("OK")
   end
 
+  def ionic_multi_select(values, select, first_select_on_page = true)
+    within("form  ##{select}") do
+      find(".item-inner").click
+      begin
+        if(first_select_on_page)
+          find(".input-wrapper").click
+          find(".item-cover").click
+        end
+      rescue
+      end
+    end
+
+    values.each do |value|
+      find(".alert-checkbox-button", :text => "#{value}").click
+    end
+
+    click_on("OK")
+  end
+
 
   def key_values(entity, args)
-    key_val = Hash[args.split(";").map{|kv| kv.split("=")}]
+    a = args.split(";").map{|kv| kv.split("=")}
+    key_val = Hash[a]
     key_val.each do |k, v|
       entity[k] = v
     end

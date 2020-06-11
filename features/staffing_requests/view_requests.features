@@ -11,7 +11,7 @@ Scenario Outline: View Requests
   When I click on the request I must see the request details
   Examples:
   	|user						|hospital            						|admin 						           |number	|
-  	|role=Care Giver|name=My hospital;verified=true	|first_name=Admin;role=Admin |	1	|
+  	|role=Nurse|name=My hospital;verified=true	|first_name=Admin;role=Admin |	1	|
   	|role=Nurse		  |name=My hospital;verified=true	|first_name=Admin;role=Admin |	2	|
   	
 

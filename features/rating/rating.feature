@@ -17,12 +17,12 @@ Scenario Outline: Care Home Rating
 
   Examples:
     |request                             | user                            | rating |
-    |role=Care Giver                     |role=Care Giver;verified=true    | 2 |
+    |role=Nurse                     |role=Nurse;verified=true    | 2 |
     |role=Nurse;speciality=Generalist    |role=Nurse;verified=true         | 3 |
     |role=Nurse;speciality=Generalist    |role=Nurse;speciality=Pediatric Care;verified=true| 4 |
 
 
-Scenario Outline: Care Giver Rating
+Scenario Outline: Nurse Rating
   
   Given there is a hospital "verified=true" with me as admin "role=Admin"
   Given there is a request "<request>"
@@ -32,12 +32,12 @@ Scenario Outline: Care Giver Rating
   Given jobs are being dispatched
   When I click "Past Shifts" in the side panel
   When I click the shift for details
-  When I click "Rate Care Giver"
+  When I click "Rate Nurse"
   And I rate with "<rating>"
   Then the user should be rated "<rating>"
 
   Examples:
     |request                             | user                            | rating |
-    |role=Care Giver                     |role=Care Giver;verified=true    | 2 |
+    |role=Nurse                     |role=Nurse;verified=true    | 2 |
     |role=Nurse;speciality=Generalist    |role=Nurse;verified=true         | 3 |
     |role=Nurse;speciality=Generalist    |role=Nurse;verified=true         | 4 |

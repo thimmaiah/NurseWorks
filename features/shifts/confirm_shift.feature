@@ -22,7 +22,7 @@ Scenario Outline: Accept My Shift
 
   Examples:
   	|request	                           | user                            |
-  	|role=Care Giver                     | role=Care Giver;verified=true   |
+  	|role=Nurse                     | role=Nurse;verified=true   |
   	|role=Nurse;speciality=Mental Health | role=Nurse;speciality=Mental Health;verified=true        |
 
 
@@ -45,5 +45,5 @@ Scenario Outline: Decline My Shift
 
   Examples:
     |request                             | user                            |
-    |role=Care Giver                     | role=Care Giver;verified=true   |
+    |role=Nurse                     | role=Nurse;verified=true   |
     |role=Nurse;speciality=Mental Health | role=Nurse;speciality=Mental Health;verified=true        |

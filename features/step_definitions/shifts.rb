@@ -134,8 +134,8 @@ end
 Given(/^there are "([^"]*)" of shifts$/) do |count|
   (1..count.to_i).each do |i|
     steps %Q{
-      Given there is a user "role=Care Giver;verified=true"
-      Given the user has already accepted a request "role=Care Giver"
+      Given there is a user "role=Nurse;verified=true"
+      Given the user has already accepted a request "role=Nurse"
     } 
   end
 end
@@ -147,7 +147,7 @@ Given(/^there are "([^"]*)" of shifts for the hospital$/) do |arg1|
     puts @staffing_request.to_json
 
     steps %Q{
-      Given there is a user "role=Care Giver;verified=true"
+      Given there is a user "role=Nurse;verified=true"
       Given the user has already accepted this request
     }
 

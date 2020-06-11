@@ -162,7 +162,7 @@ FactoryGirl.define do
     # hospital_id { hospital.id if hospital }
     title {User::TITLE[rand(User::TITLE.length-1) + 1]}
     first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
+    last_name { Faker::Name.last_name.sub("'", "") }
     email { Faker::Internet.email }
     password {email.camelize + "1$"}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
@@ -177,13 +177,13 @@ FactoryGirl.define do
     sex { User::SEX[rand(2)]}
     accept_terms {true}
     # pref_commute_distance {User::COMMUTE_DISTANCE[rand(5)]}
-    pref_commute_distance {[1,2,3,4,5][rand(5)]}
+    pref_commute_distance {[10,15,20,25][rand(4)]}
     phone_verified {true}
     age {rand(20) + 20}
     years_of_exp {age - rand(20)}
     months_of_exp {rand(12)}
     key_qualifications {User::QUALIFICATIONS[rand(3)]}
-    specializations {User::SPECIALIZATIONS.shuffle[0..2]}
+    specializations {User::SPECIALIZATIONS.shuffle[0..1]}
     nursing_school_name {School.all.sample.name}
     NUID {"111222" + rand(999).to_s.center(3, rand(9).to_s)}
     nuid_valid {rand(2)}
@@ -195,7 +195,7 @@ FactoryGirl.define do
     shifts_per_month {avail_part_time ? rand(10) + 1 : 0}
     pref_shift_duration {User::SHIFT_DURATION[rand(2)]}
     pref_shift_time {User::SHIFT_TIME[rand(3)]} 
-    exp_shift_rate {User::SHIFT_RATE[rand(3)]}
+    exp_shift_rate {User::SHIFT_RATE[rand(3) + 1]}
     conveyence {User::CONVEYENCE[rand(5)]}
 
     bank_account {rand.to_s[2..9] if(role != "Admin")}

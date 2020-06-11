@@ -9,9 +9,9 @@ Scenario Outline: Recurring Request Generates the right requests
   Then there should be "<count>" requests generated
   Examples:
     |hospital    |admin                    |count  | recurring_request                 |
-    |verified=true|role=Admin;verified=true |2      | role=Care Giver;on=2,4  			|
+    |verified=true|role=Admin;verified=true |2      | role=Nurse;on=2,4  			|
     |verified=true|role=Admin;verified=true |3      | role=Nurse;on=1,3,5				|
-    |verified=true|role=Admin;verified=true |5      | role=Care Giver;on=1,2,3,4,5  	|
+    |verified=true|role=Admin;verified=true |5      | role=Nurse;on=1,2,3,4,5  	|
 
 Scenario Outline: Recurring Request does not generate requests when already generated
   
@@ -24,8 +24,8 @@ Scenario Outline: Recurring Request does not generate requests when already gene
   
   Examples:
     |hospital    |admin                    |count  | recurring_request                 |
-    |verified=true|role=Admin;verified=true |2      | role=Care Giver;on=2,4  			|
+    |verified=true|role=Admin;verified=true |2      | role=Nurse;on=2,4  			|
     |verified=true|role=Admin;verified=true |3      | role=Nurse;on=1,3,5				|
-    |verified=true|role=Admin;verified=true |5      | role=Care Giver;on=1,2,3,4,5  	|
+    |verified=true|role=Admin;verified=true |5      | role=Nurse;on=1,2,3,4,5  	|
 
 

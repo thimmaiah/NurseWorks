@@ -9,7 +9,7 @@ Scenario Outline: Login Successfully
 
   Examples:
   	|user							|msg	|
-  	|role=Care Giver	|Welcome|
+  	|role=Nurse	|Welcome|
     |role=Nurse       |Welcome|
   	|role=Admin		    |Register as a Hospital|
 
@@ -23,13 +23,13 @@ Scenario Outline: Login Incorrectly
 
   Examples:
   	|user							|msg	|
-  	|role=Care Giver	|Invalid login credentials|
+  	|role=Nurse	|Invalid login credentials|
     |role=Nurse       |Invalid login credentials|
   	|role=Admin		    |Invalid login credentials|
 
 
 
-Scenario Outline: Home page menus Care Giver
+Scenario Outline: Home page menus Nurse
   Given there is a user "<user>"
   And the user has no bank account
   And I am at the login page
@@ -38,7 +38,7 @@ Scenario Outline: Home page menus Care Giver
 
   Examples:
     |user                                                   |menus                |
-    |role=Care Giver;verified=false;phone_verified=false    |Verify Mobile Number;Degree Certificate;Adhaar Card|
+    |role=Nurse;verified=false;phone_verified=false    |Verify Mobile Number;Degree Certificate;Adhaar Card|
     |role=Nurse;verified=false;phone_verified=false         |Verify Mobile Number;Degree Certificate;Adhaar Card|
 
 
@@ -72,5 +72,5 @@ Scenario Outline: Password reset Successfully
 
   Examples:
     |user             |msg    | new_password  |
-    |role=Care Giver  |Welcome| Connuct123$   |
+    |role=Nurse  |Welcome| Connuct123$   |
     |role=Nurse       |Welcome| Connuct1234$  |

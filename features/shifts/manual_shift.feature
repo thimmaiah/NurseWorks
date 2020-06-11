@@ -15,7 +15,7 @@ Scenario Outline: New Shift
 
   Examples:
   	|request	                           | user                            |
-  	|role=Care Giver                     |role=Care Giver;verified=true    |
+  	|role=Nurse                     |role=Nurse;verified=true    |
   	|role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
     |role=Nurse;speciality=Generalist    |role=Nurse;speciality=Pediatric Care;verified=true|
     |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|

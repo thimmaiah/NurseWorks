@@ -174,7 +174,7 @@ class User < ApplicationRecord
   def set_perm_staff_flag
     # Ensure that if someone is permanent staff then we cannot use them for 
     # part time or other full time opportunities
-    if self.hospital_id != nil
+    if self.hospital_id != nil || self.currently_permanent_staff
       self.currently_permanent_staff = true
       self.avail_part_time = false
       self.avail_full_time = false

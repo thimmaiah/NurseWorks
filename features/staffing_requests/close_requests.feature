@@ -16,6 +16,6 @@ Scenario Outline: Cancel Request for hospital
 
   Examples:
     |hospital    |admin                    |number | user                            |
-    |verified=true|role=Admin;verified=true |1      | role=Care Giver;verified=true   |
+    |verified=true|role=Admin;verified=true |1      | role=Nurse;verified=true   |
     |verified=true|role=Admin;verified=true |1      | role=Nurse;verified=true        |
 

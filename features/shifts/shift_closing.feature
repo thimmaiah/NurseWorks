@@ -19,7 +19,7 @@ Scenario Outline: Close Shift
   
   Examples:
   	|request	                         | user                            |
-  	|role=Care Giver                     |role=Care Giver;verified=true    |
+  	|role=Nurse                     |role=Nurse;verified=true    |
   	|role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
     |role=Nurse;speciality=Generalist    |role=Nurse;speciality=Pediatric Care;verified=true|
 
@@ -39,7 +39,7 @@ Scenario Outline: Add Start Code
   
   Examples:
     |request                          | user                            | start_code  |  msg            |
-    |role=Care Giver;start_code=1111  |role=Care Giver;verified=true    | 1111        | 1111   |
+    |role=Nurse;start_code=1111  |role=Nurse;verified=true    | 1111        | 1111   |
     |role=Nurse;start_code=1112       |role=Nurse;verified=true         | 1112        | 1112   |
 
 Scenario Outline: Add Start Code No Match
@@ -76,7 +76,7 @@ Scenario Outline: QR Code entered
   Examples:
     |request                                | user                            |
     |role=Nurse;start_code=1113             |role=Nurse;verified=true         |
-    |role=Care Giver;start_code=1114        |role=Care Giver;verified=true         |
+    |role=Nurse;start_code=1114        |role=Nurse;verified=true         |
 
 Scenario Outline: Wrong QR Code entered
   
@@ -92,7 +92,7 @@ Scenario Outline: Wrong QR Code entered
   Examples:
     |request                                | user                            |
     |role=Nurse;start_code=1113             |role=Nurse;verified=true         |
-    |role=Care Giver;start_code=1114        |role=Care Giver;verified=true         |
+    |role=Nurse;start_code=1114        |role=Nurse;verified=true         |
 
 
 Scenario Outline: Add End Code
@@ -112,7 +112,7 @@ Scenario Outline: Add End Code
   
   Examples:
     |request                        | user                            | end_code  |  msg            |
-    |role=Care Giver;end_code=1111  |role=Care Giver;verified=true    | 1111      | 1111   |
+    |role=Nurse;end_code=1111  |role=Nurse;verified=true    | 1111      | 1111   |
     |role=Nurse;end_code=1112       |role=Nurse;verified=true         | 1112      | 1112   |
 
 
@@ -150,5 +150,5 @@ Scenario Outline: Cancel Accepted Shift
 
   Examples:
     |request                          | user                            | start_code  |  msg            |
-    |role=Care Giver;start_code=1111  |role=Care Giver;verified=true    | 1111        | 1111   |
+    |role=Nurse;start_code=1111  |role=Nurse;verified=true    | 1111        | 1111   |
     |role=Nurse;start_code=1112       |role=Nurse;verified=true         | 1112        | 1112   |

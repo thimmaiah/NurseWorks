@@ -2,7 +2,7 @@ Given(/^that the user has completed "([^"]*)" of shifts$/) do |number_of_shifts|
   (1..number_of_shifts.to_i).each do |i|	
 	steps %Q{
 	  Given there is a hospital "verified=true" with an admin "role=Admin"
-	  Given there is a request "role=Care Giver"
+	  Given there is a request "role=Nurse"
 	  And the user has already accepted this request
 	  And when the user enters the start and end code
   	  Given jobs are being dispatched

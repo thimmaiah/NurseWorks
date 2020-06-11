@@ -6,7 +6,16 @@ end
 
 When(/^I fill and submit the registration page$/) do
 
-  role_label = @user.role == "Admin" ? "Partner" : @user.role
+  role_label = @user.role
+  if @user.role == "Nurse" && @user.avail_full_time
+    role_label += " - Full Time"
+  elsif @user.role == "Nurse" && @user.avail_part_time
+    role_label += " - Part Time"
+  elsif @user.role == "Nurse" && @user.currently_permanent_staff
+    role_label += " - Already Employed"
+  elsif @user.role == "Admin" && @user.currently_permanent_staff
+    role_label += " - Hospital Admin / Head Nurse"
+  end
   click_on(role_label)
   sleep(1)
 
@@ -25,16 +34,46 @@ When(/^I fill and submit the registration page$/) do
   # select @user.role, :from => "role"
   # select @user.sex, :from => "sex"
 
-  if(@user.role == 'Care Giver' || @user.role == 'Nurse')
+  if(@user.role == 'Nurse')
 
-    fields = [ "postcode"]
+    fields = [ "years_of_exp", "address", "city", "nursing_school_name", "NUID", "age"]
+    select_fields = ["key_qualifications"]
+    multi_select_fields = ["specializations"]
+
+    if !@user.currently_permanent_staff
+    
+      select_fields.concat ["conveyence", "pref_commute_distance"]
+
+      if @user.avail_part_time
+        fields.concat ["shifts_per_month"]
+        select_fields.concat ["pref_shift_duration", "pref_shift_time", "exp_shift_rate"]
+        multi_select_fields.concat ["part_time_work_days"]
+      end
+
+    end
+
     fields.each do |k|
       fill_in(k, with: @user[k])
       sleep(1)
     end
 
-    ionic_select(@user.pref_commute_distance, "pref_commute_distance", true)
-    
+
+    multi_select_fields.each do |k|
+      ionic_multi_select(@user[k], k, true)
+    end
+
+    select_fields.each do |k|
+      ionic_select(@user[k], k, true)
+    end
+
+
+    # ionic_select(@user.avail_full_time, "avail_full_time", true)
+    # ionic_select(@user.avail_part_time, "avail_part_time", true)
+    # ionic_select(@user.key_qualifications, "key_qualifications", true)
+    # ionic_select(@user.specializations, "specializations", true)
+    # ionic_select(@user.pref_commute_distance, "pref_commute_distance", true)
+    # ionic_select(@user.conveyence, "conveyence", true)
+
     sleep(1)
 
   end
@@ -58,13 +97,36 @@ Then(/^the user should be confirmed$/) do
     expect(@user[k]).to eql(@saved_user[k])
   end
 
+  if(@user.role == 'Nurse')
 
-  if(@user.role == 'Care Giver' || @user.role == 'Nurse')
-    fields = [ "pref_commute_distance", "postcode"]
+    fields = [ "years_of_exp", "address", "city", "nursing_school_name", "NUID", 
+    "age", "key_qualifications"]
+
+    multi_select_fields = ["specializations"]
+
+
+    if !@user.currently_permanent_staff
+    
+      fields.concat ["avail_full_time", "avail_part_time", "conveyence", "pref_commute_distance"]
+
+      if @user.avail_part_time
+        fields.concat ["shifts_per_month", "pref_shift_duration", "pref_shift_time", "exp_shift_rate"]
+        multi_select_fields.concat ["part_time_work_days"]
+      end
+
+    end
+
     fields.each do |k|
       expect(@user[k]).to eql(@saved_user[k])
     end
+
+    multi_select_fields.each do |k|
+      expect(@user[k].sort).to eql(@saved_user[k].sort)
+    end
+
   end
+
+
 end
 
 

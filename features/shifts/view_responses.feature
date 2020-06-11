@@ -15,7 +15,7 @@ Scenario Outline: View My Shift
 
   Examples:
   	|request	                           | user                            |
-  	|role=Care Giver                     | role=Care Giver;verified=true   |
+  	|role=Nurse                     | role=Nurse;verified=true   |
   	|role=Nurse;speciality=Mental Health | role=Nurse;speciality=Mental Health;verified=true        |
   	
 Scenario Outline: Cannot View Others Shifts
@@ -27,7 +27,7 @@ Scenario Outline: Cannot View Others Shifts
 
   Examples:
     |number | user                            |
-    |1      | role=Care Giver;verified=true   |
+    |1      | role=Nurse;verified=true   |
     |2      | role=Nurse;verified=true        |
 
 
@@ -43,5 +43,5 @@ Scenario Outline: View All Shifts for hospital
 
   Examples:
     |hospital    |admin                    |number | user                            |
-    |verified=true|role=Admin;verified=true |1      | role=Care Giver;verified=true   |
+    |verified=true|role=Admin;verified=true |1      | role=Nurse;verified=true   |
     |verified=true|role=Admin;verified=true |2      | role=Nurse;verified=true        |
