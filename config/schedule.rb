@@ -40,6 +40,6 @@ every 2.hours do
 	runner "NqHelper.recompute_scores"
 end
 
-every :friday, :at => "5pm" do
-
+every :monday, :at => "3am" do
+	runner "ResetWeeklyAcceptedShiftsJob.perform"
 end

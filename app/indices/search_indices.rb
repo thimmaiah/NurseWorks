@@ -59,6 +59,9 @@ ThinkingSphinx::Index.define :user, :with => :real_time do
   has verified, :type=>:boolean
   has phone_verified, :type=>:boolean
   has active, :type=>:boolean
+  has avail_part_time, :type=>:boolean
+  has avail_full_time, :type=>:boolean
+  has currently_permanent_staff, :type=>:boolean
   has role, :type=>:string
   has auto_selected_date, :type => :timestamp
 end

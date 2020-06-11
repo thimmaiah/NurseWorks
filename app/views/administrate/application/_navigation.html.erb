@@ -12,9 +12,10 @@ as defined by the routes in the `admin/` namespace
     <a class="navigation__link " href="/admin/users"> Users </a>
 
     <a class="navigation__link  child-nav" href="/admin/users?search=*&with=verified%3Dfalse"> - Unverified </a>
-    <a class="navigation__link  child-nav" href="/admin/users?search=*&with=role%3D'Nurse'"> - Nurses  </a>
-    <a class="navigation__link child-nav" href="/admin/users?search=*&with=role%3D'Care Giver'"> - HCP  </a>
+    <a class="navigation__link  child-nav" href="/admin/users?search=*&with=role%3D'Nurse',avail_part_time%3Dtrue"> - Temp Nurses  </a>
+    <a class="navigation__link  child-nav" href="/admin/users?search=*&with=role%3D'Nurse',avail_full_time%3Dtrue"> - Perm Nurses  </a>
     <a class="navigation__link child-nav" href="/admin/users?search=*&with=role%3D'Admin'"> - Admins </a>
+    <a class="navigation__link child-nav" href="/admin/users?search=*&with=currently_permanent_staff%3Dtrue"> - Permanent Staff </a>
     <a class="navigation__link child-nav" href="/admin/users/export_form"> - User Export </a>
 
     <a class="navigation__link " href="/admin/hospitals"> Hospitals </a>

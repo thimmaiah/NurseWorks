@@ -9,6 +9,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     hospital: Field::BelongsToSearch,
+    currently_permanent_staff: Field::BooleanToYesNo,
     user_docs: Field::HasMany,
     hospital_nurse_mappings: Field::HasMany,
     profile: Field::HasOne,
@@ -83,9 +84,9 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :avail_part_time,
     :avail_full_time,
-    :public_profile,
     :phone_verified,
     :role,
+    :currently_permanent_staff,
     :hospital,
     
   ].freeze
@@ -103,6 +104,7 @@ class UserDashboard < Administrate::BaseDashboard
     :phone,
     :role,
     :hospital,
+    :currently_permanent_staff,
     :specializations,
     :sex,
     :age, 
@@ -151,6 +153,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :role,
     :hospital,
+    :currently_permanent_staff,
     :specializations,
     :sex,
     :phone,

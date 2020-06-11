@@ -34,8 +34,9 @@ en:
         users: "Permanent Staff"
         hospital_nurse_mappings: "Temp Staff Mapping"
       user:
-        hospital_id: "Hospital (Only for Admin role)"
-        hospital: "Hospital (Only for Admin role)"        
+        hospital_id: "Associated Hospital"
+        hospital: "Associated Hospital"  
+        currently_permanent_staff: "Permanent Staff"      
       recurring_request:
         start_date: "First Request Start Date"
         end_date: "First Request End Date"

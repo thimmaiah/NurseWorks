@@ -6,7 +6,8 @@ class UserSerializer < ActiveModel::Serializer
   :sms_verification_code, :avail_part_time, :pref_shift_duration, :pref_shift_time, :exp_shift_rate,
   :work_weekdays, :work_weeknights, :work_weekends, :work_weekend_nights, :pause_shifts, :medical_info,
   :password_reset_date, :age, :years_of_exp, :months_of_exp, :key_qualifications, :avail_part_time,
-  :shifts_per_month, :nursing_school_name, :NUID, :head_nurse, :conveyence, :public_profile, :avail_full_time 
+  :shifts_per_month, :nursing_school_name, :NUID, :head_nurse, :conveyence, :public_profile, 
+  :avail_full_time , :currently_permanent_staff
 
   has_many :user_docs, serializer: UserDocSerializer
   belongs_to :hospital, serializer: HospitalSerializer

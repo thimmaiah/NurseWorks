@@ -112,6 +112,7 @@ namespace :nurse_works do
           u.password = "admin#{i}@gmail.com"
           u.role = "Admin"
           u.hospital_id = c.id
+          u.currently_permanent_staff = true
           u.created_at = Date.today - rand(4).weeks - rand(7).days
           u.save
           #puts u.to_xml
@@ -125,6 +126,7 @@ namespace :nurse_works do
           u.password = "perm#{i}@gmail.com"
           u.role = "Nurse"        
           u.hospital_id = c.id
+          u.currently_permanent_staff = true
           u.created_at = Date.today - rand(4).weeks - rand(7).days
           u.save
           #puts u.to_xml

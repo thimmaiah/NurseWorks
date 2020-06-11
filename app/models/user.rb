@@ -60,7 +60,7 @@ class User < ApplicationRecord
   scope :verified, -> { where verified: true }
   scope :avail_part_time, -> { where avail_part_time: true }
 
-  before_save :check_verified
+  before_save :check_verified, :set_perm_staff_flag
   before_create :set_defaults
   before_create :add_unsubscribe_hash
   after_save :update_coordinates 
@@ -162,8 +162,19 @@ class User < ApplicationRecord
       self.work_weekend_nights = true if self.work_weekend_nights == nil
     
       self.pause_shifts = false if self.pause_shifts == nil
+      self.currently_permanent_staff = true if self.hospital_id != nil
     end
     
+  end
+
+  def set_perm_staff_flag
+    # Ensure that if someone is permanent staff then we cannot use them for 
+    # part time or other full time opportunities
+    if self.hospital_id != nil
+      self.currently_permanent_staff = true
+      self.avail_part_time = false
+      self.avail_full_time = false
+    end
   end
 
   def self.guest
