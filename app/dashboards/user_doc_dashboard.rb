@@ -79,9 +79,9 @@ class UserDocDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how user docs are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user_doc)
-  #   "UserDoc ##{user_doc.id}"
-  # end
+  def display_resource(user_doc)
+    "#{user_doc.name} (UserDoc-#{user_doc.id})"
+  end
 
   # permitted for has_many_attached
   def permitted_attributes

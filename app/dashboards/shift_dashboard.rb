@@ -38,7 +38,9 @@ class ShiftDashboard < Administrate::BaseDashboard
     payment_status: Field::Select.with_options(collection: Shift::PAYMENT_STATUS),
     hospital_payment_status: Field::Select.with_options(collection: Shift::PAYMENT_STATUS),
     versions: VersionField,
-    reason: Field::String
+    reason: Field::String,
+    start_signature: Field::BelongsTo.with_options(class_name: "UserDoc"),
+    end_signature: Field::BelongsTo.with_options(class_name: "UserDoc")
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -89,6 +91,8 @@ class ShiftDashboard < Administrate::BaseDashboard
     :updated_at,
     :payment_status,
     :hospital_payment_status,
+    :start_signature,
+    :end_signature,
     :versions
   ].freeze
 
