@@ -101,11 +101,12 @@ class Shift < ApplicationRecord
 
   end
 
-  def update_response(response_status)
+  def update_response(response_status, reason)
     if response_status == "Accepted"
       self.response_status = "Wait Listed"
     else
       self.response_status = "Rejected"
+      self.reason = reason
     end
     self.save
   end

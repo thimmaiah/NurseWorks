@@ -1,8 +1,10 @@
 class ShiftsController < ApplicationController
   
-  before_action :authenticate_user!, :except => [:reject_anonymously]
+  before_action :authenticate_user!, 
+            :except => [:reject_anonymously]
 
-  load_and_authorize_resource param_method: :shift_params, :except => [:reject_anonymously]
+  load_and_authorize_resource param_method: :shift_params, 
+            :except => [:reject_anonymously]
 
   # GET /shifts
   def index
@@ -32,7 +34,7 @@ class ShiftsController < ApplicationController
 
   # This is called by the UI when the nurse accepts/rejects the shift assigned to him
   def update_response
-    if @shift.update_response(params[:response_status])    
+    if @shift.update_response(params[:response_status], params[:reason])    
       render json: @shift
     else
       render json: @shift.errors, status: :unprocessable_entity
