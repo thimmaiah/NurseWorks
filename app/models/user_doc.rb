@@ -17,6 +17,7 @@ class UserDoc < ApplicationRecord
   scope :certificates, -> { where doc_type: "Degree Certificate" }
   scope :id_cards, -> { where doc_type: "Adhaar Card" }
   scope :signatures, -> { where doc_type: "Signature" }
+  scope :not_signatures, -> { where "doc_type <> 'Signature'" }
 
   before_create :ensure_flags
   def ensure_flags

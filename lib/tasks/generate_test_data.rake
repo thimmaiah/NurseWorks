@@ -150,7 +150,7 @@ namespace :nurse_works do
       puts "#{u.role} #{u.id}"
 
       u = FactoryGirl.build(:user)
-      u.email = "employee@ubernurse.com"
+      u.email = "employee@nurseworks.com"
       u.password = u.email
       u.role = "Employee"
       u.hospital = Hospital.first
@@ -160,7 +160,7 @@ namespace :nurse_works do
 
       
       u = FactoryGirl.build(:user)
-      u.email = "root@ubernurse.com"
+      u.email = "root@nurseworks.com"
       u.password = u.email
       u.role = "Super User"
       u.save
@@ -198,8 +198,8 @@ namespace :nurse_works do
 
     begin
 
-      u = FactoryGirl.build(:user, email: "admin@ubernurse.com", 
-                            password: "admin@ubernurse.com", 
+      u = FactoryGirl.build(:user, email: "admin@nurseworks.com", 
+                            password: "admin@nurseworks.com", 
                             role: "Super User")
       u.save
 

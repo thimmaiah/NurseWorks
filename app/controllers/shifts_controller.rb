@@ -30,7 +30,23 @@ class ShiftsController < ApplicationController
 
   end
 
+  def sign
+    prefix = @shift.start_signature_id == nil ? "Start" : "End"
+    @user_doc = UserDoc.new(user_doc_params)
+    @user_doc.name = prefix + "-" + @user_doc.name
 
+    if @user_doc.save
+      if @shift.start_signature_id == nil
+        @shift.start_signature_id = @user_doc.id
+        @shift.start_date = Time.now
+      else
+        @shift.end_signature_id = @user_doc.id
+        @shift.end_date = Time.now
+      end
+      @shift.save
+    end
+    render json: @shift
+  end
 
   # This is called by the UI when the nurse accepts/rejects the shift assigned to him
   def update_response
@@ -102,4 +118,10 @@ class ShiftsController < ApplicationController
       params.require(:shift).permit(:staffing_request_id, :user_id, :start_code, :reason,
         :end_code, :response_status, :accepted, :rated, :hospital_id, :payment_status)
     end
+
+    def user_doc_params
+      params.require(:user_doc).permit(:id, :name, :doc_type, :alt_doc_type, 
+                                       :user_id, :doc, :notes, :verified, :not_available)
+    end
+  
 end

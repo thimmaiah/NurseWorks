@@ -17,7 +17,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def user_docs
-    object.user_docs.not_expired
+    object.user_docs.not_expired.not_signatures
   end
 
   def sister_hospitals

@@ -108,6 +108,7 @@ Rails.application.routes.draw do
       get :reject_anonymously
       get :start_end_shift
       post :update_response
+      post :sign
     end
   end
 
