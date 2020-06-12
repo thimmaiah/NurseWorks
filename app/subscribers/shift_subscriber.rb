@@ -56,10 +56,8 @@ class ShiftSubscriber
   end
 
   def self.close_shift(shift, force=false)
-    # Ensure this gets priced, if we have the right star / end codes
-    if ( (  !shift.closing_started && shift.nurse_base == nil &&
-            shift.start_code == shift.staffing_request.start_code &&
-            shift.end_code == shift.staffing_request.end_code) || force )
+    # Ensure this gets priced
+    if ( (!shift.closing_started && shift.nurse_base == nil) || force )
 
       ShiftCloseJob.perform_later(shift.id)
       # This callback gets called multiple times - we want to do this only once. Hence closing_started

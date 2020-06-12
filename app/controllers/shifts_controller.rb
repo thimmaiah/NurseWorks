@@ -22,15 +22,17 @@ class ShiftsController < ApplicationController
     @per_page = 100
     @shifts = @shifts.joins(:staffing_request)
     @shifts = @shifts.order("staffing_requests.start_date asc").page(@page).per(@per_page)
-    render json: @shifts.includes(:staffing_request, :hospital, 
-                                  :user=>:profile_pic), include: "user,hospital", 
+    render json: @shifts.includes(:staffing_request, :hospital, :user=>:profile_pic), 
+                                  include: "user,hospital", 
                                   each_serializer: ShiftMiniSerializer
 
   end
 
+
+
   # This is called by the UI when the nurse accepts/rejects the shift assigned to him
-  def response
-    if @shift.response(params[:response_status])    
+  def update_response
+    if @shift.update_response(params[:response_status])    
       render json: @shift
     else
       render json: @shift.errors, status: :unprocessable_entity
@@ -60,8 +62,6 @@ class ShiftsController < ApplicationController
       render json: @shift.errors, status: :unprocessable_entity
     end
   end
-
-  def accept
 
   # PATCH/PUT /shifts/1
   def update

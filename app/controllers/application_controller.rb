@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
 
   rescue_from Exception do |exception|
     respond_to do |format|
-      Rails.logger.error "Caught exception #{exception}"
+      logger.error exception.backtrace.join("\n")
       format.json { render :json => exception.message, :status => 500 }
     end
   end

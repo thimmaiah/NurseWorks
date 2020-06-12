@@ -17,7 +17,6 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
       direction: 'desc',
     ),
     po_for_invoice: Field::String, 
-    assigned_shift: Field::HasOne.with_options(class_name: "Shift"),
     payment: Field::HasOne,
     id: Field::Number,
     nurse_break_mins: Field::Number,
@@ -63,7 +62,6 @@ class StaffingRequestDashboard < Administrate::BaseDashboard
     :request_status,
     :shift_status,
     :broadcast_status,
-    :assigned_shift
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

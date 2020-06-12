@@ -21,7 +21,7 @@ class StaffingRequest < ApplicationRecord
   has_one :preferred_nurse, class_name: "User"
 
   has_one :accepted_shift, -> { where(response_status:["Accepted", "Closed"]) }, :class_name => 'Shift' 
-  has_many :assigned_shift, -> { where(response_status:["Accepted", "Wait Listed"]) }, :class_name => 'Shift' 
+  has_many :wait_listed_shifts, -> { where(response_status:["Accepted", "Wait Listed"]) }, :class_name => 'Shift' 
 
   belongs_to :recurring_request
 
