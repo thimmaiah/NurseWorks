@@ -168,8 +168,8 @@ Then(/^I must see all the requests$/) do
   StaffingRequest.all.each do |req|
     expect(page).to have_content(@staffing_request.hospital.name)
     expect(page).to have_content(@staffing_request.request_status)
-    expect(page).to have_content(@staffing_request.start_date.in_time_zone("London").strftime("%d/%m/%Y %H:%M") )
-    expect(page).to have_content(@staffing_request.end_date.in_time_zone("London").strftime("%d/%m/%Y %H:%M") )
+    expect(page).to have_content(@staffing_request.start_date.strftime("%d/%m/%Y %H:%M") )
+    expect(page).to have_content(@staffing_request.shift_duration.to_s + " Hrs" )
   end
 end
 
