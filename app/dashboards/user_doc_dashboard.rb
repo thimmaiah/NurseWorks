@@ -12,8 +12,6 @@ class UserDocDashboard < Administrate::BaseDashboard
     user_id: Field::Number,
     created_by_id: Field::Number,
     created_by: Field::BelongsTo,
-    training_id: Field::Number,
-    training: Field::BelongsToSearch,
     name: Field::String,
     doc_type: Field::Select.with_options(collection: UserDoc::DOC_TYPES),
     alt_doc_type: Field::String,
@@ -28,7 +26,7 @@ class UserDocDashboard < Administrate::BaseDashboard
     verified: Field::BooleanToYesNo,
     not_available: Field::BooleanToYesNo,
     notes: Field::Text,
-    doc: PaperclipField
+    doc: Field::ActiveStorage,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -54,7 +52,6 @@ class UserDocDashboard < Administrate::BaseDashboard
     :doc_type,
     :alt_doc_type,
     :expiry_date,
-    :training,
     :user,
     :created_at,
     :updated_at,
@@ -71,7 +68,6 @@ class UserDocDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :user,
-    :training,
     :doc_type,
     :alt_doc_type,
     :expiry_date,
@@ -86,4 +82,9 @@ class UserDocDashboard < Administrate::BaseDashboard
   # def display_resource(user_doc)
   #   "UserDoc ##{user_doc.id}"
   # end
+
+  # permitted for has_many_attached
+  def permitted_attributes
+    super + [:doc]
+  end
 end

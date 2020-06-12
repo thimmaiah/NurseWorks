@@ -54,6 +54,7 @@ class UserDashboard < Administrate::BaseDashboard
     bank_account: Field::String,
     ready_for_verification: Field::BooleanToYesNo,
     phone_verified: Field::BooleanToYesNo,
+    verified: Field::BooleanToYesNo,
     city: Field::String,
     created_at: Field::DateTime,
     auto_selected_date: Field::DateTime,
@@ -85,6 +86,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :avail_part_time,
     :avail_full_time,
+    :verified,
     :phone_verified,
     :role,
     :currently_permanent_staff,
@@ -96,7 +98,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user_docs,    
-    :ready_for_verification,
+    :verified,
     :phone_verified,
     :id,
     :first_name,
@@ -149,6 +151,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :verified,
     :phone_verified,
     :first_name,
     :last_name,

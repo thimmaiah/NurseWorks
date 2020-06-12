@@ -62,19 +62,6 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_permissions => :private,
-    s3_credentials: {
-      bucket: 'careconnect-development',
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      s3_region: 'eu-west-2'
-    }
-  }
-
-
   config.after_initialize do
     Bullet.enable = true
     Bullet.bullet_logger = true
@@ -83,5 +70,7 @@ Rails.application.configure do
   end
   
   config.action_view.logger = nil
+
+  config.active_storage.service = :local
 
 end

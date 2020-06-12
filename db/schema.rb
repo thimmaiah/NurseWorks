@@ -10,8 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_045352) do
+ActiveRecord::Schema.define(version: 2020_06_12_105613) do
 
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -40,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  
   create_table "holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 100
     t.date "date"
@@ -48,6 +67,19 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date"], name: "index_holidays_on_date"
+  end
+
+  create_table "hospital_carer_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "hospital_id"
+    t.integer "user_id"
+    t.boolean "enabled"
+    t.float "distance"
+    t.boolean "manually_created"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "preferred"
+    t.index ["hospital_id"], name: "index_hospital_carer_mappings_on_hospital_id"
+    t.index ["user_id"], name: "index_hospital_carer_mappings_on_user_id"
   end
 
   create_table "hospital_nurse_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -147,7 +179,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
-  
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "user_id"
     t.date "date_of_CRB_DBS_check"
@@ -282,6 +313,8 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.integer "user_id"
     t.string "start_code", limit: 10
     t.string "end_code", limit: 10
+    t.string "start_signature_id"
+    t.string "end_signature_id"
     t.string "response_status", limit: 20
     t.boolean "accepted"
     t.boolean "rated"
@@ -361,7 +394,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["user_id"], name: "index_staffing_requests_on_user_id"
   end
 
-
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.boolean "undertaken"
@@ -427,7 +459,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.boolean "public_profile", default: false
     t.boolean "avail_full_time", default: false
     t.boolean "avail_part_time", default: false
-    t.string  "part_time_work_days"
+    t.string "part_time_work_days"
     t.boolean "currently_permanent_staff", default: false
     t.integer "shifts_per_month", default: 0
     t.integer "pref_shift_duration"
@@ -514,4 +546,5 @@ ActiveRecord::Schema.define(version: 2020_06_06_045352) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

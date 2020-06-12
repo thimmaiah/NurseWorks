@@ -10,6 +10,7 @@ capybara-*.html
 /db/*.sqlite3-journal
 /public/system
 /coverage/
+/storage
 /spec/tmp
 **.orig
 rerun.txt

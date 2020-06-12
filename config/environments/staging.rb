@@ -88,14 +88,4 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_permissions => :private,
-    s3_credentials: {
-      bucket: 'careconnect-staging',
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      s3_region: 'eu-west-2'
-    }
-  }
 end

@@ -21,6 +21,8 @@ class Shift < ApplicationRecord
   belongs_to :hospital
   has_one :payment
   has_many :ratings
+  belongs_to :start_signature, class_name: "UserDoc"
+  belongs_to :end_signature, class_name: "UserDoc"
 
   # The audit trail of how the price was computed
   serialize :pricing_audit, Hash

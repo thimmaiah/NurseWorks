@@ -51,7 +51,8 @@ gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
-gem "paperclip", ">= 5.2.0"
+gem 'administrate-field-active_storage'
+gem 'mini_magick'
 
 gem 'aws-sdk-s3'
 gem 'faker'

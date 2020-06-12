@@ -46,8 +46,10 @@ as well as a link to its edit page.
 
       <dd class="attribute-data attribute-data--<%=attribute.html_class%>">
         <%= render_field attribute %>
-        <% if attribute.name == "doc_file_name" %>
-          <%= link_to("Download Document", page.resource.doc.expiring_url(60), class: "button") %>
+        <% if attribute.name == "doc_file_name" && page.resource.doc %>
+          <%= link_to("Download Document", url_for(page.resource.doc), class: "button") %>
+          
+
         <% end %>   
       </dd>
     <% end %>
