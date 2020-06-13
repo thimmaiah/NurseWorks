@@ -30,7 +30,7 @@ class RecurringRequest < ApplicationRecord
 	# week - The week for which the request is being generated 
 	def get_date(time_only, wday, week)
     	d = week.beginning_of_week + time_only.strftime('%H').to_i.hours + time_only.strftime('%M').to_i.minutes + (wday - 1).days
-    	d.in_time_zone("London").strftime("%d/%m/%Y %H:%M")
+    	d.strftime("%d/%m/%Y %H:%M")
   	end
 		
 

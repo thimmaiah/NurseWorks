@@ -132,6 +132,30 @@ class Shift < ApplicationRecord
     end
   end
 
+  def sign(signature)
+
+    prefix = self.start_signature_id == nil ? "Start" : "End"
+    user_doc = UserDoc.new(signature)
+    user_doc.name = prefix + "-" + user_doc.name
+
+    if user_doc.save
+      if self.start_signature_id == nil
+        # Log start time
+        self.start_signature_id = user_doc.id
+        self.start_date = Time.now
+      else
+        # Log time and close it
+        self.end_signature_id = user_doc.id
+        self.end_date = Time.now
+        self.response_status = "Closed"
+      end
+      return self.save
+    else
+      raise "Error saving shift signature"
+    end
+
+  end
+
   def close_manually(start_date=nil, end_date=nil)
 
     logger.debug "close_manually #{self.id} #{start_date} #{end_date}"

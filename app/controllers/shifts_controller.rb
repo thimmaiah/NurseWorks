@@ -31,21 +31,14 @@ class ShiftsController < ApplicationController
   end
 
   def sign
-    prefix = @shift.start_signature_id == nil ? "Start" : "End"
-    @user_doc = UserDoc.new(user_doc_params)
-    @user_doc.name = prefix + "-" + @user_doc.name
-
-    if @user_doc.save
-      if @shift.start_signature_id == nil
-        @shift.start_signature_id = @user_doc.id
-        @shift.start_date = Time.now
-      else
-        @shift.end_signature_id = @user_doc.id
-        @shift.end_date = Time.now
-      end
-      @shift.save
+    signature = user_doc_params
+        
+    if @shift.sign(signature)
+      render json: @shift
+    else
+      render json: @shift.errors, status: :unprocessable_entity
     end
-    render json: @shift
+    
   end
 
   # This is called by the UI when the nurse accepts/rejects the shift assigned to him

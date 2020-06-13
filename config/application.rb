@@ -68,7 +68,9 @@ module NurseWorks
 
 
     Rails.application.routes.default_url_options[:host] = "#{ENV['HOST']}:#{ENV['PORT']}"
-    
+    config.time_zone = 'Asia/Kolkata'
+    config.active_record.default_timezone = :local
+
     config.colorize_logging = false
     # config.logstash.formatter = :json_lines
 
