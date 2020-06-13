@@ -3,6 +3,7 @@ namespace :nurse_works do
   require "faker"
   require 'digest/sha1'
   require 'factory_girl'
+  require "csv"
 
 
   desc "Cleans p DB - DELETES everything -  watch out"
@@ -19,6 +20,47 @@ namespace :nurse_works do
     Rating.delete_all
     Rate.delete_all
     PaperTrail::Version.delete_all
+  end
+
+
+  task :loadHospitals => :environment do
+    file = "/home/thimmaiah/Downloads/Hospitals.tsv"
+    rows = CSV.read(file, { :col_sep => "\t", :headers => true })
+    
+    rows.each do |row|
+      spz = row[6].split(";") if row[6].present?
+      h = Hospital.new(name: row[1], city: row[2], address: row[3], 
+        num_of_beds: row[5], specializations: spz, nurse_count: 0)
+      # ap h 
+      h.save!
+      GeocodeJob.new.perform(h)  
+    end
+
+  end
+
+  task :loadNurses => :environment do
+    file = "/home/thimmaiah/Downloads/Nurses.tsv"
+    rows = CSV.read(file, { :col_sep => "\t", :headers => true })
+    
+    rows.each do |row|
+      spz = row[6].split(";") if row[6].present?
+      u = FactoryGirl.build(:user)
+      u.first_name = row[1].strip.gsub(' ', '')
+      u.last_name =  row[2].present? ? row[2].strip.gsub(' ', '') : "Kumar"
+      
+      u.title = row[3] == "Female" ? "Ms" : "Mr"
+      u.age = row[4]
+      u.key_qualifications = row[5]
+      u.specializations = [row[6]]
+      u.city = row[7]
+      u.email = "#{u.first_name}.#{u.last_name}.#{u.age}@gmail.com"
+      u.password = u.email
+      # ap u 
+      u.save!
+
+      GeocodeJob.new.perform(u)  
+    end
+
   end
 
 
@@ -48,7 +90,7 @@ namespace :nurse_works do
   end
 
   desc "generates fake users for testing"
-  task :generateFakeUsers => :environment do
+  task :generateFakeTempStaff => :environment do
 
     images = ["http://cdn2.hubspot.net/hub/494551/file-2603676543-jpg/jacksonnursing/images/top-quality-rns.jpg",
               "http://globe-views.com/dcim/dreams/nurse/nurse-06.jpg",
@@ -102,12 +144,30 @@ namespace :nurse_works do
 
       NqHelper.recompute_scores
       NqHelper.normalize_scores
-      
+
+    rescue Exception => exception
+      puts exception.backtrace.join("\n")
+      raise exception    
+    end
+  end
+
+  desc "generates fake users for testing"
+  task :generateFakePermStaff => :environment do
+
+    begin
+
+      hospitals = Hospital.all
+
+      users = User.all.shuffle
+
       i = 1
       hospitals.each do |c|
         count = 1
         (0..0).each do |j|
           u = FactoryGirl.build(:user)
+          u.first_name = users.shuffle[0].first_name
+          u.last_name = users.shuffle[0].last_name
+          
           u.email = "admin#{i}@gmail.com"
           u.password = "admin#{i}@gmail.com"
           u.role = "Admin"
@@ -120,8 +180,11 @@ namespace :nurse_works do
           i = i + 1
         end
 
-        (0..2).each do |j|
+        (0..0).each do |j|
           u = FactoryGirl.build(:user)
+          u.first_name = users.shuffle[0].first_name
+          u.last_name = users.shuffle[0].last_name
+          
           u.email = "perm#{i}@gmail.com"
           u.password = "perm#{i}@gmail.com"
           u.role = "Nurse"        
@@ -145,15 +208,6 @@ namespace :nurse_works do
       u.last_name="Thimmaiah"
       # Ensure User role is USER_ROLE_ID
       u.role = "Nurse"
-      u.save
-      #puts u.to_xml
-      puts "#{u.role} #{u.id}"
-
-      u = FactoryGirl.build(:user)
-      u.email = "employee@nurseworks.com"
-      u.password = u.email
-      u.role = "Employee"
-      u.hospital = Hospital.first
       u.save
       #puts u.to_xml
       puts "#{u.role} #{u.id}"
@@ -216,7 +270,7 @@ namespace :nurse_works do
 
     begin
 
-      hospitals = Hospital.all
+      hospitals = Hospital.all.limit(15)
 
       hospitals.each do |c|
         count = rand(3) + 1
@@ -353,13 +407,13 @@ namespace :nurse_works do
 
     begin
 
-        ["North", "South"].each do |zone|
+        Hospital.select(:city).collect(&:city).uniq.each do |city|
           ["Nurse"].each do |role|
             User::SPECIALIZATIONS.each do |sp|
               u = FactoryGirl.build(:rate)
               #u.speciality = spec
               u.role = role
-              u.zone = zone
+              u.city = city
               u.speciality = sp
               u.save 
               #puts u.to_xml
@@ -382,8 +436,8 @@ namespace :nurse_works do
 
     # :generateFakeReq, :generateFakeResp, :generateFakeRatings, 
   desc "Generating all Fake Data"
-  task :generateFakeAll => [:emptyDB, :generateFakeRates, :generateFakeSchools, 
-  :generateFakeHospitals, :generateFakeUsers,
+  task :generateFakeAll => [:emptyDB, :generateFakeSchools, 
+  :loadHospitals, :generateFakeRates, :loadNurses, :generateFakePermStaff,
   :generateFakeAdmin, :generateFakeReq, :finalize] do
     puts "Generating all Fake Data"
   end

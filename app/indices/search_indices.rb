@@ -16,10 +16,9 @@ end
 ThinkingSphinx::Index.define :hospital, :with => :real_time do
   # fields
   indexes name
-  indexes city
   indexes phone
   indexes specializations
-  has zone, :type=>:string
+  has city, :type=>:string
   has verified, :type=>:boolean
   has latitude_in_radians, as: :latitude, type: :float
   has longitude_in_radians, as: :longitude, type: :float

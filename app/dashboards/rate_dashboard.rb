@@ -10,7 +10,7 @@ class RateDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     hospital_id: Field::Number,
-    zone: Field::Select.with_options(collection: Hospital::ZONES),
+    city: Field::Select.with_options(collection: Hospital::ZONES),
     role: Field::Select.with_options(collection: User::ROLE),
     speciality: Field::Select.with_options(collection: Hospital::SPECIALIZATION),
     hospital: Field::BelongsToSearch,
@@ -36,7 +36,7 @@ class RateDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :zone,
+    :city,
     :role,
     :hospital,
     :speciality,
@@ -57,7 +57,7 @@ class RateDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :hospital,
-    :zone,
+    :city,
     :role,
     :speciality,
     :nurse_weekday,
@@ -79,7 +79,7 @@ class RateDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :hospital,
-    :zone,
+    :city,
     :role,
     :speciality,
     :nurse_weekday,
@@ -98,6 +98,6 @@ class RateDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(rate)
-     "#{rate.zone}-#{rate.role}-#{rate.speciality}-#{rate.amount}"
+     "#{rate.city}-#{rate.role}-#{rate.speciality}-#{rate.amount}"
   end
 end

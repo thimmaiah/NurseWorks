@@ -58,7 +58,6 @@ FactoryGirl.define do
 
 
   factory :rate do
-    zone "North"
     role "Nurse"
     nurse_weekday 9
     hospital_weekday 11
@@ -127,8 +126,6 @@ FactoryGirl.define do
     name {Faker::Company.name}
     phone {"2125555" + rand(999).to_s.center(3, rand(9).to_s)}
     image_url {logos[rand(logos.length)]}
-    
-    zone {["North", "South"][rand(2)]}
     city {CITIES.keys[rand(CITIES.keys.length)]}
     address {CITIES[city][rand(CITIES[city].length)]}
     bank_account {rand.to_s[2..9]} 

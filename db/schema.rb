@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_105613) do
     t.decimal "lng", precision: 18, scale: 15
     t.datetime "deleted_at"
     t.boolean "verified"
-    t.string "zone", limit: 10
     t.string "num_of_beds", limit: 20
     t.text "specializations"
     t.string "nurse_count"
@@ -207,7 +206,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_105613) do
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "zone"
+    t.string "city"
     t.string "role"
     t.string "speciality", limit: 100
     t.float "amount"

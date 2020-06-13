@@ -9,7 +9,7 @@ class HospitalDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    zone: Field::Select.with_options(collection: Hospital::ZONES),
+    city: Field::Select.with_options(collection: Hospital::ZONES),
     
     users: Field::HasMany,
     staffing_requests: Field::HasMany.with_options(limit: 10, sort_by: :start_date),
@@ -57,7 +57,7 @@ class HospitalDashboard < Administrate::BaseDashboard
     :sister_hospitals,
     :city,
     :num_of_beds,
-    :zone
+    :city
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -68,7 +68,7 @@ class HospitalDashboard < Administrate::BaseDashboard
     :verified,
     :specializations,
     :phone,
-    :zone,
+    :city,
     :hospital_broadcast_group,
     :sister_hospitals,
     :address,
@@ -112,7 +112,7 @@ class HospitalDashboard < Administrate::BaseDashboard
     :city,
     :verified,
     :image_url,
-    :zone,
+    :city,
     :account_payment_terms,
     :company_registration_number,
     :parking_available,

@@ -42,6 +42,6 @@ class RatesController < ApplicationController
     end
 
     def rate_params
-      params.require(:rate).permit(:zone, :role, :speciality, :amount)
+      params.require(:rate).permit(:city, :role, :speciality, :amount)
     end
 end

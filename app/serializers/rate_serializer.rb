@@ -1,3 +1,3 @@
 class RateSerializer < ActiveModel::Serializer
-  attributes :id, :zone, :role, :speciality, :amount
+  attributes :id, :city, :role, :speciality, :amount
 end

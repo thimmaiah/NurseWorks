@@ -11,7 +11,7 @@ class Hospital < ApplicationRecord
   has_many :temp_nurses, -> { where("hospital_nurse_mappings.enabled =?", true) }, :through => :hospital_nurse_mappings, source: :user
 
   validates_presence_of :name, :city, :num_of_beds, :nurse_count
-  validates_presence_of :zone, if: :verified
+  validates_presence_of :city, if: :verified
   serialize :specializations, Array
   serialize :nurse_qualification_pct, Hash
 
@@ -52,7 +52,7 @@ class Hospital < ApplicationRecord
     self.total_rating = 0
     self.rating_count = 0
     # Remove all whitespace from the phone
-    self.phone = self.phone.gsub(/\s+/, "") 
+    self.phone = self.phone.gsub(/\s+/, "") if self.phone
     self.specializations = [] if self.specializations == nil
     self.nurse_qualification_pct = {} if self.nurse_qualification_pct == nil
   end

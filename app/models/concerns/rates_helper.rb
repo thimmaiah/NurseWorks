@@ -174,8 +174,8 @@ module RatesHelper
     
     rate = nil
 
-    # the rate based on zone and role
-    base_rate = Rate.where(zone: staffing_request.hospital.zone, role: staffing_request.role)
+    # the rate based on city and role
+    base_rate = Rate.where(city: staffing_request.hospital.city, role: staffing_request.role)
     # Add speciality
     speciality_rate = base_rate.where(speciality: staffing_request.speciality)
     # No speciality - its a generalist rate
