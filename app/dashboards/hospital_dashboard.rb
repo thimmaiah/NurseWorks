@@ -68,7 +68,6 @@ class HospitalDashboard < Administrate::BaseDashboard
     :verified,
     :specializations,
     :phone,
-    :city,
     :hospital_broadcast_group,
     :sister_hospitals,
     :address,

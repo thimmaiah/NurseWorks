@@ -38,10 +38,14 @@ class HospitalNurseMapping < ApplicationRecord
 			if( commute_distance < temp.pref_commute_distance)
 				ccm = HospitalNurseMapping.create(hospital_id: hospital.id, user_id: temp.id, 
 													distance: commute_distance, enabled: true, preferred: false) 
-				Rails.logger.debug "Creating HospitalNurseMapping #{ccm.id} for User #{temp.id} and Hospital #{hospital.id}, distance #{commute_distance}, pref #{temp.pref_commute_distance}"
+				logger.debug "Creating HospitalNurseMapping #{ccm.id} for User #{temp.id} and Hospital #{hospital.id}, distance #{commute_distance}, pref #{temp.pref_commute_distance}"
 			else
-				Rails.logger.debug "Skipping HospitalNurseMapping for User #{temp.id} and Hospital #{hospital.id}, distance #{commute_distance}, pref #{temp.pref_commute_distance}"
+				logger.debug "Skipping HospitalNurseMapping for User #{temp.id} and Hospital #{hospital.id}, distance #{commute_distance}, pref #{temp.pref_commute_distance}"
 			end
+		end
+
+		if(temps.length == 0)
+			logger.debug "HospitalNurseMapping: No temp nurses found for hospital #{hospital.id} "
 		end
 		
 		return nil

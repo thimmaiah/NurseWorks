@@ -30,7 +30,7 @@ namespace :nurse_works do
     rows.each do |row|
       spz = row[6].split(";") if row[6].present?
       h = Hospital.new(name: row[1], city: row[2], address: row[3], 
-        num_of_beds: row[5], specializations: spz, nurse_count: 0)
+        num_of_beds: row[5], specializations: spz, nurse_count: 0, verified: true)
       # ap h 
       h.save!
       GeocodeJob.new.perform(h)  
@@ -55,6 +55,7 @@ namespace :nurse_works do
       u.city = row[7]
       u.email = "#{u.first_name}.#{u.last_name}.#{u.age}@gmail.com"
       u.password = u.email
+      u.verified = true
       # ap u 
       u.save!
 
@@ -73,6 +74,7 @@ namespace :nurse_works do
       Hospital::SPECIALIZATION.each do |sp|
       (1..1).each do | i |
           h = FactoryGirl.build(:hospital)
+          h.verified = true
           h.created_at = Date.today - rand(4).weeks - rand(7).days
           h.specializations = [sp]
           h.save!
@@ -270,10 +272,10 @@ namespace :nurse_works do
 
     begin
 
-      hospitals = Hospital.all.limit(15)
+      hospitals = Hospital.all
 
       hospitals.each do |c|
-        count = rand(3) + 1
+        count = rand(2) + 1
         (1..count).each do |j|
           u = FactoryGirl.build(:staffing_request)
           u.created_at = Date.today - rand(4).weeks - rand(7).days

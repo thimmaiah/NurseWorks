@@ -6,13 +6,13 @@ class ShiftCreatorJob < BaseQueuedJob
     if ( (Time.now.hour > 22 || Time.now.hour < 8) && staffing_request.start_date > Time.now + 1.day && Rails.env != "test")
       # Its late in the night & nurses will not accept the request
       # The shift is only required tomorrow
-      logger.debug "Skipping shift creation for #{staffing_request.id} as its late in the night and the start time is tomorrow"
+      logger.debug "ShiftCreatorJob: Skipping shift creation for #{staffing_request.id} as its late in the night and the start time is tomorrow"
     else
       # Select a temp who can be assigned this shift
       selected_nurses = select_nurses(staffing_request)
-
+      logger.debug "ShiftCreatorJob: selected_nurses = #{selected_nurses}"
       # If we find a suitable temp - create a shift
-      if selected_nurses 
+      if selected_nurses.present? 
         selected_nurses.each do |nurse|
           Shift.create_shift(nurse, staffing_request)
         end
@@ -113,6 +113,8 @@ class ShiftCreatorJob < BaseQueuedJob
           selected_nurses << nurse
         end
       end
+    else
+      staffing_request.select_user_audit[""]
     end
 
     return selected_nurses

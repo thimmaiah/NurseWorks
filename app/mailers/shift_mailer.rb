@@ -72,8 +72,7 @@ class ShiftMailer < ApplicationMailer
 
   def no_shift_found(staffing_request)
     @staffing_request = staffing_request
-    mail( :to => email,
-          :bcc => ENV['ADMIN_EMAIL'],
+    mail( :to => ENV['ADMIN_EMAIL'],
           :subject => "No shift found for request from #{staffing_request.hospital.name}" )
 
   end
