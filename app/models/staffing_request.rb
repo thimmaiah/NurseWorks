@@ -77,7 +77,9 @@ class StaffingRequest < ApplicationRecord
   # wait listed ones. It will do so after an hour of this request being created
   SHIFT_ACCEPT_WAIT_TIME = eval(ENV['SHIFT_ACCEPT_WAIT_TIME'])
   def accept_shift_responses    
-    ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(self.id, "AcceptWaitListed")
+    if self.staff_type == 'Temp'
+      ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(self.id, "AcceptWaitListed")
+    end
   end
 
 

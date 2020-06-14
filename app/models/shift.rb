@@ -70,6 +70,8 @@ class Shift < ApplicationRecord
                         preferred_care_giver_selected=false, 
                         manual_assignment=false)
 
+    # This is because Perm staff will be auto accepted, 
+    # Temp staff needs to manually accept/reject
     resp_status = (staffing_request.staff_type == 'Perm') ? 'Accepted' : 'Pending'
 
     # Create the shift
