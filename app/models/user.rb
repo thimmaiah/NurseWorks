@@ -199,8 +199,8 @@ class User < ApplicationRecord
   def image
     if(self.image_url.present?)
       return self.image_url
-    elsif self.profile_pic
-      self.profile_pic.doc.expiring_url(3000)
+    # elsif self.profile_pic
+    #   self.profile_pic.doc.expiring_url(3000)
     else
       return "http://www.iconshock.com/img_vista/IPHONE/jobs/jpg/nurse_icon.jpg"
     end

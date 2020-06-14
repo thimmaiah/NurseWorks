@@ -43,7 +43,7 @@ as well as a link to its edit page.
           Photo 
         </td>
         <td>
-          <%= image_tag(page.resource.user.profile_pic.doc.expiring_url(300), class:"profile_pic", alt:"Profile Picture") if page.resource.user.profile_pic %>
+          <%= image_tag(url_for(page.resource.user.profile_pic.doc), class:"profile_pic", alt:"Profile Picture") if page.resource.user.profile_pic %>
         </td>
       </tr>
       <% page.attributes.each do |attribute| %>

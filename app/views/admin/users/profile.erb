@@ -72,8 +72,8 @@ as well as a link to its edit page.
         </dt>
 
         <dd class="attribute-data attribute-data">
-          <img src="<%= doc.doc.expiring_url(300) %>" /> 
-          <%= link_to("Download Document", doc.doc.expiring_url(300), class: "button") %>             
+          <img src="<%= url_for(doc.doc) %>" /> 
+          <%= link_to("Download Document", url_for(doc.doc), class: "button") %>             
         </dd>
         
     <% 

@@ -4,7 +4,7 @@
       Photo 
     </td>
     <td>
-      <%= image_tag(@user.profile_pic.doc.expiring_url(6*24*60*60), style:"max-width:200px;max-height:300px", alt:"Profile Picture") if @user.profile_pic %>
+      <%= image_tag(url_for(@user.profile_pic.doc), style:"max-width:200px;max-height:300px", alt:"Profile Picture") if @user.profile_pic %>
     </td>
   </tr>
   
