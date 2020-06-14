@@ -25,7 +25,7 @@ development:
 
 staging:
   <<: *default
-  database: NurseWorks_development
+  database: NurseWorks_staging
   socket: /var/run/mysqld/mysqld.sock
   
 # Warning: The database defined as "test" will be erased and
