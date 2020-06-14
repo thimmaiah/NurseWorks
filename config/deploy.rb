@@ -1,5 +1,5 @@
 # Load DSL and Setup Up Stages
-lock "3.11.1"
+lock "3.14.0"
 
  
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
@@ -14,7 +14,7 @@ set :rails_env, fetch(:stage)
 
 set :ssh_options, {
   user: 'ubuntu',
-  keys: ['/home/thimmaiah/.ssh/DeploymentKey.pem'],
+  keys: ['/home/thimmaiah/.ssh/nurseworks.pem'],
   forward_agent: true,
   auth_methods: ["publickey"]
 }
@@ -22,8 +22,7 @@ set :ssh_options, {
 set :application, "NurseWorks"
 set :user, "ubuntu"
 set :repo_url, "git@github.com:thimmaiah/NurseWorks.git"
-set :branch, 'agency'
-
+set :branch, 'master'
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'volumes', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
