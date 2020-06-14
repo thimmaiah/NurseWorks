@@ -1,0 +1,38 @@
+#	Hospital Name	City	Address	PIN Code	Number of Beds	Type of Specialty
+1	VIMS Rajahmundry	Rajahmundry	Address: 75-1-18,prakash nagar,manasa hospital back side, Rajahmundry,	533106	75	Multi specialty
+2	Ashwin FED Speciality Hospital	Hyderabad	BESIDE BHARATH GARDENS,SAGAR ROAD,CHAMPAPET	500032	35	Endocrinology Diabetes
+3	Zoi Hospital Hyderabad	Hyderabad	10-3-313/3, P.S.Nagar	500038	76	Obstetrics and Gynaecology;Orthopaedics
+4	Chirakkakam Hospital	Thiruvananthapuram	PLOT NO:4,5, 14 & 15, PRAGATHI NAGAR, OPP RAMANTHAPUR LAKE, RAMANTHAPUR MAIN ROAD, HYDERABAD 500013 DIST HYDERABAD ANDHRA PRADESH	500055	15	Pediatrics;Family medicine
+5	SUBHADRA SURGICAL & MATERNITY CENTRE	Hyderabad	OPP. ROSE GARDEN, SAGAR ROAD, SANTOSHNAGAR 	500032	45	Multi specialty
+6	EESHA MULTI SPECIALITY HOSPITAL	Hyderabad	12-52, Road No:2, P&T colony, near uppal depot, Medipally,	500019	90	Multi specialty
+7	HARITHA HOSPITAL	Hyderabad	A-12, Electronic Complex, Beside Sbh, Kushaiguda, Ecil, X Roads, Ranga Reddy, Hyderabad,	500019	32	Multi specialty
+8	Ayush Hospital	Hyderabad	Plot:7, H.No: 30-2065/39/7, Pragathi Nagar, Malkajgiri, Dr. A.S.Rao Nagar,	500013	150	Multi specialty
+9	PREETI UROLOGY AND KIDNEY HOSPITAL 	Hyderabad	18-48/2, Haripriya Nagar,Siddipet,	500007	56	Multi specialty
+10	SOORYA ORTHOPAEDIC HOSPITAL	Hyderabad	18-2-13/1/A, X ROAD, CHANDRAYANAGUTTA, HYDERABAD	500034	43	Multi specialty;Obstetrics and Gynaecology;Pediatrics
+11	NIRMALA MATERNITY AND ORTHOPAEDIC AND GENERAL HOSPITAL	Hyderabad	NO. 9-8-440/A, CHOTA BAZAR, GOLCONDA FORT	502032	30	Single Specialty
+12	Aiswarya Hospital	Chennai	54 Vijaya Raghava Road,T Nagar,	600056	32	
+13	Aravind Sai Eye Hospital	Chennai	No 20, G N Chetty Road, T Nagar, 	600020	35	Multi specialty
+14	Dr Bhats Eye Hospital 	Chennai	Plot # 5, Medavakkam Main Road, Madipakkam,	600087	56	Multi specialty
+15	Gkm Hospitals Pvt Ltd	Chennai	1St Main Road ,Nanganallur ,	600062	43	Multi specialty
+16	Lakshmi Sundaravadanan Hospital	Chennai	180, Nsk Road, Vadapalani, Chennai,	600106	32	Multi specialty;Obstetrics and Gynaecology;Pediatrics
+17	Noors Hospital	Chennai	22, Arcot Road, Saligramam,	600081	17	Single Specialty
+18	Sri Balaji Hospital	Chennai	Barnaby Road,Kilpauk,	600091	56	Orthopedic Hospital
+19	Vasanthi Orthopaedic Hospital	Chennai	No:65-A/291, Melpatti ,Ponnappan Street, Perambur,	600026	43	Multi Specialty
+20	Velachery K.S. Hospital	Chennai	# 23, Friends Avenue , Arumbakkam,	600017	43	Multi specialty
+21	Aditi Hospital	Bangalore	#434, 18TH MAIN 80 FT ROAD, 6TH BLOCK, OPP KORAMANGALA BUS DEPOT BANGALORE 560095 DIST BANGALORE KARNATAKA	560034	75	Multi specialty
+22	Bharathy Hospital	Bangalore	MAIN ROAD, BIDADI	560040	56	Multi specialty
+23	Gayathri Hospital Pvt. Ltd.	Bangalore	OPP.SYNDICATE BANK, SARJAPURA MAIN ROAD, ATTIBELE, ANEKAL (TALUK), BANGALORE	560049	43	Multi specialty
+24	Prashantha Hospital	Bangalore	14 AND 15,3RD BLOCK,4TH STAGE,BASAVESHWARANAGAR,PINCODE-560079	560002	32	Multi specialty;Obstetrics and Gynaecology;Pediatrics
+25	Sri Sai Krupa Hospital	Bangalore	NO-8, 1ST CROSS NGR LAYOUT ROOPERA AGRAHARA, BANGALORE, KARNATAKA	560057	17	Single Specialty
+26	Zamindar Micro Surgical Eye Centre	Bangalore	# 513, 8TH MAIN, 2ND CROSS, DSK 1ST STAGE, 2ND BLOCK, BANGALORE, KARNATAKA	560066	56	Orthopedic Hospital
+27	JANANI HOSPITAL	Bangalore	No.144, Next To Good Shepherd School, 7th Main Road, 36th Cross, Jayanagar 5th Block, Bangalore	560076	43	Multi Specialty
+28	DR SHROFF`S CHARITY EYE HOSPITAL	Delhi	ORTHO CARE B-532, NEW FRIENDS COLONY	110025	43	Multi specialty
+29	GOURI HOSPITAL	Delhi	B-2/203, SAFDARJUNG ENCLAVE, DELHI	110029	17	Multi specialty
+30	Pentamed Hospital	Delhi	SHRI SANTAN DHARAM MANDIR TILAK NAGAR, NEW DELHI-	110018	56	Multi specialty
+31	Sunil Hospital & Nursing Home	Delhi	UNIVERSITY OF DELHI, MALL ROAD, GTB NAGAR, DELHI -	110007	43	Multi specialty
+32	K.R. HOSPITAL & ORTHOPAEDIC CENTRED	Delhi	D-19/519,CHATTARPUR HILLS,NEW-DELHI	110030	32	Multi specialty;Obstetrics and Gynaecology;Pediatrics
+33	ARIHANT HEART & SURGICAL HOSPITAL	Mumbai	GOPAL BHUVAN,TAGORE ROAD, SANTACRUZ (W), MUMBAI, MAHARASHTRA	400054	17	Single Specialty
+34	PRATHMESH GENERAL HOSPITAL & ICCU	Mumbai	A-1,GAGAN CHEMBERS - 5,NEAR GOKULDHAM,MEDICARE CENTRE,GOREGAON (E),MUMBAI - 400063	400063	56	Orthopedic Hospital
+35	ASHTAVINAYAK MATERNITY SURGICAL & EYE HOSPITAL	Mumbai	PLOT NO 44, A-1/2/3, SHIVAJI NAGAR, MAIN ROAD, GOVANDI WEST, MUMBAI -	400043	43	Multi Specialty
+36	HINDUJA HEALTHCARE	Mumbai	PLOT #96,ROAD # 31,KINGS CIRCLE,SHANMUKHANAND HALL,SION (E),PINCODE-400022	400022	120	Multi specialty
+37	VINAYAK MATERNITY & GENERAL HOSPITAL	Mumbai	61 SHREEJI APT, RAMCHANDRA LANE, OPP CHATE CLASSES, MALAD WEST	400064	56	Multi specialty

@@ -24,7 +24,7 @@ namespace :nurse_works do
 
 
   task :loadHospitals => :environment do
-    file = "/home/thimmaiah/Downloads/Hospitals.tsv"
+    file = "#{Rails.root}/lib/tasks/Hospitals.tsv"
     rows = CSV.read(file, { :col_sep => "\t", :headers => true })
     
     rows.each do |row|
@@ -39,7 +39,7 @@ namespace :nurse_works do
   end
 
   task :loadNurses => :environment do
-    file = "/home/thimmaiah/Downloads/Nurses.tsv"
+    file = "#{Rails.root}/lib/tasks//Nurses.tsv"
     rows = CSV.read(file, { :col_sep => "\t", :headers => true })
     
     rows.each do |row|
