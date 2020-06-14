@@ -82,7 +82,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     :address => "email-smtp.eu-west-1.amazonaws.com",
-    :domain => "connuct.co.uk",
+    :domain => "nurseworks.co.in",
     :port => 587,
     :user_name => ENV["SES_SMTP_USERNAME"],
     :password => ENV["SES_SMTP_PASSWORD"],

@@ -51,8 +51,8 @@ module NurseWorks
     config.middleware.use ExceptionNotification::Rack,
     :email => {
       :email_prefix => "[Error] ",
-      :sender_address => %{"Admin" <admin@connuct.co.uk>},
-      :exception_recipients => %w{thimmaiah@gmail.com admin@connuct.co.uk}
+      :sender_address => %{"Admin" <admin@nurseworks.co.in>},
+      :exception_recipients => %w{thimmaiah@gmail.com admin@nurseworks.co.in}
     }
 
     config.active_job.queue_adapter = :delayed_job

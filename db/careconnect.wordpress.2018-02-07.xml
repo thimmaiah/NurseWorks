@@ -27,13 +27,13 @@
 
 <channel>
 	<title>Care Connect</title>
-	<link>http://qa.connuct.co.uk</link>
+	<link>http://qa.nurseworks.co.in</link>
 	<description>Connecting Care Givers to Care Homes</description>
 	<pubDate>Wed, 07 Feb 2018 07:43:44 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
-	<wp:base_site_url>http://qa.connuct.co.uk</wp:base_site_url>
-	<wp:base_blog_url>http://qa.connuct.co.uk</wp:base_blog_url>
+	<wp:base_site_url>http://qa.nurseworks.co.in</wp:base_site_url>
+	<wp:base_blog_url>http://qa.nurseworks.co.in</wp:base_blog_url>
 
 	<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[user]]></wp:author_login><wp:author_email><![CDATA[user@example.com]]></wp:author_email><wp:author_display_name><![CDATA[user]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 
@@ -295,10 +295,10 @@
 
 	<item>
 		<title>google_play_button</title>
-		<link>http://qa.connuct.co.uk/google_play_button/</link>
+		<link>http://qa.nurseworks.co.in/google_play_button/</link>
 		<pubDate>Wed, 18 Nov 2015 21:09:50 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/google_play_button.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/google_play_button.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -314,7 +314,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/google_play_button.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/google_play_button.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/google_play_button.png]]></wp:meta_value>
@@ -326,10 +326,10 @@
 	</item>
 	<item>
 		<title>app_store_button</title>
-		<link>http://qa.connuct.co.uk/app_store_button/</link>
+		<link>http://qa.nurseworks.co.in/app_store_button/</link>
 		<pubDate>Wed, 18 Nov 2015 21:09:51 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/app_store_button.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/app_store_button.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -345,7 +345,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/app_store_button.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/app_store_button.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/app_store_button.png]]></wp:meta_value>
@@ -357,10 +357,10 @@
 	</item>
 	<item>
 		<title>mastercard</title>
-		<link>http://qa.connuct.co.uk/mastercard/</link>
+		<link>http://qa.nurseworks.co.in/mastercard/</link>
 		<pubDate>Thu, 19 Nov 2015 20:01:41 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/mastercard.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/mastercard.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -376,7 +376,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/mastercard.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/mastercard.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/mastercard.png]]></wp:meta_value>
@@ -388,10 +388,10 @@
 	</item>
 	<item>
 		<title>paypal</title>
-		<link>http://qa.connuct.co.uk/paypal/</link>
+		<link>http://qa.nurseworks.co.in/paypal/</link>
 		<pubDate>Thu, 19 Nov 2015 20:01:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/paypal.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/paypal.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -407,7 +407,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/paypal.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/paypal.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/paypal.png]]></wp:meta_value>
@@ -419,10 +419,10 @@
 	</item>
 	<item>
 		<title>visa</title>
-		<link>http://qa.connuct.co.uk/visa/</link>
+		<link>http://qa.nurseworks.co.in/visa/</link>
 		<pubDate>Thu, 19 Nov 2015 20:01:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/visa.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/visa.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -438,7 +438,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/visa.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/visa.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/visa.png]]></wp:meta_value>
@@ -450,10 +450,10 @@
 	</item>
 	<item>
 		<title>amex</title>
-		<link>http://qa.connuct.co.uk/amex/</link>
+		<link>http://qa.nurseworks.co.in/amex/</link>
 		<pubDate>Thu, 19 Nov 2015 20:01:43 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/amex.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/amex.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -469,7 +469,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/amex.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/amex.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/amex.png]]></wp:meta_value>
@@ -481,10 +481,10 @@
 	</item>
 	<item>
 		<title>discover</title>
-		<link>http://qa.connuct.co.uk/discover/</link>
+		<link>http://qa.nurseworks.co.in/discover/</link>
 		<pubDate>Thu, 19 Nov 2015 20:01:43 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/discover.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/discover.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -500,7 +500,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/discover.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/discover.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/discover.png]]></wp:meta_value>
@@ -512,10 +512,10 @@
 	</item>
 	<item>
 		<title>Placeholder-Landscape</title>
-		<link>http://qa.connuct.co.uk/placeholder-landscape/</link>
+		<link>http://qa.nurseworks.co.in/placeholder-landscape/</link>
 		<pubDate>Fri, 11 Dec 2015 19:19:49 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Landscape.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Landscape.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -531,7 +531,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Landscape.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Landscape.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/12/Placeholder-Landscape.png]]></wp:meta_value>
@@ -543,10 +543,10 @@
 	</item>
 	<item>
 		<title>Placeholder-Landscape-Dark</title>
-		<link>http://qa.connuct.co.uk/placeholder-landscape-dark/</link>
+		<link>http://qa.nurseworks.co.in/placeholder-landscape-dark/</link>
 		<pubDate>Fri, 11 Dec 2015 19:19:53 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Landscape-Dark.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Landscape-Dark.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -562,7 +562,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Landscape-Dark.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Landscape-Dark.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/12/Placeholder-Landscape-Dark.png]]></wp:meta_value>
@@ -574,10 +574,10 @@
 	</item>
 	<item>
 		<title>Placeholder-Square</title>
-		<link>http://qa.connuct.co.uk/placeholder-square/</link>
+		<link>http://qa.nurseworks.co.in/placeholder-square/</link>
 		<pubDate>Fri, 11 Dec 2015 19:19:56 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Square.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Square.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -593,7 +593,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Square.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Square.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/12/Placeholder-Square.png]]></wp:meta_value>
@@ -605,10 +605,10 @@
 	</item>
 	<item>
 		<title>Placeholder-Vertical</title>
-		<link>http://qa.connuct.co.uk/placeholder-vertical/</link>
+		<link>http://qa.nurseworks.co.in/placeholder-vertical/</link>
 		<pubDate>Fri, 11 Dec 2015 19:19:58 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Vertical.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Vertical.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -624,7 +624,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Vertical.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Vertical.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/12/Placeholder-Vertical.png]]></wp:meta_value>
@@ -636,10 +636,10 @@
 	</item>
 	<item>
 		<title>Placeholder-Vertical-Dark</title>
-		<link>http://qa.connuct.co.uk/placeholder-vertical-dark/</link>
+		<link>http://qa.nurseworks.co.in/placeholder-vertical-dark/</link>
 		<pubDate>Fri, 11 Dec 2015 19:20:02 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Vertical-Dark.png</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Vertical-Dark.png</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -655,7 +655,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/12/Placeholder-Vertical-Dark.png]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/12/Placeholder-Vertical-Dark.png]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/12/Placeholder-Vertical-Dark.png]]></wp:meta_value>
@@ -667,10 +667,10 @@
 	</item>
 	<item>
 		<title>Registration Menue</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3130</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3130</link>
 		<pubDate>Wed, 30 Aug 2017 11:28:08 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2017/01/Registration-Menue.jpeg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2017/01/Registration-Menue.jpeg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -686,7 +686,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2017/01/Registration-Menue.jpeg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2017/01/Registration-Menue.jpeg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2017/01/Registration-Menue.jpeg]]></wp:meta_value>
@@ -698,10 +698,10 @@
 	</item>
 	<item>
 		<title>New Shift alert</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3155</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3155</link>
 		<pubDate>Wed, 06 Sep 2017 07:47:27 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/New-Shift-alert.jpg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/New-Shift-alert.jpg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -717,7 +717,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/New-Shift-alert.jpg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/New-Shift-alert.jpg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/New-Shift-alert.jpg]]></wp:meta_value>
@@ -729,10 +729,10 @@
 	</item>
 	<item>
 		<title>Completed Profile</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3156</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3156</link>
 		<pubDate>Wed, 06 Sep 2017 07:47:39 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/Completed-Profile.jpeg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/Completed-Profile.jpeg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -748,7 +748,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/Completed-Profile.jpeg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/Completed-Profile.jpeg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/Completed-Profile.jpeg]]></wp:meta_value>
@@ -760,10 +760,10 @@
 	</item>
 	<item>
 		<title>List of Shifts</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3157</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3157</link>
 		<pubDate>Wed, 06 Sep 2017 07:47:52 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2015/11/List-of-Shifts.jpg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2015/11/List-of-Shifts.jpg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -779,7 +779,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2015/11/List-of-Shifts.jpg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2015/11/List-of-Shifts.jpg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2015/11/List-of-Shifts.jpg]]></wp:meta_value>
@@ -791,10 +791,10 @@
 	</item>
 	<item>
 		<title>Login Screen</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3160</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3160</link>
 		<pubDate>Wed, 06 Sep 2017 08:09:56 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2017/06/Login-Screen.jpeg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2017/06/Login-Screen.jpeg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -810,7 +810,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2017/06/Login-Screen.jpeg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2017/06/Login-Screen.jpeg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2017/06/Login-Screen.jpeg]]></wp:meta_value>
@@ -822,10 +822,10 @@
 	</item>
 	<item>
 		<title>Required Documents</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3161</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3161</link>
 		<pubDate>Wed, 06 Sep 2017 08:10:10 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2017/06/Required-Documents.jpeg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2017/06/Required-Documents.jpeg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -841,7 +841,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2017/06/Required-Documents.jpeg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2017/06/Required-Documents.jpeg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2017/06/Required-Documents.jpeg]]></wp:meta_value>
@@ -853,10 +853,10 @@
 	</item>
 	<item>
 		<title>List of Shifts</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3183</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3183</link>
 		<pubDate>Sat, 09 Sep 2017 04:25:23 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2017/01/List-of-Shifts.jpg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2017/01/List-of-Shifts.jpg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -872,7 +872,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2017/01/List-of-Shifts.jpg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2017/01/List-of-Shifts.jpg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2017/01/List-of-Shifts.jpg]]></wp:meta_value>
@@ -884,10 +884,10 @@
 	</item>
 	<item>
 		<title>Carehome front page</title>
-		<link>http://qa.connuct.co.uk/?attachment_id=3185</link>
+		<link>http://qa.nurseworks.co.in/?attachment_id=3185</link>
 		<pubDate>Sat, 09 Sep 2017 04:27:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/wp-content/uploads/2017/01/Carehome-front-page.jpeg</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/wp-content/uploads/2017/01/Carehome-front-page.jpeg</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -903,7 +903,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-		<wp:attachment_url><![CDATA[http://qa.connuct.co.uk/wp-content/uploads/2017/01/Carehome-front-page.jpeg]]></wp:attachment_url>
+		<wp:attachment_url><![CDATA[http://qa.nurseworks.co.in/wp-content/uploads/2017/01/Carehome-front-page.jpeg]]></wp:attachment_url>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 			<wp:meta_value><![CDATA[2017/01/Carehome-front-page.jpeg]]></wp:meta_value>
@@ -915,10 +915,10 @@
 	</item>
 	<item>
 		<title>Formidable Style</title>
-		<link>http://qa.connuct.co.uk/frm_styles/formidable-style/</link>
+		<link>http://qa.nurseworks.co.in/frm_styles/formidable-style/</link>
 		<pubDate>Tue, 06 Jun 2017 13:34:33 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/2017/06/06/formidable-style/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/2017/06/06/formidable-style/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"theme_css":"ui-lightness","theme_name":"UI Lightness","center_form":"","form_width":"100%","form_align":"left","direction":"ltr","fieldset":"0px","fieldset_color":"000000","fieldset_padding":"0 0 15px 0","fieldset_bg_color":"","title_size":"20px","title_color":"444444","title_margin_top":"10px","title_margin_bottom":"10px","form_desc_size":"14px","form_desc_color":"666666","form_desc_margin_top":"10px","form_desc_margin_bottom":"25px","font":"\"Lucida Grande\",\"Lucida Sans Unicode\",Tahoma,sans-serif","font_size":"14px","label_color":"444444","weight":"bold","position":"none","align":"left","width":"150px","required_color":"B94A48","required_weight":"bold","label_padding":"0 0 3px 0","description_font_size":"12px","description_color":"666666","description_weight":"normal","description_style":"normal","description_align":"left","description_margin":"0","field_font_size":"14px","field_height":"32px","line_height":"normal","field_width":"100%","auto_width":"","field_pad":"6px 10px","field_margin":"20px","field_weight":"normal","text_color":"555555","border_color":"cccccc","field_border_width":"1px","field_border_style":"solid","bg_color":"ffffff","remove_box_shadow":"","bg_color_active":"ffffff","border_color_active":"66afe9","remove_box_shadow_active":"","text_color_error":"444444","bg_color_error":"ffffff","border_color_error":"B94A48","border_width_error":"1px","border_style_error":"solid","bg_color_disabled":"ffffff","border_color_disabled":"E5E5E5","text_color_disabled":"A1A1A1","radio_align":"block","check_align":"block","check_font_size":"13px","check_label_color":"444444","check_weight":"normal","section_font_size":"18px","section_color":"444444","section_weight":"bold","section_pad":"15px 0 3px 0","section_mar_top":"15px","section_mar_bottom":"12px","section_bg_color":"","section_border_color":"e8e8e8","section_border_width":"2px","section_border_style":"solid","section_border_loc":"-top","collapse_icon":"6","collapse_pos":"after","repeat_icon":"1","submit_style":"","submit_font_size":"14px","submit_width":"auto","submit_height":"auto","submit_bg_color":"ffffff","submit_border_color":"cccccc","submit_border_width":"1px","submit_text_color":"444444","submit_weight":"normal","submit_border_radius":"4px","submit_bg_img":"","submit_margin":"10px","submit_padding":"6px 11px","submit_shadow_color":"eeeeee","submit_hover_bg_color":"efefef","submit_hover_color":"444444","submit_hover_border_color":"cccccc","submit_active_bg_color":"efefef","submit_active_color":"444444","submit_active_border_color":"cccccc","border_radius":"4px","error_bg":"F2DEDE","error_border":"EBCCD1","error_text":"B94A48","error_font_size":"14px","success_bg_color":"DFF0D8","success_border_color":"D6E9C6","success_text_color":"468847","success_font_size":"14px","important_style":"","progress_bg_color":"dddddd","progress_active_color":"ffffff","progress_active_bg_color":"008ec2","progress_color":"ffffff","progress_border_color":"dfdfdf","progress_border_size":"2px","progress_size":"30px","custom_css":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -937,10 +937,10 @@
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/1_email_1/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/1_email_1/</link>
 		<pubDate>Mon, 06 Apr 2015 17:18:12 +0000</pubDate>
 		<dc:creator><![CDATA[]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/2015/04/06/1_email_1/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/2015/04/06/1_email_1/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","cc":"","bcc":"","reply_to":"","from":"[sitename] <[admin_email]>","email_subject":"","email_message":"[default-message]","event":["create"],"conditions":{"send_stop":"send","any_all":"any"}}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -959,7 +959,7 @@
 	</item>
 	<item>
 		<title>Shortcodes - Elements</title>
-		<link>http://qa.connuct.co.uk/shortcodes-elements/</link>
+		<link>http://qa.nurseworks.co.in/shortcodes-elements/</link>
 		<pubDate>Mon, 25 Aug 2014 23:27:54 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/pursuit/?page_id=401</guid>
@@ -1304,10 +1304,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/2_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/2_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/2_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/2_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":{"send_stop":"send","any_all":"any"},"reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1326,10 +1326,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/3_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/3_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/3_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/3_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1348,10 +1348,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/4_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/4_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/4_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/4_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1370,10 +1370,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/5_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/5_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/5_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/5_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1392,10 +1392,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/6_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/6_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/6_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/6_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1414,10 +1414,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/7_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/7_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/7_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/7_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":{"send_stop":"send","any_all":"any"},"reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1436,10 +1436,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/8_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/8_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/8_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/8_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1458,10 +1458,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/9_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/9_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/9_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/9_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1480,10 +1480,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Email Notification</title>
-		<link>http://qa.connuct.co.uk/frm_form_actions/10_email_0/</link>
+		<link>http://qa.nurseworks.co.in/frm_form_actions/10_email_0/</link>
 		<pubDate>Tue, 06 Jun 2017 13:38:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/frm_form_actions/10_email_0/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/frm_form_actions/10_email_0/</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"email_to":"[admin_email]","event":["create"],"email_message":"[default-message]","email_subject":"","plain_text":"0","inc_user_info":"0","conditions":"","reply_to":""}]]></content:encoded>
 		<excerpt:encoded><![CDATA[email]]></excerpt:encoded>
@@ -1502,10 +1502,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3039/</link>
+		<link>http://qa.nurseworks.co.in/3039/</link>
 		<pubDate>Tue, 06 Jun 2017 13:40:48 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3039/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3039/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1557,10 +1557,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3044/</link>
+		<link>http://qa.nurseworks.co.in/3044/</link>
 		<pubDate>Tue, 06 Jun 2017 13:40:48 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3044/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3044/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1612,10 +1612,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3051/</link>
+		<link>http://qa.nurseworks.co.in/3051/</link>
 		<pubDate>Tue, 06 Jun 2017 13:40:49 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3051/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3051/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1667,10 +1667,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3070/</link>
+		<link>http://qa.nurseworks.co.in/3070/</link>
 		<pubDate>Tue, 06 Jun 2017 13:40:49 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3070/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3070/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1722,10 +1722,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3147/</link>
+		<link>http://qa.nurseworks.co.in/3147/</link>
 		<pubDate>Mon, 04 Sep 2017 03:36:33 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3147/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3147/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1777,10 +1777,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3148/</link>
+		<link>http://qa.nurseworks.co.in/3148/</link>
 		<pubDate>Mon, 04 Sep 2017 03:36:33 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3148/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3148/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1832,10 +1832,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3149/</link>
+		<link>http://qa.nurseworks.co.in/3149/</link>
 		<pubDate>Mon, 04 Sep 2017 03:36:33 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3149/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3149/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1887,10 +1887,10 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title></title>
-		<link>http://qa.connuct.co.uk/3204/</link>
+		<link>http://qa.nurseworks.co.in/3204/</link>
 		<pubDate>Sun, 10 Sep 2017 13:51:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/3204/</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/3204/</guid>
 		<description></description>
 		<content:encoded><![CDATA[ ]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -1942,7 +1942,7 @@ Lorem ipsum dolor sit amet blandit id, consectetur adipiscing elit. Etiam pellen
 	</item>
 	<item>
 		<title>Terms and Conditions</title>
-		<link>http://qa.connuct.co.uk/tnc/</link>
+		<link>http://qa.nurseworks.co.in/tnc/</link>
 		<pubDate>Mon, 24 Apr 2017 09:33:50 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http:/?page_id=2</guid>
@@ -1957,7 +1957,7 @@ Please read this agreement carefully before using the services provided by Connu
 
 &nbsp;
 
-These terms and conditions (“Terms of Use”) set out the basis upon which you may use the website Connuct.co.uk, or the Mobile App (“Link 1 to Play store” or “Link 2 to Apple App store”) for the services provided therein. Additionally, the Terms of Use sets out our privacy policy.
+These terms and conditions (“Terms of Use”) set out the basis upon which you may use the website nurseworks.co.in, or the Mobile App (“Link 1 to Play store” or “Link 2 to Apple App store”) for the services provided therein. Additionally, the Terms of Use sets out our privacy policy.
 
 &nbsp;
 
@@ -2005,7 +2005,7 @@ The Company may revise the Terms of Use at any time by updating the same on its 
 
 <strong>“VAT”</strong> means Value Added Tax.
 
-<strong>“Website”</strong> means <a href="http://www.connuct.co.uk">www.connuct.co.uk</a>.
+<strong>“Website”</strong> means <a href="http://www.nurseworks.co.in">www.nurseworks.co.in</a>.
 
 <strong>“UK”</strong> means the United Kingdom.
 
@@ -2279,7 +2279,7 @@ Care Seeker acknowledges that the Company’s total liability to them whether in
 <ol start="8">
  	<li><strong>Dispute Resolution</strong>
 <ul>
- 	<li>Where there is a disagreement between Care Seeker and Nurse, either the Care Seeker or Nurse can invoke the dispute resolution process by notifying the Company by email at complaints@connuct.co.uk</li>
+ 	<li>Where there is a disagreement between Care Seeker and Nurse, either the Care Seeker or Nurse can invoke the dispute resolution process by notifying the Company by email at complaints@nurseworks.co.in</li>
  	<li>The Company will examine the service arrangement, compliance with terms, user analytics data including (but not limited to) visit system logs, messaging and other communication, verification, feedback and previous history and any submissions by either party.</li>
  	<li>In resolving the dispute, the Company reserves the right at its sole discretion, where it has received payment from the Care Seeker for an Engagement, to defer payment, reimburse or cease contractual payments at any time during the process.</li>
 </ul>
@@ -2330,7 +2330,7 @@ Care Seekers and Nurses undertake to indemnify the Company and keep the Company 
  	<li><strong>Complaints Policy</strong>
 <ul>
  	<li>The Company takes all customer complaints seriously and is committed to learning from mistakes and improving our Service for both current and prospective Care Seekers and Nurses.</li>
- 	<li>If the Nurse and/or Care Seeker has a complaint, please send this by email to complaints@connuct.co.uk. The Company will normally respond within 24 hours (i.e. one business day). The Company will investigate any matter referred and take appropriate action where necessary.</li>
+ 	<li>If the Nurse and/or Care Seeker has a complaint, please send this by email to complaints@nurseworks.co.in. The Company will normally respond within 24 hours (i.e. one business day). The Company will investigate any matter referred and take appropriate action where necessary.</li>
  	<li>The Company will investigate every complaint received and will take proportionate action ranging from verbal and written feedback to suspension of Platform accounts.</li>
 </ul>
 </li>
@@ -2366,7 +2366,7 @@ Care Seekers and Nurses undertake to indemnify the Company and keep the Company 
 <ol start="16">
  	<li><strong>Contact Information:</strong></li>
 </ol>
-If you have any questions about the Terms of Use or the Services provided by the Company please contact us at: terms@connuct.co.uk]]></content:encoded>
+If you have any questions about the Terms of Use or the Services provided by the Company please contact us at: terms@nurseworks.co.in]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>2</wp:post_id>
 		<wp:post_date><![CDATA[2017-04-24 09:33:50]]></wp:post_date>
@@ -2487,7 +2487,7 @@ If you have any questions about the Terms of Use or the Services provided by the
 	</item>
 	<item>
 		<title>Shortcodes - Typography</title>
-		<link>http://qa.connuct.co.uk/shortcodes-typography/</link>
+		<link>http://qa.nurseworks.co.in/shortcodes-typography/</link>
 		<pubDate>Tue, 26 Aug 2014 21:17:07 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/pursuit/?page_id=450</guid>
@@ -2859,7 +2859,7 @@ Etiam nec dolor in sapien lobortis pellentesque. Nulla blandit magna bibendum se
 	</item>
 	<item>
 		<title>Shortcodes - Media</title>
-		<link>http://qa.connuct.co.uk/shortcodes-media/</link>
+		<link>http://qa.nurseworks.co.in/shortcodes-media/</link>
 		<pubDate>Wed, 27 Aug 2014 01:03:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/pursuit/?page_id=493</guid>
@@ -3144,7 +3144,7 @@ Etiam nec dolor in sapien lobortis pellentesque. Nulla blandit magna bibendum se
 	</item>
 	<item>
 		<title>About us</title>
-		<link>http://qa.connuct.co.uk/about/</link>
+		<link>http://qa.nurseworks.co.in/about/</link>
 		<pubDate>Tue, 03 Mar 2015 20:34:29 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?page_id=813</guid>
@@ -3768,7 +3768,7 @@ We have big ambitions of making a substantial difference in the care industry th
 	</item>
 	<item>
 		<title>Pricing</title>
-		<link>http://qa.connuct.co.uk/pricing/</link>
+		<link>http://qa.nurseworks.co.in/pricing/</link>
 		<pubDate>Tue, 03 Mar 2015 21:44:34 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?page_id=834</guid>
@@ -4382,7 +4382,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Showcase</title>
-		<link>http://qa.connuct.co.uk/showcase/</link>
+		<link>http://qa.nurseworks.co.in/showcase/</link>
 		<pubDate>Tue, 03 Mar 2015 22:02:37 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?page_id=843</guid>
@@ -5234,7 +5234,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Tour 2</title>
-		<link>http://qa.connuct.co.uk/tour-2/</link>
+		<link>http://qa.nurseworks.co.in/tour-2/</link>
 		<pubDate>Tue, 03 Mar 2015 22:35:51 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?page_id=867</guid>
@@ -5936,7 +5936,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Standard Blog + Sidebar</title>
-		<link>http://qa.connuct.co.uk/standard-blog-with-sidebar/</link>
+		<link>http://qa.nurseworks.co.in/standard-blog-with-sidebar/</link>
 		<pubDate>Thu, 05 Mar 2015 19:53:49 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?page_id=932</guid>
@@ -6102,7 +6102,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Standard Blog Full Width</title>
-		<link>http://qa.connuct.co.uk/standard-blog-full-width/</link>
+		<link>http://qa.nurseworks.co.in/standard-blog-full-width/</link>
 		<pubDate>Thu, 05 Mar 2015 19:54:28 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?page_id=934</guid>
@@ -6268,7 +6268,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Portfolio 5 Column</title>
-		<link>http://qa.connuct.co.uk/portfolio-5-column/</link>
+		<link>http://qa.nurseworks.co.in/portfolio-5-column/</link>
 		<pubDate>Mon, 30 Mar 2015 20:58:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?page_id=1209</guid>
@@ -6606,7 +6606,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Pricing Plan Options</title>
-		<link>http://qa.connuct.co.uk/pricing-plan-options/</link>
+		<link>http://qa.nurseworks.co.in/pricing-plan-options/</link>
 		<pubDate>Fri, 03 Apr 2015 23:19:13 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?page_id=1344</guid>
@@ -7196,7 +7196,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Professionals</title>
-		<link>http://qa.connuct.co.uk/</link>
+		<link>http://qa.nurseworks.co.in/</link>
 		<pubDate>Sun, 08 Nov 2015 21:14:33 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?page_id=1822</guid>
@@ -7846,7 +7846,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Tour</title>
-		<link>http://qa.connuct.co.uk/tour/</link>
+		<link>http://qa.nurseworks.co.in/tour/</link>
 		<pubDate>Tue, 10 Nov 2015 16:53:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?page_id=1973</guid>
@@ -8120,7 +8120,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Home One Pager</title>
-		<link>http://qa.connuct.co.uk/home-one-pager/</link>
+		<link>http://qa.nurseworks.co.in/home-one-pager/</link>
 		<pubDate>Fri, 20 Nov 2015 21:35:34 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?page_id=2328</guid>
@@ -9257,7 +9257,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Contact</title>
-		<link>http://qa.connuct.co.uk/contact/</link>
+		<link>http://qa.nurseworks.co.in/contact/</link>
 		<pubDate>Tue, 01 Dec 2015 18:51:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?page_id=2540</guid>
@@ -9534,7 +9534,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[themo_page_header_1_subtext]]></wp:meta_key>
-			<wp:meta_value><![CDATA[For any information please contact us info@connuct.co.uk]]></wp:meta_value>
+			<wp:meta_value><![CDATA[For any information please contact us info@nurseworks.co.in]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[themo_page_disable_nav_transparency]]></wp:meta_key>
@@ -9599,12 +9599,12 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[themo_service_block_split_1_subtext]]></wp:meta_key>
-			<wp:meta_value><![CDATA[For further information or queries please email us at info@connuct.co.uk]]></wp:meta_value>
+			<wp:meta_value><![CDATA[For further information or queries please email us at info@nurseworks.co.in]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
 		<title>Home Parallax</title>
-		<link>http://qa.connuct.co.uk/home-parallax/</link>
+		<link>http://qa.nurseworks.co.in/home-parallax/</link>
 		<pubDate>Wed, 25 Jan 2017 02:56:15 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?page_id=2948</guid>
@@ -10360,7 +10360,7 @@ Donec dui lorem, malesuada ut mattis eget, convallis in sem. Duis condimentum li
 	</item>
 	<item>
 		<title>Care Homes</title>
-		<link>http://qa.connuct.co.uk/care-homes/</link>
+		<link>http://qa.nurseworks.co.in/care-homes/</link>
 		<pubDate>Wed, 25 Jan 2017 02:56:36 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?page_id=2950</guid>
@@ -11474,7 +11474,7 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Support / Help / FAQ</title>
-		<link>http://qa.connuct.co.uk/support-help-faq/</link>
+		<link>http://qa.nurseworks.co.in/support-help-faq/</link>
 		<pubDate>Wed, 25 Jan 2017 03:03:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?page_id=2956</guid>
@@ -11916,7 +11916,7 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Confirmation</title>
-		<link>http://qa.connuct.co.uk/confirmation/</link>
+		<link>http://qa.nurseworks.co.in/confirmation/</link>
 		<pubDate>Fri, 27 Jan 2017 22:55:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?page_id=3022</guid>
@@ -12122,10 +12122,10 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Privacy Policy</title>
-		<link>http://qa.connuct.co.uk/privacy-policy/</link>
+		<link>http://qa.nurseworks.co.in/privacy-policy/</link>
 		<pubDate>Mon, 04 Sep 2017 03:25:51 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?page_id=3141</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?page_id=3141</guid>
 		<description></description>
 		<content:encoded><![CDATA[<h2><strong>Privacy Policy</strong></h2>
 <ul>
@@ -12261,10 +12261,10 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Confirmation Successfull</title>
-		<link>http://qa.connuct.co.uk/confirmation-successfull/</link>
+		<link>http://qa.nurseworks.co.in/confirmation-successfull/</link>
 		<pubDate>Tue, 30 May 2017 08:49:30 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=5</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=5</guid>
 		<description></description>
 		<content:encoded><![CDATA[Thank you for confirming your email. Please go ahead and use the app now.]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -12288,10 +12288,10 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Unsubscribe Successfull</title>
-		<link>http://qa.connuct.co.uk/unsubscribe-successfull/</link>
+		<link>http://qa.nurseworks.co.in/unsubscribe-successfull/</link>
 		<pubDate>Tue, 30 May 2017 08:50:06 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=7</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=7</guid>
 		<description></description>
 		<content:encoded><![CDATA[You have been unsubscribed, we will not send any more email your way. Thank you.]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -12315,10 +12315,10 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Should I Sign Up?</title>
-		<link>http://qa.connuct.co.uk/should-i-sign-up/</link>
+		<link>http://qa.nurseworks.co.in/should-i-sign-up/</link>
 		<pubDate>Tue, 30 May 2017 08:50:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=9</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=9</guid>
 		<description></description>
 		<content:encoded><![CDATA[10 reasons why you should signup if you are a care giver or a nurse.]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -12342,10 +12342,10 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>How to I Sign Up as a Care Giver or a Nurse ?</title>
-		<link>http://qa.connuct.co.uk/how-to-i-sign-up-as-a-care-giver-or-a-nurse/</link>
+		<link>http://qa.nurseworks.co.in/how-to-i-sign-up-as-a-care-giver-or-a-nurse/</link>
 		<pubDate>Tue, 30 May 2017 08:51:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=11</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=11</guid>
 		<description></description>
 		<content:encoded><![CDATA[Images and details]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -12369,7 +12369,7 @@ Integer ac luctus nisi, a scelerisque odio. Integer non nisl eu ligula semper di
 	</item>
 	<item>
 		<title>Top 10 Tips For Working From Home</title>
-		<link>http://qa.connuct.co.uk/top-10-tips-for-working-from-home/</link>
+		<link>http://qa.nurseworks.co.in/top-10-tips-for-working-from-home/</link>
 		<pubDate>Fri, 27 Feb 2015 04:42:41 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=107</guid>
@@ -12550,7 +12550,7 @@ the quality of their products]]></wp:comment_content>
 	</item>
 	<item>
 		<title>Attracting Great Talent</title>
-		<link>http://qa.connuct.co.uk/attracting-great-talent/</link>
+		<link>http://qa.nurseworks.co.in/attracting-great-talent/</link>
 		<pubDate>Mon, 02 Mar 2015 04:43:36 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=109</guid>
@@ -12648,7 +12648,7 @@ Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursu
 	</item>
 	<item>
 		<title>A Guide to Stunning Product Photography</title>
-		<link>http://qa.connuct.co.uk/stunning-product-photography/</link>
+		<link>http://qa.nurseworks.co.in/stunning-product-photography/</link>
 		<pubDate>Mon, 02 Mar 2015 04:44:47 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=111</guid>
@@ -12749,7 +12749,7 @@ Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursu
 	</item>
 	<item>
 		<title>Top Development Frameworks Reviewed</title>
-		<link>http://qa.connuct.co.uk/top-development-frameworks-reviewed/</link>
+		<link>http://qa.nurseworks.co.in/top-development-frameworks-reviewed/</link>
 		<pubDate>Mon, 02 Mar 2015 04:45:18 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=113</guid>
@@ -12851,7 +12851,7 @@ Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursu
 	</item>
 	<item>
 		<title>Where To Launch Your Startup</title>
-		<link>http://qa.connuct.co.uk/where-to-launch-your-startup/</link>
+		<link>http://qa.nurseworks.co.in/where-to-launch-your-startup/</link>
 		<pubDate>Mon, 02 Mar 2015 04:46:18 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=115</guid>
@@ -12954,7 +12954,7 @@ Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursu
 	</item>
 	<item>
 		<title>Gaining Exposure for Your iPhone App</title>
-		<link>http://qa.connuct.co.uk/gaining-exposure/</link>
+		<link>http://qa.nurseworks.co.in/gaining-exposure/</link>
 		<pubDate>Mon, 02 Mar 2015 04:47:07 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=117</guid>
@@ -13067,7 +13067,7 @@ Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursu
 	</item>
 	<item>
 		<title>Inspirational Workspace Ideas</title>
-		<link>http://qa.connuct.co.uk/workspace-ideas/</link>
+		<link>http://qa.nurseworks.co.in/workspace-ideas/</link>
 		<pubDate>Tue, 27 Jan 2015 20:00:40 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=942</guid>
@@ -13140,7 +13140,7 @@ Aliquam sagittis sit amet nisl vitae eleifend. Curabitur nisl neque, semper ac r
 	</item>
 	<item>
 		<title>Effective Product Promo Videos</title>
-		<link>http://qa.connuct.co.uk/effective-product-promo-videos/</link>
+		<link>http://qa.nurseworks.co.in/effective-product-promo-videos/</link>
 		<pubDate>Thu, 05 Mar 2015 20:03:49 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=946</guid>
@@ -13213,7 +13213,7 @@ Duis lorem est, vestibulum ac diam euismod, dapibus maximus urna. Donec tempor s
 	</item>
 	<item>
 		<title>This is a Quote</title>
-		<link>http://qa.connuct.co.uk/this-is-a-quote/</link>
+		<link>http://qa.nurseworks.co.in/this-is-a-quote/</link>
 		<pubDate>Tue, 03 Mar 2015 20:53:30 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=950</guid>
@@ -13265,7 +13265,7 @@ Duis lorem est, vestibulum ac diam euismod, dapibus maximus urna. Donec tempor s
 	</item>
 	<item>
 		<title>Usability Testing: Your Questions Answered</title>
-		<link>http://qa.connuct.co.uk/usability-testing/</link>
+		<link>http://qa.nurseworks.co.in/usability-testing/</link>
 		<pubDate>Wed, 04 Feb 2015 20:53:57 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=952</guid>
@@ -13336,7 +13336,7 @@ Aliquam sagittis sit amet nisl vitae eleifend. Curabitur nisl neque, semper ac r
 	</item>
 	<item>
 		<title>Awesome WordPress Themes</title>
-		<link>http://qa.connuct.co.uk/this-is-a-link-post/</link>
+		<link>http://qa.nurseworks.co.in/this-is-a-link-post/</link>
 		<pubDate>Thu, 05 Feb 2015 20:54:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=954</guid>
@@ -13397,7 +13397,7 @@ Aliquam sagittis sit amet nisl vitae eleifend. Curabitur nisl neque, semper ac r
 	</item>
 	<item>
 		<title>Exploring Intuitive UX Design</title>
-		<link>http://qa.connuct.co.uk/exploring-intuitive-ux-design/</link>
+		<link>http://qa.nurseworks.co.in/exploring-intuitive-ux-design/</link>
 		<pubDate>Tue, 06 Jan 2015 02:13:31 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?p=1004</guid>
@@ -13479,7 +13479,7 @@ Duis porttitor accumsan orci, a imperdiet sapien semper quis. Cras libero justo,
 	</item>
 	<item>
 		<title>Sourcing Audio For Your Promo Video</title>
-		<link>http://qa.connuct.co.uk/sourcing-audio-for-your-promo-video/</link>
+		<link>http://qa.nurseworks.co.in/sourcing-audio-for-your-promo-video/</link>
 		<pubDate>Sun, 01 Mar 2015 00:53:09 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?p=2394</guid>
@@ -13541,7 +13541,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed arcu i
 	</item>
 	<item>
 		<title>How to Maximize Productivity</title>
-		<link>http://qa.connuct.co.uk/how-to-maximize-productivity/</link>
+		<link>http://qa.nurseworks.co.in/how-to-maximize-productivity/</link>
 		<pubDate>Fri, 02 Jan 2015 17:22:52 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?p=2401</guid>
@@ -13598,7 +13598,7 @@ Vestibulum imperdiet augue vel lectus suscipit feugiat. Vestibulum a justo et an
 	</item>
 	<item>
 		<title>Making the Most of Your Commute</title>
-		<link>http://qa.connuct.co.uk/making-the-most-of-your-commute/</link>
+		<link>http://qa.nurseworks.co.in/making-the-most-of-your-commute/</link>
 		<pubDate>Thu, 01 Jan 2015 17:43:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?p=2404</guid>
@@ -13659,10 +13659,10 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Un subscribe</title>
-		<link>http://qa.connuct.co.uk/unsubscribe/</link>
+		<link>http://qa.nurseworks.co.in/unsubscribe/</link>
 		<pubDate>Sun, 10 Sep 2017 13:51:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?page_id=3203</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?page_id=3203</guid>
 		<description></description>
 		<content:encoded><![CDATA[This is a unsubscribe confirmation page....]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -13865,10 +13865,10 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>How do I sign up as a Care Home ?</title>
-		<link>http://qa.connuct.co.uk/how-do-i-sign-up-as-a-care-home/</link>
+		<link>http://qa.nurseworks.co.in/how-do-i-sign-up-as-a-care-home/</link>
 		<pubDate>Tue, 30 May 2017 08:51:32 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=13</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=13</guid>
 		<description></description>
 		<content:encoded><![CDATA[Images and content]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -13892,10 +13892,10 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>How much does it cost ?</title>
-		<link>http://qa.connuct.co.uk/how-much-does-it-cost/</link>
+		<link>http://qa.nurseworks.co.in/how-much-does-it-cost/</link>
 		<pubDate>Tue, 30 May 2017 08:52:08 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=15</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=15</guid>
 		<description></description>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -13919,7 +13919,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Business Development Coordinator</title>
-		<link>http://qa.connuct.co.uk/?themo_accordion=web-application-developer</link>
+		<link>http://qa.nurseworks.co.in/?themo_accordion=web-application-developer</link>
 		<pubDate>Thu, 05 Mar 2015 21:13:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_accordion&#038;p=965</guid>
@@ -14022,7 +14022,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Marketing Manager</title>
-		<link>http://qa.connuct.co.uk/?themo_accordion=sales-guru</link>
+		<link>http://qa.nurseworks.co.in/?themo_accordion=sales-guru</link>
 		<pubDate>Thu, 05 Mar 2015 21:14:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_accordion&#038;p=967</guid>
@@ -14129,7 +14129,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Senior Sales Associate</title>
-		<link>http://qa.connuct.co.uk/?themo_accordion=senior-cto</link>
+		<link>http://qa.nurseworks.co.in/?themo_accordion=senior-cto</link>
 		<pubDate>Thu, 05 Mar 2015 21:14:45 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_accordion&#038;p=968</guid>
@@ -14236,7 +14236,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>TechReviews</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=techreviews</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=techreviews</link>
 		<pubDate>Sun, 08 Nov 2015 22:11:07 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1842</guid>
@@ -14272,7 +14272,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Los Santos Times</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=los-santos-times</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=los-santos-times</link>
 		<pubDate>Sun, 08 Nov 2015 22:11:29 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1848</guid>
@@ -14312,7 +14312,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>InfoDaily</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=infodaily</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=infodaily</link>
 		<pubDate>Sun, 08 Nov 2015 22:11:43 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1850</guid>
@@ -14352,7 +14352,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>KOMODO</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=komodo</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=komodo</link>
 		<pubDate>Sun, 08 Nov 2015 22:12:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1852</guid>
@@ -14392,7 +14392,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Logo 4</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=theme-store</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=theme-store</link>
 		<pubDate>Mon, 09 Nov 2015 21:17:47 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1920</guid>
@@ -14427,7 +14427,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Logo 3</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=saasmonkey</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=saasmonkey</link>
 		<pubDate>Mon, 09 Nov 2015 21:18:08 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1926</guid>
@@ -14466,7 +14466,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Logo 2</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=saasmonkey-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=saasmonkey-2</link>
 		<pubDate>Mon, 09 Nov 2015 21:19:10 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1930</guid>
@@ -14505,7 +14505,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Logo 1</title>
-		<link>http://qa.connuct.co.uk/?themo_brands=pursuit</link>
+		<link>http://qa.nurseworks.co.in/?themo_brands=pursuit</link>
 		<pubDate>Mon, 09 Nov 2015 21:19:29 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_brands&#038;p=1932</guid>
@@ -14544,7 +14544,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Stunning Portfolio</title>
-		<link>http://qa.connuct.co.uk/?themo_featured=stunning-portfolio</link>
+		<link>http://qa.nurseworks.co.in/?themo_featured=stunning-portfolio</link>
 		<pubDate>Tue, 02 Jun 2015 17:38:32 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_featured&#038;p=2636</guid>
@@ -14583,7 +14583,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Is my device supported?</title>
-		<link>http://qa.connuct.co.uk/?themo_faq=is-my-device-supported</link>
+		<link>http://qa.nurseworks.co.in/?themo_faq=is-my-device-supported</link>
 		<pubDate>Wed, 18 Jan 2017 03:06:25 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_faq&#038;p=2958</guid>
@@ -14610,7 +14610,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Is there a guide for transferring from another system?</title>
-		<link>http://qa.connuct.co.uk/?themo_faq=is-there-a-guide-for-transferring-from-another-system</link>
+		<link>http://qa.nurseworks.co.in/?themo_faq=is-there-a-guide-for-transferring-from-another-system</link>
 		<pubDate>Mon, 16 Jan 2017 03:06:41 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_faq&#038;p=2960</guid>
@@ -14637,7 +14637,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>What is your refund policy?</title>
-		<link>http://qa.connuct.co.uk/?themo_faq=what-is-your-refund-policy</link>
+		<link>http://qa.nurseworks.co.in/?themo_faq=what-is-your-refund-policy</link>
 		<pubDate>Sat, 14 Jan 2017 03:06:55 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_faq&#038;p=2962</guid>
@@ -14664,7 +14664,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>How do I know which plan is best for me? Can I change any time?</title>
-		<link>http://qa.connuct.co.uk/?themo_faq=how-do-i-know-which-plan-is-best-for-me-can-i-change-any-time</link>
+		<link>http://qa.nurseworks.co.in/?themo_faq=how-do-i-know-which-plan-is-best-for-me-can-i-change-any-time</link>
 		<pubDate>Thu, 12 Jan 2017 03:07:11 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_faq&#038;p=2964</guid>
@@ -14693,7 +14693,7 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>Is my data safe? What’s your stance on privacy?</title>
-		<link>http://qa.connuct.co.uk/?themo_faq=is-my-data-safe-whats-your-stance-on-privacy</link>
+		<link>http://qa.nurseworks.co.in/?themo_faq=is-my-data-safe-whats-your-stance-on-privacy</link>
 		<pubDate>Tue, 10 Jan 2017 03:07:24 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_faq&#038;p=2966</guid>
@@ -14720,10 +14720,10 @@ Donec metus enim, bibendum in diam ornare, porttitor cursus ipsum. Vivamus non s
 	</item>
 	<item>
 		<title>FAQ</title>
-		<link>http://qa.connuct.co.uk/faq/</link>
+		<link>http://qa.nurseworks.co.in/faq/</link>
 		<pubDate>Thu, 31 Aug 2017 01:52:59 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?p=3133</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?p=3133</guid>
 		<description></description>
 		<content:encoded><![CDATA[<ol>
  	<li>Who should register?</li>
@@ -14770,7 +14770,7 @@ The Platform provides interface where Caregivers can get SMS and App based notif
 	</item>
 	<item>
 		<title>Product Development</title>
-		<link>http://qa.connuct.co.uk/portfolio/magna-tristique-lorem/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/magna-tristique-lorem/</link>
 		<pubDate>Mon, 02 Mar 2015 05:13:24 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=119</guid>
@@ -14878,7 +14878,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Mobile Marketing</title>
-		<link>http://qa.connuct.co.uk/portfolio/condimentum-risus-parturient/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/condimentum-risus-parturient/</link>
 		<pubDate>Mon, 02 Mar 2015 05:15:01 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=121</guid>
@@ -14987,7 +14987,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Growth Strategies</title>
-		<link>http://qa.connuct.co.uk/portfolio/mollis-pellentesque-fermentum/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/mollis-pellentesque-fermentum/</link>
 		<pubDate>Mon, 02 Mar 2015 05:15:32 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=123</guid>
@@ -15095,7 +15095,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Platform Integration</title>
-		<link>http://qa.connuct.co.uk/portfolio/pharetra-aenean-vulputate/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/pharetra-aenean-vulputate/</link>
 		<pubDate>Mon, 02 Mar 2015 05:21:38 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=126</guid>
@@ -15215,7 +15215,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Procedural Testing</title>
-		<link>http://qa.connuct.co.uk/portfolio/cras-fringilla-malesuada/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/cras-fringilla-malesuada/</link>
 		<pubDate>Mon, 02 Mar 2015 05:22:11 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=128</guid>
@@ -15323,7 +15323,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Idea Collaboration</title>
-		<link>http://qa.connuct.co.uk/portfolio/idea-collaboration/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/idea-collaboration/</link>
 		<pubDate>Mon, 02 Mar 2015 05:23:36 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=130</guid>
@@ -15435,7 +15435,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Basic Plan</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=basic-plan</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=basic-plan</link>
 		<pubDate>Tue, 03 Mar 2015 21:51:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=837</guid>
@@ -15555,7 +15555,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Business Plan</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=business-plan</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=business-plan</link>
 		<pubDate>Tue, 03 Mar 2015 21:52:57 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=839</guid>
@@ -15660,7 +15660,7 @@ Fast Turnaround]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Premium Plan</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=premium-plan</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=premium-plan</link>
 		<pubDate>Tue, 03 Mar 2015 21:54:01 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=841</guid>
@@ -15786,7 +15786,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Engage Worldwide</title>
-		<link>http://qa.connuct.co.uk/portfolio/engage-worldwide/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/engage-worldwide/</link>
 		<pubDate>Thu, 02 Apr 2015 00:29:05 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=1228</guid>
@@ -15898,7 +15898,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Intellectual Capital</title>
-		<link>http://qa.connuct.co.uk/portfolio/intellectual-capital/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/intellectual-capital/</link>
 		<pubDate>Thu, 02 Apr 2015 00:28:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=1229</guid>
@@ -16010,7 +16010,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Envisioned Multimedia</title>
-		<link>http://qa.connuct.co.uk/portfolio/envisioned-multimedia/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/envisioned-multimedia/</link>
 		<pubDate>Thu, 02 Apr 2015 00:26:36 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=1230</guid>
@@ -16121,7 +16121,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Parallel Platforms</title>
-		<link>http://qa.connuct.co.uk/portfolio/parallel-platforms/</link>
+		<link>http://qa.nurseworks.co.in/portfolio/parallel-platforms/</link>
 		<pubDate>Thu, 02 Apr 2015 00:25:45 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_portfolio&#038;p=1231</guid>
@@ -16232,7 +16232,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis n
 	</item>
 	<item>
 		<title>Gold Plan</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=gold-plan</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=gold-plan</link>
 		<pubDate>Fri, 03 Apr 2015 23:12:44 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1338</guid>
@@ -16360,7 +16360,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>30 Day Trial</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=30-day-trial</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=30-day-trial</link>
 		<pubDate>Fri, 03 Apr 2015 23:14:43 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1340</guid>
@@ -16483,7 +16483,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>30 Day</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=30-day</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=30-day</link>
 		<pubDate>Tue, 07 Apr 2015 18:29:20 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1358</guid>
@@ -16606,7 +16606,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Gold</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=gold</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=gold</link>
 		<pubDate>Tue, 07 Apr 2015 18:29:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1360</guid>
@@ -16731,7 +16731,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Beautiful Responsive Design</title>
-		<link>http://qa.connuct.co.uk/?themo_featured=beautiful-responsive-design</link>
+		<link>http://qa.nurseworks.co.in/?themo_featured=beautiful-responsive-design</link>
 		<pubDate>Mon, 09 Nov 2015 17:52:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_featured&#038;p=1892</guid>
@@ -16842,7 +16842,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Retina Ready &amp; Touch Optimized</title>
-		<link>http://qa.connuct.co.uk/?themo_featured=retina-ready-touch-optimized</link>
+		<link>http://qa.nurseworks.co.in/?themo_featured=retina-ready-touch-optimized</link>
 		<pubDate>Mon, 09 Nov 2015 17:53:28 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_featured&#038;p=1894</guid>
@@ -16953,7 +16953,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Powerful Forms</title>
-		<link>http://qa.connuct.co.uk/?themo_featured=powerful-forms</link>
+		<link>http://qa.nurseworks.co.in/?themo_featured=powerful-forms</link>
 		<pubDate>Thu, 02 Jul 2015 17:40:08 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_featured&#038;p=2639</guid>
@@ -16996,7 +16996,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Excellent Support</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=parturient-risus</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=parturient-risus</link>
 		<pubDate>Mon, 02 Mar 2015 04:10:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_service_block&#038;p=87</guid>
@@ -17039,7 +17039,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Hassle less payments</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=sem-inceptos</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=sem-inceptos</link>
 		<pubDate>Mon, 02 Mar 2015 04:14:01 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_service_block&#038;p=89</guid>
@@ -17085,7 +17085,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Unlimited Upgrades</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=aenean-pharetra</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=aenean-pharetra</link>
 		<pubDate>Mon, 02 Mar 2015 04:16:45 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_service_block&#038;p=92</guid>
@@ -17130,7 +17130,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Fully Featured</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=nullam-quis-risus</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=nullam-quis-risus</link>
 		<pubDate>Fri, 06 Mar 2015 02:53:19 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_service_block&#038;p=1020</guid>
@@ -17178,7 +17178,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Premium</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=premium</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=premium</link>
 		<pubDate>Tue, 07 Apr 2015 18:29:52 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1362</guid>
@@ -17303,7 +17303,7 @@ VIP Access]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Business</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=business</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=business</link>
 		<pubDate>Tue, 07 Apr 2015 18:30:09 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1364</guid>
@@ -17427,7 +17427,7 @@ Fast Turnaround]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Basic</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=basic</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=basic</link>
 		<pubDate>Tue, 07 Apr 2015 18:30:32 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1366</guid>
@@ -17550,7 +17550,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>15 Day Trial</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=15-day-trial</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=15-day-trial</link>
 		<pubDate>Tue, 07 Apr 2015 18:32:58 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1369</guid>
@@ -17689,7 +17689,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Basic Plan</title>
-		<link>http://qa.connuct.co.uk/?themo_pricing_plans=basic-plan-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_pricing_plans=basic-plan-2</link>
 		<pubDate>Tue, 07 Apr 2015 18:34:04 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/entrepreneur/?post_type=themo_pricing_plans&#038;p=1371</guid>
@@ -17828,7 +17828,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Shift tracking</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=stunning-showcases</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=stunning-showcases</link>
 		<pubDate>Sun, 08 Nov 2015 20:11:00 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1788</guid>
@@ -17868,7 +17868,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Track your requests</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=fully-customizable</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=fully-customizable</link>
 		<pubDate>Sun, 08 Nov 2015 20:11:38 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1790</guid>
@@ -17912,7 +17912,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Easy to request</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=engaging-tours</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=engaging-tours</link>
 		<pubDate>Sun, 08 Nov 2015 20:12:21 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1792</guid>
@@ -17956,7 +17956,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Manual Verification</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=exquisite-design</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=exquisite-design</link>
 		<pubDate>Sun, 08 Nov 2015 20:12:55 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1794</guid>
@@ -18000,7 +18000,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Easy to Register</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=full-demo-content</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=full-demo-content</link>
 		<pubDate>Sun, 08 Nov 2015 20:13:29 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1796</guid>
@@ -18043,7 +18043,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Fast cloud upload</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=fast-cloud-upload</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=fast-cloud-upload</link>
 		<pubDate>Sun, 08 Nov 2015 22:05:33 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1830</guid>
@@ -18089,7 +18089,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Smart search</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=smart-search</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=smart-search</link>
 		<pubDate>Sun, 08 Nov 2015 22:05:53 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1832</guid>
@@ -18135,7 +18135,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Full analytics</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=full-analytics</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=full-analytics</link>
 		<pubDate>Sun, 08 Nov 2015 22:06:18 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1834</guid>
@@ -18178,7 +18178,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Full hosted and secure</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=full-hosted-and-secure</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=full-hosted-and-secure</link>
 		<pubDate>Sun, 08 Nov 2015 22:07:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1836</guid>
@@ -18221,7 +18221,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>High resolution</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=high-resolution</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=high-resolution</link>
 		<pubDate>Sun, 08 Nov 2015 22:08:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1838</guid>
@@ -18264,7 +18264,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Social Integration</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=social-integration</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=social-integration</link>
 		<pubDate>Sun, 08 Nov 2015 22:08:32 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1840</guid>
@@ -18307,7 +18307,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Packed with Features</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=packed-with-features</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=packed-with-features</link>
 		<pubDate>Mon, 09 Nov 2015 18:47:26 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1902</guid>
@@ -18354,7 +18354,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Unlimited Use</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=unlimited-use</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=unlimited-use</link>
 		<pubDate>Mon, 09 Nov 2015 18:47:54 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1904</guid>
@@ -18401,7 +18401,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Excellent Support</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=excellent-support</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=excellent-support</link>
 		<pubDate>Mon, 09 Nov 2015 19:36:52 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1914</guid>
@@ -18448,7 +18448,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Project Strategy</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=project-strategy</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=project-strategy</link>
 		<pubDate>Mon, 09 Nov 2015 22:03:14 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1951</guid>
@@ -18495,7 +18495,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Web and Mobile Development</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=web-and-mobile-development</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=web-and-mobile-development</link>
 		<pubDate>Mon, 09 Nov 2015 22:03:44 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1953</guid>
@@ -18542,7 +18542,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>User Experience</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=user-experience</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=user-experience</link>
 		<pubDate>Mon, 09 Nov 2015 22:04:07 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1955</guid>
@@ -18589,7 +18589,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Mobile Interface Design</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=mobile-interface-design</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=mobile-interface-design</link>
 		<pubDate>Mon, 09 Nov 2015 22:04:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=1957</guid>
@@ -18636,7 +18636,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Flexible Schedule</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=flexible-schedule</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=flexible-schedule</link>
 		<pubDate>Wed, 11 Nov 2015 19:16:28 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2025</guid>
@@ -18675,7 +18675,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>New Apple Computer</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=new-apple-computer</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=new-apple-computer</link>
 		<pubDate>Wed, 11 Nov 2015 19:17:04 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2027</guid>
@@ -18718,7 +18718,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Paid Holidays and Travel Expenses</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=paid-holidays-and-travel-expenses</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=paid-holidays-and-travel-expenses</link>
 		<pubDate>Wed, 11 Nov 2015 19:17:21 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2029</guid>
@@ -18761,7 +18761,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Open Cafeteria</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=open-cafeteria</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=open-cafeteria</link>
 		<pubDate>Wed, 11 Nov 2015 19:17:41 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2031</guid>
@@ -18804,7 +18804,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Competitive Salary</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=competitive-salary</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=competitive-salary</link>
 		<pubDate>Wed, 11 Nov 2015 19:18:04 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2033</guid>
@@ -18847,7 +18847,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Team Building Camps</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=team-building-camps</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=team-building-camps</link>
 		<pubDate>Wed, 11 Nov 2015 19:18:25 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2035</guid>
@@ -18890,7 +18890,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>User Experience</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=user-experience-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=user-experience-2</link>
 		<pubDate>Mon, 30 Nov 2015 21:41:53 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_service_block&#038;p=2491</guid>
@@ -18937,7 +18937,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Rapid Deployment</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=early-adopters</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=early-adopters</link>
 		<pubDate>Mon, 30 Nov 2015 21:42:50 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_service_block&#038;p=2493</guid>
@@ -18984,7 +18984,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Niche Market</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=niche-market</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=niche-market</link>
 		<pubDate>Mon, 30 Nov 2015 21:43:55 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_service_block&#038;p=2495</guid>
@@ -19031,7 +19031,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Creative Solutions</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=lean-startup</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=lean-startup</link>
 		<pubDate>Mon, 30 Nov 2015 21:44:36 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_service_block&#038;p=2497</guid>
@@ -19078,7 +19078,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Community Answers</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=community-answers</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=community-answers</link>
 		<pubDate>Wed, 25 Jan 2017 03:19:14 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2970</guid>
@@ -19117,7 +19117,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Workshops</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=workshops</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=workshops</link>
 		<pubDate>Wed, 25 Jan 2017 03:19:58 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2972</guid>
@@ -19156,7 +19156,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Theme Support</title>
-		<link>http://qa.connuct.co.uk/?themo_service_block=theme-support</link>
+		<link>http://qa.nurseworks.co.in/?themo_service_block=theme-support</link>
 		<pubDate>Wed, 25 Jan 2017 03:20:21 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_service_block&#038;p=2974</guid>
@@ -19195,7 +19195,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Kim Smith</title>
-		<link>http://qa.connuct.co.uk/?themo_testimonials=kim-smith</link>
+		<link>http://qa.nurseworks.co.in/?themo_testimonials=kim-smith</link>
 		<pubDate>Mon, 02 Mar 2015 04:05:52 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_testimonials&#038;p=78</guid>
@@ -19299,7 +19299,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Connecting  Professionals  with  care homes</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=connecting-care-givers-with-car-ehomes</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=connecting-care-givers-with-car-ehomes</link>
 		<pubDate>Sun, 08 Nov 2015 20:00:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=1771</guid>
@@ -19422,7 +19422,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Register on Mobile App to find Work</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=launch-your-app-with-style</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=launch-your-app-with-style</link>
 		<pubDate>Sat, 07 Nov 2015 20:02:25 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=1774</guid>
@@ -19545,7 +19545,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>John Williams</title>
-		<link>http://qa.connuct.co.uk/?themo_testimonials=john-williams</link>
+		<link>http://qa.nurseworks.co.in/?themo_testimonials=john-williams</link>
 		<pubDate>Sun, 08 Nov 2015 20:15:12 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_testimonials&#038;p=1799</guid>
@@ -19653,7 +19653,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Liz James</title>
-		<link>http://qa.connuct.co.uk/?themo_testimonials=liz-james</link>
+		<link>http://qa.nurseworks.co.in/?themo_testimonials=liz-james</link>
 		<pubDate>Sun, 08 Nov 2015 20:15:50 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_testimonials&#038;p=1802</guid>
@@ -19761,7 +19761,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>App Thumb Slide 1</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=app-thumb-slide-1</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=app-thumb-slide-1</link>
 		<pubDate>Sun, 08 Nov 2015 20:18:14 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1806</guid>
@@ -19800,7 +19800,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Cloud software</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=cloud-software</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=cloud-software</link>
 		<pubDate>Sun, 08 Nov 2015 22:04:19 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=1827</guid>
@@ -19923,7 +19923,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Chris Anderson</title>
-		<link>http://qa.connuct.co.uk/?themo_team=sheryl-graham</link>
+		<link>http://qa.nurseworks.co.in/?themo_team=sheryl-graham</link>
 		<pubDate>Mon, 09 Nov 2015 22:06:53 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_team&#038;p=1959</guid>
@@ -20047,7 +20047,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Sheryl Graham</title>
-		<link>http://qa.connuct.co.uk/?themo_team=sheryl-graham-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_team=sheryl-graham-2</link>
 		<pubDate>Mon, 09 Nov 2015 22:08:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_team&#038;p=1965</guid>
@@ -20171,7 +20171,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Susan Cox</title>
-		<link>http://qa.connuct.co.uk/?themo_team=susan-cox</link>
+		<link>http://qa.nurseworks.co.in/?themo_team=susan-cox</link>
 		<pubDate>Mon, 09 Nov 2015 22:08:38 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_team&#038;p=1967</guid>
@@ -20295,7 +20295,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Experience Retina.</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=home-product</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=home-product</link>
 		<pubDate>Wed, 18 Nov 2015 22:04:47 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_slider&#038;p=2207</guid>
@@ -20422,7 +20422,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Sandra Thompson</title>
-		<link>http://qa.connuct.co.uk/?themo_testimonials=sandra-thompson</link>
+		<link>http://qa.nurseworks.co.in/?themo_testimonials=sandra-thompson</link>
 		<pubDate>Fri, 20 Nov 2015 03:58:18 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_testimonials&#038;p=2299</guid>
@@ -20462,7 +20462,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Immerse Yourself</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=this-is-stratus</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=this-is-stratus</link>
 		<pubDate>Tue, 08 Dec 2015 17:51:03 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_slider&#038;p=2712</guid>
@@ -20605,7 +20605,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Sandra Thompson</title>
-		<link>http://qa.connuct.co.uk/?themo_testimonials=sandra-thompson-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_testimonials=sandra-thompson-2</link>
 		<pubDate>Wed, 09 Dec 2015 19:33:55 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_testimonials&#038;p=2743</guid>
@@ -20647,7 +20647,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>We&#039;re here to help</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=were-here-to-help</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=were-here-to-help</link>
 		<pubDate>Wed, 25 Jan 2017 03:13:06 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=2968</guid>
@@ -20750,7 +20750,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Coming Soon</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=coming-soon</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=coming-soon</link>
 		<pubDate>Wed, 25 Jan 2017 03:25:10 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=2976</guid>
@@ -20849,7 +20849,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>New Arrivals</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=new-arrivals</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=new-arrivals</link>
 		<pubDate>Wed, 25 Jan 2017 03:32:52 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=2979</guid>
@@ -20956,7 +20956,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Sale On Now!</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=sale-on-now</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=sale-on-now</link>
 		<pubDate>Wed, 25 Jan 2017 03:35:16 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=2981</guid>
@@ -21063,7 +21063,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Convenient way to find Professionals</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=be-there-when-it-happens</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=be-there-when-it-happens</link>
 		<pubDate>Thu, 26 Jan 2017 02:06:49 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_slider&#038;p=2986</guid>
@@ -21174,10 +21174,10 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Reliable and Transparent</title>
-		<link>http://qa.connuct.co.uk/?themo_slider=be-there-when-it-happens-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_slider=be-there-when-it-happens-2</link>
 		<pubDate>Tue, 22 Aug 2017 04:36:29 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
-		<guid isPermaLink="false">http://qa.connuct.co.uk/?post_type=themo_slider&#038;p=3088</guid>
+		<guid isPermaLink="false">http://qa.nurseworks.co.in/?post_type=themo_slider&#038;p=3088</guid>
 		<description></description>
 		<content:encoded><![CDATA[We help fulfil your short term professional staffing requirements reliably. Download App and start posting your requirements. It is that simple!]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -21289,7 +21289,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Stratus looks great on all devices</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=pursuit-looks-great-on-all-devices</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=pursuit-looks-great-on-all-devices</link>
 		<pubDate>Tue, 03 Mar 2015 22:24:01 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=851</guid>
@@ -21456,7 +21456,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Retina Ready</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=retina-ready</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=retina-ready</link>
 		<pubDate>Tue, 03 Mar 2015 22:25:28 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=855</guid>
@@ -21582,7 +21582,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Stratus provides world class support</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=pursuit-provides-world-class-support</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=pursuit-provides-world-class-support</link>
 		<pubDate>Tue, 03 Mar 2015 22:26:54 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=858</guid>
@@ -21740,7 +21740,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Extremely Customizable</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=extremely-customizable</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=extremely-customizable</link>
 		<pubDate>Tue, 03 Mar 2015 22:28:57 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=861</guid>
@@ -21891,7 +21891,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Use Stratus &amp; Build The Perfect Theme for your Small Business!</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=use-pursuit-build-the-perfect-theme-for-your-business</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=use-pursuit-build-the-perfect-theme-for-your-business</link>
 		<pubDate>Tue, 03 Mar 2015 22:30:07 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=864</guid>
@@ -22038,7 +22038,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Build Your Theme Using Meta Boxes</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=build-your-theme-using-meta-boxes</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=build-your-theme-using-meta-boxes</link>
 		<pubDate>Tue, 03 Mar 2015 22:42:28 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=870</guid>
@@ -22173,7 +22173,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Add Full Width Background Images</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=add-full-width-background-images</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=add-full-width-background-images</link>
 		<pubDate>Tue, 03 Mar 2015 22:44:06 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=873</guid>
@@ -22313,7 +22313,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Unlimited Fonts, Colors, Sidebars</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=unlimited-fonts-colors-sidebars</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=unlimited-fonts-colors-sidebars</link>
 		<pubDate>Tue, 03 Mar 2015 22:47:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=877</guid>
@@ -22456,7 +22456,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Choose from 1000+ Glyphicons</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=choose-from-1000-glyphicons</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=choose-from-1000-glyphicons</link>
 		<pubDate>Tue, 03 Mar 2015 22:48:56 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=880</guid>
@@ -22595,7 +22595,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>Fully Responsive &amp; Device Friendly</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=fully-responsive-device-friendly</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=fully-responsive-device-friendly</link>
 		<pubDate>Tue, 03 Mar 2015 22:52:43 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=883</guid>
@@ -22738,7 +22738,7 @@ Premium Design]]></wp:meta_value>
 	</item>
 	<item>
 		<title>World Class Customer Support</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=world-class-customer-support</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=world-class-customer-support</link>
 		<pubDate>Tue, 03 Mar 2015 22:54:42 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/entrepreneur/?post_type=themo_tour&#038;p=886</guid>
@@ -22887,7 +22887,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>App Thumb Slide 2</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=app-thumb-slide-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=app-thumb-slide-2</link>
 		<pubDate>Sun, 08 Nov 2015 20:18:58 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1809</guid>
@@ -22930,7 +22930,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>App Thumb Slide 3</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=app-thumb-slide-3</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=app-thumb-slide-3</link>
 		<pubDate>Sun, 08 Nov 2015 20:19:43 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1812</guid>
@@ -22973,7 +22973,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>App Thumb Slide 4</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=app-thumb-slide-4</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=app-thumb-slide-4</link>
 		<pubDate>Sun, 08 Nov 2015 20:20:24 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1815</guid>
@@ -23016,7 +23016,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>App Thumb Slide 5</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=app-thumb-slide-5</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=app-thumb-slide-5</link>
 		<pubDate>Sun, 08 Nov 2015 20:21:05 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1818</guid>
@@ -23059,7 +23059,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Studio Apps</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=studio-apps</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=studio-apps</link>
 		<pubDate>Sun, 08 Nov 2015 23:03:10 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1871</guid>
@@ -23107,7 +23107,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Suupra</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=travel-co</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=travel-co</link>
 		<pubDate>Sun, 08 Nov 2015 23:03:39 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1883</guid>
@@ -23155,7 +23155,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>LJ Photos</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=lorem-photos</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=lorem-photos</link>
 		<pubDate>Sun, 08 Nov 2015 23:04:56 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1885</guid>
@@ -23203,7 +23203,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>SaaS monkey</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=saas-monkey</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=saas-monkey</link>
 		<pubDate>Sun, 08 Nov 2015 23:05:20 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1888</guid>
@@ -23251,7 +23251,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>FoodBox LTD</title>
-		<link>http://qa.connuct.co.uk/?themo_thumb_slider=foodbox-ltd</link>
+		<link>http://qa.nurseworks.co.in/?themo_thumb_slider=foodbox-ltd</link>
 		<pubDate>Sun, 08 Nov 2015 23:05:39 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_thumb_slider&#038;p=1890</guid>
@@ -23299,7 +23299,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>User friendly shift allocation &amp; tracking</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=why-youll-love-our-platform</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=why-youll-love-our-platform</link>
 		<pubDate>Sun, 08 Nov 2015 20:05:20 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=1777</guid>
@@ -23414,7 +23414,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Simple one time Verification</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=its-awesome</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=its-awesome</link>
 		<pubDate>Sun, 08 Nov 2015 20:07:44 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=1780</guid>
@@ -23541,7 +23541,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Easy to Register</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=powerful-features</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=powerful-features</link>
 		<pubDate>Sun, 08 Nov 2015 20:09:35 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=1784</guid>
@@ -23660,7 +23660,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Stratus provides world class support</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=entrepreneur-provides-world-class-support</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=entrepreneur-provides-world-class-support</link>
 		<pubDate>Tue, 10 Nov 2015 19:39:56 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=1990</guid>
@@ -23827,7 +23827,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Retina Ready</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=retina-ready-2</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=retina-ready-2</link>
 		<pubDate>Tue, 10 Nov 2015 19:43:47 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=1999</guid>
@@ -23986,7 +23986,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Stays open longer with all-day battery</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=stays-open-longer-with-all-day-battery</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=stays-open-longer-with-all-day-battery</link>
 		<pubDate>Wed, 18 Nov 2015 23:22:38 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_tour&#038;p=2243</guid>
@@ -24109,7 +24109,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Starting at $1299</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=starting-at-1299</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=starting-at-1299</link>
 		<pubDate>Thu, 19 Nov 2015 05:58:00 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_tour&#038;p=2251</guid>
@@ -24243,7 +24243,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Innovative controllers to match</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=next-generation-virtual-reality</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=next-generation-virtual-reality</link>
 		<pubDate>Tue, 08 Dec 2015 18:54:16 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://demo.themovation.com/stratus/?post_type=themo_tour&#038;p=2723</guid>
@@ -24370,7 +24370,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Helps in keeping track &amp; Planning</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=always-know-whats-happening</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=always-know-whats-happening</link>
 		<pubDate>Thu, 26 Jan 2017 02:08:45 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=2988</guid>
@@ -24481,7 +24481,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices nunc e
 	</item>
 	<item>
 		<title>Easy to Use</title>
-		<link>http://qa.connuct.co.uk/?themo_tour=fomo-forget-it</link>
+		<link>http://qa.nurseworks.co.in/?themo_tour=fomo-forget-it</link>
 		<pubDate>Thu, 26 Jan 2017 02:09:54 +0000</pubDate>
 		<dc:creator><![CDATA[user]]></dc:creator>
 		<guid isPermaLink="false">http://import.themovation.com/stratus2/?post_type=themo_tour&#038;p=2990</guid>
