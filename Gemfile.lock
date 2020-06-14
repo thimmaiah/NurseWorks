@@ -234,6 +234,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    image_magick (0.1.9)
     innertube (1.1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -505,6 +506,7 @@ DEPENDENCIES
   faker
   formulaic
   geocoder
+  image_magick
   jbuilder
   letter_opener_web
   listen

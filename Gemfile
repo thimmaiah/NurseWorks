@@ -53,6 +53,7 @@ gem 'daemons'
 
 gem 'administrate-field-active_storage'
 gem 'mini_magick'
+gem 'image_magick'
 
 gem 'aws-sdk-s3'
 gem 'faker'
