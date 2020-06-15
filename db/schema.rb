@@ -492,10 +492,9 @@ ActiveRecord::Schema.define(version: 2020_06_12_105613) do
     t.integer "hospital_id"
     t.boolean "active"
     t.text "image_url"
-    t.string "bank_account", limit: 8
-    t.string "bhim"
-    t.string "payTM"
-    t.string "googlePay"
+    t.string "bank_account", limit: 20
+    t.string "payment_option", limit: 10
+    t.string "upi", limit: 100
     t.boolean "verified"
     t.datetime "auto_selected_date"
     t.decimal "lat", precision: 18, scale: 15

@@ -138,7 +138,7 @@ class UsersController < ApplicationController
                                  :sex, :title, :address, :city, :lat, :lng, :phone, :languages, 
                                  :pref_commute_distance,  
                                  :referal_code, :accept_terms, :hospital_id, :image_url, :verified,
-                                 :active, :bank_account, :push_token, :medical_info, 
+                                 :active, :bank_account, :payment_option, :upi, :push_token, :medical_info, 
                                  :nursing_school_name, :head_nurse,
                                  :work_weekdays, :work_weeknights, :work_weekends, 
                                  :work_weekend_nights, :pause_shifts, :age, :years_of_exp, 
@@ -146,7 +146,7 @@ class UsersController < ApplicationController
                                  :avail_part_time, :shifts_per_month, :conveyence, :pref_shift_duration, 
                                  :pref_shift_time, 
                                  :exp_shift_rate, :public_profile, :avail_full_time, 
-                                 :currently_permanent_staff, :NUID,
+                                 :currently_permanent_staff, :NUID, 
                                  specializations: [], part_time_work_days: [])
   end
 end
