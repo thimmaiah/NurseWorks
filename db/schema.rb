@@ -248,6 +248,8 @@ ActiveRecord::Schema.define(version: 2020_06_12_105613) do
     t.integer "user_id"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.string "staff_type", limit: 10
+    t.integer "shift_duration" 
     t.string "role", limit: 20
     t.string "speciality", limit: 100
     t.string "on"
@@ -357,11 +359,11 @@ ActiveRecord::Schema.define(version: 2020_06_12_105613) do
     t.integer "hospital_id"
     t.integer "user_id"
     t.datetime "start_date"
+    t.string "staff_type", limit: 10
     t.datetime "end_date"
     t.integer "shift_duration"
     t.float "rate_per_hour"
     t.string "request_status", limit: 20
-    t.string "staff_type", limit: 10
     t.float "auto_deny_in"
     t.integer "response_count"
     t.string "payment_status", limit: 20

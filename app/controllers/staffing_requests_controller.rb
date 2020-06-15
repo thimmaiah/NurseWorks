@@ -9,6 +9,14 @@ class StaffingRequestsController < ApplicationController
     if(params[:recurring_request_id].present?)
       @staffing_requests = @staffing_requests.where(recurring_request_id: params[:recurring_request_id])
     end
+
+    if params[:filterStartDate].present?
+      @staffing_requests = @staffing_requests.where("start_date >= ?", params[:filterStartDate]) 
+    end
+    if params[:filterEndDate].present?
+      @staffing_requests = @staffing_requests.where("end_date <= ?", params[:filterEndDate]) 
+    end
+
     @staffing_requests = @staffing_requests.open.order("staffing_requests.start_date asc").page(@page).per(@per_page)
     #@staffing_requests = @staffing_requests.joins(:user, :hospital)
     render json: @staffing_requests.includes(:hospital), include: "hospital", each_serializer: StaffingRequestMiniSerializer
