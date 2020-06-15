@@ -28,7 +28,7 @@ class ShiftCreatorJob < BaseQueuedJob
         end
         
       else
-        logger.error "ShiftCreatorJob: No nurse found for Staffing Request #{staffing_request.id}"
+        logger.error "ShiftCreatorJob: No nurse found for Staffing Request #{staffing_request.id}, #{ap staffing_request.select_user_audit}"
         if(staffing_request.shift_status != "Not Found")
           ShiftMailer.no_shift_found(staffing_request).deliver
         end
@@ -103,9 +103,9 @@ class ShiftCreatorJob < BaseQueuedJob
 
     nurses = []
     if staffing_request.staff_type == "Temp"
-      nurses = staffing_request.hospital.temp_nurses
+      nurses = staffing_request.hospital.temp_nurses.verified
     elsif staffing_request.staff_type == "Perm"
-      nurses = staffing_request.hospital.perm_nurses
+      nurses = staffing_request.hospital.perm_nurses.verified
     end
 
     # Check if the care home has preferred care givers
@@ -150,27 +150,27 @@ class ShiftCreatorJob < BaseQueuedJob
       day_of_week = Date::ABBR_DAYNAMES[staffing_request.start_date.wday]
       if ! user.part_time_work_days.include?(day_of_week)
         day_of_week_ok = false
-        audit["day_of_week_ok"] = "Cannot work on #{day_of_week}"
+        audit["day_of_week_ok"] = "No. Cannot work on #{day_of_week}"
       end
 
       date_ok = true
       if staffing_request.start_date.on_weekday? 
         if staffing_request.night_shift_minutes > 0 && !user.work_weeknights 
           date_ok = false
-          audit["date_ok"] = "Cannot work weeknights"
+          audit["date_ok"] = "No. Cannot work weeknights"
         end
         if staffing_request.day_shift_minutes > 0 && !user.work_weekdays 
           date_ok = false
-          audit["date_ok"] = "Cannot work weekdays"
+          audit["date_ok"] = "No. Cannot work weekdays"
         end
       elsif staffing_request.start_date.on_weekend? 
         if staffing_request.night_shift_minutes > 0 && !user.work_weekend_nights 
           date_ok = false
-          audit["date_ok"] = "Cannot work weekend nights"
+          audit["date_ok"] = "No. Cannot work weekend nights"
         end
         if staffing_request.day_shift_minutes > 0 && !user.work_weekends 
           date_ok = false
-          audit["date_ok"] = "Cannot work weekends"
+          audit["date_ok"] = "No. Cannot work weekends"
         end
       end
 

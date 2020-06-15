@@ -6,12 +6,8 @@ Given(/^the shift creator job runs$/) do
   puts "\n#{@shift.to_json}\n"
 end
 
-Given("the hospital has a preferred care giver") do
-  HospitalNurseMapping.where(user_id: @user.id).update_all(preferred: true)
-end
-
-Then("A shift must be created for the preferred care giver for the request") do
-  @shift.user_id.should == @user.id
+Then("A shift must be created for the preferred nurse for the request") do
+  @shift.user_id.should == @preferred_nurse.id
 end
 
 

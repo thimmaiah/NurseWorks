@@ -1,13 +1,24 @@
 
 Given("the nurse is mapped to the hospital") do
   User.temps.each do |user|
-    HospitalNurseMapping.create(hospital_id: @hospital.id, user_id: user.id, enabled:true, preferred:false)
+    if user.currently_permanent_staff
+      user.hospital_id = @hospital.id
+      user.save
+    else
+      HospitalNurseMapping.create(hospital_id: @hospital.id, user_id: user.id, enabled:true, preferred:false)
+    end
   end
+  
 end
 
 Given("the nurse is mapped to the hospital of the request") do
   User.temps.each do |user|
-    HospitalNurseMapping.create(hospital_id: @staffing_request.hospital_id, user_id: user.id, enabled:true, preferred:false)
+    if user.currently_permanent_staff
+      user.hospital_id = @staffing_request.hospital.id
+      user.save
+    else
+      HospitalNurseMapping.create(hospital_id: @staffing_request.hospital_id, user_id: user.id, enabled:true, preferred:false)
+    end
   end
 end
 
@@ -66,6 +77,18 @@ Given("there is a request {string} for a sister hospital") do |args|
   puts @staffing_request.to_json
 
 end
+
+Given("the request has a preferred nurse") do
+  if @staffing_request.staff_type == "Perm"
+    @preferred_nurse = @staffing_request.hospital.perm_nurses.first
+  else
+    @preferred_nurse = @staffing_request.hospital.temp_nurses.first
+  end
+
+  @staffing_request.preferred_nurse_id = @preferred_nurse.id
+  @staffing_request.save
+end
+
 
 
 Given("the request can be started now") do

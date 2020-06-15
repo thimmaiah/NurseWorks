@@ -12,11 +12,13 @@ Scenario Outline: New Shift
   And the users auto selected date should be set to today 
 
   Examples:
-  	|request	                                            | user                                                     |
-  	|role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse         |
-    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true|
-    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true|
-    |role=Nurse;speciality=Mental Health;staff_type=Temp  |role=Nurse;specializations=Mental Health;verified=true |
+  	|request	                                            | user                                                  |
+  	|role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=false      |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=false|
+    |role=Nurse;speciality=Mental Health;staff_type=Temp  |role=Nurse;specializations=Mental Health;verified=true;currently_permanent_staff=false |
+  	|role=Nurse;speciality=OT nurse;staff_type=Perm       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=true       |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Perm |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=true |
+    |role=Nurse;speciality=Mental Health;staff_type=Perm  |role=Nurse;specializations=Mental Health;verified=true;currently_permanent_staff=true  |
   	
 
 
@@ -27,20 +29,20 @@ Scenario Outline: New Shift for preferred care givers
   Given there is a user "<user>"
   Given there is a user "<user>"
   Given the nurse is mapped to the hospital  
-  Given the hospital has a preferred care giver  
+  Given the request has a preferred nurse  
   And the shift creator job runs
-  Then A shift must be created for the preferred care giver for the request
+  Then A shift must be created for the preferred nurse for the request
   And the request broadcast status must change to "Sent"
 
   Examples:
-    |request                             | user                            |
-    |role=Nurse                     |role=Nurse;verified=true    |
-    |role=Nurse                          |role=Nurse;verified=true         |
-    |role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
-    |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
-    |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
-    |role=Nurse;speciality=Mental Health |role=Nurse;speciality=Mental Health;verified=true |
-
+    |request                                              | user                                                                                  |
+    |role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=false      |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=false|
+    |role=Nurse;speciality=Mental Health;staff_type=Temp  |role=Nurse;specializations=Mental Health;verified=true;currently_permanent_staff=false |
+  	|role=Nurse;speciality=OT nurse;staff_type=Perm       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=true       |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Perm |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=true |
+    |role=Nurse;speciality=Mental Health;staff_type=Perm  |role=Nurse;specializations=Mental Health;verified=true;currently_permanent_staff=true  |
+  	
 
 Scenario Outline: New Shift for specialist users with no match
   
@@ -52,14 +54,14 @@ Scenario Outline: New Shift for specialist users with no match
   Then the admin user receives an email with "No shift found for request" in the subject
 
   Examples:
-    |request                              | user                            |
-    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true    |    
-    |role=Nurse;speciality=Generalist|role=Nurse;verified=true         |    
-    |role=Nurse;speciality=Generalist     |role=Nurse;speciality=Mental Health;verified=true  |
-    |role=Nurse                           |role=Nurse;speciality=Pediatric Care;verified=true |
-    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true;work_weekdays=false;work_weekends=false  |
-    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true;pause_shifts=true    |
-
+    |request                                              | user                            |
+    |role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=Medical wards/other;currently_permanent_staff=false      |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=OT nurse;verified=true;currently_permanent_staff=false|
+    |role=Nurse;speciality=Mental Health;staff_type=Temp  |role=Nurse;specializations=OT nurse;verified=true;currently_permanent_staff=false |
+  	|role=Nurse;speciality=OT nurse;staff_type=Perm       |role=Nurse;verified=true;specializations=Medical wards/other;currently_permanent_staff=true       |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Perm |role=Nurse;specializations=OT nurse;verified=true;currently_permanent_staff=true |
+    |role=Nurse;speciality=Mental Health;staff_type=Perm  |role=Nurse;specializations=OT nurse;verified=true;currently_permanent_staff=true  |
+  	
 
 Scenario Outline: New Shift for specialist users with no match for weekend
   
@@ -72,8 +74,8 @@ Scenario Outline: New Shift for specialist users with no match for weekend
   Then the admin user receives an email with "No shift found for request" in the subject
 
   Examples:
-    |request                                   | user                            |
-    |role=Nurse;speciality=Generalist     |role=Nurse;verified=true;work_weekends=false  |
+    |request                                          | user                            |
+    |role=Nurse;speciality=OT nurse;staff_type=Temp   |role=Nurse;specializations=OT nurse;verified=true;work_weekends=false  |
     
 
 Scenario Outline: New Shift for specialist users with no match for night hours
@@ -87,9 +89,9 @@ Scenario Outline: New Shift for specialist users with no match for night hours
   Then the admin user receives an email with "No shift found for request" in the subject
 
   Examples:
-    |request                               | user                            |
-    |role=Nurse;speciality=Generalist |role=Nurse;verified=true;work_weeknights=false;work_weekend_nights=false  |
-
+    |request                                          | user                            |
+    |role=Nurse;speciality=OT nurse;staff_type=Temp   |role=Nurse;specializations=OT nurse;verified=true;work_weeknights=false;work_weekend_nights=false  |
+    
     
     
 Scenario Outline: New Shift for manual assignment hospitals
@@ -107,9 +109,9 @@ Scenario Outline: New Shift for manual assignment hospitals
 
   Examples:
     |request                                      | user                          |
-    |role=Nurse;manual_assignment_flag=true       |role=Nurse;verified=true       |    
-    |role=Nurse;manual_assignment_flag=true  |role=Nurse;verified=true  |    
-
+    |role=Nurse;speciality=OT nurse;staff_type=Temp;manual_assignment_flag=true       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=false      |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp;manual_assignment_flag=true |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=false|
+    
 
 Scenario Outline: New Shift for unverified users
   
@@ -121,70 +123,21 @@ Scenario Outline: New Shift for unverified users
   Then A shift must not be created for the user for the request
 
   Examples:
-    |request                                        | user                            |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=false  |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=false       |
+    |request                                              | user                            |
+    |role=Nurse;speciality=Mental Health;staff_type=Temp  |role=Nurse;specializations=Mental Health;verified=false;currently_permanent_staff=false |
+  	|role=Nurse;speciality=OT nurse;staff_type=Perm       |role=Nurse;verified=false;specializations=OT nurse;currently_permanent_staff=true       |
 
 
-Scenario Outline: New Shift without care givers
+Scenario Outline: New Shift without nurses
   
   Given there is a request "<request>"
   And the shift creator job runs
   Then the admin user receives an email with "No shift found for request" in the subject
 
   Examples:
-    |request                       | user                            |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=false  |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=false       |
-
-
-Scenario Outline: New Shift when already rejected
-  
-  Given there is a request "<request>"
-  Given there is a user "<user>"
-  Given the nurse is mapped to the hospital
-  And the user has already rejected this request
-  And the shift creator job runs
-  Then A shift must not be created for the user for the request
-  Then the admin user receives an email with "No shift found for request" in the subject
-
-  Examples:
-    |request                                        | user                            |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=true   |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=true        |
-
-Scenario Outline: New Shift when already auto rejected
-  
-  Given there is a request "<request>"
-  Given there is a user "<user>"
-  Given the nurse is mapped to the hospital
-  And the user has already auto rejected this request
-  And the shift creator job runs
-  Then A shift must not be created for the user for the request
-  Then the admin user receives an email with "No shift found for request" in the subject
-
-  Examples:
-    |request                                        | user                            |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=true   |
-    |start_code=1111;end_code=0000 | role=Nurse;verified=true        |
-
-Scenario Outline: New Shift to different user when already rejected
-  
-  Given there is a request "<request>"
-  Given there is a user "<user>"
-  Given the nurse is mapped to the hospital
-  And the user has already rejected this request
-  Given there is a user "<user>"
-  Given the nurse is mapped to the hospital
-  And the shift creator job runs
-  Then A shift must be created for the user for the request
-  And the request broadcast status must change to "Sent"
-  And the users auto selected date should be set to today 
-  
-  Examples:
-    |request                                        | user                            |
-    |role=Nurse;start_code=1111;end_code=0000  | role=Nurse;verified=true   |
-    |role=Nurse;start_code=1111;end_code=0000       | role=Nurse;verified=true        |
+    |request                                              | user                            |
+  	|role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=false      |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=false|
 
 
 Scenario Outline: New Shift when already booked in the same time shift
@@ -201,10 +154,9 @@ Scenario Outline: New Shift when already booked in the same time shift
   Then the admin user receives an email with "No shift found for request" in the subject
   
   Examples:
-    |request          | user                            | other_request     |
-    |role=Nurse  | role=Nurse;verified=true   | role=Nurse   |
-    |role=Nurse  | role=Nurse;verified=true        | role=Nurse   |
-    |role=Nurse  | role=Nurse;verified=true   | role=Nurse   |
+    |request                                              | user                                                                                  | other_request     |
+  	|role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=false      | role=Nurse;speciality=OT nurse;staff_type=Temp       |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=false| role=Nurse;speciality=Pediatric Care;staff_type=Temp |
   
 Scenario Outline: New Shift for Sister Care Home
   
@@ -217,10 +169,6 @@ Scenario Outline: New Shift for Sister Care Home
   And the users auto selected date should be set to today 
 
   Examples:
-    |request                             | user                            |
-    |hospital_id=2;role=Nurse                     |role=Nurse;verified=true    |
-    |hospital_id=2;role=Nurse                          |role=Nurse;verified=true         |
-    |hospital_id=3;role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
-    |hospital_id=3;role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
-    |hospital_id=3;role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
-    |hospital_id=3;role=Nurse;speciality=Mental Health |role=Nurse;speciality=Mental Health;verified=true |
+    |request                                                            | user                            |
+  	|hospital_id=2;role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse;currently_permanent_staff=false      |
+    |hospital_id=3;role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true;currently_permanent_staff=false|
