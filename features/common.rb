@@ -1,8 +1,17 @@
 
 Given(/^there is a user "([^"]*)"$/) do |arg1|
+
+  args = Hash[arg1.split(";").map{|kv| kv.split("=")}]
   @user = FactoryGirl.build(:user)
-  key_values(@user, arg1)
+  puts "\n ## #{args}"
+  if args["specializations"]
+    @user.specializations = args["specializations"].split(",")
+    args.tap { |hs| hs.delete("specializations") }
+  end
+  
+  key_values_from_hash(@user, args)
   @user.save!
+
   puts "\n####User####\n"
   puts @user.to_json
 

@@ -186,7 +186,7 @@ FactoryGirl.define do
     nuid_valid {rand(2)}
     head_nurse {rand(2)}
     avail_part_time {rand(2)}
-    part_time_work_days {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].shuffle[0..2]}
+    part_time_work_days {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]}
     avail_full_time {rand(2)}
     public_profile {rand(2)}
     shifts_per_month {avail_part_time ? rand(10) + 1 : 0}

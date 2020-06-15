@@ -131,6 +131,13 @@ module NurseWorksUtils
       entity[k] = v
     end
   end
+
+  def key_values_from_hash(entity, hash)
+    hash.each do |k, v|
+      entity[k] = v
+    end
+  end
+
 end
 
 

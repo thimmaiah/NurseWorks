@@ -12,13 +12,11 @@ Scenario Outline: New Shift
   And the users auto selected date should be set to today 
 
   Examples:
-  	|request	                           | user                            |
-  	|role=Nurse                     |role=Nurse;verified=true    |
-    |role=Nurse                          |role=Nurse;verified=true         |
-  	|role=Nurse;speciality=Generalist    |role=Nurse;verified=true         |
-    |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
-    |role=Nurse;speciality=Pediatric Care|role=Nurse;speciality=Pediatric Care;verified=true|
-    |role=Nurse;speciality=Mental Health |role=Nurse;speciality=Mental Health;verified=true |
+  	|request	                                            | user                                                     |
+  	|role=Nurse;speciality=OT nurse;staff_type=Temp       |role=Nurse;verified=true;specializations=OT nurse         |
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true|
+    |role=Nurse;speciality=Pediatric Care;staff_type=Temp |role=Nurse;specializations=Pediatric Care;verified=true|
+    |role=Nurse;speciality=Mental Health;staff_type=Temp  |role=Nurse;specializations=Mental Health;verified=true |
   	
 
 

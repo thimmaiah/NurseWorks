@@ -27,7 +27,6 @@ Given(/^a unsaved request "([^"]*)"$/) do |args|
   @staffing_request.created_at = Time.now - 1.day
   @staffing_request.updated_at = Time.now - 1.day
   @staffing_request.start_date = @staffing_request.start_date.change({hour:3.5})
-  @staffing_request.end_date = @staffing_request.end_date.change({hour:13.5})
   key_values(@staffing_request, args)
   
   @staffing_request.hospital = @hospital if @staffing_request.hospital_id == nil

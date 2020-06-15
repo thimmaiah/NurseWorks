@@ -136,6 +136,7 @@ class ShiftCreatorJob < BaseQueuedJob
       audit = {}
 
       audit["email"] = user.email
+      audit["user_id"] = user.id
 
       if staffing_request.preferred_nurse_id == user.id
         audit["preferred_nurse"] = "Yes"
@@ -145,7 +146,13 @@ class ShiftCreatorJob < BaseQueuedJob
 
       role_ok = (user.role == staffing_request.role && !user.specializations.grep(/#{staffing_request.speciality}/).empty?)
       audit["role_ok"] = role_ok ? "Yes" : "No"
-      
+
+      day_of_week = Date::ABBR_DAYNAMES[staffing_request.start_date.wday]
+      if ! user.part_time_work_days.include?(day_of_week)
+        day_of_week_ok = false
+        audit["day_of_week_ok"] = "Cannot work on #{day_of_week}"
+      end
+
       date_ok = true
       if staffing_request.start_date.on_weekday? 
         if staffing_request.night_shift_minutes > 0 && !user.work_weeknights 

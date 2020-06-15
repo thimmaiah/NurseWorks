@@ -46,7 +46,7 @@ class StaffingRequestsController < ApplicationController
 
   # GET /staffing_requests/1
   def show
-    render json: @staffing_request, include: "user,hospital,accepted_shift"
+    render json: @staffing_request
   end
 
 
