@@ -1,6 +1,8 @@
 class ShiftCreatorJob < BaseQueuedJob
   queue_as :default
 
+  SHIFT_ACCEPT_WAIT_TIME = eval(ENV['SHIFT_ACCEPT_WAIT_TIME'])
+
   def book_shift(staffing_request)
 
     if ( (Time.now.hour > 22 || Time.now.hour < 8) && staffing_request.start_date > Time.now + 1.day && Rails.env != "test")
@@ -13,9 +15,18 @@ class ShiftCreatorJob < BaseQueuedJob
       logger.debug "ShiftCreatorJob: selected_nurses = #{selected_nurses}"
       # If we find a suitable temp - create a shift
       if selected_nurses.present? 
+
         selected_nurses.each do |nurse|
           Shift.create_shift(nurse, staffing_request)
         end
+
+        # This will create a job that will select the winning shift of all the 
+        # wait listed ones. It will do so after an delay of SHIFT_ACCEPT_WAIT_TIME 
+        # of the shifts being created        
+        if staffing_request.staff_type == 'Temp'
+          ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(staffing_request.id, "AcceptWaitListed")
+        end
+        
       else
         logger.error "ShiftCreatorJob: No nurse found for Staffing Request #{staffing_request.id}"
         if(staffing_request.shift_status != "Not Found")

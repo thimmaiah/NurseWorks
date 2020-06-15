@@ -9,8 +9,6 @@ class HospitalDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    city: Field::Select.with_options(collection: Hospital::ZONES),
-    
     users: Field::HasMany,
     staffing_requests: Field::HasMany.with_options(limit: 10, sort_by: :start_date),
     hospital_nurse_mappings: Field::HasMany,

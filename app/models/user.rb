@@ -21,6 +21,8 @@ class User < ApplicationRecord
   serialize :specializations, Array
   serialize :part_time_work_days, Array
 
+  STAFF_TYPE = ["Perm", "Temp"]
+  
   SEX = ["M", "F"]
   
   CONVEYENCE = ["Public transport", "Auto", "Own 2 wheeler", "Someone drops me", "I use Uber/Ola", "I own a car"]

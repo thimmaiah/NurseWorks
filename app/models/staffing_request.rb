@@ -13,6 +13,7 @@ class StaffingRequest < ApplicationRecord
   REQ_STATUS = ["Open", "Closed", "Cancelled"]
   BROADCAST_STATUS =["Sent", "Failed"]
   SHIFT_STATUS =["Not Found", "Found"]
+  
 
   belongs_to :hospital
   belongs_to :user
@@ -44,7 +45,6 @@ class StaffingRequest < ApplicationRecord
   scope :manual_assignment, -> {where("manual_assignment_flag = ?", true)}
 
   before_create :set_defaults, :price_estimate
-  after_create :accept_shift_responses
 
   def set_defaults
     # We now have auto approval
@@ -73,15 +73,7 @@ class StaffingRequest < ApplicationRecord
     end
   end
 
-  # This will create a job that will select the winning shift of all the 
-  # wait listed ones. It will do so after an hour of this request being created
-  SHIFT_ACCEPT_WAIT_TIME = eval(ENV['SHIFT_ACCEPT_WAIT_TIME'])
-  def accept_shift_responses    
-    if self.staff_type == 'Temp'
-      ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(self.id, "AcceptWaitListed")
-    end
-  end
-
+  
 
   def request_status_valid
     if( self.request_status_changed? )

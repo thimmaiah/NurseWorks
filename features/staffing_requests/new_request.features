@@ -1,7 +1,7 @@
 Feature: New Requests
   New a request put in by a hospital
 
-Scenario Outline: New Request
+Scenario Outline: New Request Temp
   
   Given there is a hospital "<hospital>" with me as admin "<admin>"
   Given Im logged in 
@@ -11,11 +11,26 @@ Scenario Outline: New Request
   When I click on the request I must see the request details
 
   Examples:
-  	|hospital						                            |admin 						           |request	|
-  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |  |
-  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |  |
-    |name=My hospital;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |po_for_invoice=PO111X  |
-  	
+  	|hospital						                            |admin 						           |request	           |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |staff_type=Temp  |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |staff_type=Temp  |
+    |name=My hospital;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |staff_type=Temp;po_for_invoice=PO111X  |
+
+Scenario Outline: New Request Perm
+
+  Given there is a hospital "<hospital>" with me as admin "<admin>"
+  And the hospital has a permanent nurse
+  Given Im logged in 
+  When I click "View Staffing Requests"
+  When I create a new Staffing Request "<request>"
+  Then the request must be saved
+  When I click on the request I must see the request details
+
+  Examples:
+  	|hospital						                            |admin 						           |request	            |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |staff_type=Perm     |
+  	|name=My hospital;verified=true	                |first_name=Admin;role=Admin |staff_type=Perm     |
+    |name=My hospital;verified=true;po_req_for_invoice=true |first_name=Admin;role=Admin |staff_type=Perm;po_for_invoice=PO111X  |
 
 
 Scenario Outline: New Request for sister hospital

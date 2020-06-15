@@ -195,7 +195,7 @@ When(/^I click on the request I must see the request details$/) do
 end
 
 When(/^I create a new Staffing Request "([^"]*)"$/) do |args|
-  @staffing_request = FactoryGirl.build(:staffing_request)
+  @staffing_request = FactoryGirl.build(:staffing_request, preferred_nurse_id: @perm_nurse.id)
   key_values(@staffing_request, args)
   page.find("#new_staffing_request_btn").click()
 
@@ -207,7 +207,12 @@ When(/^I create a new Staffing Request "([^"]*)"$/) do |args|
   ionic_select(@staffing_request.staff_type, "staff_type", true)
   ionic_select(@staffing_request.shift_duration, "shift_duration", false)
   ionic_select(@staffing_request.hospital.name, "hospital_id", false) if @staffing_request.hospital_id
-  ionic_select(@staffing_request.speciality, "speciality", false)
+  
+  if(@staffing_request.staff_type == 'Perm')
+    ionic_select(@perm_nurse.first_name, "preferred_nurse_id", false)
+  else
+    ionic_select(@staffing_request.speciality, "speciality", false)
+  end
 
   click_on("Save")
   sleep(1)
@@ -221,7 +226,13 @@ Then(/^the request must be saved$/) do
 
   @staffing_request.role.should == last.role
   @staffing_request.shift_duration.should == last.shift_duration
-  @staffing_request.speciality.should == last.speciality
+
+  if @staffing_request.staff_type == 'Perm' 
+    last.preferred_nurse_id.should == @perm_nurse.id
+  else
+    @staffing_request.speciality.should == last.speciality
+  end
+  
   @staffing_request.po_for_invoice.should == last.po_for_invoice
 
   last.start_date.hour.should == 8
@@ -242,6 +253,7 @@ end
 
 
 Then(/^I must see the request details$/) do
+
   expect(page).to have_content(@staffing_request.hospital.name)
   expect(page).to have_content(@staffing_request.user.first_name)
   expect(page).to have_content(@staffing_request.user.last_name)
@@ -249,7 +261,12 @@ Then(/^I must see the request details$/) do
   expect(page).to have_content(@staffing_request.request_status)
   expect(page).to have_content(@staffing_request.start_date.strftime("%d/%m/%Y %H:%M") )
   expect(page).to have_content(@staffing_request.shift_duration )
-  expect(page).to have_content(@staffing_request.speciality)
+
+  if(@staffing_request.hospital_id)
+    expect(page).to have_content(@staffing_request.preferred_nurse.first_name)
+  else
+    expect(page).to have_content(@staffing_request.speciality)
+  end
   expect(page).to have_content(@staffing_request.staff_type)
 end
 

@@ -116,6 +116,11 @@ Given(/^there is a hospital "([^"]*)" with me as admin "([^"]*)"$/) do |hospital
 end
 
 
+Given("the hospital has a permanent nurse") do
+  @perm_nurse = FactoryGirl.build(:user, role: "Nurse", hospital_id: @hospital.id, currently_permanent_staff: true)
+  @perm_nurse.save!
+end
+
 When(/^I click "([^"]*)"$/) do |arg1|
   click_on(arg1)
 end

@@ -409,7 +409,9 @@ namespace :nurse_works do
 
     begin
 
-        Hospital.select(:city).collect(&:city).uniq.each do |city|
+        count = Hospital.count
+        cities = count > 0 ? Hospital.select(:city).collect(&:city).uniq : ["Bengaluru", "Hyderabad"]
+        cities.each do |city|
           ["Nurse"].each do |role|
             User::SPECIALIZATIONS.each do |sp|
               u = FactoryGirl.build(:rate)
