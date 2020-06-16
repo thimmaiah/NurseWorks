@@ -24,6 +24,12 @@ ThinkingSphinx::Index.define :hospital, :with => :real_time do
   has longitude_in_radians, as: :longitude, type: :float
 end
 
+ThinkingSphinx::Index.define :lesson, :with => :real_time do
+  # fields
+  indexes title
+  indexes description
+end
+
 ThinkingSphinx::Index.define :referral, :with => :real_time do
   # fields
   indexes first_name

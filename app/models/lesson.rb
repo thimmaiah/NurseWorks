@@ -1,4 +1,6 @@
 class Lesson < ApplicationRecord
+
+    after_save ThinkingSphinx::RealTime.callback_for(:lesson)
     before_save :embed
 
     def embed
