@@ -10,7 +10,8 @@ class LessonDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     title: Field::Text,
-    youtube_link: Field::String,
+    link: Field::String,
+    link_type: Field::Select.with_options(collection: Lesson::TYPES),   
     description: Field::Text,
     min_nq_score: Field::Number,
     max_nq_score: Field::Number,
@@ -27,7 +28,8 @@ class LessonDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   id
   title
-  youtube_link
+  link
+  link_type
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,7 +37,8 @@ class LessonDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   id
   title
-  youtube_link
+  link
+  link_type
   description
   min_nq_score
   max_nq_score
@@ -49,7 +52,8 @@ class LessonDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
   title
-  youtube_link
+  link
+  link_type
   description
   min_nq_score
   max_nq_score

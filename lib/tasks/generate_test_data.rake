@@ -40,7 +40,8 @@ namespace :nurse_works do
     array_of_objects.each do |v|
       ap v[:youtube_link]
       lesson = FactoryGirl.build(:lesson)
-      lesson.youtube_link = v[:youtube_link]
+      lesson.link = v[:youtube_link]
+      lesson.link_type = "Video"
       lesson.title = v[:title]
       ap lesson
       lesson.save!

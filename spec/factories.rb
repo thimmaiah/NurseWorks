@@ -10,7 +10,8 @@ CITIES = {
 FactoryGirl.define do
   factory :lesson do
     title "MyText"
-    youtube_link "MyString"
+    link "MyString"
+    link_type "Video"
     description {Faker::Company.bs + " " + Faker::Company.bs}
     min_nq_score {rand(3)*10}
     max_nq_score { min_nq_score + 10 + rand(3)*10 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_032314) do
+ActiveRecord::Schema.define(version: 2020_06_16_073116) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,62 +33,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_032314) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "care_home_carer_mappings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "care_home_id"
-    t.integer "user_id"
-    t.boolean "enabled"
-    t.float "distance"
-    t.boolean "manually_created"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "preferred"
-    t.index ["care_home_id"], name: "index_care_home_carer_mappings_on_care_home_id"
-    t.index ["user_id"], name: "index_care_home_carer_mappings_on_user_id"
-  end
-
-  create_table "care_homes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "town", limit: 100
-    t.string "postcode", limit: 8
-    t.float "base_rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "image_url"
-    t.decimal "lat", precision: 18, scale: 15
-    t.decimal "lng", precision: 18, scale: 15
-    t.datetime "deleted_at"
-    t.boolean "verified"
-    t.string "zone", limit: 10
-    t.string "cqc_location", limit: 50
-    t.integer "total_rating"
-    t.integer "rating_count"
-    t.string "bank_account", limit: 8
-    t.string "sort_code", limit: 6
-    t.boolean "accept_bank_transactions"
-    t.datetime "accept_bank_transactions_date"
-    t.string "phone", limit: 12
-    t.string "speciality", limit: 100
-    t.string "care_home_broadcast_group"
-    t.string "sister_care_homes", limit: 30
-    t.string "qr_code", limit: 10
-    t.string "icon_url"
-    t.integer "carer_break_mins", default: 0
-    t.string "vat_number", limit: 50
-    t.string "company_registration_number", limit: 100
-    t.boolean "parking_available"
-    t.string "paid_unpaid_breaks", limit: 10
-    t.integer "break_minutes"
-    t.boolean "meals_provided_on_shift"
-    t.boolean "meals_subsidised"
-    t.string "dress_code"
-    t.boolean "po_req_for_invoice"
-    t.boolean "manual_assignment_flag"
-    t.string "account_payment_terms", limit: 20
-    t.index ["cqc_location"], name: "index_care_homes_on_cqc_location"
-    t.index ["deleted_at"], name: "index_care_homes_on_deleted_at"
-  end
-
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -99,25 +43,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_032314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
-  end
-
-  create_table "cqc_records", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "aka"
-    t.string "address"
-    t.string "postcode"
-    t.string "phone"
-    t.string "website"
-    t.text "service_types"
-    t.text "services"
-    t.string "local_authority"
-    t.string "region"
-    t.string "cqc_url"
-    t.string "cqc_location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cqc_location"], name: "index_cqc_records_on_cqc_location"
-    t.index ["postcode"], name: "index_cqc_records_on_postcode"
   end
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -133,27 +58,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_032314) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
-  end
-
-  create_table "hiring_requests", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "start_date"
-    t.string "start_time", limit: 20
-    t.date "end_date"
-    t.integer "num_of_hours"
-    t.float "rate"
-    t.string "req_type", limit: 20
-    t.integer "user_id"
-    t.integer "hospital_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "hiring_responses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "hiring_request_id"
-    t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "holidays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -233,13 +137,14 @@ ActiveRecord::Schema.define(version: 2020_06_16_032314) do
 
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
-    t.string "youtube_link"
+    t.string "link"
     t.text "description"
     t.integer "min_nq_score"
     t.integer "max_nq_score"
     t.integer "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link_type"
   end
 
   create_table "login_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -283,22 +188,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_032314) do
     t.index ["shift_id"], name: "index_payments_on_shift_id"
     t.index ["staffing_request_id"], name: "index_payments_on_staffing_request_id"
     t.index ["user_id"], name: "index_payments_on_user_id"
-  end
-
-  create_table "post_codes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postcode", limit: 10
-    t.decimal "latitude", precision: 10
-    t.decimal "longitude", precision: 10
-    t.string "postcode_wo_spaces"
-    t.index ["postcode"], name: "index_postcodelatlng_on_postcode"
-  end
-
-  create_table "postcodelatlng", options: "ENGINE=MyISAM DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "postcode", limit: 8, null: false
-    t.decimal "latitude", precision: 18, scale: 15, null: false
-    t.decimal "longitude", precision: 18, scale: 15, null: false
-    t.string "postcode_wo_spaces"
-    t.index ["postcode"], name: "index_postcodelatlng_on_postcode"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -516,46 +405,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_032314) do
     t.index ["hospital_id"], name: "index_staffing_requests_on_hospital_id"
     t.index ["recurring_request_id"], name: "index_staffing_requests_on_recurring_request_id"
     t.index ["user_id"], name: "index_staffing_requests_on_user_id"
-  end
-
-  create_table "staffing_responses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "staffing_request_id"
-    t.integer "user_id"
-    t.string "start_code", limit: 10
-    t.string "end_code", limit: 10
-    t.string "response_status", limit: 20
-    t.boolean "accepted"
-    t.boolean "rated"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "hospital_id"
-    t.string "payment_status", limit: 10
-    t.datetime "deleted_at"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.float "price"
-    t.text "pricing_audit"
-    t.integer "confirm_sent_count"
-    t.date "confirm_sent_at"
-    t.string "confirmed_status", limit: 20
-    t.integer "confirmed_count"
-    t.date "confirmed_at"
-    t.boolean "viewed"
-    t.index ["deleted_at"], name: "index_staffing_responses_on_deleted_at"
-    t.index ["hospital_id"], name: "index_staffing_responses_on_hospital_id"
-    t.index ["staffing_request_id"], name: "index_staffing_responses_on_staffing_request_id"
-    t.index ["user_id"], name: "index_staffing_responses_on_user_id"
-  end
-
-  create_table "stats", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name", limit: 100
-    t.string "description"
-    t.string "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "as_of_date"
-    t.string "date_range", limit: 40
-    t.string "stat_type", limit: 20
   end
 
   create_table "trainings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|

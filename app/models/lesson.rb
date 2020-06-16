@@ -3,7 +3,9 @@ class Lesson < ApplicationRecord
     after_save ThinkingSphinx::RealTime.callback_for(:lesson)
     before_save :embed
 
+    TYPES = ["Video", "Image"]
+
     def embed
-        self.youtube_link = self.youtube_link.delete("?").gsub("watchv=", "embed/")
+        self.link = self.link.delete("?").gsub("watchv=", "embed/")
     end
 end
