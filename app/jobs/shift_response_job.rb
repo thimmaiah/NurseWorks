@@ -25,7 +25,7 @@ class ShiftResponseJob < ApplicationJob
     # This returns the next to be selected for the shift among the waitlisted nurses
     # The input must be the list of waitlisted nurses who are sorted by nq_score_normalized
     def next_deserving_nurse(wait_listed_nurses)
-        
+        logger.debug "ShiftResponseJob: next_deserving_nurse #{wait_listed_nurses}"
         # Sort by nq_score_normalized
         wait_listed_nurses = wait_listed_nurses.sort {|n1, n2| n2.nq_score_normalized <=> n1.nq_score_normalized}
         # Get the sum of the nq_score_normalized & weekly_accepted_shifts_sum
@@ -57,11 +57,17 @@ class ShiftResponseJob < ApplicationJob
             # Get the request
             req = StaffingRequest.find(staffing_request_id)
             wait_listed_shifts = req.shifts.wait_listed.includes(:user).order("users.nq_score_normalized desc")
+            logger.debug "ShiftResponseJob: wait_listed_shifts #{wait_listed_shifts.count}"
             # How do we faily allocate shifts ?
             # The higher NQ score should get more shifts, but others should not starve
-            selected_shift = wait_listed_shifts.first
+            wait_listed_nurses = wait_listed_shifts.collect(&:user)
+            selected_nurse = next_deserving_nurse(wait_listed_nurses)
+            logger.debug "ShiftResponseJob: Selected nurse #{selected_nurse}"
+            # Get the shift for the selected nurse
+            selected_shift = wait_listed_shifts.where(user_id: selected_nurse.id).first
+
             if(selected_shift)
-                logger.debug "ShiftResponseJob: Selected Shift #{selected_shift.id} for StaffingRequest #{req.id}"
+                logger.debug "ShiftResponseJob: Selected Shift #{selected_shift} for StaffingRequest #{staffing_request_id}"
                 selected_shift.response_status = "Accepted"
                 selected_shift.save!
                 # Ensure we cancel the other wait listed ones in 4 hours
@@ -70,7 +76,7 @@ class ShiftResponseJob < ApplicationJob
                 logger.debug "ShiftResponseJob: No Shifts found for StaffingRequest #{req.id}"
             end   
         rescue Exception => e
-            logger.error "ShiftResponseJob: Error in accept_wait_list"
+            logger.error "ShiftResponseJob: Error in accept_wait_list #{e.message}"
             logger.error e.backtrace
         end    
     end

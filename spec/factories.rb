@@ -181,6 +181,12 @@ FactoryGirl.define do
     confirmed_at { Time.now }
     sign_in_count { 5 }
     role {"Nurse"}
+
+    nq_score {(rand(10) + 1) * 10}
+    nq_score_base {nq_score}
+    nq_score_dynamic {0}
+    nq_score_normalized {nq_score}
+    
     sex { User::SEX[rand(2)]}
     accept_terms {true}
     # pref_commute_distance {User::COMMUTE_DISTANCE[rand(5)]}
