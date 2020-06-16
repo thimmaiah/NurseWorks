@@ -7,6 +7,15 @@ CITIES = {
 }
 
 FactoryGirl.define do
+  factory :lesson do
+    title "MyText"
+    youtube_link "MyString"
+    description "MyText"
+    min_nq_score ""
+    max_nq_score "MyString"
+    int "MyString"
+    quiz_id ""
+  end
   
   factory :hospital_nurse_mapping do
     hospital_id 1

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :lessons
   resources :schools
   resources :contacts
   resources :references
