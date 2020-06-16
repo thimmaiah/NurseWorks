@@ -26,7 +26,7 @@ class ShiftSubscriber
 
 
   def self.broadcast_shift(shift)
-    if(shift.response_status != 'Rejected')
+    if(shift.response_status != 'Rejected' && shift.staffing_request.staff_type == 'Temp')
       Rails.logger.debug "ShiftSubscriber: Broadcasting shift #{shift.id}"
       PushNotificationJob.new.perform(shift)
       ShiftMailer.shift_notification(shift).deliver_later
@@ -43,7 +43,9 @@ class ShiftSubscriber
   end
 
   def self.shift_accepted(shift)    
+
     if(shift.response_status == "Accepted")
+    
       shift.user.total_accepted_shifts = shift.user.total_accepted_shifts + 1
       shift.user.weekly_accepted_shifts = shift.user.weekly_accepted_shifts + 1
       
@@ -53,6 +55,7 @@ class ShiftSubscriber
       ShiftMailer.send_codes_to_broadcast_group(shift).deliver
     
     end
+    
   end
 
   def self.close_shift(shift, force=false)

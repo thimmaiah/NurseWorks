@@ -24,7 +24,11 @@ class ShiftCreatorJob < BaseQueuedJob
         # wait listed ones. It will do so after an delay of SHIFT_ACCEPT_WAIT_TIME 
         # of the shifts being created        
         if staffing_request.staff_type == 'Temp'
-          ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(staffing_request.id, "AcceptWaitListed")
+          if Rails.env == "test"
+            ShiftResponseJob.perform_later(staffing_request.id, "AcceptWaitListed")
+          else
+            ShiftResponseJob.set(wait: SHIFT_ACCEPT_WAIT_TIME).perform_later(staffing_request.id, "AcceptWaitListed")
+          end
         end
         
       else

@@ -112,7 +112,8 @@ class Shift < ApplicationRecord
       self.response_status = "Rejected"
       self.reason = reason
     end
-    self.save
+    self.save!
+    return true
   end
 
   def update_dates

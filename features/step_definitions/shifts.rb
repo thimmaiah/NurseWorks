@@ -6,6 +6,13 @@ Given(/^the shift creator job runs$/) do
   puts "\n#{@shift.to_json}\n"
 end
 
+Given(/^the shift response job runs$/) do
+  @staffing_request.reload
+  puts "\n####### #{Shift.all.to_json}\n"
+  ShiftResponseJob.new.perform(@staffing_request.id)
+end
+
+
 Then("A shift must be created for the preferred nurse for the request") do
   @shift.user_id.should == @preferred_nurse.id
 end

@@ -8,6 +8,8 @@ class ShiftResponseJob < ApplicationJob
   
     def perform(staffing_request_id, type="AcceptWaitListed")
       
+      logger.debug "##### ShiftResponseJob started for req #{staffing_request_id} #{type}"
+
       if(type == "AcceptWaitListed")
         accept_wait_list(staffing_request_id)
       elsif(type == "CancelWaitListed")
@@ -59,16 +61,16 @@ class ShiftResponseJob < ApplicationJob
             # The higher NQ score should get more shifts, but others should not starve
             selected_shift = wait_listed_shifts.first
             if(selected_shift)
-                logger.debug "Selected Shift #{selected_shift.id} for StaffingRequest #{req.id}"
+                logger.debug "ShiftResponseJob: Selected Shift #{selected_shift.id} for StaffingRequest #{req.id}"
                 selected_shift.response_status = "Accepted"
                 selected_shift.save!
                 # Ensure we cancel the other wait listed ones in 4 hours
                 ShiftResponseJob.set(wait: SHIFT_CANCEL_WAITLIST_TIME).perform_later(staffing_request_id, "CancelWaitListed")
             else
-                logger.debug "No Shifts found for StaffingRequest #{req.id}"
+                logger.debug "ShiftResponseJob: No Shifts found for StaffingRequest #{req.id}"
             end   
         rescue Exception => e
-            logger.error "Error in ShiftResponseJob: accept_wait_list"
+            logger.error "ShiftResponseJob: Error in accept_wait_list"
             logger.error e.backtrace
         end    
     end
@@ -83,12 +85,12 @@ class ShiftResponseJob < ApplicationJob
             wait_listed_shifts = req.shifts.wait_listed
             # Cancel all the wait listed shifts
             wait_listed_shifts.each do |shift|
-                logger.debug "Cancelling wait listed Shift #{shift.id} for StaffingRequest #{req.id}"
+                logger.debug "ShiftResponseJob: Cancelling wait listed Shift #{shift.id} for StaffingRequest #{req.id}"
                 shift.response_status = "Cancelled"
                 shift.save
             end   
         rescue Exception => e
-            logger.error "Error in ShiftResponseJob: cancel_wait_list"
+            logger.error "ShiftResponseJob: Error in cancel_wait_list"
             logger.error e.backtrace
         end
     end
