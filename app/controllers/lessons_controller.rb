@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :json
 
   def index
     @lessons = Lesson.all
@@ -42,6 +42,7 @@ class LessonsController < ApplicationController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:title, :youtube_link, :description, :min_nq_score, :max_nq_score, :int, :quiz_id)
+      params.require(:lesson).permit(:title, :youtube_link, :description, 
+        :min_nq_score, :max_nq_score, :quiz_id)
     end
 end

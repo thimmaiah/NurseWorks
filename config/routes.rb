@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     resources :references
     resources :contacts
+    resources :lessons
     
     resources :schools
     resources :hospital_nurse_mappings

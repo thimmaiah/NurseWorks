@@ -19,9 +19,34 @@ namespace :nurse_works do
     Payment.delete_all
     Rating.delete_all
     Rate.delete_all
+    Lesson.delete_all
     PaperTrail::Version.delete_all
   end
 
+
+  task :generateFakeLessons => :environment do
+    array_of_objects = [
+        { youtube_link: "https://www.youtube.com/embed/BCvIhO-YF8c", title: "How to correctly measure patient’s blood pressure?" }, 
+        { youtube_link: "https://www.youtube.com/embed/BtPvDWSBLQU", title: "How to set up pulse oximetry for a patient correctly" },
+        { youtube_link: "https://www.youtube.com/embed/I2GcL-b0Cxs", title: "How to draw a venous blood sample?" },
+        { youtube_link: "https://www.youtube.com/embed/8z44ryOVEEM", title: "How to draw an arterial blood sample?" },
+        { youtube_link: "https://www.youtube.com/watch?v=XsoVSDpD_7o", title: "How to administer an intramuscular injection"},
+        { youtube_link: "https://www.youtube.com/watch?v=BfP1yZevi1c", title: "How to administer an insulin injection to a patient"},
+        { youtube_link: "https://www.youtube.com/watch?v=f3w-MlDAdg0", title: "How to administer an intradermal injection"},
+        { youtube_link: "https://www.youtube.com/watch?v=FtJr7i7ENMY", title: "How to set up Intubation and Mechanical Ventilation"},
+        { youtube_link: "https://www.youtube.com/watch?v=Ahna48BjmSk", title: "How is a newborn baby attached to a neonatal ventilator in NICU?"}
+    ]
+
+    array_of_objects.each do |v|
+      ap v[:youtube_link]
+      lesson = FactoryGirl.build(:lesson)
+      lesson.youtube_link = v[:youtube_link]
+      lesson.title = v[:title]
+      ap lesson
+      lesson.save!
+    end
+
+  end
 
   task :loadHospitals => :environment do
     file = "#{Rails.root}/lib/tasks/Hospitals.tsv"

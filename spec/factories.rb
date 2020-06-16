@@ -6,14 +6,14 @@ CITIES = {
   #"Mumbai" => ["Chembur", "Powai", "Thane"]
 }
 
+
 FactoryGirl.define do
   factory :lesson do
     title "MyText"
     youtube_link "MyString"
-    description "MyText"
-    min_nq_score ""
-    max_nq_score "MyString"
-    int "MyString"
+    description {Faker::Company.bs + " " + Faker::Company.bs}
+    min_nq_score {rand(3)*10}
+    max_nq_score { min_nq_score + 10 + rand(3)*10 }
     quiz_id ""
   end
   
