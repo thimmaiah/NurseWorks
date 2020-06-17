@@ -17,6 +17,15 @@ Given(/^there is a user "([^"]*)"$/) do |arg1|
 
 end
 
+Given("there are {string} nurses {string} mapped to the hospital of the request") do |count, args|
+  (0..count.to_i).each do |i|
+    steps %Q{
+      Given there is a user "#{args}"
+      Given the nurse is mapped to the hospital of the request
+    }
+  end
+end
+
 
 
 Given(/^the user has a profile$/) do

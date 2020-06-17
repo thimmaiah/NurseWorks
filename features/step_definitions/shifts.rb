@@ -8,7 +8,7 @@ end
 
 Given(/^the shift response job runs$/) do
   @staffing_request.reload
-  puts "\n####### #{Shift.all.to_json}\n"
+  # puts "\n####### #{Shift.all.to_json}\n"
   ShiftResponseJob.new.perform(@staffing_request.id)
 end
 
@@ -385,4 +385,33 @@ Then("the shift is not started") do
   @shift.reload
   @shift.start_code.should == nil
   @shift.start_date.should == nil
+end
+
+
+
+Given("all the shifts have a response as Accepted") do
+  Shift.all.each do |s|
+    s.update_response("Accepted", nil)
+  end
+end
+
+Then("all the shifts are {string}") do |status|
+  Shift.all.each do |s|
+    s.response_status.should == status
+  end
+end
+
+Then("the most preferred shift is {string}") do |string|
+  users = User.temps.order("nq_score_normalized desc")
+  @preferred_nurse = users.first
+  puts "\n##### User nq scores #{users.collect(&:nq_score_normalized)} ######## \n"
+  shift = Shift.accepted.first
+  shift.user_id.should == @preferred_nurse.id
+  puts "\n###### Accepted Shift ######\n"
+  puts shift.to_json
+end
+
+Then("the selected nurse receives an email with {string} in the subject") do |subject|
+  open_email(@preferred_nurse.email)
+  expect(current_email.subject).to include subject
 end
