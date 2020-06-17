@@ -72,6 +72,8 @@ module NurseWorks
     config.active_record.default_timezone = :local
 
     config.colorize_logging = false
+    config.active_storage.service = :amazon
+    
     # config.logstash.formatter = :json_lines
 
     # # Optional, the logger to log writing errors to. Defaults to logging to $stderr

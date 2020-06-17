@@ -71,6 +71,4 @@ Rails.application.configure do
   
   config.action_view.logger = nil
 
-  config.active_storage.service = :local
-
 end
