@@ -1,12 +1,4 @@
-test:
-  service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
-
 local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
-
-staging:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
@@ -16,7 +8,3 @@ amazon:
   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
   region: "ap-south-1"
   bucket: "<%= Rails.env %>.appuploads.lcnurseworks"
-  
-production:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
