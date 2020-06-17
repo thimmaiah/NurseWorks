@@ -62,6 +62,8 @@ class User < ApplicationRecord
   scope :active, -> { where active: true }
   scope :verified, -> { where verified: true }
   scope :avail_part_time, -> { where avail_part_time: true }
+  scope :avail_full_time, -> { where avail_full_time: true }
+  scope :public_profile, -> { where public_profile: true }
 
   before_save :check_verified, :set_perm_staff_flag
   before_create :set_defaults

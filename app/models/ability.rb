@@ -17,8 +17,8 @@ class Ability
         admin_privilages
       when "Employee"
         employee_privilages
-      when "Care Giver", "Nurse"
-        care_giver_privilages  
+      when "Nurse"
+        nurse_privilages  
       else
         guest_privilages
     end
@@ -32,7 +32,7 @@ class Ability
         can :create, User
     end
 
-    def care_giver_privilages
+    def nurse_privilages
         guest_privilages
         can :manage, Shift, :user_id=>@user.id
         can :manage, User, :id=>@user.id
@@ -57,6 +57,7 @@ class Ability
     def admin_privilages
         employee_privilages
         can :manage, Hospital, :id=>@user.hospital_id
+        can :read, User, :public_profile=>true
         can :manage, User, :hospital_id=>@user.hospital_id
         can :create, StaffingRequest
         can :manage, StaffingRequest  do |req| 

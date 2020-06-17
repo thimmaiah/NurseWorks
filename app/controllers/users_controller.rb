@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    #@users = User.all
+    @users = User.verified.public_profile
     render json: @users
   end
 
