@@ -31,13 +31,15 @@ class User < ApplicationRecord
   QUALIFICATIONS = ["A&M Nurse", "G&M / Diploma Nurse", "BSc Nursing", "MSc Nursing / PhD", "Student in Nursing"]
 
   SPECIALIZATIONS = [
-      "Medical wards/other",
-      "OT nurse",
-      "Maternity and Pediatric wards",
-      "Ortho / Surgical wards",
-      "Higher end specialty (ICU / CCU / Onco care)",
-      "Mental health / Psychiatric ward",
-      "Other"
+      "Medical Wards",
+      "Operation Theater",
+      "Medical Ward",
+      "Maternity and Pediatric",
+      "Orthopedics",
+      "Surgical Wards",
+      "ICU and Critical Care",
+      "Oncology Ward",
+      "Respiratory Ward"
   ]
 
   SHIFT_DURATION = [8, 12]
