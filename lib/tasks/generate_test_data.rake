@@ -249,6 +249,15 @@ namespace :nurse_works do
       #puts u.to_xml
       puts "#{u.role} #{u.id}"
 
+      
+      u = FactoryGirl.build(:user)
+      u.email = "nurseworks.operations@gmail.com"
+      u.password = u.email
+      u.role = "Super User"
+      u.save
+      #puts u.to_xml
+      puts "#{u.role} #{u.id}"
+
 
     rescue Exception => exception
       puts exception.backtrace.join("\n")
