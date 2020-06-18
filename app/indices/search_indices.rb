@@ -57,6 +57,7 @@ ThinkingSphinx::Index.define :user, :with => :real_time do
   indexes last_name
   indexes city
   indexes specializations
+  indexes key_qualifications
   indexex phone
 
   # attributes
@@ -67,9 +68,11 @@ ThinkingSphinx::Index.define :user, :with => :real_time do
   has active, :type=>:boolean
   has avail_part_time, :type=>:boolean
   has avail_full_time, :type=>:boolean
+  has public_profile, :type=>:boolean
   has currently_permanent_staff, :type=>:boolean
   has role, :type=>:string
   has auto_selected_date, :type => :timestamp
+  has years_of_exp, :type=>:integer
 end
 
 

@@ -9,8 +9,30 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.verified.public_profile
-    render json: @users
+    @users = User.spx_verified(true).spx_public_profile(true)
+    
+    if(params[:key_qualifications].present?)
+      @users = @users.spx_key_qualifications(Riddle::Query.escape(params[:key_qualifications]))
+    end
+
+    if(params[:specializations].present?)
+      @users = @users.spx_specializations(Riddle::Query.escape(params[:specializations]))
+    end
+
+    if(params[:experience].present?)
+      @users = @users.spx_experience(eval(params[:experience]))
+    end
+
+    if(params[:availability].present?)
+      if(params[:availability] == 'Full Time')
+        @users = @users.spx_avail_full_time(true)
+      elsif (params[:availability] == 'Part Time')
+        @users = @users.spx_avail_part_time(true)
+      end
+      
+    end
+
+    render json: @users.search
   end
 
   # GET /users/1

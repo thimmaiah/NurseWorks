@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include ThinkingSphinx::Scopes
 
   
   has_paper_trail ignore: [:sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :tokens]
@@ -64,6 +65,35 @@ class User < ApplicationRecord
   scope :avail_part_time, -> { where avail_part_time: true }
   scope :avail_full_time, -> { where avail_full_time: true }
   scope :public_profile, -> { where public_profile: true }
+
+
+  sphinx_scope(:spx_specializations) { |spz|
+    {:conditions => {:specializations => spz}}
+  }
+
+  sphinx_scope(:spx_key_qualifications) { |qual|
+    {:conditions => {:key_qualifications => qual}}
+  }
+
+  sphinx_scope(:spx_avail_full_time) { |flag|
+    {:with => {:avail_full_time => flag}}
+  }
+
+  sphinx_scope(:spx_avail_part_time) { |flag|
+    {:with => {:avail_part_time => flag}}
+  }
+
+  sphinx_scope(:spx_public_profile) { |flag|
+    {:with => {:public_profile => flag}}
+  }
+
+  sphinx_scope(:spx_verified) { |flag|
+    {:with => {:verified => flag}}
+  }
+
+  sphinx_scope(:spx_experience) { |exp|
+    {:with => {:years_of_exp => exp}}
+  }
 
   before_save :check_verified, :set_perm_staff_flag
   before_create :set_defaults
