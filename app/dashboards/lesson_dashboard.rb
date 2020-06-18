@@ -18,6 +18,8 @@ class LessonDashboard < Administrate::BaseDashboard
     quiz_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    specializations: CheckboxList.with_options(choices: User::SPECIALIZATIONS),  
+    key_qualifications: CheckboxList.with_options(choices: User::QUALIFICATIONS),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,6 +30,7 @@ class LessonDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   id
   title
+  key_qualifications
   link
   link_type
   ].freeze
@@ -37,6 +40,8 @@ class LessonDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   id
   title
+  key_qualifications
+  specializations
   link
   link_type
   description
@@ -52,6 +57,8 @@ class LessonDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
   title
+  key_qualifications
+  specializations
   link
   link_type
   description

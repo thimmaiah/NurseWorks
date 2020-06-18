@@ -16,6 +16,8 @@ FactoryGirl.define do
     min_nq_score {rand(3)*10}
     max_nq_score { min_nq_score + 10 + rand(3)*10 }
     quiz_id ""
+    key_qualifications {User::QUALIFICATIONS.shuffle[0..1]}
+    specializations {User::SPECIALIZATIONS.shuffle[0..1]}
   end
   
   factory :hospital_nurse_mapping do

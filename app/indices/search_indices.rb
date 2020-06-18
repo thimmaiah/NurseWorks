@@ -29,6 +29,8 @@ ThinkingSphinx::Index.define :lesson, :with => :real_time do
   indexes title
   indexes description
   indexes link_type
+  indexes key_qualifications
+  indexes specializations
 end
 
 ThinkingSphinx::Index.define :referral, :with => :real_time do
