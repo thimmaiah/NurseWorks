@@ -71,16 +71,16 @@ FactoryGirl.define do
 
   factory :rate do
     role "Nurse"
-    nurse_weekday 9
-    hospital_weekday 11
-    nurse_weeknight 11
-    hospital_weeknight 14
-    nurse_weekend 11
-    hospital_weekend 13
-    nurse_weekend_night 12
-    hospital_weekend_night 15
-    nurse_bank_holiday 14
-    hospital_bank_holiday 20    
+    nurse_weekday 90
+    hospital_weekday 110
+    nurse_weeknight 110
+    hospital_weeknight 140
+    nurse_weekend 110
+    hospital_weekend 130
+    nurse_weekend_night 120
+    hospital_weekend_night 150
+    nurse_bank_holiday 140
+    hospital_bank_holiday 200    
   end
 
   factory :rating do
