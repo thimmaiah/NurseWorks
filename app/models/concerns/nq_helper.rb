@@ -24,12 +24,16 @@ module NqHelper
 
     SPECIALIZATIONS = {
         "Other" => 0,
-        "Medical wards/other" => 3,
-        "Maternity and Pediatric wards" => 6,
+        "Medical Ward" => 3,
+        "Operation Theater" => 3,
+        "Maternity and Pediatric" => 6,
         "Mental health / Psychiatric ward" => 10,
-        "Ortho / Surgical wards" =>	10,
+        "Surgical Ward" =>	10,
+        "Orthopedics" => 10,
         "OT nurse" => 15,
-        "Higher end specialty (ICU / CCU / Onco care)" => 18
+        "Oncology Ward" =>15,
+        "Respiratory Ward" => 15,
+        "ICU and Critical Care" => 18
     }
 
     LOCUM = {
@@ -110,11 +114,15 @@ module NqHelper
     # Recomputes the base and dynamic scores for all temp staff
     def self.recompute_scores
         User.temps.each do |u|
-            u.nq_score_base, audit = base_score(u)
-            u.nq_score_dynamic = dynamic_score(u)
-            Rails.logger.debug "#{u.nq_score_base} + #{u.nq_score_dynamic}"
-            u.nq_score = u.nq_score_base + u.nq_score_dynamic
-            u.save
+            begin
+                u.nq_score_base, audit = base_score(u)
+                u.nq_score_dynamic = dynamic_score(u)
+                Rails.logger.debug "#{u.nq_score_base} + #{u.nq_score_dynamic}"
+                u.nq_score = u.nq_score_base + u.nq_score_dynamic
+                u.save
+            rescue => err
+                Rails.logger.debug "Error in computing score for #{u.id}: #{err.message}"
+            end
         end
 
         self.normalize_scores

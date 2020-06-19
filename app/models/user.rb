@@ -31,12 +31,11 @@ class User < ApplicationRecord
   QUALIFICATIONS = ["A&M Nurse", "G&M / Diploma Nurse", "BSc Nursing", "MSc Nursing / PhD", "Student in Nursing"]
 
   SPECIALIZATIONS = [
-      "Medical Wards",
       "Operation Theater",
       "Medical Ward",
       "Maternity and Pediatric",
       "Orthopedics",
-      "Surgical Wards",
+      "Surgical Ward",
       "ICU and Critical Care",
       "Oncology Ward",
       "Respiratory Ward"
