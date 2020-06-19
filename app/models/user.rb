@@ -373,23 +373,4 @@ class User < ApplicationRecord
     self.rating_count > 0 ? self.total_rating / self.rating_count : nil
   end
 
-  def update_spx
-    newSpx = []
-    if(self.specializations.present?)
-        self.specializations.each do |selfSpx|
-          results = {}
-          if(selfSpx.present?)
-            SPECIALIZATIONS.each do |spx|
-              results[spx] = Levenshtein.distance(spx, selfSpx)
-            end
-
-            # puts results.sort_by{|k,v| v}
-            closest = results.sort_by{|k,v| v}[0]
-            newSpx << closest[0]
-          end
-        end
-        return newSpx
-      end
-  end
-
 end

@@ -107,5 +107,5 @@ class StaffingRequest < ApplicationRecord
   def limit_shift_to_pref_nurse
     self.hospital.limit_shift_to_pref_nurse
   end
-  
+
 end
