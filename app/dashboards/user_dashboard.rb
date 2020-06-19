@@ -91,6 +91,7 @@ class UserDashboard < Administrate::BaseDashboard
     :verified,
     :phone_verified,
     :role,
+    :nq_score_normalized,
     :currently_permanent_staff,
     :hospital,
     

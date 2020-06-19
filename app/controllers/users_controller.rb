@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       @users = @users.spx_specializations(Riddle::Query.escape(params[:specializations]))
     end
 
+    if(params[:city].present?)
+      @users = @users.spx_city(Riddle::Query.escape(params[:city]))
+    end
+
     if(params[:experience].present?)
       @users = @users.spx_experience(eval(params[:experience]))
     end

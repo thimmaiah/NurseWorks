@@ -97,6 +97,10 @@ class User < ApplicationRecord
     {:with => {:years_of_exp => exp}}
   }
 
+  sphinx_scope(:spx_city) { |c|
+    {:conditions => {:city => c}}
+  }
+
   before_save :check_verified, :set_perm_staff_flag
   before_create :set_defaults
   before_create :add_unsubscribe_hash
