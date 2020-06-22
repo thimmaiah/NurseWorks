@@ -105,9 +105,13 @@ module NqHelper
         max = User.temps.maximum("nq_score")
         min = User.temps.minimum("nq_score")
         User.temps.each do |u|
-            norm = 1.0 * (u.nq_score - min)/(max - min)
-            u.nq_score_normalized = (norm * 100).ceil
-            u.save
+            begin
+                norm = 1.0 * (u.nq_score - min)/(max - min)
+                u.nq_score_normalized = (norm * 100).ceil
+                u.save
+            rescue => err
+                Rails.logger.debug "Error in normalizing score for #{u.id}: #{err.message}"
+            end
         end
     end
 

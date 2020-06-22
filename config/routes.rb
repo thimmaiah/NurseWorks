@@ -96,6 +96,7 @@ Rails.application.routes.draw do
       post :verify_sms_verification
       post :resend_confirmation
       get :get_initial_data
+      get :get_nurses
       post :reset_password
       post :generate_reset_password_by_sms
       post :reset_password_by_sms      

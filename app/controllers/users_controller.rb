@@ -44,6 +44,17 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+
+  def get_nurses
+    if params[:staff_type] == "Temp"
+      nurses = current_user.hospital.temp_nurses.where(pause_shifts: false)
+    elsif params[:staff_type] == "Perm"
+      nurses = current_user.hospital.perm_nurses
+    end
+    render json: nurses, each_serializer: UserMiniSerializer
+  end
+
+
   def get_initial_data
     resp = {}
     if current_user.is_temp?
