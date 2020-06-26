@@ -36,10 +36,11 @@ gem 'thinking-sphinx'
 
 gem 'oauth'
 gem 'active_model_serializers'
-gem "rack-cors", ">= 1.0.4", :require => 'rack/cors'
+gem "rack", ">= 2.2.3"
+gem 'rack-attack'
+gem "rack-cors", :require => 'rack/cors'
 gem 'cancancan'
 
-gem 'rack-attack'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 
