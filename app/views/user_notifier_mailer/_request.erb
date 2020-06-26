@@ -38,6 +38,16 @@
 	</tr>
 
 	<tr>
+		<td>Staff</td>
+		<td><%= @staffing_request.role %> <%= @staffing_request.staff_type %></td>
+	</tr>
+
+	<tr>
+		<td>Specialization</td>
+		<td><%= @staffing_request.speciality %></td>
+	</tr>
+
+	<tr>
 		<td>Start</td>
 		<td><%= @staffing_request.start_date.to_s(:custom_datetime) %></td>
 	</tr>

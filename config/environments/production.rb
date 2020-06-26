@@ -75,19 +75,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => ENV['HOST'], :protocol => 'https' }
-  config.action_mailer.asset_host = "https://#{ENV['HOST']}"
-
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.smtp_settings = {
-    :address => "email-smtp.eu-west-1.amazonaws.com",
-    :domain => "nurseworks.co.in",
-    :port => 587,
-    :user_name => ENV["SES_SMTP_USERNAME"],
-    :password => ENV["SES_SMTP_PASSWORD"],
-    :authentication => :login,
-    :enable_starttls_auto => true
-  }
 
   config.action_view.logger = nil
   

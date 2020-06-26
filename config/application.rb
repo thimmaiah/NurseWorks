@@ -74,6 +74,25 @@ module NurseWorks
     config.colorize_logging = false
     config.active_storage.service = :amazon
     
+
+    config.action_mailer.default_url_options = { :host => ENV['HOST'], :port=>ENV['PORT'] }
+    config.action_mailer.asset_host = "http://#{ENV['HOST']}:#{ENV['PORT']}"
+  
+    # Don't care if the mailer can't send.
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_deliveries = true
+  
+    config.action_mailer.smtp_settings = {
+      :address => ENV["SES_SMTP_ADDRESS"],
+      :domain => ENV["SES_SMTP_DOMAIN"],
+      :port => 587,
+      :user_name => ENV["SES_SMTP_USERNAME"],
+      :password => ENV["SES_SMTP_PASSWORD"],
+      :authentication => :login,
+      :enable_starttls_auto => true
+    }
+
+    
     # config.logstash.formatter = :json_lines
 
     # # Optional, the logger to log writing errors to. Defaults to logging to $stderr
